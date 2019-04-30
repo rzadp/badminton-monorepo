@@ -1,7 +1,7 @@
 version: 2
 
 jobs:
-  build:
+  build-js:
     docker:
       - image: circleci/node:10.15
     steps:
@@ -9,14 +9,14 @@ jobs:
         - restore_cache:
             keys:
               # when lock file changes, use increasingly general patterns to restore cache
-              - node-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
-              - node-v1-{{ .Branch }}-
-              - node-v1-
-        - save_cache:
-            paths:
-              - ./node_modules
-            key: node-v1-{{ .Branch }}-{{ checksum "yarn.lock" }}
+              - node_modules-{{ .Branch }}-{{ checksum "yarn.lock" }}
+              - node_modules-{{ .Branch }}-
+              - node_modules-
         - run: yarn install
+        - save_cache:
+              paths:
+                - ./node_modules
+              key: node_modules-{{ .Branch }}-{{ checksum "yarn.lock" }}
   compile-thesis:
     docker:
       - image: danteev/texlive
@@ -27,8 +27,7 @@ workflows:
   version: 2
   thesis:
     jobs:
-      - build
       - compile-thesis
   javascript:
     jobs:
-      - build
+      - build-js
