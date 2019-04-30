@@ -1,0 +1,46 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@material-ui/core": "^3.4.0",
+    "@material-ui/icons": "^3.0.1",
+    "@tensorflow/tfjs": "^0.13.3",
+    "@tensorflow/tfjs-vis": "^0.2.0",
+    "canvas-to-image": "^2.0.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "three": "^0.99.0",
+    "three-gltf2-loader": "^1.2.0"
+  },
+  "scripts": {
+    "copy-static": "mkdir -p ./dist/static && cp -r ./models ./dist/static/",
+    "dev": "npm run copy-static && CONFIG_ENV=dev parcel ./src/index.html",
+    "build-dist": "npm run copy-static && CONFIG_ENV=prod parcel build ./src/index.html --no-cache"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.1",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "chai": "^4.1.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.18.0",
+    "eslint-import-resolver-babel-module": "^4.0.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-react": "^7.10.0",
+    "jsdom": "11.11.0",
+    "jsdom-global": "3.0.2",
+    "mocha": "^5.2.0",
+    "node-sass": "4.9.2",
+    "parcel-bundler": "^1.9.4",
+    "react-test-renderer": "^16.0.0"
+  }
+}

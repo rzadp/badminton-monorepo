@@ -1,0 +1,11 @@
+{
+  "name": "badminton-monorepo",
+  "version": "0.0.1",
+  "repository": "https://github.com/rzadp/badminton-monorepo.git",
+  "author": "rzadp <przemek@ethworks.io>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "frontend"
+  ]
+}
