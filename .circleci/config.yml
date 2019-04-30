@@ -1,14 +1,20 @@
 version: 2
 
 jobs:
+  build:
+    docker:
+      - image: circleci/node:10.15
+    steps:
+        - checkout
+        - run: yarn install
   compile-thesis:
     docker:
       - image: danteev/texlive
     steps:
       - checkout
-      - run: thesis/compile.sh
-
+      - run: cd thesis && ./compile.sh
 workflows:
+  version: 2
   badminton-monorepo:
     jobs:
       - compile-thesis
