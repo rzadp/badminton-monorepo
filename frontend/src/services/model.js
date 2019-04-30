@@ -5,7 +5,7 @@ export default class Model {
     this.modelJson = modelJson;
     this.weightsBin = weightsBin;
 
-    const loadedModel = await tf.loadModel('static/models/model.json');
+    const loadedModel = await tf.loadModel('models/model.json');
     this.loadedModel = loadedModel;
   }
 

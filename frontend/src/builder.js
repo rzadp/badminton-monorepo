@@ -1,7 +1,7 @@
 import {EventEmitter} from 'events';
 import Model from './services/model';
-import modelJson from '../models/model.json';
-import weightsBin from '../models/weights.bin';
+import modelJson from '../static/models/model.json';
+import weightsBin from '../static/models/weights.bin';
 
 export default class Builder {
   static async build() {

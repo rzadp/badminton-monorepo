@@ -198,7 +198,7 @@ export default class Court extends Component {
   async loadPerson() {
     return new Promise((res, rej) => {
       this.loader.load(
-        '/static/models/low_poly_person/scene.gltf',
+        '/models/low_poly_person/scene.gltf',
         (result) => res(result),
         () => {},
         (err) => rej(err)

@@ -15,9 +15,8 @@
     "three-gltf2-loader": "^1.2.0"
   },
   "scripts": {
-    "copy-static": "mkdir -p ./dist/static && cp -r ./models ./dist/static/",
-    "dev": "npm run copy-static && CONFIG_ENV=dev parcel ./src/index.html",
-    "build-dist": "npm run copy-static && CONFIG_ENV=prod parcel build ./src/index.html --no-cache"
+    "dev": "CONFIG_ENV=dev parcel ./src/index.html",
+    "build-dist": "CONFIG_ENV=prod parcel build ./src/index.html --no-cache"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -41,6 +40,7 @@
     "mocha": "^5.2.0",
     "node-sass": "4.9.2",
     "parcel-bundler": "^1.9.4",
-    "react-test-renderer": "^16.0.0"
+    "react-test-renderer": "^16.0.0",
+    "parcel-plugin-static-files-copy": "^2.0.0"
   }
 }
