@@ -1,10 +1,10 @@
 #!/bin/bash
 
 python3 ./badminton.py train \
---dataset=../../datasets/badminton/ \
+--dataset=./dataset \
 --weights=coco \
---epochs=30 \
+--epochs=1 \
 --use_multiprocessing=False \
---steps_per_epoch=100 \
---validation_steps=50 \
---logs=../../logs/mytestlogs
+--steps_per_epoch=1 \
+--validation_steps=1 \
+--logs=./logs
