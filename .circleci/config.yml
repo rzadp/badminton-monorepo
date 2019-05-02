@@ -14,6 +14,12 @@ jobs:
     steps:
       - checkout
       - run: cd thesis && ./compile.sh
+  run-training:
+    docker:
+      - image: eu.gcr.io/badminton/badminton_image
+    steps:
+      - checkout
+      - run: cd badminton && ./train.sh
 workflows:
   version: 2
   thesis:
@@ -22,3 +28,6 @@ workflows:
   javascript:
     jobs:
       - build-js
+  badminton:
+    jobs:
+      - run-training
