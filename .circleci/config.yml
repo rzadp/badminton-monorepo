@@ -14,17 +14,22 @@ jobs:
     steps:
       - checkout
       - run: cd thesis && ./compile.sh
-  run-training:
+  run-train:
     docker:
       - image: eu.gcr.io/badminton/badminton_image
     steps:
       - checkout
       - run: git submodule init && git submodule update
       - run: cd badminton && ./train.sh
+  run-docker-and-train:
+    docker:
+      - image: circleci/node:10.15
+    steps:
+      - checkout
+      - run: git submodule init && git submodule update
+      - run: cd badminton && ./docker_and_train.sh
 workflows:
   version: 2
   badminton-monorepo:
     jobs:
-      - build-js
-      - compile-thesis
-      - run-training
+      - run-docker-and-train
