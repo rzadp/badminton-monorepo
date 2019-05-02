@@ -27,6 +27,7 @@ jobs:
     steps:
       - checkout
       - run: git submodule init && git submodule update
+      - setup_remote_docker
       - run: cd badminton && ./docker_and_train.sh
 workflows:
   version: 2
