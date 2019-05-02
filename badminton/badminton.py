@@ -15,7 +15,7 @@ import skimage.draw
 import time
 
 # Root directory of the project
-ROOT_DIR = os.path.abspath("../../")
+ROOT_DIR = os.path.abspath("../Mask_RCNN")
 
 # Import Mask RCNN
 sys.path.append(ROOT_DIR)  # To find local version of the library
@@ -186,10 +186,10 @@ def train(model, epochs, use_multiprocessing):
                 epochs=epochs,
                 use_multiprocessing=use_multiprocessing,
                 layers='heads')
-    model_path = os.path.join(ROOT_DIR, "samples/badminton/mask_rcnn_badminton.h5")
-    print("Saving weights...")
-    model.keras_model.save_weights(model_path)
-    print("Saved!")
+    #model_path = os.path.join(ROOT_DIR, "samples/badminton/mask_rcnn_badminton.h5")
+    #print("Saving weights...")
+    #model.keras_model.save_weights(model_path)
+    print("Done!")
 
 
 ############################################################
