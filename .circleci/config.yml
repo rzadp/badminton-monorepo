@@ -23,12 +23,8 @@ jobs:
       - run: cd badminton && ./train.sh
 workflows:
   version: 2
-  thesis:
-    jobs:
-      - compile-thesis
-  javascript:
+  badminton-monorepo:
     jobs:
       - build-js
-  badminton:
-    jobs:
+      - compile-thesis
       - run-training
