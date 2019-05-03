@@ -1,5 +1,4 @@
 version: 2
-
 jobs:
   build-js:
     docker:
@@ -25,3 +24,4 @@ workflows:
   version: 2
   badminton-monorepo:
     jobs:
+      - compile-thesis
