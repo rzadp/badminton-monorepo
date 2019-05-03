@@ -5,3 +5,10 @@ node_modules
 
 .DS_Store
 logs
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook
+.ipynb_checkpoints
