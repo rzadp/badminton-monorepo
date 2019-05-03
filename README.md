@@ -23,6 +23,10 @@ LFS is used for >100 MB files that cannot be stored directly.
 - `git lfs install`
 - `git lfs pull`
 
+### Run docker
+
+For badminton project, docker needs to be installed and started: https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce
+
 ### Usage
 
 Refer to READMEs in subdirectories.
