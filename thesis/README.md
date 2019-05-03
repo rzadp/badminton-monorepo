@@ -1,0 +1,5 @@
+# thesis
+
+### Compile
+
+`./compile.sh`
