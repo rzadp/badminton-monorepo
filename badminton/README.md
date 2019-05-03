@@ -12,8 +12,17 @@ This is built on top of Mask_RCNN submodule.
 
 ## Detection
 
+### Run detection
+
 - `cd ./detection`
 - `./docker_detect.sh`
+
+### Input and output
+
+The input of detection is `input.jpg`.
+The outputs are:
+- `output.png`
+- `outputN.txt` - contains 1s and 0s, for every detected mask
 
 ## Docker
 

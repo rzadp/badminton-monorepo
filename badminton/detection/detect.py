@@ -47,10 +47,22 @@ model.load_weights(BADMINTON_MODEL_PATH, by_name=True)
 
 image = skimage.io.imread("./input.jpg")
 
-
 results = model.detect([image], verbose=1)
 
 r = results[0]
+masks = r['masks']
+first_mask = masks[:, :, 0]
+[y_len, x_len, detected_len] = masks.shape
+
+for n in range(0, detected_len):
+    output = open(str.format("output{0}.txt", n),"w+")
+    for y in range(0, y_len):
+        for x in range(0, x_len):
+            output.write('1' if masks[y, x, n] else '0')
+        output.write('\n')
+    output.close()
+
+
 class_names = ['background', 'badminton']
 plt = visualize.display_instances(image, r['rois'], r['masks'], r['class_ids'], 
                             class_names, r['scores'])
