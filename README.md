@@ -16,6 +16,13 @@ This monorepository consists of the following subdirectories and submodules:
 
 `git clone --recurse-submodules https://github.com/rzadp/badminton-monorepo.git`
 
+### Initialize LFS
+
+LFS is used for >100 MB files that cannot be stored directly.
+- Install LFS: https://git-lfs.github.com./
+- `git lfs install`
+- `git lfs pull`
+
 ### Usage
 
 Refer to READMEs in subdirectories.
