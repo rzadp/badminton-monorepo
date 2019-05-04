@@ -20,6 +20,7 @@ This monorepository consists of the following subdirectories and submodules:
 
 LFS is used for >100 MB files that cannot be stored directly.
 - Install LFS: https://git-lfs.github.com./
+- `cd badminton-monorepo`
 - `git lfs install`
 - `git lfs pull`
 
