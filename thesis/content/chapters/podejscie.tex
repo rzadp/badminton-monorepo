@@ -1,0 +1,108 @@
+\chapter{Podejście do problemu}
+
+Do rozwiązania problemu detekcji rozważonych zostało kilka modeli open-source.
+
+\begin{itemize}
+	\item Keras RetinaNet\footnote{https://github.com/fizyr/keras-retinanet}
+	\item YOLO\footnote{https://pjreddie.com/darknet/yolo}
+	\item DeepMask/SharpMask\footnote{https://github.com/facebookresearch/deepmask}
+	\item Różne implementacje modelu Mask R-CNN\footnote{https://arxiv.org/abs/1703.06870}
+		\begin{itemize}
+			\item Mask\_RCNN\footnote{https://github.com/matterport/Mask\_RCNN}
+			\item Instance segmentation with OpenCV\footnote{https://www.pyimagesearch.com/2018/11/26/instance-segmentation-with-opencv}
+			\item FastMaskRCNN\footnote{https://github.com/CharlesShang/FastMaskRCNN}
+		\end{itemize}
+\end{itemize}
+
+Modele Keras RetinaNet oraz YOLO zostały odrzucone w pierwszej chwili ponieważ pozwalają tylko na detekcję obiektów, nie posiadają funkcjonalności segmentacji instacji. \\
+
+DeepMask/SharpMask zostało odrzucone ponieważ jest to zarchiwizowane, nie rozwijane od 2016 roku repozytorium.
+
+Z pozostałych trzech różnych implementacji bazujących na pracy Mask R-CNN, wybór padł na Mask\_RCNN z jednego, ważnego powodu - autor udostępnia wagi modelu wytrenowanego na zbiorze Common Objects in Context (COCO)\footnote{http://cocodataset.org} Przydatność tych wag będzie opisana w dalszej części pracy.
+
+\section{Mask R-CNN}
+
+Mask R-CNN rozwija się jako Mask Regions with Convolutional Neural Network (CNN) features. Aby zrozumieć ten model, najlepiej rozważać go w kontekście ewoluowania kolejnych iteracji, którego rezultatem jest Mask R-CNN.
+
+\subsection{Itercja pierwsza - R-CNN}
+
+R-CNN, przedstawiony w 2014 roku, rozwija się jako Regions with CNN features. Rozwiązuje zagadnienie detekcji obiektów na obrazku (to znaczy wskazuje konkretne obiekty, ale bez konkretnych pikseli). Działanie modelu można zobrazować w następujących krokach:
+
+\begin{enumerate}
+	\item Najpierw na obszarze obrazka wejściowego generowane są tzw. propozycje regionów, przy użyciu algorytmu Selective Search\footnote{http://www.huppelen.nl/publications/selectiveSearchDraft.pdf}. Celem jest znalezienie regionów, w których prawdopodobnie znajduje się jakiś obiekt.
+	\item Następnie, dla każdego takiego regionu wydobywane są cechy za pomocą CNN
+	\item W dalszej kolejności, cechy każdego regionu analizowane są przez model Support Vector Machines (SVM). Wynikiem jest klasyfikacja regionu jako konkretny obiekt (lub jako brak obiektu).
+	\item Na końcu, dla regionów w których wskazano obiekt następuje próba zacieśnienia obszaru regionu tak aby bardziej dopasował się do obiektu - wynikiem jest obwódka (bounding box) wskazująca położenie obiektu na obrazku
+\end{enumerate}
+
+\subsection{Itercja druga - Fast R-CNN}
+
+Fast R-CNN, przedstawiony w 2015 roku, usprawnia model R-CNN, w którym zidentyfikowano następujące problemy:
+
+\begin{itemize}
+	\item R-CNN składa się z czterech części:
+		\begin{itemize}
+			\item Selective Search do generowania regionów
+			\item CNN do ekstrakcji cech
+			\item SVM do klasyfikacji
+			\item Model zacieśniający obwódkę
+		\end{itemize}
+		Sprawia to że R-CNN jest trufny do zrozumienia, problematyczny w implementacji i w wytrenowaniu.
+	\item Ekstracja cech używając CNN uruchamiana jest dla każdego regionu. Gdy regiony zachodzą na siebie, obliczenia dla zachodzących części są powtarzane.
+\end{itemize}
+
+Fast R-CNN adresuje wyżej wymienione problemy. \\
+
+Ekstrakcja cech przy użyciu CNN następuje tylko raz, na początku. W ten sposób powstaje mapa cech całego obrazka. Gdy zachodzi konieczność poznania cech regionu, zamiast liczyć cechy od nowa, wyciągany jest odpowiadający fragment mapy cech. Metoda ta nazwana została Region of Interest Pooling.
+
+Oprócz zmian w sposobie liczenia cech, klasyfikator SVM zastąpiono siecią neuronową. Podobnie stało się z modelem zacieśniającym obwódkę. Te dwie nowe sieci połączono w jedną sieć wraz z siecią CNN. Pod-sieć klasyfikująca i pod-sieć zacieśniająca obwódke zostały włączone do sieci w sposób równoległy, to znaczy ich wyniki nie zależą od siebie nawzajem.
+
+Zmiany te rozwiązały w dużej części problemy R-CNN wymienione wcześniej.
+
+\subsection{Itercja trzecia - Faster R-CNN}
+
+Faster R-CNN, przedstawiony w 2016 roku, wprowadza kolejne usprawnienie którego zabrakło w Fast R-CNN. Usprawnienie dotyczyło generowania regionów za pomocą algorytm Selective Search który działał wolno. Usprawnienie polegało na zastąpieniu algorytmu nową siecią neuronową, która korzystała z cech obrazu do generowania regionów. Jako że sieć została włączona do modelu w taki sposób, że korzystała z mapy cech które i tak była już obliczana, uzyskano szybszy model. Dodatkowo był to kolejny krok zastępujący część modelu pod-siecią neuronową, w wyniku czego model stał się jedną siecią neuronową składającą się z pod-sieci:
+
+\begin{itemize}
+	\item Budującej mapę cech
+	\item Generującej regiony
+	\item Klasyfikującej
+	\item Zacieśniającej obwódkę
+\end{itemize}
+
+\subsection{Itercja czwarta - Mask R-CNN}
+
+Mask R-CNN, przedstawiony w 2017 roku, stanowi ostatni krok w opisanej ewolucji modelu. Do dwóch równoległych pod-sieci - klasyfikującej oraz zacieśniającej obwódkę - wprowadza nową, równoległą pod-sieć odpowiedzialną za wskazywanie konkretnych pikseli wykrytego obiektu.
+
+\subsection{Iteracja piąta - Modyfikacje Mask R-CNN}
+
+W ramach niniejszej pracy implementacja Mask R-CNN została zmodyfikowana w następujących kwestiach:
+
+\begin{itemize}
+	\item Pod-sieć odpowiedzialna za wykrycie maski została wzbogacona o dodatkowe warstwy - dzięki temu uzyskano większą dokładność (PROBLEM FALBANEK)
+	\item Ilość generowanych regionów została zmniejszona, co zmniejszyło zapotrzebowanie na pamięć GPU
+\end{itemize}
+
+\section{Zbiór treningowy}
+
+Problem skompletowania dostatecznie licznego zbioru treningowego został rozwiązany poprzez stworzenie generatora sztucznych obrazków. Generator, zaimplementowany jako scena 3D w JavaScript, pozwala na generowanie obrazków z następującymi cechami:
+
+\begin{itemize}
+	\item Dynamiczne kolory
+	\item Dynamiczne światło
+	\item Dynamiczni zawodnicy
+	\item Zmienne odległości między kortami
+\end{itemize}
+
+Do anotacji wykorzystano VGG Image Annotator\footnote{http://www.robots.ox.ac.uk/~vgg/software/via/}
+
+\section{Uczenie transferowe}
+
+Uczenie transferowe polega na...
+
+W pracy wykorzystano uczenie transferowe na dwa sposoby:
+
+\begin{itemize}
+	\item Wykorzystanie modelu COCO
+	\item Generalizacja problemu na inne sporty
+\end{itemize}
