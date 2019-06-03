@@ -88,13 +88,17 @@ W ramach niniejszej pracy implementacja Mask R-CNN została zmodyfikowana w nast
 Problem skompletowania dostatecznie licznego zbioru treningowego został rozwiązany poprzez stworzenie generatora sztucznych obrazków. Generator, zaimplementowany jako scena 3D w JavaScript, pozwala na generowanie obrazków z następującymi cechami:
 
 \begin{itemize}
-	\item Dynamiczne kolory
+	\item Zmienne kolory podłogi, kortu, słupków
 	\item Dynamiczne światło
-	\item Dynamiczni zawodnicy
+	\item Zmienna pozycja zawodników
 	\item Zmienne odległości między kortami
 \end{itemize}
 
-Do anotacji wykorzystano VGG Image Annotator\footnote{http://www.robots.ox.ac.uk/~vgg/software/via/}
+Dzięki powyższym cechom możliwe jest przygotowanie sztucznych obrazków udających zdjęcia meczy przeprowadzonych w różnych lokalizacjach.
+
+Aby zdjęcie czy obrazek stanowiło rekord treningowy, wymagana jest tak zwana anotacja, czyli oznaczenie obszaru kortu.
+
+Do anotacji wykorzystano VGG Image Annotator\footnote{http://www.robots.ox.ac.uk/~vgg/software/via/}.
 
 \section{Uczenie transferowe}
 
