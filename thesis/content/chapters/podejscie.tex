@@ -79,9 +79,11 @@ Mask R-CNN, przedstawiony w 2017 roku, stanowi ostatni krok w opisanej ewolucji 
 W ramach niniejszej pracy implementacja Mask R-CNN została zmodyfikowana w następujących kwestiach:
 
 \begin{itemize}
-	\item Pod-sieć odpowiedzialna za wykrycie maski została wzbogacona o dodatkowe warstwy - dzięki temu uzyskano większą dokładność (PROBLEM FALBANEK)
-	\item Ilość generowanych regionów została zmniejszona, co zmniejszyło zapotrzebowanie na pamięć GPU
+	\item Architektura sieci została zmodyfikowana w celu osiągnięcia większej dokładności maski (PROBLEM FALBANEK)
+	\item Hiperparametry sieci zostały dobrane w celu zmniejszenia zapotrzebowania na pamięć GPU
 \end{itemize}
+
+(...) DOKŁADNIEJSZY OPIS
 
 \section{Zbiór treningowy}
 
@@ -102,7 +104,7 @@ Do anotacji wykorzystano VGG Image Annotator\footnote{http://www.robots.ox.ac.uk
 
 \section{Uczenie transferowe}
 
-Uczenie transferowe polega na...
+Uczenie transferowe polega na... (...)
 
 W pracy wykorzystano uczenie transferowe na dwa sposoby:
 
@@ -110,3 +112,5 @@ W pracy wykorzystano uczenie transferowe na dwa sposoby:
 	\item Wykorzystanie modelu COCO
 	\item Generalizacja problemu na inne sporty
 \end{itemize}
+
+(...) DOKŁADNIEJSZY OPIS
