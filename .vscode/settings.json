@@ -1,0 +1,6 @@
+{
+  "plantuml.diagramsRoot": "thesis/content/chapters",
+  "plantuml.exportOutDir": "thesis/content/chapters",
+  "plantuml.exportSubFolder": false,
+  "plantuml.exportFormat": "svg"
+}
