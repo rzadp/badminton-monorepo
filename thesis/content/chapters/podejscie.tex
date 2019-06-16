@@ -1,24 +1,6 @@
 \chapter{Podejście do problemu}
 
-Do rozwiązania problemu detekcji rozważonych zostało kilka modeli open-source.
 
-\begin{itemize}
-	\item Keras RetinaNet\footnote{https://github.com/fizyr/keras-retinanet}
-	\item YOLO\footnote{https://pjreddie.com/darknet/yolo}
-	\item DeepMask/SharpMask\footnote{https://github.com/facebookresearch/deepmask}
-	\item Różne implementacje modelu Mask R-CNN\footnote{https://arxiv.org/abs/1703.06870}
-		\begin{itemize}
-			\item Mask\_RCNN\footnote{https://github.com/matterport/Mask\_RCNN}
-			\item Instance segmentation with OpenCV\footnote{https://www.pyimagesearch.com/2018/11/26/instance-segmentation-with-opencv}
-			\item FastMaskRCNN\footnote{https://github.com/CharlesShang/FastMaskRCNN}
-		\end{itemize}
-\end{itemize}
-
-Modele Keras RetinaNet oraz YOLO zostały odrzucone w pierwszej chwili ponieważ pozwalają tylko na detekcję obiektów, nie posiadają funkcjonalności segmentacji instacji. \\
-
-DeepMask/SharpMask zostało odrzucone ponieważ jest to zarchiwizowane, nie rozwijane od 2016 roku repozytorium.
-
-Z pozostałych trzech różnych implementacji bazujących na pracy Mask R-CNN, wybór padł na Mask\_RCNN z jednego, ważnego powodu - autor udostępnia wagi modelu wytrenowanego na zbiorze Common Objects in Context (COCO)\footnote{http://cocodataset.org} Przydatność tych wag będzie opisana w dalszej części pracy.
 
 \section{Mask R-CNN}
 
