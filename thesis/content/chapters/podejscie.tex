@@ -24,7 +24,7 @@ Z pozostałych trzech różnych implementacji bazujących na pracy Mask R-CNN, w
 
 Mask R-CNN rozwija się jako Mask Regions with Convolutional Neural Network (CNN) features. Aby zrozumieć ten model, najlepiej rozważać go w kontekście ewoluowania kolejnych iteracji, którego rezultatem jest Mask R-CNN.
 
-\subsection{Itercja pierwsza - R-CNN}
+\subsection{Iteracja pierwsza - R-CNN}
 
 R-CNN, przedstawiony w 2014 roku, rozwija się jako Regions with CNN features. Rozwiązuje zagadnienie detekcji obiektów na obrazku (to znaczy wskazuje konkretne obiekty, ale bez konkretnych pikseli). Działanie modelu można zobrazować w następujących krokach:
 
@@ -35,7 +35,7 @@ R-CNN, przedstawiony w 2014 roku, rozwija się jako Regions with CNN features. R
 	\item Na końcu, dla regionów w których wskazano obiekt następuje próba zacieśnienia obszaru regionu tak aby bardziej dopasował się do obiektu - wynikiem jest obwódka (bounding box) wskazująca położenie obiektu na obrazku
 \end{enumerate}
 
-\subsection{Itercja druga - Fast R-CNN}
+\subsection{Iteracja druga - Fast R-CNN}
 
 Fast R-CNN, przedstawiony w 2015 roku, usprawnia model R-CNN, w którym zidentyfikowano następujące problemy:
 
@@ -59,7 +59,7 @@ Oprócz zmian w sposobie liczenia cech, klasyfikator SVM zastąpiono siecią neu
 
 Zmiany te rozwiązały w dużej części problemy R-CNN wymienione wcześniej.
 
-\subsection{Itercja trzecia - Faster R-CNN}
+\subsection{Iteracja trzecia - Faster R-CNN}
 
 Faster R-CNN, przedstawiony w 2016 roku, wprowadza kolejne usprawnienie którego zabrakło w Fast R-CNN. Usprawnienie dotyczyło generowania regionów za pomocą algorytm Selective Search który działał wolno. Usprawnienie polegało na zastąpieniu algorytmu nową siecią neuronową, która korzystała z cech obrazu do generowania regionów. Jako że sieć została włączona do modelu w taki sposób, że korzystała z mapy cech które i tak była już obliczana, uzyskano szybszy model. Dodatkowo był to kolejny krok zastępujący część modelu pod-siecią neuronową, w wyniku czego model stał się jedną siecią neuronową składającą się z pod-sieci:
 
@@ -70,7 +70,7 @@ Faster R-CNN, przedstawiony w 2016 roku, wprowadza kolejne usprawnienie którego
 	\item Zacieśniającej obwódkę
 \end{itemize}
 
-\subsection{Itercja czwarta - Mask R-CNN}
+\subsection{Iteracja czwarta - Mask R-CNN}
 
 Mask R-CNN, przedstawiony w 2017 roku, stanowi ostatni krok w opisanej ewolucji modelu. Do dwóch równoległych pod-sieci - klasyfikującej oraz zacieśniającej obwódkę - wprowadza nową, równoległą pod-sieć odpowiedzialną za wskazywanie konkretnych pikseli wykrytego obiektu.
 
