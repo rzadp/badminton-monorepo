@@ -186,7 +186,10 @@
 \newcommand{\type}{magisters} % inżyniers, magisters, licencjac
 \newcommand{\supervisor}{\mbox{dr inż. Magdalena Jasionowska}}
 
+% --------------------- Ustawienia Przemka ------------------
+\usepackage{import}
 
+% --------------------- Document ------------------
 
 \begin{document}
 \sloppy
@@ -225,7 +228,7 @@ podpis promotora & \hspace*{100pt} & podpis autora
 \tytul
 \end{center}
 
-\input{content/streszczenie}
+\import{content/}{streszczenie}
 
 \end{abstract}
 }
@@ -239,7 +242,7 @@ podpis promotora & \hspace*{100pt} & podpis autora
 \title
 \end{center}
 
-\input{content/abstract}
+\import{content/}{abstract}
 
 \end{abstract}
 }
@@ -293,13 +296,13 @@ samodzielnie, co poświadczam własnoręcznym podpisem.
 \pagenumbering{arabic}
 \setcounter{page}{11} % JEŻELI Z POWODU DUŻEJ ILOŚCI STRON W SPISIE TREŚCI SIĘ NIE ZGADZA, TRZEBA ZMODYFIKOWAĆ RĘCZNIE
 
-\input{content/index}
+\import{content/}{index}
 
 % -------------------- 6. Bibliografia -----------------------
 % Bibliografia leksykograficznie wg nazwisk autorów
 % Dla ambitnych - można skorzystać z BibTeX-a
 
-\input{content/bibliografia}
+\import{content/}{bibliografia}
 
 \thispagestyle{empty}
 \pagenumbering{gobble}
