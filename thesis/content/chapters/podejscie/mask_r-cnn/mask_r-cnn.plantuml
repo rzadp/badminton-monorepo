@@ -1,5 +1,32 @@
 @startuml
+allow_mixing
+skinparam Monochrome true
+' skinparam dpi 100
+scale max 300 width
+scale max 450 height
 
-object CNN
+object "Input image" as input
+object "CNN" as cnn
+object "Feature Map" as feature_map
+object "Region Proposal Network" as rpn
+object "Regions" as regions
+object "RoI" as roi
+
+object "Class" as class
+object "Bounding Box" as bounding_box
+object "Mask" as mask
+
+input --|> cnn
+cnn --|> feature_map
+feature_map --|> rpn
+rpn --|> regions
+
+feature_map --|> roi
+regions --|> roi
+
+roi --|> class
+roi --|> bounding_box
+roi --|> mask
+
 
 @enduml
