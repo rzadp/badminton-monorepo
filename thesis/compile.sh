@@ -11,6 +11,6 @@ java -jar $PLANTUML_JAR ./content/chapters/**/*.plantuml
 
 echo "...::: Exported diagrams :::..."
 
-pdflatex main.tex
-pdflatex main.tex # twice because of the table of contents bug
+max_in_open=32 pdflatex main.tex
+max_in_open=32 pdflatex main.tex # twice because of the table of contents bug
 echo "...::: Compiled thesis :::..."
