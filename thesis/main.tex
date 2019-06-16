@@ -188,6 +188,12 @@
 
 % --------------------- Ustawienia Przemka ------------------
 \usepackage{import}
+% \usepackage[disable]{todonotes} % notes not showed
+\usepackage[draft]{todonotes}   % notes showed
+
+% \newcommand{\comment}[1]{}  % comment not showed
+\newcommand{\comment}[1]
+{\par {\bfseries \color{blue} #1 \par}} %comment showed
 
 % --------------------- Document ------------------
 
