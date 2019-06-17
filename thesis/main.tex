@@ -191,11 +191,15 @@
 \usepackage{float}
 
 % \usepackage[disable]{todonotes} % notes not showed
-\usepackage[draft]{todonotes}   % notes showed
+\usepackage[draft]{todonotes}
+\newcommand{\TODO}[1]{
+  \todo[inline, color=lightgray]{#1}
+} % notes showed
 
 % \newcommand{\comment}[1]{}  % comment not showed
-\newcommand{\comment}[1]
-{\par {\bfseries \color{blue} #1 \par}} %comment showed
+\newcommand{\comment}[1]{
+  \par {\bfseries \color{blue} #1 \par}
+} %comment showed
 
 % --------------------- Document ------------------
 
