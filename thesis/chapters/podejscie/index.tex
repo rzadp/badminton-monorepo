@@ -6,6 +6,43 @@
 
 \section{Zaproponowana architektura sieci}
 
+W ramach niniejszej pracy implementacja Mask R-CNN została zmodyfikowana w następujących kwestiach:
+
+\begin{itemize}
+	\item Architektura sieci została zmodyfikowana w celu osiągnięcia większej dokładności maski (PROBLEM FALBANEK)
+	\item Hiperparametry sieci zostały dobrane w celu zmniejszenia zapotrzebowania na pamięć GPU
+\end{itemize}
+
+(...) DOKŁADNIEJSZY OPIS
+
 \subsection{Zbiór danych i generator}
 
+Problem skompletowania dostatecznie licznego zbioru treningowego został rozwiązany poprzez stworzenie generatora sztucznych obrazków. Generator, zaimplementowany jako scena 3D w JavaScript, pozwala na generowanie obrazków z następującymi cechami:
+
+\begin{itemize}
+	\item Zmienne kolory podłogi, kortu, słupków
+	\item Dynamiczne światło
+	\item Zmienna pozycja zawodników
+	\item Zmienne odległości między kortami
+\end{itemize}
+
+Dzięki powyższym cechom możliwe jest przygotowanie sztucznych obrazków udających zdjęcia meczy przeprowadzonych w różnych lokalizacjach.
+
+Aby zdjęcie czy obrazek stanowiło rekord treningowy, wymagana jest tak zwana anotacja, czyli oznaczenie obszaru kortu.
+
+Do anotacji wykorzystano VGG Image Annotator\footnote{http://www.robots.ox.ac.uk/~vgg/software/via/}.
+
+(...) dokładniejszy opis końcowego zbioru, porównanie ze zbiorem COCO
+
 \subsection{Uczenie transferowe}
+
+Uczenie transferowe polega na... (...)
+
+W pracy wykorzystano uczenie transferowe na dwa sposoby:
+
+\begin{itemize}
+	\item Wykorzystanie wytrenowanego na COCO modelu i przetransferowanie na tytułowy problem
+	\item Generalizacja problemu na inne sporty
+\end{itemize}
+
+(...) DOKŁADNIEJSZY OPIS
