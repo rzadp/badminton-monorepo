@@ -7,7 +7,7 @@ cd ..
 
 echo "...::: Compiled title page :::..."
 
-java -jar $PLANTUML_JAR ./content/chapters/**/*.plantuml
+java -jar $PLANTUML_JAR ./chapters/**/*.plantuml
 
 echo "...::: Exported diagrams :::..."
 
