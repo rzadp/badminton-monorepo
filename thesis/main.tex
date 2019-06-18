@@ -189,6 +189,7 @@
 % --------------------- Ustawienia Przemka ------------------
 \usepackage{import}
 \usepackage{float}
+\usepackage{hyperref}
 
 % \usepackage[disable]{todonotes} % notes not showed
 \usepackage[draft]{todonotes}
@@ -200,6 +201,11 @@
 \newcommand{\comment}[1]{
   \par {\bfseries \color{blue} #1 \par}
 } %comment showed
+
+\newcommand*{\myref}[1]{\hyperref[{#1}]{Punkt \ref*{#1}, \nameref*{#1}}}
+
+
+
 
 % --------------------- Document ------------------
 
