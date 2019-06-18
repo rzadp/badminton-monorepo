@@ -1,16 +1,15 @@
-\TODO{
-  streszcznie - rozwinąć o 5 zdań (o motywacji, dlaczego to trudne, wiecej 
-  szczegółów o sieci , na czym polegały eksperymenty,
-}
+Niniejsza praca dotyczy problemu wykrywania obszaru kortu do badmintona przy użyciu sieci neuronowych.
+Przedstawia sposób działania użytej sieci neuronowej Mask R-CNN\footnote{Mask R-CNN rozwija się jako Mask Regions with Convolutional Neural Network features}\footnote{github.com/matterport/Mask\_RCNN} oraz jej modyfikacje wraz z historycznym kontekstem rozwoju sieci dla lepszego zrozumienia jej działania.
 
-Niniejsza praca dotyczy problemu wykrywania kortu do badmintona przy użyciu sieci neuronowych.
-Przedstawia sposób działania użytej sieci neuronowej oraz jej modyfikacje wraz z historycznym kontekstem rozwoju sieci dla lepszego zrozumienia. 
+Temat pracy został zaproponowany przez firmę BLUE działającej w branży badmintona - stąd też ukierunkowanie na wykrywanie konkretnie kortów badmintona.
 
-W pracy poruszono problem przygotowania zbioru treningowego z użyciem generatora sztucznych danych, a także zagadnienie generalizacji problemu na inne sporty.
+Główne problemy poruszone w pracy to trening sieci bez odpowiednio licznego zbioru treningowego, minimalizacja czasu treningu, ograniczenie wymagań pamięciowych GPU oraz dokładność z jaką wykrywane są piksele obszaru kortu.
 
-Dodatkowo opisano aplikację wraz z rezultatami eksperymentów, które zostały przeprowadzone.
-Eksperymenty dotyczą wpływu sztucznych danych na trening sieci oraz skuteczności generalizacji problemu. \\
+Dołączona do pracy aplikacja składa się ze zmodyfikowanej sieci Mask R-CNN, generatora sztucznych danych treningowych, narzędzia do anotacji danych treningowych oraz instrukcji ukierunkowanej na umożliwienie wiarygodnego zreprodukowania eksperymentów.
 
-\TODO{Najlepsze wyniki uzyskano (...) (Uzupełnić po przeprowadzeniu eksperymentów)}
+Przeprowadzone eksperymenty dotyczą porównania wyników oryginalnej i zmodyfikowanej sieci, skuteczności treningu bez i z użyciem generatora sztucznych danych, a także tematu generalizacji zagadnienia na inne sporty.
+\\
+
+\TODO{Najlepsze wyniki / Wyniki wskazują na (...) (Uzupełnić po przeprowadzeniu eksperymentów)}
 
 \noindent \textbf{Słowa kluczowe:} sieci neuronowe, sieci konwolucyjne, rozpoznawanie obrazów
