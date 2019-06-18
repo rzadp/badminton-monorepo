@@ -7,6 +7,7 @@ Aby zrozumieć ten model, najlepiej rozważać go w kontekście ewoluowania kole
 \subsection{Iteracja pierwsza - R-CNN}
 
 \TODO{Tu będzie schemat R-CNN}
+\TODO{Tu będzie wyjaśnienie schematu}
 
 R-CNN, przedstawiony w 2014 roku, rozwija się jako Regions with CNN features.
 Rozwiązuje zagadnienie detekcji obiektów na obrazku (to znaczy wskazuje konkretne obiekty, ale bez konkretnych pikseli).
@@ -24,6 +25,7 @@ Działanie modelu można zobrazować w następujących krokach:
 \subsection{Iteracja druga - Fast R-CNN}
 
 \TODO{Tu będzie schemat Fast R-CNN}
+\TODO{Tu będzie wyjaśnienie schematu}
 
 Fast R-CNN, przedstawiony w 2015 roku, usprawnia model R-CNN, w którym zidentyfikowano następujące problemy:
 
@@ -57,6 +59,7 @@ Zmiany te rozwiązały w dużej części problemy R-CNN wymienione wcześniej.
 \subsection{Iteracja trzecia - Faster R-CNN}
 
 \TODO{Tu będzie schemat Faster R-CNN}
+\TODO{Tu będzie wyjaśnienie schematu}
 
 Faster R-CNN, przedstawiony w 2016 roku, wprowadza kolejne usprawnienie którego zabrakło w Fast R-CNN.
 Usprawnienie dotyczyło generowania regionów za pomocą algorytm Selective Search który działał wolno.
@@ -73,13 +76,16 @@ Dodatkowo był to kolejny krok zastępujący część modelu pod-siecią neurono
 
 \subsection{Iteracja czwarta - Mask R-CNN}
 
+Schemat Mask R-CNN przedstawiony jest na rysunku \myfigref{fig:mask_r_cnn}.
+
+\TODO{Tu będzie wyjaśnienie schematu}
+
 Mask R-CNN, przedstawiony w 2017 roku, stanowi ostatni krok w opisanej ewolucji modelu.
 Do dwóch równoległych pod-sieci - klasyfikującej oraz zacieśniającej obwódkę - wprowadza nową, równoległą pod-sieć odpowiedzialną za wskazywanie konkretnych pikseli wykrytego obiektu.
 
-\begin{figure}[H]
+\begin{figure}[h]
   \centering
   \caption{Schemat sieci Mask R-CNN}
   \includegraphics[width=0.5\textwidth]{mask_r-cnn.png}
+  \label{fig:mask_r_cnn}
 \end{figure}
-
-\TODO{Tu będzie wyjaśnienie schematu}
