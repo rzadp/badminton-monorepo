@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt,twoside]{report}
+\documentclass[a4paper,11pt,twoside,openright]{report}
 % KOMPILOWAĆ ZA POMOCĄ pdfLaTeXa, PRZEZ XeLaTeXa MOŻE NIE BYĆ POLSKICH ZNAKÓW
 
 % -------------- Kodowanie znaków, język polski -------------
@@ -206,6 +206,12 @@
 \newcommand*{\myfigref}[1]{\hyperref[{#1}]{\textbf{}\ref*{#1}}}
 
 
+% http://tug.ctan.org/tex-archive/macros/latex/contrib/fancyhdr/fancyhdr.pdf
+\makeatletter
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+\null\newpage
+\if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
 
 
 % --------------------- Document ------------------
@@ -306,7 +312,7 @@ samodzielnie, co poświadczam własnoręcznym podpisem.
 \tableofcontents
 \thispagestyle{empty}
 
-\newpage % JEŻELI SPIS TREŚCI MA PARZYSTĄ LICZBĘ STRON, ZAKOMENTOWAĆ
+%\newpage % JEŻELI SPIS TREŚCI MA PARZYSTĄ LICZBĘ STRON, ZAKOMENTOWAĆ
 % ALBO JAK KTOŚ WOLI WTEDY DWIE STRONY ODSTĘPU, DODAĆ \null\newpage
 
 % -------------- 5. ZASADNICZA CZĘŚĆ PRACY --------------------
