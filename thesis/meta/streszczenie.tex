@@ -1,14 +1,14 @@
 % !TeX root = ../main.tex
 Niniejsza praca dotyczy problemu wykrywania obszaru kortu do badmintona przy użyciu sieci neuronowych.
-Przedstawia sposób działania użytej sieci neuronowej Mask R-CNN\footnote{Mask R-CNN rozwija się jako Mask Regions with Convolutional Neural Network features}\footnote{github.com/matterport/Mask\_RCNN} oraz jej modyfikacje wraz z historycznym kontekstem rozwoju sieci dla lepszego zrozumienia jej działania.
+Przedstawia sposób działania użytej sieci neuronowej Mask R-CNN\footnote{Mask R-CNN rozwija się jako Mask Regions with Convolutional Neural Network features}\footnote{github.com/matterport/Mask\_RCNN} oraz jej modyfikacje wraz z~historycznym kontekstem rozwoju sieci dla lepszego zrozumienia jej działania.
 
 Temat pracy został zaproponowany przez firmę BLUE działającej w branży badmintona - stąd też ukierunkowanie na wykrywanie konkretnie kortów badmintona.
 
-Główne problemy poruszone w pracy to trening sieci bez odpowiednio licznego zbioru treningowego, minimalizacja czasu treningu, ograniczenie wymagań pamięciowych GPU oraz dokładność z jaką wykrywane są piksele obszaru kortu.
+Główne problemy poruszone w pracy to trening sieci bez odpowiednio licznego zbioru treningowego, minimalizacja czasu treningu, ograniczenie wymagań pamięciowych GPU oraz dokładność z~jaką wykrywane są piksele obszaru kortu.
 
 Dołączona do pracy aplikacja składa się ze zmodyfikowanej sieci Mask R-CNN, generatora sztucznych danych treningowych, narzędzia do anotacji danych treningowych oraz instrukcji ukierunkowanej na umożliwienie wiarygodnego zreprodukowania eksperymentów.
 
-Przeprowadzone eksperymenty dotyczą porównania wyników oryginalnej i zmodyfikowanej sieci, skuteczności treningu bez i z użyciem generatora sztucznych danych, a także tematu generalizacji zagadnienia na inne sporty.
+Przeprowadzone eksperymenty dotyczą porównania wyników oryginalnej i zmodyfikowanej sieci, skuteczności treningu bez i z~użyciem generatora sztucznych danych, a~także tematu generalizacji zagadnienia na inne sporty.
 \\
 
 \TODO{Najlepsze wyniki / Wyniki wskazują na (...) (Uzupełnić po przeprowadzeniu eksperymentów)}

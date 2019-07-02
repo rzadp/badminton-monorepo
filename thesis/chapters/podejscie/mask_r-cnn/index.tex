@@ -31,7 +31,7 @@ Działanie modelu można zobrazować w następujących krokach:
 Fast R-CNN, przedstawiony w 2015 roku, usprawnia model R-CNN, w którym zidentyfikowano następujące problemy:
 
 \begin{itemize}
-	\item R-CNN składa się z czterech części:
+	\item R-CNN składa się z~czterech części:
 		\begin{itemize}
 			\item Selective Search do generowania regionów
 			\item CNN do ekstrakcji cech
@@ -51,8 +51,8 @@ Gdy zachodzi konieczność poznania cech regionu, zamiast liczyć cechy od nowa,
 Metoda ta nazwana została Region of Interest Pooling.
 
 Oprócz zmian w sposobie liczenia cech, klasyfikator SVM zastąpiono siecią neuronową.
-Podobnie stało się z modelem zacieśniającym obwódkę.
-Te dwie nowe sieci połączono w jedną sieć wraz z siecią CNN.
+Podobnie stało się z~modelem zacieśniającym obwódkę.
+Te dwie nowe sieci połączono w jedną sieć wraz z~siecią CNN.
 Pod-sieć klasyfikująca i pod-sieć zacieśniająca obwódke zostały włączone do sieci w sposób równoległy, to znaczy ich wyniki nie zależą od siebie nawzajem.
 
 Zmiany te rozwiązały w dużej części problemy R-CNN wymienione wcześniej.
@@ -64,9 +64,9 @@ Zmiany te rozwiązały w dużej części problemy R-CNN wymienione wcześniej.
 
 Faster R-CNN, przedstawiony w 2016 roku, wprowadza kolejne usprawnienie którego zabrakło w Fast R-CNN.
 Usprawnienie dotyczyło generowania regionów za pomocą algorytm Selective Search który działał wolno.
-Usprawnienie polegało na zastąpieniu algorytmu nową siecią neuronową, która korzystała z cech obrazu do generowania regionów.
-Jako że sieć została włączona do modelu w taki sposób, że korzystała z mapy cech które i tak była już obliczana, uzyskano szybszy model.
-Dodatkowo był to kolejny krok zastępujący część modelu pod-siecią neuronową, w wyniku czego model stał się jedną siecią neuronową składającą się z pod-sieci:
+Usprawnienie polegało na zastąpieniu algorytmu nową siecią neuronową, która korzystała z~cech obrazu do generowania regionów.
+Jako że sieć została włączona do modelu w taki sposób, że korzystała z~mapy cech które i tak była już obliczana, uzyskano szybszy model.
+Dodatkowo był to kolejny krok zastępujący część modelu pod-siecią neuronową, w wyniku czego model stał się jedną siecią neuronową składającą się z~pod-sieci:
 
 \begin{itemize}
 	\item Budującej mapę cech
