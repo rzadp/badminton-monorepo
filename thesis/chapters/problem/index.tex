@@ -4,7 +4,8 @@
 \section{Typy detekcji}
 \label{sec:typy_detekcji}
 
-Wykrycie kortu można rozumieć jako cztery podobne problemy. W kolejności od najbardziej podstawowego do najbardziej szczególnego zadania są to:
+Wykrycie kortu można rozumieć jako cztery podobne problemy.
+W kolejności od najbardziej podstawowego do najbardziej szczególnego zadania są to:
 
 \begin{enumerate}
 	\item klasyfikacja - polega na stwierdzeniu, czy i jaki obiekt został wykryty na obrazie;
@@ -32,7 +33,9 @@ W rozwiązaniu problemu detekcji kortów przy użyciu sieci neuronowych przeszko
 
 \subsection*{Ekspozycja kortu}
 
-Podczas gry, kort nigdy nie jest wyeksponowany całkowicie - przesłaniają go gracze, słupki, siatka, sędzia wraz z~jego stanowiskiem, latająca lotka. Dodatkowo w przypadku użycia klatek z~transmisji telewizyjnych, często w postprodukcji na obszar kortu nałożona jest reklama czy logo organizatora meczu. Rozwiązanie musi być odporne na takie artefakty.
+Podczas gry, kort nigdy nie jest wyeksponowany całkowicie - przesłaniają go gracze, słupki, siatka, sędzia wraz z~jego stanowiskiem, latająca lotka.
+Dodatkowo w przypadku użycia klatek z~transmisji telewizyjnych, często w postprodukcji na obszar kortu nałożona jest reklama czy logo organizatora meczu.
+Rozwiązanie musi być odporne na takie artefakty.
 
 \subsection*{Zbiór treningowy}
 
@@ -47,4 +50,5 @@ Przygotowanie tak licznego zbioru jest problematyczne ponieważ:
 
 \subsection*{Czas treningu}
 
-Trening dużej sieci neuronowej przy użyciu jednej karty GPU potrafi zająć dziesiątki godzin. Jest to duża przeszkoda w eksprymentach z~różnymi zbiorami treningowymi, hiperparametrami czy zmianami architektury sieci.
+Trening dużej sieci neuronowej przy użyciu jednej karty GPU potrafi zająć dziesiątki godzin.
+Jest to duża przeszkoda w eksprymentach z~różnymi zbiorami treningowymi, hiperparametrami czy zmianami architektury sieci.
