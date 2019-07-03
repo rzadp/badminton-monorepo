@@ -7,10 +7,10 @@
 Wykrycie kortu można rozumieć jako cztery podobne problemy. W kolejności od najbardziej podstawowego do najbardziej szczególnego zadania są to:
 
 \begin{enumerate}
-	\item klasyfikacja - polega na stwierdzeniu, czy i jaki obiekt został wykryty na obrazku;
-  \item semantyczna segmentacja - polega na wskazaniu które piksele obrazka należą do wykrytego obiektu.
+	\item klasyfikacja - polega na stwierdzeniu, czy i jaki obiekt został wykryty na obrazie;
+  \item semantyczna segmentacja - polega na wskazaniu które piksele obrazu należą do wykrytego obiektu.
         W przypadku więcej niż jednego obiektu, nie ma rozróżnienia które piksele dotyczą którego obiektu;
-	\item detekcja obiektów - polega na wskazaniu gdzie na obrazku znajdują się wykryte obiekty, z~rozróżnieniem poszczególnych obiektów jednak bez wskazania konkretnych pikseli;
+	\item detekcja obiektów - polega na wskazaniu gdzie na obrazie znajdują się wykryte obiekty, z~rozróżnieniem poszczególnych obiektów jednak bez wskazania konkretnych pikseli;
 	\item segmentacja instancji - polega na wskazaniu konkretnych pikseli wykrytych obiektów z~rozróżnieniem poszczególnych obiektów.
 \end{enumerate}
 
@@ -39,7 +39,7 @@ Podczas gry, kort nigdy nie jest wyeksponowany całkowicie - przesłaniają go g
 Wytrenowanie sieci neuronowej dla złożonych zadań typowo wymaga dużej liczby rekordów w zbiorze treningowym aby uzyskać dobre wyniki. Trening sieci wykrywającej kort prawdopodobnie wymagałby setek lub tysięcy zdjęć treningowych. Przygotowanie tak licznego zbioru jest problematyczne ponieważ:
 
 \begin{itemize}
-	\item W Internecie nie ma wystarczającej liczby takich obrazków
+	\item W Internecie nie ma wystarczającej liczby takich obrazów
 	\item Wykonanie zdjęć samemu w jednej lokalizacji nie jest wystarczające, ponieważ lokalizacje różnią się miedzy sobą odległością między kortami, kolorem podłogi i kolorem samego kortu, siatką czy wyglądem stanowiska sędziowskiego.
 \end{itemize}
 

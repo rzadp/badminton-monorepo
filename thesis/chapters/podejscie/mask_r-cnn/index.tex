@@ -11,16 +11,16 @@ Aby zrozumieć ten model, najlepiej rozważać go w kontekście ewoluowania kole
 \TODO{Tu będzie wyjaśnienie schematu}
 
 R-CNN, przedstawiony w 2014 roku, rozwija się jako Regions with CNN features.
-Rozwiązuje zagadnienie detekcji obiektów na obrazku (to znaczy wskazuje konkretne obiekty, ale bez konkretnych pikseli).
+Rozwiązuje zagadnienie detekcji obiektów na obrazie (to znaczy wskazuje konkretne obiekty, ale bez konkretnych pikseli).
 Działanie modelu można zobrazować w następujących krokach:
 
 \begin{enumerate}
-  \item Najpierw na obszarze obrazka wejściowego generowane są tzw. propozycje regionów, przy użyciu algorytmu Selective Search\footnote{http://www.huppelen.nl/publications/selectiveSearchDraft.pdf}.
+  \item Najpierw na obszarze obrazu wejściowego generowane są tzw. propozycje regionów, przy użyciu algorytmu Selective Search\footnote{http://www.huppelen.nl/publications/selectiveSearchDraft.pdf}.
         Celem jest znalezienie regionów, w których prawdopodobnie znajduje się jakiś obiekt.
 	\item Następnie, dla każdego takiego regionu wydobywane są cechy za pomocą CNN
   \item W dalszej kolejności, cechy każdego regionu analizowane są przez model Support Vector Machines (SVM).
         Wynikiem jest klasyfikacja regionu jako konkretny obiekt (lub jako brak obiektu).
-	\item Na końcu, dla regionów w których wskazano obiekt następuje próba zacieśnienia obszaru regionu tak aby bardziej dopasował się do obiektu - wynikiem jest obwódka (bounding box) wskazująca położenie obiektu na obrazku
+	\item Na końcu, dla regionów w których wskazano obiekt następuje próba zacieśnienia obszaru regionu tak aby bardziej dopasował się do obiektu - wynikiem jest obwódka (bounding box) wskazująca położenie obiektu na obrazie
 \end{enumerate}
 
 \subsection{Iteracja druga - Fast R-CNN}
@@ -46,7 +46,7 @@ Fast R-CNN, przedstawiony w 2015 roku, usprawnia model R-CNN, w którym zidentyf
 Fast R-CNN adresuje wyżej wymienione problemy. \\
 
 Ekstrakcja cech przy użyciu CNN następuje tylko raz, na początku.
-W ten sposób powstaje mapa cech całego obrazka.
+W ten sposób powstaje mapa cech całego obrazu.
 Gdy zachodzi konieczność poznania cech regionu, zamiast liczyć cechy od nowa, wyciągany jest odpowiadający fragment mapy cech.
 Metoda ta nazwana została Region of Interest Pooling.
 
