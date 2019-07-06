@@ -34,5 +34,33 @@
     "typescriptreact",
     "yaml",
     "yml"
-  ]
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "pdflatex",
+      "command": "pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "mermaid",
+      "command": "zsh",
+      "args": [
+        "./scripts/mermaid.sh"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "mythesis",
+      "tools": [
+        "mermaid",
+        "pdflatex"
+      ]
+    },
+  ],
 }

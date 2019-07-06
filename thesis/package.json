@@ -1,0 +1,11 @@
+{
+  "name": "thesis",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "mermaid.cli": "^0.5.1"
+  },
+  "scripts": {}
+}
