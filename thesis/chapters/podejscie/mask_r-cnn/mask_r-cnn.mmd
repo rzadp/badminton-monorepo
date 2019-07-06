@@ -1,5 +1,7 @@
 graph LR
 
+%% ...::: NODES :::...
+
 input(Input image)
 cnn(CNN)
 feature_map(Feature Map)
@@ -10,6 +12,12 @@ roi(RoI)
 clas(Class)
 bounding_box(Bounding Box)
 mask(Mask)
+
+%% ...::: STYLING :::...
+
+style mask fill:#f9f,stroke:#f66,stroke-width:4px,stroke-dasharray: 5, 5
+
+%% ...::: FLOWS :::...
 
 input-->cnn
 cnn-->feature_map
