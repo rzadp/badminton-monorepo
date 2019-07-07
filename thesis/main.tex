@@ -362,9 +362,11 @@ samodzielnie, co poświadczam własnoręcznym podpisem.
 
 
 % ------------ 9. Spis tabel - jak wyżej ------------------
-%\renewcommand{\listtablename}{Spis tabel}
-%\listoftables
-%\thispagestyle{empty}
+\renewcommand{\listtablename}{Spis tabel}
+\listoftables
+\addcontentsline{toc}{chapter}{\listtablename}
+\newpage
+\thispagestyle{empty}
 %Jak nie występują, usunąć.
 
 
