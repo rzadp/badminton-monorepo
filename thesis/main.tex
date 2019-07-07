@@ -203,6 +203,7 @@
 } %comment showed
 
 \newcommand*{\myref}[1]{\hyperref[{#1}]{Patrz punkt \ref*{#1}, \textbf{\nameref*{#1}}}}
+\newcommand*{\myrefx}[1]{\hyperref[{#1}]{\textbf{\nameref*{#1}}, str. \pageref*{#1}}}
 \newcommand*{\myfigref}[1]{\hyperref[{#1}]{\textbf{}\ref*{#1}}}
 \newcommand*{\patrz}[1]{\hyperref[{#1}]{(patrz rozdz. \ref*{#1} str. \pageref*{#1})}}
 
@@ -212,6 +213,10 @@
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
 \null\newpage
 \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+\makeatother
+
+\makeatletter
+\newcommand*{\currentname}{\@currentlabelname}
 \makeatother
 
 
@@ -331,7 +336,7 @@ samodzielnie, co poświadczam własnoręcznym podpisem.
 \import{meta/}{bibliografia}
 
 \thispagestyle{empty}
-\pagenumbering{gobble}
+% \pagenumbering{gobble}
 
 
 
@@ -349,8 +354,9 @@ samodzielnie, co poświadczam własnoręcznym podpisem.
 
 
 % ----- 8. Spis rysunków - jeśli nie ma, zakomentować --------
-%\listoffigures
-%\thispagestyle{empty}
+\listoffigures
+\addcontentsline{toc}{chapter}{\listfigurename}
+\thispagestyle{empty}
 %Jak nie występują, usunąć.
 
 
@@ -362,6 +368,8 @@ samodzielnie, co poświadczam własnoręcznym podpisem.
 
 
 % 10. Spis załączników - jak nie ma załączników, to zakomentować lub usunąć
+
+\subimport{meta/dodatki/}{index}
 
 %\chapter*{Spis załączników}
 %\begin{enumerate}
