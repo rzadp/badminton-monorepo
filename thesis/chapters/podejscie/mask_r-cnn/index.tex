@@ -20,39 +20,36 @@ Działanie modelu można zobrazować w następujących krokach:
 	\item na końcu dla regionów, w których wskazano obiekt następuje próba dopasowania obszaru do rozmiaru obiektu - wynikiem jest obwódka (z ang. \textit{bounding box}) wskazująca położenie obiektu na obrazie.
 \end{enumerate}
 
+\newpage
 \subsection{Iteracja druga - Fast R-CNN}
 
 \TODO{Tu będzie schemat Fast R-CNN}
 \TODO{Tu będzie wyjaśnienie schematu}
 
-Fast R-CNN, przedstawiony w 2015 roku, usprawnia model R-CNN, w którym zidentyfikowano następujące problemy:
+\textit{Fast R-CNN} \cite{fast-rcnn}, przedstawiony w 2015 roku, usprawnia model \textit{R-CNN}, w którym zidentyfikowano następujące problemy:
 
 \begin{itemize}
-	\item R-CNN składa się z~czterech części:
+  \item problem w implementacji i w wytrenowaniu sieci wynikający z samej budowy \textit{R-CNN}; \textit{R-CNN} składa się z~czterech części, które osobno wymagają zrozumienia, implementacji i trenowania lub doboru parametrów:
 		\begin{itemize}
-			\item Selective Search do generowania regionów
-			\item CNN do ekstrakcji cech
-			\item SVM do klasyfikacji
-			\item Model zacieśniający obwódkę
+			\item \textit{Selective Search} do generowania regionów;
+			\item \textit{CNN} do ekstrakcji cech;
+			\item \textit{SVM} do klasyfikacji;
+			\item model dopasowujący obwódkę.
 		\end{itemize}
-		Sprawia to że R-CNN jest trudny do zrozumienia, problematyczny w implementacji i w wytrenowaniu.
-  \item Ekstracja cech używając CNN uruchamiana jest dla każdego regionu.
-        Gdy regiony zachodzą na siebie, obliczenia dla zachodzących części są powtarzane.
+  \item zduplikowane obliczenia na etapie ekstrakcji cech, wynikające z faktu, że ekstracja cech uruchamiana jest dla każdego regionu, a gdy regiony zachodzą na siebie, obliczenia ekstrakcji cech są powtarzane.
 \end{itemize}
 
-Fast R-CNN adresuje wyżej wymienione problemy. \\
-
-Ekstrakcja cech przy użyciu CNN następuje tylko raz, na początku.
+Używając \textit{Fast R-CNN} ekstrakcja cech następuje następuje tylko raz, na początku.
 W ten sposób powstaje mapa cech całego obrazu.
-Gdy zachodzi konieczność poznania cech regionu, zamiast liczyć cechy od nowa, wyciągany jest odpowiadający fragment mapy cech.
-Metoda ta nazwana została Region of Interest Pooling.
+Gdy zachodzi konieczność ekstrakcji cech regionu, zamiast liczyć cechy od nowa, wyciągany jest odpowiadający fragment mapy cech.
+Metoda ta to tzw. \textit{Region of Interest Pooling} \cite{region-of-interest-pooling}.
 
-Oprócz zmian w sposobie liczenia cech, klasyfikator SVM zastąpiono siecią neuronową.
-Podobnie stało się z~modelem zacieśniającym obwódkę.
-Te dwie nowe sieci połączono w jedną sieć wraz z~siecią CNN.
-Pod-sieć klasyfikująca i pod-sieć zacieśniająca obwódke zostały włączone do sieci w sposób równoległy, to znaczy ich wyniki nie zależą od siebie nawzajem.
+Oprócz zmian w sposobie liczenia cech, w textit{Fast R-CNN} klasyfikator \textit{SVM} został zastąpiony siecią neuronową.
+Podobnie stało się z~modelem dopasowującym obwódkę.
+Te dwie nowe sieci połączono w jedną sieć wraz z~siecią \textit{CNN}.
+Podsieć klasyfikująca i podsieć dopasowująca obwódke zostały włączone do sieci w sposób równoległy, to znaczy ich wyniki nie zależą od siebie nawzajem.
 
-Zmiany te rozwiązały w dużej części problemy R-CNN wymienione wcześniej.
+Zmiany te rozwiązały w dużej części problemy \textit{R-CNN} wymienione powyżej.
 
 \subsection{Iteracja trzecia - Faster R-CNN}
 
