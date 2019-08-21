@@ -4,19 +4,19 @@
 Do rozwiązania problemu detekcji rozważono kilka modeli open-source:
 
 \begin{itemize}
-	\item Keras RetinaNet \cite{keras-retinanet}
-	\item YOLO \cite{yolo}
-	\item DeepMask/SharpMask \cite{deep-sharp-mask}
+	\item \textit{Keras RetinaNet} \cite{keras-retinanet}
+	\item \textit{YOLO} \cite{yolo}
+	\item \textit{DeepMask/SharpMask} \cite{deep-sharp-mask}
 	\item Różne implementacje modelu Mask R-CNN \cite{general-mask-rcnn}
 		\begin{itemize}
-			\item Mask\_RCNN \cite{matterport-mask-rcnn}
-			\item Instance segmentation with OpenCV \cite{mask-rcnn-opencv}
-			\item FastMaskRCNN \cite{fast-mask-rcnn}
+			\item \textit{Mask\_RCNN} \cite{matterport-mask-rcnn}
+			\item \textit{Instance segmentation with OpenCV} \cite{mask-rcnn-opencv}
+			\item \textit{FastMaskRCNN} \cite{fast-mask-rcnn}
 		\end{itemize}
 \end{itemize}
 
-Modele Keras RetinaNet oraz YOLO zostały odrzucone ze względu na fakt, iż pozwalają tylko na detekcję obiektów, nie posiadają funkcjonalności segmentacji instacji. \\
+Modele \textit{Keras RetinaNet} oraz \textit{YOLO} zostały odrzucone ze względu na fakt, iż pozwalają tylko na detekcję obiektów, nie posiadają funkcjonalności segmentacji instacji. \\
 
-Model DeepMask/SharpMask został odrzucony, ponieważ repozytorium jest zarchiwizowane i nie rozwijane od 2016 roku.
+Model \textit{DeepMask/SharpMask} został odrzucony, ponieważ repozytorium jest zarchiwizowane i nie rozwijane od 2016 roku.
 
-Z~pozostałych trzech różnych implementacji bazujących na pracy Mask R-CNN, wybór padł na Mask\_RCNN z~jednego, ważnego powodu - autor udostępnia wagi modelu wytrenowanego na zbiorze Common Objects in Context (COCO)\footnote{http://cocodataset.org} Przydatność tych wag będzie opisana w dalszej części pracy.
+Z~pozostałych trzech różnych implementacji bazujących na pracy Mask R-CNN, wybór padł na \textit{Mask\_RCNN} z~jednego, ważnego powodu - autor udostępnia wagi modelu wytrenowanego na zbiorze Common Objects in Context (COCO)\footnote{http://cocodataset.org}. Przydatność tych wag będzie opisana w dalszej części pracy.
