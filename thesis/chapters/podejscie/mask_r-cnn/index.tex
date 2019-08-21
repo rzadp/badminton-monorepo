@@ -2,7 +2,7 @@
 \section{Architektura sieci Mask R-CNN}
 \label{sec:architekrura_mask_rcnn}
 
-\textit{Mask R-CNN} (z ang. \textit{Mask Regions with Convolutional Neural Network}) \cite{matterport-mask-rcnn} jest implementacją o otwartym kodzie źródłowym modelu do segmentacji instancji opisanego w publikacji o tej samej nazwie, \textit{Mask R-CNN} \cite{general-mask-rcnn}.
+\textit{Mask R-CNN} \cite{matterport-mask-rcnn} (z ang. \textit{Mask Regions with Convolutional Neural Network}) jest implementacją o otwartym kodzie źródłowym modelu do segmentacji instancji opisanego w publikacji o tej samej nazwie, \textit{Mask R-CNN} \cite{general-mask-rcnn}.
 W celu zrozumienia tego modelu, najlepiej rozważać go w kontekście ewoluowania kolejnych iteracji, którego końcowym rezultatem jest \textit{Mask R-CNN}.
 
 \subsection{Iteracja pierwsza - R-CNN}
@@ -10,17 +10,14 @@ W celu zrozumienia tego modelu, najlepiej rozważać go w kontekście ewoluowani
 \TODO{Tu będzie schemat R-CNN}
 \TODO{Tu będzie wyjaśnienie schematu}
 
-R-CNN, przedstawiony w 2014 roku, rozwija się jako Regions with CNN features.
-Rozwiązuje zagadnienie detekcji obiektów na obrazie (to znaczy wskazuje konkretne obiekty, ale bez konkretnych pikseli).
+\textit{R-CNN} \cite{rcnn} (z ang. \textit{Regions with Convolutional Neural Network}), przedstawiony w 2014 roku, rozwiązuje zagadnienie detekcji obiektów na obrazie (to znaczy wskazuje konkretne obiekty, ale bez konkretnych pikseli).
 Działanie modelu można zobrazować w następujących krokach:
 
 \begin{enumerate}
-  \item Najpierw na obszarze obrazu wejściowego generowane są tzw. propozycje regionów, przy użyciu algorytmu Selective Search\footnote{http://www.huppelen.nl/publications/selectiveSearchDraft.pdf}.
-        Celem jest znalezienie regionów, w których prawdopodobnie znajduje się jakiś obiekt.
-	\item Następnie, dla każdego takiego regionu wydobywane są cechy za pomocą CNN
-  \item W dalszej kolejności, cechy każdego regionu analizowane są przez model Support Vector Machines (SVM).
-        Wynikiem jest klasyfikacja regionu jako konkretny obiekt (lub jako brak obiektu).
-	\item Na końcu, dla regionów w których wskazano obiekt następuje próba zacieśnienia obszaru regionu tak aby bardziej dopasował się do obiektu - wynikiem jest obwódka (bounding box) wskazująca położenie obiektu na obrazie
+  \item najpierw na obszarze obrazu wejściowego generowane są tzw. propozycje regionów, przy użyciu algorytmu \textit{Selective Search} \cite{selective-search}; celem jest znalezienie regionów, w których prawdopodobnie znajduje się jakiś obiekt;
+	\item następnie, dla każdego takiego regionu wydobywane są cechy za pomocą \textit{CNN};
+  \item w dalszej kolejności, cechy każdego regionu analizowane są przez model wektorów nośnych; wynikiem jest klasyfikacja regionu na dwie grupy - wskazany obiekt lub brak obiektu;
+	\item na końcu dla regionów, w których wskazano obiekt następuje próba dopasowania obszaru do rozmiaru obiektu - wynikiem jest obwódka (z ang. \textit{bounding box}) wskazująca położenie obiektu na obrazie.
 \end{enumerate}
 
 \subsection{Iteracja druga - Fast R-CNN}
