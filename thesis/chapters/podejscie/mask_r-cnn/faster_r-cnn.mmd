@@ -4,15 +4,16 @@ graph LR
 
 input[Image]
 cnn(CNN)
-feature_map{Feature Map}
+feature_map[Feature Map]
 rpn(Region Proposals)
-roi(RoI)
+roi(RoI Pooling)
 
 clas(Class)
 bounding_box(Bounding Box)
 
 %% ...::: STYLING :::...
 
+style input fill:#bddaff,stroke:#4294ff
 style rpn fill:#f9f
 
 %% ...::: FLOWS :::...
@@ -21,7 +22,7 @@ input-->cnn
 cnn-->feature_map
 feature_map-->rpn
 
-feature_map-->roi
+feature_map-.->roi
 rpn-->roi
 subgraph for a given region proposal
   roi-->clas
