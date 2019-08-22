@@ -1,0 +1,21 @@
+graph LR
+
+%% ...::: NODES :::...
+
+input[Image]
+region_proposals(Region Proposals)
+cnn(CNN)
+svm_classification(Class)
+bounding_box_improvement(Bounding Box)
+
+%% ...::: STYLING :::...
+
+
+%% ...::: FLOWS :::...
+
+input-->region_proposals
+region_proposals-->cnn
+subgraph for a given region proposal
+  cnn-->svm_classification
+  svm_classification-->bounding_box_improvement
+end
