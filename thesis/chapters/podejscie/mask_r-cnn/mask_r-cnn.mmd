@@ -2,11 +2,10 @@ graph LR
 
 %% ...::: NODES :::...
 
-input(Input image)
+input[Image]
 cnn(CNN)
-feature_map(Feature Map)
-rpn(Region Proposal Network)
-regions(Regions)
+feature_map{Feature Map}
+rpn(Region Proposals)
 roi(RoI)
 
 clas(Class)
@@ -22,11 +21,11 @@ style mask fill:#f9f
 input-->cnn
 cnn-->feature_map
 feature_map-->rpn
-rpn-->regions
 
 feature_map-->roi
-regions-->roi
-
-roi-->clas
-roi-->bounding_box
-roi-->mask
+rpn-->roi
+subgraph for a given region proposal
+  roi-->clas
+  roi-->bounding_box
+  roi-->mask
+end
