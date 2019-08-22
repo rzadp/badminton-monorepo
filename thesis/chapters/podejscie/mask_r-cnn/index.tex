@@ -51,6 +51,7 @@ Podsieć klasyfikująca i podsieć dopasowująca obwódke zostały włączone do
 
 Zmiany te rozwiązały w dużej części problemy \textit{R-CNN} wymienione powyżej.
 
+\newpage
 \subsection{Iteracja trzecia - Faster R-CNN}
 
 \TODO{Tu będzie schemat Faster R-CNN}
@@ -60,7 +61,7 @@ Faster R-CNN, przedstawiony w 2016 roku, wprowadza kolejne usprawnienie którego
 Usprawnienie dotyczyło generowania regionów za pomocą algorytm Selective Search który działał wolno.
 Usprawnienie polegało na zastąpieniu algorytmu nową siecią neuronową, która korzystała z~cech obrazu do generowania regionów.
 Jako że sieć została włączona do modelu w taki sposób, że korzystała z~mapy cech które i tak była już obliczana, uzyskano szybszy model.
-Dodatkowo był to kolejny krok zastępujący część modelu pod-siecią neuronową, w wyniku czego model stał się jedną siecią neuronową składającą się z~pod-sieci:
+Dodatkowo był to kolejny krok zastępujący część modelu podsiecią neuronową, w wyniku czego model stał się jedną siecią neuronową składającą się z~podsieci:
 
 \begin{itemize}
 	\item Budującej mapę cech
@@ -76,7 +77,7 @@ Schemat Mask R-CNN przedstawiony jest na rysunku \myfigref{fig:mask_r_cnn}.
 \TODO{Tu będzie wyjaśnienie schematu}
 
 Mask R-CNN, przedstawiony w 2017 roku, stanowi ostatni krok w opisanej ewolucji modelu.
-Do dwóch równoległych pod-sieci - klasyfikującej oraz zacieśniającej obwódkę - wprowadza nową, równoległą pod-sieć odpowiedzialną za wskazywanie konkretnych pikseli wykrytego obiektu.
+Do dwóch równoległych podsieci - klasyfikującej oraz zacieśniającej obwódkę - wprowadza nową, równoległą podsieć odpowiedzialną za wskazywanie konkretnych pikseli wykrytego obiektu.
 
 \begin{figure}[h]
   \centering
