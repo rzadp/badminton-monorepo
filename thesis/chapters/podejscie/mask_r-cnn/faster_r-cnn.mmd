@@ -1,0 +1,30 @@
+graph LR
+
+%% ...::: NODES :::...
+
+input(Input image)
+cnn(CNN)
+feature_map(Feature Map)
+rpn(Region Proposal Network)
+regions(Regions)
+roi(RoI)
+
+clas(Class)
+bounding_box(Bounding Box)
+
+%% ...::: STYLING :::...
+
+style feature_map fill:#f9f
+
+%% ...::: FLOWS :::...
+
+input-->cnn
+cnn-->feature_map
+feature_map-->rpn
+rpn-->regions
+
+feature_map-->roi
+regions-->roi
+
+roi-->clas
+roi-->bounding_box
