@@ -7,10 +7,15 @@ W celu zrozumienia tego modelu, najlepiej rozważać go w kontekście ewoluowani
 
 \subsection{Iteracja pierwsza - R-CNN}
 
-\TODO{Tu będzie schemat R-CNN}
-\TODO{Tu będzie wyjaśnienie schematu}
-
 \textit{R-CNN} \cite{rcnn} (z ang. \textit{Regions with Convolutional Neural Network}), przedstawiony w 2014 roku, rozwiązuje zagadnienie detekcji obiektów na obrazie (to znaczy wskazuje konkretne obiekty, ale bez konkretnych pikseli).
+
+\begin{figure}[h]
+  \centering
+  \caption{Schemat modelu \textit{R-CNN}}
+  \includegraphics[width=1\textwidth]{r-cnn.png}
+  \label{fig:r_cnn}
+\end{figure}
+
 Działanie modelu można zobrazować w następujących krokach:
 
 \begin{enumerate}
@@ -20,18 +25,7 @@ Działanie modelu można zobrazować w następujących krokach:
 	\item na końcu dla regionów, w których wskazano obiekt następuje próba dopasowania obszaru do rozmiaru obiektu - wynikiem jest obwódka (z ang. \textit{bounding box}) wskazująca położenie obiektu na obrazie.
 \end{enumerate}
 
-\begin{figure}[h]
-  \centering
-  \caption{Schemat modelu \textit{R-CNN}}
-  \includegraphics[width=1\textwidth]{r-cnn.png}
-  \label{fig:r_cnn}
-\end{figure}
-
-\newpage
 \subsection{Iteracja druga - Fast R-CNN}
-
-\TODO{Tu będzie schemat Fast R-CNN}
-\TODO{Tu będzie wyjaśnienie schematu}
 
 \textit{Fast R-CNN} \cite{fast-rcnn}, przedstawiony w 2015 roku, usprawnia model \textit{R-CNN}, w którym zidentyfikowano następujące problemy:
 
@@ -46,6 +40,15 @@ Działanie modelu można zobrazować w następujących krokach:
   \item zduplikowane obliczenia na etapie ekstrakcji cech, wynikające z faktu, że ekstracja cech uruchamiana jest dla każdego regionu, a gdy regiony zachodzą na siebie, obliczenia ekstrakcji cech są powtarzane.
 \end{itemize}
 
+\begin{figure}[h]
+  \centering
+  \caption{Schemat modelu \textit{Fast R-CNN}}
+  \includegraphics[width=1\textwidth]{fast_r-cnn.png}
+  \label{fig:fast_r_cnn}
+\end{figure}
+
+Wyróżnione elementy wskazują zasadnicze różnice względem R-CNN.
+
 Używając \textit{Fast R-CNN} ekstrakcja cech następuje następuje tylko raz, na początku.
 W ten sposób powstaje mapa cech całego obrazu.
 Gdy zachodzi konieczność ekstrakcji cech regionu, zamiast liczyć cechy od nowa, wyciągany jest odpowiadający fragment mapy cech.
@@ -58,18 +61,7 @@ Podsieć klasyfikująca i podsieć dopasowująca obwódke zostały włączone do
 
 Zmiany te rozwiązały w dużej części problemy \textit{R-CNN} wymienione powyżej.
 
-\begin{figure}[h]
-  \centering
-  \caption{Schemat modelu \textit{Fast R-CNN}}
-  \includegraphics[width=1\textwidth]{fast_r-cnn.png}
-  \label{fig:fast_r_cnn}
-\end{figure}
-
-\newpage
 \subsection{Iteracja trzecia - Faster R-CNN}
-
-\TODO{Tu będzie schemat Faster R-CNN}
-\TODO{Tu będzie wyjaśnienie schematu}
 
 \textit{Faster R-CNN} \cite{faster-rcnn}, przedstawiony w 2016 roku, wprowadza kolejne usprawnienie, którego zabrakło w \textit{Fast R-CNN}.
 Chodzi o generowanie regionów za pomocą algorytmu \textit{Selective Search} \cite{selective-search}, który działał stosunkowo wolno.
@@ -91,15 +83,15 @@ Dodatkowo był to kolejny krok zastępujący część modelu podsiecią neuronow
   \label{fig:faster_r_cnn}
 \end{figure}
 
+Wyróżniony element wskazuje zasadniczą różnicę względem Fast R-CNN.
+
 \newpage
 \subsection{Iteracja czwarta - Mask R-CNN}
 
 \textit{Mask R-CNN} \cite{matterport-mask-rcnn}, przedstawiony w 2017 roku, stanowi ostatni krok w opisanej ewolucji modelu.
 Do dwóch równoległych podsieci - klasyfikującej oraz dopasowującej obwódkę - wprowadza nową, równoległą podsieć odpowiedzialną za wskazywanie konkretnych pikseli wykrytego obiektu.
 
-Schemat \textit{Mask R-CNN} przedstawiony jest na Rysunku \myfigref{fig:mask_r_cnn}.
-
-\TODO{Tu będzie wyjaśnienie schematu}
+Schemat \textit{Mask R-CNN} przedstawiony jest na Rysunku \myfigref{fig:mask_r_cnn}. Wyróżniony element wskazuje zasadniczą różnicę względem Faster R-CNN.
 
 \begin{figure}[h]
   \centering

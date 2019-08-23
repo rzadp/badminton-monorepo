@@ -2,12 +2,12 @@
 \chapter{Wstęp}
 
 Niniejsza praca dotyczy problemu wykrywania obszaru kortu do badmintona z~wykorzystaniem sieci neuronowych.
-Koncentracja na kortach do badmintona (a~nie kortach do gry w ogóle) wynika ze współpracy z~firmą BLUE, która zajmuje się systemami sędziowania meczy badmintona.
+Koncentracja na kortach do badmintona (a~nie kortach do gry w ogóle) wynika ze współpracy z~firmą ``BLUE'', która zajmuje się systemami sędziowania meczy badmintona.
 Praca zawiera jednak wnioski na temat generalizacji problemu na inne sporty.
 
 \section{Motywacja}
 
-Temat pracy został zaproponowany przez firmę BLUE, która zajmuje się sędziowaniem meczy badmintona i pracuje nad automatyzacją tego zagadnienia.
+Temat pracy został zaproponowany przez firmę ``BLUE'', która zajmuje się sędziowaniem meczy badmintona i pracuje nad automatyzacją tego zagadnienia.
 Wymaga to między innymi śledzenia toru lotu lotki, śledzenia zawodników, wykrycia kortu.
 Konkretne piksele kortu potrzebne są do rozstrzygania wątpliwości w kwestii wyjścia lotki poza obszar boiska.
 
@@ -16,10 +16,11 @@ W polu widzenia kamery często znajduje się więcej niż jeden kort, stąd sema
 \section{Cel pracy}
 
 Celem głównym pracy jest zbadanie użyteczności sieci neuronowych na potrzeby komercyjnego systemu sędziowania meczy badmintona.
-Aktualne podejście firmy BLUE do problemu wykrywania kortu polega na algorytmicznym wykrywaniu linii kortu, bez użycia sieci neuronowych.
+Aktualne podejście firmy ``BLUE'' do problemu wykrywania kortu polega na algorytmicznym wykrywaniu linii kortu, bez użycia sieci neuronowych.
 Praca stanowi krok w eksploracji tematu wykrywania kortu z~użyciem sieci neuronowych i daje podstawy do decyzji, czy podejście to nadaje się do komercyjnego zastosowania.
 
-Celem pośrednim, wynikającym z~celu głównego jest analiza istniejących rozwiązań w literaturze, rozpatrując zarówno podejścia wykorzystujące sieci neuronowe oraz rozwiązania klasyczne, to znaczy bez wykorzystania sieci. \TODO{Wymienić rozwiązania konkretnie}
+Celem pośrednim, wynikającym z~celu głównego jest analiza istniejących rozwiązań w literaturze, rozpatrując zarówno podejścia wykorzystujące sieci neuronowe oraz rozwiązania klasyczne, to znaczy bez wykorzystania sieci.
+\TODO{Wymienić rozwiązania konkretnie, podsumowując \myrefx{sec:metody_detekcji}}
 
 Dodatkowe cele pośrednie, również wynikające z~celu głównego stanowią stworzenie sztucznego zbioru treningowego oraz optymalizacja wykorzystywanej sieci, zarówno pod kątem czasu treningu jak i wymagań pamięciowych karty graficznej.
 

@@ -7,7 +7,7 @@ Do rozwiązania problemu detekcji rozważono kilka modeli open-source:
 	\item \textit{Keras RetinaNet} \cite{keras-retinanet}
 	\item \textit{YOLO} \cite{yolo}
 	\item \textit{DeepMask/SharpMask} \cite{deep-sharp-mask}
-	\item Różne implementacje modelu Mask R-CNN \cite{general-mask-rcnn}
+	\item Różne implementacje modelu \textit{Mask R-CNN} \cite{general-mask-rcnn}
 		\begin{itemize}
 			\item \textit{Mask\_RCNN} \cite{matterport-mask-rcnn}
 			\item \textit{Instance segmentation with OpenCV} \cite{mask-rcnn-opencv}
@@ -19,5 +19,5 @@ Modele \textit{Keras RetinaNet} oraz \textit{YOLO} zostały odrzucone ze względ
 
 Model \textit{DeepMask/SharpMask} został odrzucony, ponieważ repozytorium jest zarchiwizowane i nie rozwijane od 2016 roku.
 
-Z~pozostałych trzech różnych implementacji bazujących na pracy Mask R-CNN, wybór padł na \textit{Mask\_RCNN} z~jednego, ważnego powodu - autor udostępnia wagi modelu wytrenowanego na publiczym zbiorze zaanotowanych obrazów COCO\footnote{Common Objects in Context, http://cocodataset.org}.
+Z~pozostałych trzech różnych implementacji bazujących na pracy \textit{Mask R-CNN} \cite{general-mask-rcnn}, wybór padł na \textit{Mask\_RCNN} \cite{matterport-mask-rcnn} z~jednego, ważnego powodu - autor udostępnia wagi modelu wytrenowanego na publiczym zbiorze zaanotowanych obrazów \textit{COCO} \cite{coco}.
 Przydatność tych wag jest opisana w dalszej części pracy \patrz{sec:uczenie-transferowe}.
