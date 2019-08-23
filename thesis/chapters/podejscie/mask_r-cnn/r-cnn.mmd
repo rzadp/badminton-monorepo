@@ -2,11 +2,11 @@ graph LR
 
 %% ...::: NODES :::...
 
-input[Image]
-region_proposals(Region Proposals)
+input[Obraz]
+region_proposals(Regiony)
 cnn(CNN)
-svm_classification(Class)
-bounding_box_improvement(Bounding Box)
+svm_classification(Klasa)
+bounding_box_improvement(Obwódka)
 
 %% ...::: STYLING :::...
 
@@ -16,7 +16,7 @@ bounding_box_improvement(Bounding Box)
 
 input-->region_proposals
 region_proposals-->cnn
-subgraph for a given region proposal
+subgraph dla danego regionu
   cnn-->svm_classification
   svm_classification-->bounding_box_improvement
 end

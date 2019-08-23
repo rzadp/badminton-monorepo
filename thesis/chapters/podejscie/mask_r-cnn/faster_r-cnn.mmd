@@ -2,14 +2,14 @@ graph LR
 
 %% ...::: NODES :::...
 
-input[Image]
+input[Obraz]
 cnn(CNN)
-feature_map[Feature Map]
-rpn(Region Proposals)
+feature_map[Mapa Cech]
+rpn(Regiony)
 roi(RoI Pooling)
 
-clas(Class)
-bounding_box(Bounding Box)
+clas(Klasa)
+bounding_box(Obwódka)
 
 %% ...::: STYLING :::...
 
@@ -24,7 +24,7 @@ feature_map-->rpn
 
 feature_map-.->roi
 rpn-->roi
-subgraph for a given region proposal
+subgraph dla danego regionu
   roi-->clas
   roi-->bounding_box
 end
