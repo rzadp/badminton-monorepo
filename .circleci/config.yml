@@ -85,8 +85,6 @@ workflows:
   version: 2
   badminton-monorepo:
     jobs:
-      # - run-detection
-      # TODO: without using .h5, run train and then run detect using trained weights
       - build-js:
           filters:
             branches:
@@ -96,3 +94,6 @@ workflows:
             branches:
               only: master
       - run-train
+      - run-detection:
+          requires:
+              - run-train
