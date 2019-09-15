@@ -51,6 +51,9 @@ jobs:
             libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 \
             libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 \
       - run: thesis/scripts/all.sh
+      - store_artifacts:
+          path: thesis/main.pdf
+          destination: main.pdf
   run-train:
     docker:
       - image: eu.gcr.io/badminton/badminton_image
