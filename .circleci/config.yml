@@ -53,4 +53,5 @@ workflows:
   version: 2
   badminton-monorepo:
     jobs:
-      - run-detection
+      # - run-detection
+      - compile-thesis
