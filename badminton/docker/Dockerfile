@@ -5,4 +5,3 @@ RUN pip3 install graphviz pydot
 RUN apt-get install tmux -y
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
 RUN apt-get install git-lfs
-
