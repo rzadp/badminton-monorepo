@@ -52,8 +52,8 @@ def train(model, epochs, use_multiprocessing):
                 use_multiprocessing=use_multiprocessing,
                 layers='heads')
     #model_path = os.path.join(ROOT_DIR, "samples/badminton/mask_rcnn_badminton.h5")
-    #print("Saving weights...")
-    #model.keras_model.save_weights(model_path)
+    print("Saving weights...")
+    model.keras_model.save_weights("./training/result.h5")
     print("Done!")
 
 

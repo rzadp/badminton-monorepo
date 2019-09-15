@@ -53,9 +53,10 @@ jobs:
             libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 \
             libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 \
             libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 \
-      - run: |
-          thesis/scripts/all.sh
-          test -f thesis/main.pdf
+      - run: thesis/scripts/all.sh
+      - run:
+          name: Assert artifact exists
+          command: test -f thesis/main.pdf
       - store_artifacts:
           path: thesis/main.pdf
           destination: main.pdf
@@ -64,6 +65,9 @@ jobs:
     steps:
       - badminton-monorepo/checkout-with-submodules
       - run: cd badminton/docker && ./train.sh
+      - run:
+          name: Assert artifact exists
+          command: test -f badminton/training/result.h5
   run-detection:
     executor: badminton-monorepo/machine-with-docker-caching
     steps:
@@ -83,7 +87,4 @@ workflows:
           filters:
             branches:
               only: master
-      - run-train:
-          filters:
-            branches:
-              only: master
+      - run-train
