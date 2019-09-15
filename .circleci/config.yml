@@ -43,7 +43,7 @@ jobs:
       - image: circleci/node:10.15
     steps:
       - badminton-monorepo/checkout-with-lfs
-      - run: ls -al
+      - run: cd badminton/docker && ./detect.sh
 workflows:
   version: 2
   badminton-monorepo:
