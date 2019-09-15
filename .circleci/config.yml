@@ -36,6 +36,9 @@ jobs:
       - image: danteev/texlive
     steps:
       - checkout
+      - run:
+          name: Install node
+          command: echo todo
       - run: thesis/scripts/all.sh
   run-train:
     docker:
