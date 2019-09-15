@@ -2,7 +2,8 @@
 cd $(dirname $0)
 set -e
 
-python3 ../badminton.py train \
+cd ..
+python3 ./badminton.py train \
 --dataset=./dataset \
 --weights=coco \
 --epochs=1 \
