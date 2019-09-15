@@ -37,8 +37,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install node
-          command: echo todo
+          name: Install node and npm dependencies
+          command: |
+            apt-get update && apt-get install nodejs npm -y
+            cd thesis && npm install
       - run: thesis/scripts/all.sh
   run-train:
     docker:
