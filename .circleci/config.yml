@@ -73,4 +73,5 @@ workflows:
   badminton-monorepo:
     jobs:
       # - run-detection
-      - compile-thesis
+      # - compile-thesis
+      - build-js
