@@ -3,10 +3,21 @@ version: 2.1
 orbs:
   badminton-monorepo:
     commands:
-      install-lfs:
+      install-git-lfs:
         steps:
-          - run: sudo curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
-
+          - run:
+              name: Install git lfs
+              command: |
+                curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+                sudo apt-get install git-lfs -y
+      checkout-with-lfs:
+          steps:
+            - checkout
+            - install-git-lfs
+            - run: git submodule init && git submodule update
+            - run: git lfs install
+            - run: git lfs pull
+            
 jobs:
   build-js:
     docker:
@@ -32,12 +43,8 @@ jobs:
     docker:
       - image: circleci/node:10.15
     steps:
-      - checkout
-      - run: git submodule init && git submodule update
-      - badminton-monorepo/install-lfs
-      - run: git lfs install
-      - run: git lfs pull
-      # - run: cd badminton/detection && python3 ./detect.py
+      - badminton-monorepo/checkout-with-lfs
+      - run: ls -al
 workflows:
   version: 2
   badminton-monorepo:
