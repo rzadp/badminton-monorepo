@@ -3,20 +3,19 @@ version: 2.1
 orbs:
   badminton-monorepo:
     commands:
-      install-git-lfs:
-        steps:
-          - run:
-              name: Install git lfs
-              command: |
-                curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-                sudo apt-get install git-lfs -y
       checkout-with-lfs:
           steps:
             - checkout
-            - install-git-lfs
-            - run: git submodule init && git submodule update
-            - run: git lfs install
-            - run: git lfs pull
+            - run:
+                name: Initialize submodules
+                command: git submodule init && git submodule update
+            - run:
+                name: Initialize git lfs
+                command: |
+                  curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+                  sudo apt-get install git-lfs -y
+                  git lfs install
+                  git lfs pull
             
 jobs:
   build-js:
