@@ -64,7 +64,9 @@ jobs:
     executor: badminton-monorepo/machine-with-docker-caching
     steps:
       - badminton-monorepo/checkout-with-submodules
-      - run: cd badminton/docker && ./train.sh
+      - run:
+          name: Run training
+          command: cd badminton/docker && ./train.sh
       - run:
           name: Assert artifact exists
           command: test -f badminton/training/result.h5
@@ -78,9 +80,11 @@ jobs:
       - badminton-monorepo/checkout-with-submodules
       - attach_workspace:
           at: badminton/detection/workspace
-      - run: |
-          mv badminton/detection/workspace/result.h5 badminton/detection/weights.h5
-          cd badminton/docker && ./detect.sh
+      - run:
+          name: Run detection
+          command: |
+            mv badminton/detection/workspace/result.h5 badminton/detection/weights.h5
+            cd badminton/docker && ./detect.sh
 workflows:
   version: 2
   badminton-monorepo:
