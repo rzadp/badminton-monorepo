@@ -3,19 +3,22 @@ version: 2.1
 orbs:
   badminton-monorepo:
     commands:
-      checkout-with-lfs:
+      checkout-with-submodules:
           steps:
             - checkout
             - run:
                 name: Initialize submodules
                 command: git submodule init && git submodule update
             - run:
-                name: Initialize git lfs
-                command: |
-                  curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-                  sudo apt-get install git-lfs realpath -yq
-                  git lfs install
-                  git lfs pull
+                name: Install system dependencies
+                command: sudo apt-get update && sudo apt-get install -yq realpath
+            # - run:
+            #     name: Initialize git lfs
+            #     command: |
+            #       curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+            #       sudo apt-get install git-lfs realpath -yq
+            #       git lfs install
+            #       git lfs pull
     executors:
       docker-node:
         docker:
@@ -57,12 +60,10 @@ jobs:
           path: thesis/main.pdf
           destination: main.pdf
   run-train:
-    docker:
-      - image: eu.gcr.io/badminton/badminton_image
+    executor: badminton-monorepo/machine-with-docker-caching
     steps:
-      - checkout
-      - run: git submodule init && git submodule update
-      - run: cd badminton && ./train.sh
+      - badminton-monorepo/checkout-with-submodules
+      - run: cd badminton/docker && ./train.sh
   run-detection:
     executor: badminton-monorepo/machine-with-docker-caching
     steps:
