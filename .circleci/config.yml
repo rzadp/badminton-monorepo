@@ -73,8 +73,11 @@ workflows:
   badminton-monorepo:
     jobs:
       # - run-detection
+      - build-js:
+          filters:
+            branches:
+              only: master
       - compile-thesis:
           filters:
             branches:
               only: master
-      - build-js
