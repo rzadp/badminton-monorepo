@@ -16,11 +16,17 @@ orbs:
                   sudo apt-get install git-lfs -y
                   git lfs install
                   git lfs pull
-            
+    executors:
+      docker-node:
+        docker:
+          - image: circleci/node:10.15
+      machine-with-docker-caching:
+        machine:
+          image: circleci/classic:latest
+          docker_layer_caching: true
 jobs:
   build-js:
-    docker:
-      - image: circleci/node:10.15
+    executor: badminton-monorepo/docker-node
     steps:
         - checkout
         - run: yarn install
@@ -39,11 +45,8 @@ jobs:
       - run: git submodule init && git submodule update
       - run: cd badminton && ./train.sh
   run-detection:
-    docker:
-      - image: circleci/node:10.15
+    executor: badminton-monorepo/machine-with-docker-caching
     steps:
-      - setup_remote_docker:
-          docker_layer_caching: true
       - badminton-monorepo/checkout-with-lfs
       - run: cd badminton/docker && ./detect.sh
 workflows:
