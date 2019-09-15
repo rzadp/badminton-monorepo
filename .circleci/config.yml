@@ -13,7 +13,7 @@ orbs:
                 name: Initialize git lfs
                 command: |
                   curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-                  sudo apt-get install git-lfs realpath -y
+                  sudo apt-get install git-lfs realpath -yq
                   git lfs install
                   git lfs pull
     executors:
@@ -39,8 +39,17 @@ jobs:
       - run:
           name: Install node and npm dependencies
           command: |
-            apt-get update && apt-get install nodejs npm -y
+            apt-get update && apt-get install nodejs npm -yq
             cd thesis && npm install
+      - run: 
+          name: Install chrome dependencies
+          command: |
+            apt-get update &&
+            apt-get install -yq --no-install-recommends libnss3 \
+            libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 \
+            libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 \
+            libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 \
+            libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 \
       - run: thesis/scripts/all.sh
   run-train:
     docker:
