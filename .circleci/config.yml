@@ -81,3 +81,4 @@ workflows:
           filters:
             branches:
               only: master
+      - run-train

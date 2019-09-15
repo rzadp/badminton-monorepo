@@ -15,7 +15,7 @@ This is built on top of Mask_RCNN submodule.
 ### Run detection
 
 - `cd ./detection`
-- `./docker_detect.sh`
+- `./detect.sh`
 
 ### Input and output
 
