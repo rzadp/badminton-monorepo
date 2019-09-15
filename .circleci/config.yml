@@ -12,13 +12,13 @@ orbs:
             - run:
                 name: Install system dependencies
                 command: sudo apt-get update && sudo apt-get install -yq realpath
-            # - run:
-            #     name: Initialize git lfs
-            #     command: |
-            #       curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-            #       sudo apt-get install git-lfs realpath -yq
-            #       git lfs install
-            #       git lfs pull
+            - run:
+                name: Initialize git lfs
+                command: |
+                  curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+                  sudo apt-get install git-lfs -yq
+                  git lfs install
+                  git lfs pull
     executors:
       docker-node:
         docker:
@@ -68,11 +68,19 @@ jobs:
       - run:
           name: Assert artifact exists
           command: test -f badminton/training/result.h5
+      - persist_to_workspace:
+          root: badminton/training
+          paths:
+            - result.h5
   run-detection:
     executor: badminton-monorepo/machine-with-docker-caching
     steps:
-      - badminton-monorepo/checkout-with-lfs
-      - run: cd badminton/docker && ./detect.sh
+      - badminton-monorepo/checkout-with-submodules
+      - attach_workspace:
+          at: badminton/detection/workspace
+      - run: |
+          mv badminton/detection/workspace/result.h5 badminton/detection/weights.h5
+          cd badminton/docker && ./detect.sh
 workflows:
   version: 2
   badminton-monorepo:
