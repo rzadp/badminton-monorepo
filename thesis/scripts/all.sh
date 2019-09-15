@@ -12,6 +12,8 @@ echo "...::: Compiled title page :::..."
 echo "...::: Exported diagrams :::..."
 
 cd ..
-max_in_open=32 pdflatex -interaction=nonstopmode -halt-on-error -synctex=1 main.tex
-!! # twice because of the table of contents bug
+for i in {1..2}; do # twice because of the table of contents bug
+  max_in_open=32 pdflatex -interaction=nonstopmode -halt-on-error -synctex=1 main.tex
+done
+
 echo "...::: Compiled thesis :::..."
