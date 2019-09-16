@@ -85,6 +85,9 @@ jobs:
           command: |
             mv badminton/detection/workspace/result.h5 badminton/detection/weights.h5
             cd badminton/docker && ./detect.sh
+      - run:
+          name: Assert artifact exists
+          command: test -f badminton/detection/output.jpg
 workflows:
   version: 2
   badminton-monorepo:
