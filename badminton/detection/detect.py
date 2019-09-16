@@ -51,7 +51,6 @@ results = model.detect([image], verbose=1)
 
 r = results[0]
 masks = r['masks']
-first_mask = masks[:, :, 0]
 [y_len, x_len, detected_len] = masks.shape
 
 for n in range(0, detected_len):
