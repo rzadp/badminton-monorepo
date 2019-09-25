@@ -97,22 +97,22 @@ workflows:
             branches:
               only: 
                 - master
-                - /js-*/
-                - /ci-*/
+                - /js-.*/
+                - /ci-.*/
       - compile-thesis:
           filters:
             branches:
               only: 
                 - master
-                - /thesis-*/
-                - /ci-*/
+                - /thesis-.*/
+                - /ci-.*/
       - run-train:
           filters:
             branches:
               only: 
                 - master
-                - /nn-*/
-                - /ci-*/
+                - /nn-.*/
+                - /ci-.*/
       - run-detection:
           requires:
               - run-train
