@@ -19,7 +19,7 @@ sys.path.append(ROOT_DIR)  # To find local version of the library
 from mrcnn import model as modellib, utils
 sys.path.append(os.path.abspath(".."))
 from common.badminton_config import BadmintonConfig
-from dataset.badminton_dataset import BadmintonDataset
+from datasets.badminton_dataset import BadmintonDataset
 
 # Path to trained weights file
 COCO_WEIGHTS_PATH = os.path.join(ROOT_DIR, "mask_rcnn_coco.h5")

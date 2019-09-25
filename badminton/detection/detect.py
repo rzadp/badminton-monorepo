@@ -31,11 +31,11 @@ MODEL_DIR = os.path.join(ROOT_DIR, "logs")
 
 # Local path to trained weights file
 BADMINTON_MODEL_PATH = os.path.abspath("../detection/weights.h5")
-BADMINTON_DATASET_DIR = os.path.abspath("../dataset")
+BADMINTON_DATASET_DIR = os.path.abspath("../datasets/badminton_high")
 
 
 from detection.detection_config import DetectionConfig
-from dataset.badminton_dataset import BadmintonDataset
+from datasets.badminton_dataset import BadmintonDataset
 
 
 config = DetectionConfig()

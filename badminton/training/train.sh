@@ -4,7 +4,7 @@ set -e
 
 cd ..
 python3 ./badminton.py train \
---dataset=./dataset \
+--dataset=./datasets/badminton_high \
 --weights=coco \
 --epochs=1 \
 --use_multiprocessing=False \
