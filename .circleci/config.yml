@@ -95,15 +95,21 @@ workflows:
       - build-js:
           filters:
             branches:
-              only: master
+              only: 
+                - master
+                - /js-*/
       - compile-thesis:
           filters:
             branches:
-              only: master
+              only: 
+                - master
+                - /thesis-*/
       - run-train:
           filters:
             branches:
-              only: master
+              only: 
+                - master
+                - /nn-*/
       - run-detection:
           requires:
               - run-train
