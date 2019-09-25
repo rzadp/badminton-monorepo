@@ -87,7 +87,7 @@ jobs:
             cd badminton/docker && ./detect.sh
       - run:
           name: Assert artifact exists
-          command: test -f badminton/detection/output.jpg
+          command: cd badminton/detection && ( test -f ./output.jpg || test -f ./output.png )
 workflows:
   version: 2
   badminton-monorepo:
