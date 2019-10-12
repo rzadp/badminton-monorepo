@@ -11,8 +11,10 @@ fi
 for f in training/cases/*.env
 do
   CASE=$(basename "$f" .env)
-  echo "Running for case: $CASE"
   source "$f"
+  [[ $SKIP == true ]] && continue || echo "Running for case: $CASE"
+
+  # TODO: pass more parameters as .env config
 
   python3 ./badminton.py train \
   --dataset=./datasets/$DATASET \
@@ -24,6 +26,8 @@ do
   --logs=./training/logs \
   --case=$CASE \
   2>&1 | $OUTPUT_HANDLER
+
+  # TODO: run detection on $DATASET/test, and save outputs in the logs dir for manual inspection
 
   if [[ $NOTIFY_MAIL == true ]] ; then
     echo "Finished training for: $CASE" | mail -s "Badminton training done" roopert7@gmail.com
