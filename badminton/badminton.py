@@ -98,6 +98,10 @@ if __name__ == '__main__':
                         default=DEFAULT_LOGS_DIR,
                         metavar="/path/to/logs/",
                         help='Logs and checkpoints directory (default=logs/)')
+    parser.add_argument('--case', required=False,
+                        default="",
+                        metavar="example",
+                        help='Case name, to identify configuration')
     args = parser.parse_args()
 
     # Validate arguments
@@ -110,6 +114,7 @@ if __name__ == '__main__':
     config = BadmintonConfig()
     config.STEPS_PER_EPOCH = int(args.steps_per_epoch)
     config.VALIDATION_STEPS = int(args.validation_steps)
+    config.NAME = config.NAME + "_" + args.case
     # config.display()
 
     # Create model

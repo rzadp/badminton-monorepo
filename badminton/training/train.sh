@@ -12,4 +12,5 @@ python3 ./badminton.py train \
 --use_multiprocessing=False \
 --steps_per_epoch=1 \
 --validation_steps=1 \
---logs=./training/logs
+--logs=./training/logs \
+--case=$CASE
