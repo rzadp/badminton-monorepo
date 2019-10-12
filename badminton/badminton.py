@@ -114,7 +114,7 @@ if __name__ == '__main__':
     config = BadmintonConfig()
     config.STEPS_PER_EPOCH = int(args.steps_per_epoch)
     config.VALIDATION_STEPS = int(args.validation_steps)
-    config.NAME = config.NAME + "_" + args.case
+    config.NAME = config.NAME + "_" + args.case + "_"
     # config.display()
 
     # Create model
