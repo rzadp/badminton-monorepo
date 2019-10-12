@@ -22,10 +22,10 @@ executors:
   docker-node:
     docker:
       - image: circleci/node:10.15
-  machine-with-docker-caching:
+  machine-classic:
     machine:
       image: circleci/classic:latest
-      docker_layer_caching: true
+      docker_layer_caching: false
 
 jobs:
   build-js:
@@ -61,7 +61,7 @@ jobs:
           path: thesis/main.pdf
           destination: main.pdf
   run-train:
-    executor: machine-with-docker-caching
+    executor: machine-classic
     steps:
       - checkout-with-submodules
       - run:
@@ -75,7 +75,7 @@ jobs:
           paths:
             - result.h5
   run-detection:
-    executor: machine-with-docker-caching
+    executor: machine-classic
     steps:
       - checkout-with-submodules
       - attach_workspace:
