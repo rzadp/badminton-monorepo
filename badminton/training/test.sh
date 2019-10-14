@@ -7,7 +7,6 @@ for f in training/logs/*/
 do
   echo -e "\nTesting for $(basename $f)\n\n"
 
-  LOG_FOLDER=$(basename "$f" .env)
   WEIGHTS=$(ls "./$f" | grep .h5)
   WEIGHTS=${f}$WEIGHTS
   DATASET=$(echo $(basename "$f") | cut -f 1-2 -d "_")
