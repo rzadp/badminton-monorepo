@@ -71,10 +71,9 @@ jobs:
           name: Assert artifact exists, chown the log dirs
           command: |
             test -f badminton/training/result.h5
-            sudo chown -R $USER:$USER badminton/training/logs
       - run:
           name: Run testing
-          command: badminton/training/test.sh
+          command: cd badminton/docker && ./test.sh
       - run:
           name: Assert that test results exist
           command: |
