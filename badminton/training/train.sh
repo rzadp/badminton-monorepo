@@ -27,7 +27,7 @@ do
   --case=$CASE \
   2>&1 | $OUTPUT_HANDLER
 
-  # TODO: run detection on $DATASET/test, and save outputs in the logs dir for manual inspection
+  ./training/test.sh
 
   if [[ $NOTIFY_MAIL == true ]] ; then
     echo "Finished training for: $CASE" | mail -s "Badminton training done" roopert7@gmail.com

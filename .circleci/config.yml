@@ -70,6 +70,11 @@ jobs:
       - run:
           name: Assert artifact exists
           command: test -f badminton/training/result.h5
+      - run:
+          name: Assert that test results exist
+          command: |
+            cd badminton/training/logs
+            [ $(ls * | grep .jpg | wc -l) -gt 0 ]
       - persist_to_workspace:
           root: badminton/training
           paths:
