@@ -13,6 +13,8 @@ do
   for DATASET in datasets/*/
   do
     DATASET=$(basename $DATASET)
+    [ $DATASET = "badminton_low" ] && { echo "skipping low before RGB issue is resolved"; continue; }
+    [ -d datasets/$DATASET/test ] || { echo "$DATASET not a dataset wtih test"; continue; }
     echo "Running for dataset $DATASET"
 
     for img in datasets/$DATASET/test/*
