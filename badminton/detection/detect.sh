@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+cd $(dirname $0)
 
 ( [ "$1" = "" ] || [ "$2" = "" ] || [ "$3" = "" ] ) && { 
   echo "Usage: ./detect.sh path/weights.h5 path/input.jpg path/output.png"
