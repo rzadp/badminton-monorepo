@@ -84,7 +84,7 @@ jobs:
           name: Run detection
           command: |
             mv badminton/detection/workspace/result.h5 badminton/detection/weights.h5
-            cd badminton/docker && ./detect.sh
+            cd badminton/docker && ./detect.sh weights.h5 input.jpg output.png
       - run:
           name: Assert artifact exists
           command: cd badminton/detection && ( test -f ./output.jpg || test -f ./output.png )
