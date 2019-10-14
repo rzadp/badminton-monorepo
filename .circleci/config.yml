@@ -68,7 +68,7 @@ jobs:
           name: Run training
           command: cd badminton/docker && ./train.sh
       - run:
-          name: Assert artifact exists, chown the log dirs
+          name: Assert artifact exists
           command: |
             test -f badminton/training/result.h5
       - run:
