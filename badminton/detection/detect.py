@@ -13,13 +13,9 @@ import matplotlib.patches as patches
 import skimage.io
 import argparse
 
-# Root directory of the project
 ROOT_DIR = os.path.abspath("../../Mask_RCNN")
-
-# Directory to save logs and trained model
 MODEL_DIR = os.path.join(ROOT_DIR, "logs")
 
-# Import Mask RCNN
 sys.path.append(ROOT_DIR)  # To find local version of the library
 sys.path.append(os.path.abspath(".."))
 from mrcnn import utils
@@ -28,10 +24,9 @@ from mrcnn.visualize import display_images
 import mrcnn.model as modellib
 from mrcnn.model import log
 
-# %matplotlib inline 
+from detection.detection_config import DetectionConfig
 
-# Local path to trained weights file
-BADMINTON_MODEL_PATH = os.path.abspath("../detection/weights.h5")
+# %matplotlib inline 
 
 parser = argparse.ArgumentParser(
     description='Detection.')
@@ -47,19 +42,11 @@ parser.add_argument('--output', required=True,
 args = parser.parse_args()
 
 
-from detection.detection_config import DetectionConfig
-from datasets.badminton_dataset import BadmintonDataset
-
-
-config = DetectionConfig()
-
-
-model = modellib.MaskRCNN(mode="inference", model_dir=MODEL_DIR, config=config)
+model = modellib.MaskRCNN(mode="inference", model_dir=MODEL_DIR, config=DetectionConfig())
 model.load_weights(args.weights, by_name=True)
 
 
 image = skimage.io.imread(args.input)
-
 results = model.detect([image], verbose=1)
 r = results[0]
 
