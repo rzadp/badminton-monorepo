@@ -68,8 +68,10 @@ jobs:
           name: Run training
           command: cd badminton/docker && ./train.sh
       - run:
-          name: Assert artifact exists
-          command: test -f badminton/training/result.h5
+          name: Assert artifact exists, chown the log dirs
+          command: |
+            test -f badminton/training/result.h5
+            sudo chown -R $USER:$USER badminton/training/logs
       - run:
           name: Run testing
           command: badminton/training/test.sh
