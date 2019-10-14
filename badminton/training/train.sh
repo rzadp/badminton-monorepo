@@ -27,8 +27,6 @@ do
   --case=$CASE \
   2>&1 | $OUTPUT_HANDLER
 
-  ./training/test.sh
-
   if [[ $NOTIFY_MAIL == true ]] ; then
     echo "Finished training for: $CASE" | mail -s "Badminton training done" roopert7@gmail.com
   fi

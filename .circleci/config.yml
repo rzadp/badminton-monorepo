@@ -71,6 +71,9 @@ jobs:
           name: Assert artifact exists
           command: test -f badminton/training/result.h5
       - run:
+          name: Run testing
+          command: badminton/training/test.sh
+      - run:
           name: Assert that test results exist
           command: |
             cd badminton/training/logs
@@ -83,13 +86,6 @@ jobs:
       - run:
           name: Assert artifact exists
           command: cd badminton/detection && ( test -f ./output.jpg || test -f ./output.png )
-  run-detection:
-    executor: machine-classic
-    steps:
-      - checkout-with-submodules
-      - attach_workspace:
-          at: badminton/detection/workspace
-      
 workflows:
   version: 2
   badminton-monorepo:
