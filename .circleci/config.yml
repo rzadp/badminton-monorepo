@@ -78,7 +78,7 @@ jobs:
           name: Assert that test results exist
           command: |
             cd badminton/training/logs
-            [ $(ls * | grep .jpg | wc -l) -gt 0 ]
+            [ $(ls -R ./** | grep .jpg | wc -l) -gt 0 ]
       - run:
           name: Run detection
           command: |
