@@ -4,7 +4,7 @@ set -e
 cd ..
 
 OUTPUT_HANDLER=seashells
-if [[ $CI == true ]] ; then
+if [[ $CI == true ]] || ! command -v seashells ; then
   OUTPUT_HANDLER=cat
 fi
 
