@@ -9,6 +9,8 @@ do
 
   WEIGHTS=$(ls "./$f" | grep .h5)
   WEIGHTS=${f}$WEIGHTS
+  source ${f}$(ls "./$f" | grep .env)
+  echo "Mask size is $MASK_SIZE"
 
   for DATASET in datasets/*/
   do
@@ -24,6 +26,7 @@ do
 
       ./detection/detect.sh \
         $(realpath "$WEIGHTS") \
+        $MASK_SIZE \
         $(realpath "$img") \
         $(realpath "$OUTPUT")
     done

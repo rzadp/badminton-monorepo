@@ -79,14 +79,6 @@ jobs:
           command: |
             cd badminton/training/logs
             [ $(ls -R ./** | grep .jpg | wc -l) -gt 0 ]
-      - run:
-          name: Run detection
-          command: |
-            mv badminton/training/result.h5 badminton/detection/weights.h5
-            cd badminton/docker && ./detect.sh
-      - run:
-          name: Assert artifact exists
-          command: cd badminton/detection && ( test -f ./output.jpg || test -f ./output.png )
 workflows:
   version: 2
   badminton-monorepo:

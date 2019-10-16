@@ -39,10 +39,15 @@ parser.add_argument('--input', required=True,
 parser.add_argument('--output', required=True,
                     metavar="/path/to/image/output/",
                     help='Path to image output')
+parser.add_argument('--mask_size', required=True,
+                    metavar="28/56/..",
+                    help='Mask size for mask shape')
 args = parser.parse_args()
 
+config=DetectionConfig()
+config.MASK_SHAPE = [int(args.mask_size), int(args.mask_size)]
 
-model = modellib.MaskRCNN(mode="inference", model_dir=MODEL_DIR, config=DetectionConfig())
+model = modellib.MaskRCNN(mode="inference", model_dir=MODEL_DIR, config=config)
 model.load_weights(args.weights, by_name=True)
 
 
