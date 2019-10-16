@@ -24,6 +24,3 @@ class BadmintonConfig(Config):
     DETECTION_MIN_CONFIDENCE = 0.9
 
     USE_MINI_MASK = False
-
-    MASK_SHAPE = [28, 28]
-    # MASK_SHAPE = [56, 56]
