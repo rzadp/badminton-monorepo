@@ -102,6 +102,10 @@ if __name__ == '__main__':
                         default="",
                         metavar="example",
                         help='Case name, to identify configuration')
+    parser.add_argument('--mask_size', required=True,
+                        default="",
+                        metavar="28",
+                        help='Mask size, e.g. 28, 56')
     args = parser.parse_args()
 
     # Validate arguments
@@ -115,10 +119,14 @@ if __name__ == '__main__':
     config.STEPS_PER_EPOCH = int(args.steps_per_epoch)
     config.VALIDATION_STEPS = int(args.validation_steps)
     config.NAME = config.NAME + "_" + args.case + "_"
+    config.MASK_SHAPE = [args.mask_size, args.mask_size]
     # config.display()
 
     # Create model
     model = modellib.MaskRCNN(mode="training", config=config, model_dir=args.logs)
+    f = open(model.log_dir + '/' + args.case + '.env', "w+")
+    f.write("MASK_SIZE=" + args.mask_size)
+    f.close()
 
     # Select weights file to load
     if args.weights.lower() == "coco":

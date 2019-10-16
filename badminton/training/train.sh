@@ -25,6 +25,7 @@ do
   --validation_steps=1 \
   --logs=./training/logs \
   --case=$CASE \
+  --mask_size=$MASK_SIZE \
   2>&1 | $OUTPUT_HANDLER
 
   if [[ $NOTIFY_MAIL == true ]] ; then
