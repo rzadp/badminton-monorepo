@@ -14,7 +14,7 @@ do
   source "$f"
   [[ $SKIP == true ]] && continue || echo "Running for case: $CASE"
 
-  python3 ./badminton.py train \
+  python3 -u ./badminton.py train \
   --dataset=./datasets/$DATASET \
   --weights=coco \
   --epochs=$EPOCHS \

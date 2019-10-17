@@ -11,7 +11,7 @@ cd $(dirname $0)
 [ -f "$3" ] || { echo "Input image not found"; exit -1; }
 
 rm -f "$4"
-python3 ./detect.py \
+python3 -u ./detect.py \
   --weights=$1 \
   --mask_size=$2 \
   --input=$3 \
