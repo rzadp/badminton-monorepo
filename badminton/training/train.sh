@@ -4,7 +4,7 @@ set -e
 cd ..
 
 OUTPUT_HANDLER=seashells
-if [[ $CI == true ]] || ! command -v seashells ; then
+if [[ $CI == true ]] || ! command -v seashells || true ; then
   OUTPUT_HANDLER=cat
 fi
 
@@ -29,6 +29,6 @@ do
   [ ${PIPESTATUS[0]} -eq 0 ] && RESULT="SUCCESS" || RESULT="FAIL"
 
   if [[ $NOTIFY_MAIL == true ]] ; then
-    echo "Finished training for: ${CASE}\nResult: ${RESULT}\n" | mail -s "Badminton training done" roopert7@gmail.com
+    echo -e "Finished training for: ${CASE}\nResult: ${RESULT}\n" | mail -s "Badminton training done" roopert7@gmail.com
   fi
 done
