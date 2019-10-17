@@ -14,15 +14,13 @@ do
   source "$f"
   [[ $SKIP == true ]] && continue || echo "Running for case: $CASE"
 
-  # TODO: pass more parameters as .env config
-
   python3 ./badminton.py train \
   --dataset=./datasets/$DATASET \
   --weights=coco \
   --epochs=$EPOCHS \
   --use_multiprocessing=False \
-  --steps_per_epoch=1 \
-  --validation_steps=1 \
+  --steps_per_epoch=$STEPS_PER_EPOCH \
+  --validation_steps=$VALIDATION_STEPS \
   --logs=./training/logs \
   --case=$CASE \
   --mask_size=$MASK_SIZE \
