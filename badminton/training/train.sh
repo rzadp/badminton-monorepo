@@ -26,7 +26,9 @@ do
   --mask_size=$MASK_SIZE \
   2>&1 | $OUTPUT_HANDLER
 
+  [ ${PIPESTATUS[0]} -eq 0 ] && RESULT="SUCCESS" || RESULT="FAIL"
+
   if [[ $NOTIFY_MAIL == true ]] ; then
-    echo "Finished training for: $CASE" | mail -s "Badminton training done" roopert7@gmail.com
+    echo "Finished training for: ${CASE}\nResult: ${RESULT}\n" | mail -s "Badminton training done" roopert7@gmail.com
   fi
 done
