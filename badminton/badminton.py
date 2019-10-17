@@ -17,7 +17,6 @@ ROOT_DIR = os.path.abspath("../Mask_RCNN")
 # Import Mask RCNN
 sys.path.append(ROOT_DIR)  # To find local version of the library
 from mrcnn import model as modellib, utils
-sys.path.append(os.path.abspath(".."))
 from common.badminton_config import BadmintonConfig
 from datasets.badminton_dataset import BadmintonDataset
 
