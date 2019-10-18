@@ -23,7 +23,7 @@ do
   --validation_steps=$VALIDATION_STEPS \
   --logs=./training/logs \
   --case=$CASE \
-  --mask_size=$MASK_SIZE \
+  --MASK_SIZE=$MASK_SIZE \
   2>&1 | $OUTPUT_HANDLER
 
   [ ${PIPESTATUS[0]} -eq 0 ] && RESULT="SUCCESS" || RESULT="FAIL"

@@ -101,7 +101,7 @@ if __name__ == '__main__':
                         default="",
                         metavar="example",
                         help='Case name, to identify configuration')
-    parser.add_argument('--mask_size', required=True,
+    parser.add_argument('--MASK_SIZE', required=True,
                         default="",
                         metavar="28",
                         help='Mask size, e.g. 28, 56')
@@ -118,7 +118,7 @@ if __name__ == '__main__':
     config.STEPS_PER_EPOCH = int(args.steps_per_epoch)
     config.VALIDATION_STEPS = int(args.validation_steps)
     config.NAME = config.NAME + "_" + args.case + "_"
-    config.MASK_SHAPE = [int(args.mask_size), int(args.mask_size)]
+    config.MASK_SHAPE = [int(args.MASK_SIZE), int(args.MASK_SIZE)]
     # config.display()
 
     # Create model
@@ -158,5 +158,5 @@ if __name__ == '__main__':
 
     f = open(model.log_dir + '/' + args.case + '.env', "w+")
     for k in args.__dict__:
-        f.write(str(k) + ': ' + str(args.__dict__[k]) + '\n')
+        f.write(str(k) + '=' + str(args.__dict__[k]) + '\n')
     f.close()
