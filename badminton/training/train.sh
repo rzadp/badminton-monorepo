@@ -15,14 +15,14 @@ do
   [[ $SKIP == true ]] && continue || echo "Running for case: $CASE"
 
   python3 -u ./badminton.py train \
-  --dataset=./datasets/$DATASET \
-  --weights=coco \
-  --epochs=$EPOCHS \
+  --DATASET=./datasets/$DATASET \
+  --WEIGHTS=coco \
+  --EPOCHS=$EPOCHS \
   --use_multiprocessing=False \
   --steps_per_epoch=$STEPS_PER_EPOCH \
   --validation_steps=$VALIDATION_STEPS \
   --logs=./training/logs \
-  --case=$CASE \
+  --CASE=$CASE \
   --MASK_SIZE=$MASK_SIZE \
   2>&1 | $OUTPUT_HANDLER
 

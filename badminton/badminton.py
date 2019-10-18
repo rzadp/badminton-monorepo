@@ -69,13 +69,13 @@ if __name__ == '__main__':
     parser.add_argument("command",
                         metavar="<command>",
                         help="'train'")
-    parser.add_argument('--dataset', required=False,
+    parser.add_argument('--DATASET', required=False,
                         metavar="/path/to/badminton/dataset/",
                         help='Directory of the Badminton dataset')
-    parser.add_argument('--weights', required=True,
+    parser.add_argument('--WEIGHTS', required=True,
                         metavar="/path/to/weights.h5",
                         help="Path to weights .h5 file or 'coco'")
-    parser.add_argument('--epochs', required=True,
+    parser.add_argument('--EPOCHS', required=True,
                         metavar="20",
                         help="Number of epochs")
     parser.add_argument('--steps_per_epoch', required=False,
@@ -97,7 +97,7 @@ if __name__ == '__main__':
                         default=DEFAULT_LOGS_DIR,
                         metavar="/path/to/logs/",
                         help='Logs and checkpoints directory (default=logs/)')
-    parser.add_argument('--case', required=False,
+    parser.add_argument('--CASE', required=False,
                         default="",
                         metavar="example",
                         help='Case name, to identify configuration')
@@ -109,7 +109,7 @@ if __name__ == '__main__':
 
     # Validate arguments
     assert args.command == "train"
-    assert args.dataset, "Argument --dataset is required for training"
+    assert args.DATASET, "Argument --DATASET is required for training"
 
     print("Logs: ", args.logs)
 
@@ -117,7 +117,7 @@ if __name__ == '__main__':
     config = BadmintonConfig()
     config.STEPS_PER_EPOCH = int(args.steps_per_epoch)
     config.VALIDATION_STEPS = int(args.validation_steps)
-    config.NAME = config.NAME + "_" + args.case + "_"
+    config.NAME = config.NAME + "_" + args.CASE + "_"
     config.MASK_SHAPE = [int(args.MASK_SIZE), int(args.MASK_SIZE)]
     # config.display()
 
@@ -125,19 +125,19 @@ if __name__ == '__main__':
     model = modellib.MaskRCNN(mode="training", config=config, model_dir=args.logs)
 
     # Select weights file to load
-    if args.weights.lower() == "coco":
+    if args.WEIGHTS.lower() == "coco":
         weights_path = COCO_WEIGHTS_PATH
         # Download weights file
         if not os.path.exists(weights_path):
             utils.download_trained_weights(weights_path)
-    elif args.weights.lower() == "last":
+    elif args.WEIGHTS.lower() == "last":
         # Find last trained weights
         weights_path = model.find_last()
-    elif args.weights.lower() == "imagenet":
+    elif args.WEIGHTS.lower() == "imagenet":
         # Start from ImageNet trained weights
         weights_path = model.get_imagenet_weights()
     else:
-        weights_path = args.weights
+        weights_path = args.WEIGHTS
 
     # Load weights
     print("Loading weights ", weights_path)
@@ -152,7 +152,7 @@ if __name__ == '__main__':
 
     # Train or evaluate
     start = time.time()
-    train(model, int(args.epochs), args.use_multiprocessing == "True")
+    train(model, int(args.EPOCHS), args.use_multiprocessing == "True")
     end = time.time()
     print("Done. train(model) took " + str(round((end - start) / 60, 1)) + " minutes")
 
