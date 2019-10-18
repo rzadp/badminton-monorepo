@@ -157,5 +157,6 @@ if __name__ == '__main__':
     print("Done. train(model) took " + str(round((end - start) / 60, 1)) + " minutes")
 
     f = open(model.log_dir + '/' + args.case + '.env', "w+")
-    f.write("MASK_SIZE=" + args.mask_size + '\n')
+    for k in args.__dict__:
+        f.write(str(k) + ': ' + str(args.__dict__[k]) + '\n')
     f.close()
