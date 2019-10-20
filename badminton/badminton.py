@@ -117,7 +117,7 @@ if __name__ == '__main__':
     config = BadmintonConfig()
     config.STEPS_PER_EPOCH = int(args.STEPS_PER_EPOCH)
     config.VALIDATION_STEPS = int(args.VALIDATION_STEPS)
-    config.NAME = config.NAME + "_" + args.CASE + "_"
+    config.NAME = args.CASE + "_"
     config.MASK_SHAPE = [int(args.MASK_SIZE), int(args.MASK_SIZE)]
     # config.display()
 
