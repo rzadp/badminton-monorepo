@@ -16,3 +16,4 @@ __pycache__/
 output*.txt
 badminton/training/*.h5
 badminton/detection/*.h5
+badminton/training/cases/*.env

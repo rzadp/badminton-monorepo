@@ -65,6 +65,12 @@ jobs:
     steps:
       - checkout-with-submodules
       - run:
+          name: Prepare cases
+          command: |
+            cd badminton/training/cases
+            cp .env.first_example first_example.env
+            cp .env.second_example second_example.env
+      - run:
           name: Run training
           command: cd badminton/docker && ./train.sh
       - run:
@@ -78,7 +84,7 @@ jobs:
           name: Assert that test results exist
           command: |
             cd badminton/training/logs
-            [ $(ls -R ./** | grep .jpg | wc -l) -gt 0 ]
+            [ $(ls -R ./** | grep .jpg | wc -l) -eq 8 ]
 workflows:
   version: 2
   badminton-monorepo:
