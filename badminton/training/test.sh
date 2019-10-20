@@ -5,21 +5,19 @@ cd ..
 
 for f in training/logs/*/
 do
-  echo -e "\nTesting for $(basename $f)\n\n"
-  
   source ${f}$(ls "./$f" | grep .env)
   WEIGHTS=$(ls "./$f" | grep .h5)
   WEIGHTS=${f}$WEIGHTS
-  echo "Mask size is $MASK_SIZE"
+  echo -e "\n\n ...::: Testing for $(basename $f), mask size is ${MASK_SIZE} :::..."
+  echo -e "weights are ${WEIGHTS}\n\n"
 
   for DS in datasets/*/
   do
     DS=$(basename $DS)
     [ -d datasets/$DS/test ] || { echo "$DS not a dataset wtih test"; continue; }
-    echo "Running for dataset $DS"
-    echo "weights are $WEIGHTS"
+    echo -e "\n\nRunning for dataset ${DS}\n\n"
 
-    for img in datasets/$DS/test/*
+    for img in datasets/$DS/test/*.jpg
     do
       OUTPUT=${f}$(basename $DS)/$(basename $img)
       mkdir ${f}$(basename $DS) && touch $OUTPUT

@@ -7,8 +7,8 @@ cd $(dirname $0)
   exit 1
 }
 
-[ -f "$1" ] || { echo "Weights not found"; exit -1; }
-[ -f "$3" ] || { echo "Input image not found"; exit -1; }
+[ -f "$1" ] || { echo "Weights not found: $1"; exit -1; }
+[ -f "$3" ] || { echo "Input image not found: $3"; exit -1; }
 
 rm -f "$4"
 python3 -u ./detect.py \
