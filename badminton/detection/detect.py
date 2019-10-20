@@ -30,32 +30,32 @@ from detection.detection_config import DetectionConfig
 
 parser = argparse.ArgumentParser(
     description='Detection.')
-parser.add_argument('--weights', required=True,
+parser.add_argument('--WEIGHTS', required=True,
                     metavar="/path/to/weights.h5",
                     help="Path to weights .h5 file")
-parser.add_argument('--input', required=True,
+parser.add_argument('--INPUT', required=True,
                     metavar="/path/to/image/input/",
                     help='Path to image input')
-parser.add_argument('--output', required=True,
+parser.add_argument('--OUTPUT', required=True,
                     metavar="/path/to/image/output/",
                     help='Path to image output')
-parser.add_argument('--mask_size', required=True,
+parser.add_argument('--MASK_SIZE', required=True,
                     metavar="28/56/..",
                     help='Mask size for mask shape')
 args = parser.parse_args()
 
 config=DetectionConfig()
-config.MASK_SHAPE = [int(args.mask_size), int(args.mask_size)]
+config.MASK_SHAPE = [int(args.MASK_SIZE), int(args.MASK_SIZE)]
 
 model = modellib.MaskRCNN(mode="inference", model_dir=MODEL_DIR, config=config)
-model.load_weights(args.weights, by_name=True)
+model.load_weights(args.WEIGHTS, by_name=True)
 
 
-image = skimage.io.imread(args.input)
+image = skimage.io.imread(args.INPUT)
 results = model.detect([image], verbose=1)
 r = results[0]
 
 class_names = ['background', 'badminton']
 plt = visualize.display_instances(image, r['rois'], r['masks'], r['class_ids'], 
                             class_names, r['scores'])
-plt.savefig(args.output, bbox_inches='tight', pad_inches=0, transparent=True)
+plt.savefig(args.OUTPUT, bbox_inches='tight', pad_inches=0, transparent=True)

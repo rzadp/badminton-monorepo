@@ -12,10 +12,10 @@ cd $(dirname $0)
 
 rm -f "$4"
 python3 -u ./detect.py \
-  --weights=$1 \
-  --mask_size=$2 \
-  --input=$3 \
-  --output=$4 \
+  --WEIGHTS=$1 \
+  --MASK_SIZE=$2 \
+  --INPUT=$3 \
+  --OUTPUT=$4 \
 
 [ -f "$4" ] || { echo "Output image not produced"; exit -1; }
 echo "Detection completed."
