@@ -12,18 +12,17 @@ do
   WEIGHTS=${f}$WEIGHTS
   echo "Mask size is $MASK_SIZE"
 
-  for DATASET in datasets/*/
+  for DS in datasets/*/
   do
-    DATASET=$(basename $DATASET)
-    [ $DATASET = "badminton_low" ] && { echo "skipping low before RGB issue is resolved"; continue; }
-    [ -d datasets/$DATASET/test ] || { echo "$DATASET not a dataset wtih test"; continue; }
-    echo "Running for dataset $DATASET"
+    DS=$(basename $DS)
+    [ -d datasets/$DS/test ] || { echo "$DS not a dataset wtih test"; continue; }
+    echo "Running for dataset $DS"
     echo "weights are $WEIGHTS"
 
-    for img in datasets/$DATASET/test/*
+    for img in datasets/$DS/test/*
     do
-      OUTPUT=${f}$(basename $DATASET)/$(basename $img)
-      mkdir ${f}$(basename $DATASET) && touch $OUTPUT
+      OUTPUT=${f}$(basename $DS)/$(basename $img)
+      mkdir ${f}$(basename $DS) && touch $OUTPUT
 
       ./detection/detect.sh \
         $(realpath "$WEIGHTS") \
