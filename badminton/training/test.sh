@@ -6,10 +6,10 @@ cd ..
 for f in training/logs/*/
 do
   echo -e "\nTesting for $(basename $f)\n\n"
-
+  
+  source ${f}$(ls "./$f" | grep .env)
   WEIGHTS=$(ls "./$f" | grep .h5)
   WEIGHTS=${f}$WEIGHTS
-  source ${f}$(ls "./$f" | grep .env)
   echo "Mask size is $MASK_SIZE"
 
   for DATASET in datasets/*/
@@ -18,6 +18,7 @@ do
     [ $DATASET = "badminton_low" ] && { echo "skipping low before RGB issue is resolved"; continue; }
     [ -d datasets/$DATASET/test ] || { echo "$DATASET not a dataset wtih test"; continue; }
     echo "Running for dataset $DATASET"
+    echo "weights are $WEIGHTS"
 
     for img in datasets/$DATASET/test/*
     do

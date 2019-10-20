@@ -16,12 +16,12 @@ do
 
   python3 -u ./badminton.py train \
   --DATASET=./datasets/$DATASET \
-  --WEIGHTS=coco \
+  --STARTING_WEIGHTS=coco \
   --EPOCHS=$EPOCHS \
-  --use_multiprocessing=False \
-  --steps_per_epoch=$STEPS_PER_EPOCH \
-  --validation_steps=$VALIDATION_STEPS \
-  --logs=./training/logs \
+  --USE_MULTIPROCESSING=False \
+  --STEPS_PER_EPOCH=$STEPS_PER_EPOCH \
+  --VALIDATION_STEPS=$VALIDATION_STEPS \
+  --LOGS=./training/logs \
   --CASE=$CASE \
   --MASK_SIZE=$MASK_SIZE \
   2>&1 | $OUTPUT_HANDLER
