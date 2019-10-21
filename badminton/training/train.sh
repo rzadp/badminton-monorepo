@@ -16,7 +16,7 @@ do
 
   python3 -u ./badminton.py train \
   --DATASET=./datasets/$DATASET \
-  --STARTING_WEIGHTS=coco \
+  --STARTING_WEIGHTS=${STARTING_WEIGHTS:-coco} \
   --EPOCHS=$EPOCHS \
   --USE_MULTIPROCESSING=False \
   --STEPS_PER_EPOCH=$STEPS_PER_EPOCH \
