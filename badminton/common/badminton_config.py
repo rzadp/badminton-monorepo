@@ -19,6 +19,3 @@ class BadmintonConfig(Config):
 
     # Number of classes (including background)
     NUM_CLASSES = 1 + 1  # Background + badminton
-
-    # Skip detections with < 90% confidence
-    DETECTION_MIN_CONFIDENCE = 0.9
