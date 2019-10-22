@@ -113,6 +113,14 @@ if __name__ == '__main__':
                         default="",
                         metavar="56",
                         help='Mini mask size, e.g. 56, 112')
+    parser.add_argument('--MAX_GT_INSTANCES', required=True,
+                        default="",
+                        metavar="",
+                        help='')
+    parser.add_argument('--TRAIN_ROIS_PER_IMAGE', required=True,
+                        default="",
+                        metavar="",
+                        help='')
     args = parser.parse_args()
 
     # Validate arguments
@@ -129,6 +137,8 @@ if __name__ == '__main__':
     config.MASK_SHAPE = [int(args.MASK_SIZE), int(args.MASK_SIZE)]
     config.USE_MINI_MASK = str(args.USE_MINI_MASK).lower() == 'true'
     config.MINI_MASK_SHAPE = [int(args.MINI_MASK_SIZE), int(args.MINI_MASK_SIZE)]
+    config.MAX_GT_INSTANCES = int(args.MAX_GT_INSTANCES)
+    config.TRAIN_ROIS_PER_IMAGE = int(args.TRAIN_ROIS_PER_IMAGE)
     # config.display()
 
     # Create model
