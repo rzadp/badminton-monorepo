@@ -1,11 +1,5 @@
-"""
-Mask R-CNN
-Badminton
-"""
-
 from signal import signal, SIGPIPE, SIG_DFL
 signal(SIGPIPE,SIG_DFL) 
-
 import os
 import sys
 import datetime
@@ -40,17 +34,12 @@ def train(model, epochs, use_multiprocessing):
     # COCO trained weights, we don't need to train too long. Also,
     # no need to train all layers, just the heads should do it.
     print("Training network heads")
-    print('config is')
-    config.display()
-    exit()
     model.train(dataset_train, dataset_val,
                 learning_rate=config.LEARNING_RATE,
                 epochs=epochs,
                 use_multiprocessing=use_multiprocessing,
                 layers='heads')
-    #model_path = os.path.join(ROOT_DIR, "samples/badminton/mask_rcnn_badminton.h5")
-    print("Saving weights...")
-    model.keras_model.save_weights("./training/result.h5")
+
     print("Done!")
 
 

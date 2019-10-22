@@ -76,7 +76,8 @@ jobs:
       - run:
           name: Assert artifact exists
           command: |
-            test -f badminton/training/result.h5
+            cd badminton/training/logs
+            [ $(ls -R ./* | grep best.h5 | wc -l) -eq 2 ]
       - run:
           name: Run testing
           command: cd badminton/docker && ./test.sh
