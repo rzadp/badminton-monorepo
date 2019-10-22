@@ -23,11 +23,6 @@ from datasets.badminton_dataset import BadmintonDataset
 # Path to trained weights file
 COCO_WEIGHTS_PATH = os.path.join(ROOT_DIR, "mask_rcnn_coco.h5")
 
-# Directory to save logs and model checkpoints, if not provided
-# through the command line argument --logs
-DEFAULT_LOGS_DIR = os.path.join(ROOT_DIR, "logs")
-
-
 def train(model, epochs, use_multiprocessing):
     """Train the model."""
     # Training dataset.
@@ -45,6 +40,9 @@ def train(model, epochs, use_multiprocessing):
     # COCO trained weights, we don't need to train too long. Also,
     # no need to train all layers, just the heads should do it.
     print("Training network heads")
+    print('config is')
+    config.display()
+    exit()
     model.train(dataset_train, dataset_val,
                 learning_rate=config.LEARNING_RATE,
                 epochs=epochs,
@@ -66,66 +64,21 @@ if __name__ == '__main__':
     # Parse command line arguments
     parser = argparse.ArgumentParser(
         description='Train Mask R-CNN to detect badminton.')
-    parser.add_argument("COMMAND",
-                        metavar="<command>",
-                        help="'train'")
-    parser.add_argument('--DATASET', required=False,
-                        metavar="/path/to/badminton/dataset/",
-                        help='Directory of the Badminton dataset')
-    parser.add_argument('--STARTING_WEIGHTS', required=True,
-                        metavar="/path/to/weights.h5",
-                        help="Path to weights .h5 file or 'coco'")
-    parser.add_argument('--EPOCHS', required=True,
-                        metavar="20",
-                        help="Number of epochs")
-    parser.add_argument('--STEPS_PER_EPOCH', required=False,
-                        default=1000,
-                        metavar="1000",
-                        help="Steps per epoch")
-    parser.add_argument('--VALIDATION_STEPS', required=False,
-                        default=50,
-                        metavar="50",
-                        help="Validation steps")
-    parser.add_argument('--USE_MULTIPROCESSING', required=True,
-                        metavar="False",
-                        help="Should use multiprocessing")
-    parser.add_argument('--VERBOSE', required=False,
-                        default=0,
-                        metavar="0",
-                        help='Verbosity')
-    parser.add_argument('--LOGS', required=False,
-                        default=DEFAULT_LOGS_DIR,
-                        metavar="/path/to/logs/",
-                        help='Logs and checkpoints directory (default=logs/)')
-    parser.add_argument('--CASE', required=False,
-                        default="",
-                        metavar="example",
-                        help='Case name, to identify configuration')
-    parser.add_argument('--MASK_SIZE', required=True,
-                        default="",
-                        metavar="28",
-                        help='Mask size, e.g. 28, 56')
-    parser.add_argument('--USE_MINI_MASK', required=True,
-                        default="",
-                        metavar="false",
-                        help='Whether to use mini mask')
-    parser.add_argument('--MINI_MASK_SIZE', required=True,
-                        default="",
-                        metavar="56",
-                        help='Mini mask size, e.g. 56, 112')
-    parser.add_argument('--MAX_GT_INSTANCES', required=True,
-                        default="",
-                        metavar="",
-                        help='')
-    parser.add_argument('--TRAIN_ROIS_PER_IMAGE', required=True,
-                        default="",
-                        metavar="",
-                        help='')
+    parser.add_argument("COMMAND", required=True)
+    parser.add_argument('--DATASET', required=True)
+    parser.add_argument('--STARTING_WEIGHTS', required=True)
+    parser.add_argument('--EPOCHS', required=True)
+    parser.add_argument('--STEPS_PER_EPOCH', required=True)
+    parser.add_argument('--VALIDATION_STEPS', required=True)
+    parser.add_argument('--USE_MULTIPROCESSING', required=True)
+    parser.add_argument('--LOGS', required=True)
+    parser.add_argument('--CASE', required=True)
+    parser.add_argument('--MASK_SIZE', required=True)
+    parser.add_argument('--USE_MINI_MASK', required=True)
+    parser.add_argument('--MINI_MASK_SIZE', required=True)
+    parser.add_argument('--MAX_GT_INSTANCES', required=True)
+    parser.add_argument('--TRAIN_ROIS_PER_IMAGE', required=True)
     args = parser.parse_args()
-
-    # Validate arguments
-    assert args.COMMAND == "train"
-    assert args.DATASET, "Argument --DATASET is required for training"
 
     print("Logs: ", args.LOGS)
 
@@ -136,6 +89,7 @@ if __name__ == '__main__':
     config.NAME = args.CASE + "_"
     config.MASK_SHAPE = [int(args.MASK_SIZE), int(args.MASK_SIZE)]
     config.USE_MINI_MASK = str(args.USE_MINI_MASK).lower() == 'true'
+    config.USE_MULTIPROCESSING = str(args.USE_MULTIPROCESSING).lower() == 'true'
     config.MINI_MASK_SHAPE = [int(args.MINI_MASK_SIZE), int(args.MINI_MASK_SIZE)]
     config.MAX_GT_INSTANCES = int(args.MAX_GT_INSTANCES)
     config.TRAIN_ROIS_PER_IMAGE = int(args.TRAIN_ROIS_PER_IMAGE)
@@ -172,7 +126,7 @@ if __name__ == '__main__':
 
     # Train or evaluate
     start = time.time()
-    train(model, int(args.EPOCHS), args.USE_MULTIPROCESSING == "True")
+    train(model, int(args.EPOCHS), config.USE_MULTIPROCESSING)
     end = time.time()
     print("Done. train(model) took " + str(round((end - start) / 60, 1)) + " minutes")
 
