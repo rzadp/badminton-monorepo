@@ -24,6 +24,8 @@ do
   --LOGS=./training/logs \
   --CASE=$CASE \
   --MASK_SIZE=$MASK_SIZE \
+  --USE_MINI_MASK=$USE_MINI_MASK \
+  --MINI_MASK_SIZE=$MINI_MASK_SIZE \
   2>&1 | $OUTPUT_HANDLER
 
   [ ${PIPESTATUS[0]} -eq 0 ] && RESULT="SUCCESS" || RESULT="FAIL"

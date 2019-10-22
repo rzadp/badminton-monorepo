@@ -105,6 +105,14 @@ if __name__ == '__main__':
                         default="",
                         metavar="28",
                         help='Mask size, e.g. 28, 56')
+    parser.add_argument('--USE_MINI_MASK', required=True,
+                        default="",
+                        metavar="false",
+                        help='Whether to use mini mask')
+    parser.add_argument('--MINI_MASK_SIZE', required=True,
+                        default="",
+                        metavar="56",
+                        help='Mini mask size, e.g. 56, 112')
     args = parser.parse_args()
 
     # Validate arguments
@@ -119,6 +127,8 @@ if __name__ == '__main__':
     config.VALIDATION_STEPS = int(args.VALIDATION_STEPS)
     config.NAME = args.CASE + "_"
     config.MASK_SHAPE = [int(args.MASK_SIZE), int(args.MASK_SIZE)]
+    config.USE_MINI_MASK = str(args.USE_MINI_MASK).lower() == 'true'
+    config.MINI_MASK_SHAPE = [int(args.MINI_MASK_SIZE), int(args.MINI_MASK_SIZE)]
     # config.display()
 
     # Create model
