@@ -53,7 +53,7 @@ if __name__ == '__main__':
     # Parse command line arguments
     parser = argparse.ArgumentParser(
         description='Train Mask R-CNN to detect badminton.')
-    parser.add_argument("COMMAND", required=True)
+    parser.add_argument("COMMAND")
     parser.add_argument('--DATASET', required=True)
     parser.add_argument('--STARTING_WEIGHTS', required=True)
     parser.add_argument('--EPOCHS', required=True)
@@ -69,6 +69,7 @@ if __name__ == '__main__':
     parser.add_argument('--TRAIN_ROIS_PER_IMAGE', required=True)
     args = parser.parse_args()
 
+    assert args.COMMAND == "train"
     print("Logs: ", args.LOGS)
 
     # Configurations
