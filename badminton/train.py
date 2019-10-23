@@ -18,6 +18,7 @@ from datasets.badminton_dataset import BadmintonDataset
 # Path to trained weights file
 COCO_WEIGHTS_PATH = os.path.join(ROOT_DIR, "mask_rcnn_coco.h5")
 
+
 def train(model, epochs, use_multiprocessing):
     """Train the model."""
     # Training dataset.
@@ -44,14 +45,8 @@ def train(model, epochs, use_multiprocessing):
     print("Done!")
 
 
-############################################################
-#  Training
-############################################################
-
-if __name__ == '__main__':
-    # Parse command line arguments
-    parser = argparse.ArgumentParser(
-        description='Train Mask R-CNN to detect badminton.')
+def parse_args():
+    parser = argparse.ArgumentParser(description='Train Mask R-CNN to detect badminton.')
     parser.add_argument('--DATASET', required=True)
     parser.add_argument('--STARTING_WEIGHTS', required=True)
     parser.add_argument('--EPOCHS', required=True)
@@ -67,9 +62,10 @@ if __name__ == '__main__':
     parser.add_argument('--TRAIN_ROIS_PER_IMAGE', required=True)
     args = parser.parse_args()
     print("Logs: ", args.LOGS)
+    return args
 
 
-    # Configurations
+def prepare_config():
     config = BadmintonConfig()
     config.STEPS_PER_EPOCH = int(args.STEPS_PER_EPOCH)
     config.VALIDATION_STEPS = int(args.VALIDATION_STEPS)
@@ -80,34 +76,38 @@ if __name__ == '__main__':
     config.MINI_MASK_SHAPE = [int(args.MINI_MASK_SIZE), int(args.MINI_MASK_SIZE)]
     config.MAX_GT_INSTANCES = int(args.MAX_GT_INSTANCES)
     config.TRAIN_ROIS_PER_IMAGE = int(args.TRAIN_ROIS_PER_IMAGE)
-    # config.display()
+    return config
+    
 
-
-    # Create model
-    model = modellib.MaskRCNN(mode="training", config=config, model_dir=args.LOGS)
-
-
-    # Select weights file to load
+def select_weights():
     if args.STARTING_WEIGHTS.lower() == "coco":
         weights_path = COCO_WEIGHTS_PATH
-        # Download weights file
         if not os.path.exists(weights_path):
             utils.download_trained_weights(weights_path)
+        return weights_path
     elif args.STARTING_WEIGHTS.lower() == "last":
         # Find last trained weights
-        weights_path = model.find_last()
+        return model.find_last()
     elif args.STARTING_WEIGHTS.lower() == "imagenet":
         # Start from ImageNet trained weights
-        weights_path = model.get_imagenet_weights()
+        return model.get_imagenet_weights()
     else:
-        weights_path = args.STARTING_WEIGHTS
+        return args.STARTING_WEIGHTS
 
 
-    # Load weights
+############################################################
+#  Training entry point
+############################################################
+
+if __name__ == '__main__':
+    args = parse_args()
+    config = prepare_config()
+    model = modellib.MaskRCNN(mode="training", config=config, model_dir=args.LOGS)
+    weights_path = select_weights()
+
     print("Loading weights ", weights_path)
     if args.STARTING_WEIGHTS.lower() == "coco":
-        # Exclude the last layers because they require a matching
-        # number of classes
+        # Exclude the last layers because they require a matching number of classes
         model.load_weights(weights_path, by_name=True, exclude=[
             "mrcnn_class_logits", "mrcnn_bbox_fc",
             "mrcnn_bbox", "mrcnn_mask"])
