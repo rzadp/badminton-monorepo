@@ -4,6 +4,7 @@ import os
 import sys
 import datetime
 import time
+import argparse
 
 # Root directory of the project
 ROOT_DIR = os.path.abspath("../Mask_RCNN")
@@ -48,8 +49,6 @@ def train(model, epochs, use_multiprocessing):
 ############################################################
 
 if __name__ == '__main__':
-    import argparse
-
     # Parse command line arguments
     parser = argparse.ArgumentParser(
         description='Train Mask R-CNN to detect badminton.')
@@ -67,8 +66,8 @@ if __name__ == '__main__':
     parser.add_argument('--MAX_GT_INSTANCES', required=True)
     parser.add_argument('--TRAIN_ROIS_PER_IMAGE', required=True)
     args = parser.parse_args()
-
     print("Logs: ", args.LOGS)
+
 
     # Configurations
     config = BadmintonConfig()
@@ -83,8 +82,10 @@ if __name__ == '__main__':
     config.TRAIN_ROIS_PER_IMAGE = int(args.TRAIN_ROIS_PER_IMAGE)
     # config.display()
 
+
     # Create model
     model = modellib.MaskRCNN(mode="training", config=config, model_dir=args.LOGS)
+
 
     # Select weights file to load
     if args.STARTING_WEIGHTS.lower() == "coco":
@@ -101,6 +102,7 @@ if __name__ == '__main__':
     else:
         weights_path = args.STARTING_WEIGHTS
 
+
     # Load weights
     print("Loading weights ", weights_path)
     if args.STARTING_WEIGHTS.lower() == "coco":
@@ -112,12 +114,15 @@ if __name__ == '__main__':
     else:
         model.load_weights(weights_path, by_name=True)
 
-    # Train or evaluate
+
+    # Perfrom the training
     start = time.time()
     train(model, int(args.EPOCHS), config.USE_MULTIPROCESSING)
     end = time.time()
     print("Done. train(model) took " + str(round((end - start) / 60, 1)) + " minutes")
 
+
+    # Save args in logs for reference
     f = open(model.log_dir + '/' + args.CASE + '.env', "w+")
     for k in args.__dict__:
         f.write(str(k) + '=' + str(args.__dict__[k]) + '\n')
