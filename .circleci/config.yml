@@ -87,7 +87,6 @@ jobs:
             cd badminton/training/logs
             [ $(ls -R ./** | grep .jpg | wc -l) -eq 8 ]
 workflows:
-  version: 2
   badminton-monorepo:
     jobs:
       - build-js:
