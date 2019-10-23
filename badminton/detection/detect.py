@@ -30,18 +30,10 @@ from detection.detection_config import DetectionConfig
 
 parser = argparse.ArgumentParser(
     description='Detection.')
-parser.add_argument('--WEIGHTS', required=True,
-                    metavar="/path/to/weights.h5",
-                    help="Path to weights .h5 file")
-parser.add_argument('--INPUT', required=True,
-                    metavar="/path/to/image/input/",
-                    help='Path to image input')
-parser.add_argument('--OUTPUT', required=True,
-                    metavar="/path/to/image/output/",
-                    help='Path to image output')
-parser.add_argument('--MASK_SIZE', required=True,
-                    metavar="28/56/..",
-                    help='Mask size for mask shape')
+parser.add_argument('--WEIGHTS', required=True)
+parser.add_argument('--INPUT', required=True)
+parser.add_argument('--OUTPUT', required=True)
+parser.add_argument('--MASK_SIZE', required=True)
 args = parser.parse_args()
 
 config=DetectionConfig()
