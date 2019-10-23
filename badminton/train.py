@@ -73,7 +73,7 @@ def prepare_config():
     config.MASK_SHAPE = [int(args.MASK_SIZE), int(args.MASK_SIZE)]
     config.USE_MINI_MASK = str(args.USE_MINI_MASK).lower() == 'true'
     config.USE_MULTIPROCESSING = str(args.USE_MULTIPROCESSING).lower() == 'true'
-    config.MINI_MASK_SHAPE = [int(args.MINI_MASK_SIZE), int(args.MINI_MASK_SIZE)]
+    config.MINI_MASK_SHAPE = (int(args.MINI_MASK_SIZE), int(args.MINI_MASK_SIZE))
     config.MAX_GT_INSTANCES = int(args.MAX_GT_INSTANCES)
     config.TRAIN_ROIS_PER_IMAGE = int(args.TRAIN_ROIS_PER_IMAGE)
     return config
