@@ -5,7 +5,7 @@ cd ..
 
 OUTPUT_HANDLER=seashells
 if [[ $CI == true ]] || ! command -v seashells || true ; then
-  OUTPUT_HANDLER=cat
+  OUTPUT_HANDLER="tee training/output.txt"
 fi
 
 for f in training/cases/*.env
