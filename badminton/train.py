@@ -40,7 +40,7 @@ def train(model, epochs, use_multiprocessing):
                 learning_rate=config.LEARNING_RATE,
                 epochs=epochs,
                 use_multiprocessing=use_multiprocessing,
-                layers='heads')
+                layers=args.LAYERS)
 
     print("Done!")
 
