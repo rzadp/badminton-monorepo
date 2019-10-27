@@ -60,6 +60,7 @@ def parse_args():
     parser.add_argument('--MINI_MASK_SIZE', required=True)
     parser.add_argument('--MAX_GT_INSTANCES', required=True)
     parser.add_argument('--TRAIN_ROIS_PER_IMAGE', required=True)
+    parser.add_argument('--LAYERS', required=True)
     args = parser.parse_args()
     print("Logs: ", args.LOGS)
     return args
