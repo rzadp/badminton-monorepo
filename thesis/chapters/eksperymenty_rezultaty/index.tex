@@ -1,9 +1,27 @@
 % !TeX root = ../../main.tex
 \chapter{Eksperymenty i rezultaty}
 
+W niniejszym rozdziale przedstawione zostaną wyniki następujących eksperymentów:
+
+\begin{itemize}
+ \item Trening oryginalnej implementacji Mask R-CNN
+ \item Trening zmodyfikowanej implemetacji Mask R-CNN z dokładniejszą maską
+\end{itemize}
+
+Wszystkie treningi korzystają z następującej strategii doboru parametru \textbf{learning\_rate}:
+
+\TODO{explain}
+
 Wyniki przedstawione w niniejszym rozdziale mogą zostać zreprodukowane z pomocą instrukcji~\footnote{\nameref{sec:instrukcja-instalacji}}~\footnote{\nameref{sec:instrukcja-uzytkownika}}.
 
 \section{Wyniki z~użyciem sieci Mask R-CNN}
+
+\begin{tabular}{|r|l|} \hline
+  val\_mask\_rcnn\_loss & xxx \\
+  \hline
+\end{tabular}
+
+\vspace{1cm}
 
 \missingfigure{
   Tu będzie wykres rezultatów \textbf{niezmodyfikowanej} sieci Mask R-CNN \newline
@@ -15,6 +33,10 @@ Wyniki przedstawione w niniejszym rozdziale mogą zostać zreprodukowane z pomoc
 
 \section{Wyniki zmodyfikowanej sieci}
 \label{sec:wyniki_zmodyfikowanej}
+
+%loss - 0.01689
+%val_loss = 0.03299
+%val_mask_rcnn_loss = 0.01562
 
 \missingfigure{
   Tu będzie wykres rezultatów \textbf{zmodyfikowanej} sieci Mask R-CNN \newline
@@ -38,3 +60,6 @@ Praca skupia się na problemie detekcji kortu do badmintona, ale porusza też za
 \\
 
 \TODO{Tu będzie opis zgeneralizowania tytułowego problemu na tenis ziemny}
+
+% // podsumowanie
+% // tabela - podejscie, czas treningu do najlepszego rozwiazania, wynik val_mask_rcnn
