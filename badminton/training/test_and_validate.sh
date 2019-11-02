@@ -28,7 +28,7 @@ do
         $MASK_SIZE \
         $(realpath "$img") \
         $(realpath "$OUTPUT_DETECTION")
-      [ -n "CI" ] && break
+      [ -n "$CI" ] && break
     done
 
     OUTPUT_VALIDATION=${f}$(basename $DS)/validation
