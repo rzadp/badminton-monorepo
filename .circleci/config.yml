@@ -77,15 +77,15 @@ jobs:
           name: Assert artifact exists
           command: |
             cd badminton/training/logs
-            [ $(ls -R ./* | grep best.h5 | wc -l) -eq 2 ]
+            [ $(ls -R ./* | grep best.h5 | wc -l) -gt 0 ]
       - run:
-          name: Run testing
-          command: cd badminton/docker && ./test.sh
+          name: Run testing+validation
+          command: cd badminton/docker && ./test_and_validate.sh
       - run:
           name: Assert that test results exist
           command: |
             cd badminton/training/logs
-            [ $(ls -R ./** | grep .jpg | wc -l) -eq 8 ]
+            [ $(ls -R ./**/**/test | grep .jpg | wc -l) -gt 0 ]
 workflows:
   badminton-monorepo:
     jobs:

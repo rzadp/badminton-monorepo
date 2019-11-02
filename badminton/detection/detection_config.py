@@ -10,3 +10,7 @@ class DetectionConfig(BadmintonConfig):
     DETECTION_MIN_CONFIDENCE = 0.9
 
     USE_MINI_MASK = False
+    IMAGE_RESIZE_MODE = "pad64"
+    IMAGE_MIN_DIM = 640
+    IMAGE_MAX_DIM = 1024
+    IMAGE_MIN_SCALE = None

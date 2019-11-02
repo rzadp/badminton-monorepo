@@ -44,7 +44,7 @@ model.load_weights(args.WEIGHTS, by_name=True)
 
 
 image = skimage.io.imread(args.INPUT)
-results = model.detect([image], verbose=1)
+results = model.detect([image], verbose=0)
 r = results[0]
 
 class_names = ['background', 'badminton']

@@ -2,6 +2,7 @@
 cd $(dirname $0)
 set -e
 cd ..
+export CI=$CI
 
 for f in training/logs/*/
 do
@@ -15,18 +16,27 @@ do
   do
     DS=$(basename $DS)
     [ -d datasets/$DS/test ] || { echo "$DS not a dataset wtih test"; continue; }
+    [ "$DS" = "badminton_high" ] && { echo "Skipping $DS"; continue; }
     echo -e "\n\nRunning for dataset ${DS}\n\n"
 
     for img in datasets/$DS/test/*.jpg
     do
-      OUTPUT=${f}$(basename $DS)/$(basename $img)
-      mkdir ${f}$(basename $DS) && touch $OUTPUT
-
+      OUTPUT_DETECTION=${f}$(basename $DS)/test/$(basename $img)
+      mkdir -p ${f}$(basename $DS)/test && touch $OUTPUT_DETECTION
       ./detection/detect.sh \
         $(realpath "$WEIGHTS") \
         $MASK_SIZE \
         $(realpath "$img") \
-        $(realpath "$OUTPUT")
+        $(realpath "$OUTPUT_DETECTION")
+      [ -n "CI" ] && break
     done
+
+    OUTPUT_VALIDATION=${f}$(basename $DS)/validation
+    mkdir -p "$OUTPUT_VALIDATION"
+    ./detection/validate.sh \
+        $(realpath "$WEIGHTS") \
+        $MASK_SIZE \
+        $(basename $DS) \
+        $(realpath "$OUTPUT_VALIDATION")
   done
 done

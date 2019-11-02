@@ -36,4 +36,5 @@ do
   if [[ $NOTIFY_MAIL == true ]] ; then
     echo -e "Finished training for: ${CASE}\nResult: ${RESULT}\n" | mail -s "Badminton training done" roopert7@gmail.com
   fi
+  [ -n "CI" ] && break
 done
