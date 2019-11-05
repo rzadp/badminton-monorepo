@@ -1,0 +1,47 @@
+% !TeX root = ../../main.tex
+
+\section{Wyniki z~użyciem sieci Mask R-CNN}
+
+\begin{table}[!h]
+	\centering
+	\caption{Wyniki na zbiorze \textit{low}}
+	\vspace{6pt}
+	{\footnotesize
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline \textbackslash & True Positive & False Positive & False Negative & True Negative \\
+      \hline Worst & 2 (40\%) & 3 & 4 & 5 \\
+      \hline Best & 2 & 3 & 4 & 5 \\
+      \hline Median & 2 & 3 & 4 & 5 \\
+      \hline Average & 2 & 3 & 4 & 5 \\
+      \hline
+		\end{tabular}
+	}
+	\vspace{0pt}
+\end{table}
+
+\vspace{1cm}
+
+\begin{table}[!h]
+	\centering
+	\caption{Złożone wyniki \textit{low}}
+	\vspace{6pt}
+	{\footnotesize
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline \textbackslash & Accuracy & Precision & Sensitivity & Specificity \\
+      \hline Worst & 2 (40\%) & 3 & 4 & 5 \\
+      \hline Best & 2 & 3 & 4 & 5 \\
+      \hline Median & 2 & 3 & 4 & 5 \\
+      \hline Average & 2 & 3 & 4 & 5 \\
+      \hline
+		\end{tabular}
+	}
+	\vspace{0pt}
+\end{table}
+
+\missingfigure{
+  Tu będzie wykres rezultatów \textbf{niezmodyfikowanej} sieci Mask R-CNN \newline
+  Oś X: Liczba epok treningowych \newline
+  Oś Y: Poziom błędu na treningowym i na walidacyjnym  \newline
+}
+
+\missingfigure{Tu będzie screenshot ilustrujący problemu ``Falbanek''}
