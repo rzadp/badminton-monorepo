@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 set -e
 cd $(dirname $0)
 NVM_DIR="$HOME/.nvm"
