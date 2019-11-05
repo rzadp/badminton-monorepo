@@ -58,6 +58,7 @@ TNS = []
 sensitivities = []
 specificities = []
 precisions = []
+accuracies = []
 totalPixel = -1
 
 def visualize_mask(image, mask, label):
@@ -100,6 +101,7 @@ with open(args.OUTPUT_PATH + "/" + 'validation.csv', 'w') as csvfile:
         sensitivities.append(TP / (TP + FN))
         specificities.append(TN / (TN + FP))
         precisions.append(TP / (TP + FP))
+        accuracies.append((TP+TN) / (TP+TN+FP+FN))
 
         filewriter.writerow([basename, image.shape[1], image.shape[0], str(TP), str(FP), str(FN), str(TN),
             TP+FP+FN+TN, str(image.shape[1] * image.shape[0])])
@@ -124,6 +126,7 @@ with open(args.OUTPUT_PATH + "/" + 'grouped.csv', 'w') as csvfile:
     filewriter.writerow(['avg sensitivity', round(np.mean(sensitivities), 2)])
     filewriter.writerow(['avg specificity', round(np.mean(specificities), 2)])
     filewriter.writerow(['avg precision', round(np.mean(precisions), 2)])
+    filewriter.writerow(['avg accuracy', round(np.mean(accuracies), 2)])
 
     min = lambda name, arr: filewriter.writerow([
         'min ' + name,
@@ -137,6 +140,7 @@ with open(args.OUTPUT_PATH + "/" + 'grouped.csv', 'w') as csvfile:
     filewriter.writerow(['min sensitivity', round(np.min(sensitivities), 2)])
     filewriter.writerow(['min specificity', round(np.min(specificities), 2)])
     filewriter.writerow(['min precision', round(np.min(precisions), 2)])
+    filewriter.writerow(['min accuracy', round(np.min(accuracies), 2)])
 
     max = lambda name, arr: filewriter.writerow([
         'max ' + name,
@@ -150,6 +154,7 @@ with open(args.OUTPUT_PATH + "/" + 'grouped.csv', 'w') as csvfile:
     filewriter.writerow(['max sensitivity', round(np.max(sensitivities), 2)])
     filewriter.writerow(['max specificity', round(np.max(specificities), 2)])
     filewriter.writerow(['max precision', round(np.max(precisions), 2)])
+    filewriter.writerow(['max accuracy', round(np.max(accuracies), 2)])
 
     median = lambda name, arr: filewriter.writerow([
         'median ' + name,
@@ -163,4 +168,5 @@ with open(args.OUTPUT_PATH + "/" + 'grouped.csv', 'w') as csvfile:
     filewriter.writerow(['median sensitivity', round(np.median(sensitivities), 2)])
     filewriter.writerow(['median specificity', round(np.median(specificities), 2)])
     filewriter.writerow(['median precision', round(np.median(precisions), 2)])
+    filewriter.writerow(['median accuracy', round(np.median(accuracies), 2)])
 csvfile.close()
