@@ -14,12 +14,40 @@ Wszystkie treningi korzystają z następującej strategii doboru parametru \text
 
 Wyniki przedstawione w niniejszym rozdziale mogą zostać zreprodukowane z pomocą instrukcji~\footnote{\nameref{sec:instrukcja-instalacji}}~\footnote{\nameref{sec:instrukcja-uzytkownika}}.
 
+\section{Zbiory danych}
+
+Do przeprowadzenia eksperymentów użyto dwóch zbiorów danych, pozyskanych od firmy ``BLUE''. Jeden zbiór, zwany dalej zbiorem \textit{high} pochodzi z kamer ustawianych ponad kortem. Drugi zbiór, zwany dalej zbiorem \textit{low}, pochodzi z kamer sytuowanych na podłodze, tuż przy liniach kortu.
+
+\begin{figure}[!htb]
+  \minipage{0.45\textwidth}
+    \includegraphics[width=\linewidth]{../badminton/datasets/badminton_high/train/test_court2-00002.png}
+    \caption{Przykładowy obraz ze zbioru danych \textit{high}}
+  \endminipage\hfill
+  \minipage{0.45\textwidth}
+    \includegraphics[width=\linewidth]{../badminton/datasets/badminton_low/train/1564909032792410075.jpg}
+    \caption{Przykładowy obraz ze zbioru danych \textit{low}}
+  \endminipage\hfill
+  \end{figure}
+
 \section{Wyniki z~użyciem sieci Mask R-CNN}
 
-\begin{tabular}{|r|l|} \hline
-  val\_mask\_rcnn\_loss & xxx \\
-  \hline
-\end{tabular}
+\begin{table}[!h]
+	\centering
+	\caption{Wyniki na zbiorze \textit{low}}
+	\vspace{6pt}
+	{\footnotesize
+		\begin{tabular}{|c|c|c|c|c|}
+			\hline \textbackslash & True Positive & False Positive & False Negative & True Negative \\
+      \hline Worst & 2 (40\%) & 3 & 4 & 5 \\
+      \hline Best & 2 & 3 & 4 & 5 \\
+      \hline Median & 2 & 3 & 4 & 5 \\
+      \hline Average & 2 & 3 & 4 & 5 \\
+      \hline
+		\end{tabular}
+	}
+	\vspace{0pt}
+\end{table}
+
 
 \vspace{1cm}
 
