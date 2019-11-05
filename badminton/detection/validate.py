@@ -60,6 +60,12 @@ specificities = []
 precisions = []
 totalPixel = -1
 
+def visualize_mask(image, mask, label):
+    plt = visualize.display_instances(image, r['rois'], mask, r['class_ids'],
+                                class_names, show_bbox=False, captions=[''])
+    plt.savefig(args.OUTPUT_PATH + "/" + label + "_" + basename, bbox_inches='tight', pad_inches=0, transparent=True)
+    plt.close()
+
 with open(args.OUTPUT_PATH + "/" + 'validation.csv', 'w') as csvfile:
     filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
     filewriter.writerow(['Image name', 'Image width', 'Image height', 'TP', 'FP', 'FN', 'TN', 'TP+FP+FN+TN', 'width*height'])
@@ -98,11 +104,8 @@ with open(args.OUTPUT_PATH + "/" + 'validation.csv', 'w') as csvfile:
         filewriter.writerow([basename, image.shape[1], image.shape[0], str(TP), str(FP), str(FN), str(TN),
             TP+FP+FN+TN, str(image.shape[1] * image.shape[0])])
 
-        diff_mask = np.bitwise_xor(gt_mask, result_mask)
-        plt = visualize.display_instances(image, r['rois'], diff_mask, r['class_ids'],
-                                class_names, show_bbox=False)
-        plt.savefig(args.OUTPUT_PATH + "/" + basename, bbox_inches='tight', pad_inches=0, transparent=True)
-        plt.close()
+        visualize_mask(image, np.clip(result_mask - gt_mask, 0, 1), "fp")
+        visualize_mask(image, np.clip(gt_mask - result_mask, 0, 1), "fn")
         if args.CI == 'true': break
 csvfile.close()
 
