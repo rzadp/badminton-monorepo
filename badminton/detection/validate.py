@@ -55,6 +55,10 @@ TPS = []
 FPS = []
 FNS = []
 TNS = []
+sensitivities = []
+specificities = []
+precisions = []
+totalPixel = -1
 
 with open(args.OUTPUT_PATH + "/" + 'validation.csv', 'w') as csvfile:
     filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
@@ -62,6 +66,7 @@ with open(args.OUTPUT_PATH + "/" + 'validation.csv', 'w') as csvfile:
     for image_id in dataset_val.image_ids:
         image, image_meta, gt_class_id, gt_bbox, gt_mask =\
             modellib.load_image_gt(dataset_val, config, image_id, use_mini_mask=False)
+        totalPixel = image.shape[1] * image.shape[0]
         gt_mask = gt_mask.astype(np.int)
         basename = os.path.basename(dataset_val.source_image_link(image_id))
         print(basename)
@@ -86,6 +91,9 @@ with open(args.OUTPUT_PATH + "/" + 'validation.csv', 'w') as csvfile:
         FPS.append(FP)
         FNS.append(FN)
         TNS.append(TN)
+        sensitivities.append(TP / (TP + FN))
+        specificities.append(TN / (TN + FP))
+        precisions.append(TP / (TP + FP))
 
         filewriter.writerow([basename, image.shape[1], image.shape[0], str(TP), str(FP), str(FN), str(TN),
             TP+FP+FN+TN, str(image.shape[1] * image.shape[0])])
@@ -98,8 +106,58 @@ with open(args.OUTPUT_PATH + "/" + 'validation.csv', 'w') as csvfile:
         if args.CI == 'true': break
 csvfile.close()
 
-with open(args.OUTPUT_PATH + "/" + 'averages.csv', 'w') as csvfile:
+with open(args.OUTPUT_PATH + "/" + 'grouped.csv', 'w') as csvfile:
     filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-    filewriter.writerow(['avg TP', 'avg FP', 'avg FN', 'avg TN'])
-    filewriter.writerow([np.mean(TPS), np.mean(FPS), np.mean(FNS), np.mean(TNS)])
+
+    mean = lambda name, arr: filewriter.writerow([
+        'avg ' + name,
+        round(np.mean(arr), 2),
+        str(round(np.mean(arr) / totalPixel * 100, 2)) + "%"
+    ])
+    mean('TP', TPS)
+    mean('FP', FPS)
+    mean('FN', FNS)
+    mean('TN', TNS)
+    filewriter.writerow(['avg sensitivity', round(np.mean(sensitivities), 2)])
+    filewriter.writerow(['avg specificity', round(np.mean(specificities), 2)])
+    filewriter.writerow(['avg precision', round(np.mean(precisions), 2)])
+
+    min = lambda name, arr: filewriter.writerow([
+        'min ' + name,
+        round(np.min(arr), 2),
+        str(round(np.min(arr) / totalPixel * 100, 2)) + "%"
+    ])
+    min('TP', TPS)
+    min('FP', FPS)
+    min('FN', FNS)
+    min('TN', TNS)
+    filewriter.writerow(['min sensitivity', round(np.min(sensitivities), 2)])
+    filewriter.writerow(['min specificity', round(np.min(specificities), 2)])
+    filewriter.writerow(['min precision', round(np.min(precisions), 2)])
+
+    max = lambda name, arr: filewriter.writerow([
+        'max ' + name,
+        round(np.max(arr), 2),
+        str(round(np.max(arr) / totalPixel * 100, 2)) + "%"
+    ])
+    max('TP', TPS)
+    max('FP', FPS)
+    max('FN', FNS)
+    max('TN', TNS)
+    filewriter.writerow(['max sensitivity', round(np.max(sensitivities), 2)])
+    filewriter.writerow(['max specificity', round(np.max(specificities), 2)])
+    filewriter.writerow(['max precision', round(np.max(precisions), 2)])
+
+    median = lambda name, arr: filewriter.writerow([
+        'median ' + name,
+        round(np.median(arr), 2),
+        str(round(np.median(arr) / totalPixel * 100, 2)) + "%"
+    ])
+    median('TP', TPS)
+    median('FP', FPS)
+    median('FN', FNS)
+    median('TN', TNS)
+    filewriter.writerow(['median sensitivity', round(np.median(sensitivities), 2)])
+    filewriter.writerow(['median specificity', round(np.median(specificities), 2)])
+    filewriter.writerow(['median precision', round(np.median(precisions), 2)])
 csvfile.close()
