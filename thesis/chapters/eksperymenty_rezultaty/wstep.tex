@@ -1,14 +1,23 @@
 % !TeX root = ../../main.tex
 
-W niniejszym rozdziale przedstawione zostaną wyniki następujących eksperymentów:
+W niniejszym rozdziale przedstawione zostaną zbiory danych, szczegóły przeprowadzenia treningu oraz wyniki następujących eksperymentów:
 
 \begin{itemize}
- \item Trening oryginalnej implementacji Mask R-CNN
- \item Trening zmodyfikowanej implemetacji Mask R-CNN z dokładniejszą maską
+ \item Trening oryginalnej implementacji Mask R-CNN;
+ \item Trening zmodyfikowanej implemetacji Mask R-CNN z dokładniejszą maską;
+ \item Użycie generatora sztucznych danych;
+ \item Próba generalizacji zagadnienia.
 \end{itemize}
 
-Wszystkie treningi korzystają z następującej strategii doboru parametru \textbf{learning\_rate}:
-
-\TODO{explain}
-
 Wyniki przedstawione w niniejszym rozdziale mogą zostać zreprodukowane z pomocą instrukcji~\footnote{\nameref{sec:instrukcja-instalacji}}~\footnote{\nameref{sec:instrukcja-uzytkownika}}.
+
+\section{Hiperparametry treningu}
+
+Treningi przeprowadzone w ramach niniejszego rozdziału korzystają z następującej strategii doboru współczynnika uczenia (\textit{learning rate}):
+\begin{enumerate}
+  \item Wartość początkowa: 0.001;
+  \item W przypadku braku poprawy skuteczności sieci na zbiorze walidacyjnym w 5 kolejnych epokach treningowych, parametr zmniejsza się pięciokrotnie (ale nie mniej niż wartość minimalna 0.0000001);
+  \item Uczenie przerywane jest w przypadku braku poprawy skuteczności w 30 kolejnych epokach treningowych.
+\end{enumerate}
+
+Próby wskazały na korzystny wpływ zmniejszania parametru w powyższy sposób na ostateczny wynik.
