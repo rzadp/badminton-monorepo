@@ -3,6 +3,8 @@
 \section{Wyniki zmodyfikowanej sieci}
 \label{sec:wyniki_zmodyfikowanej}
 
+Podobnie jak w poprzednim podrozdziale, wyniki sieci przedstawiono jako zestawienie pikseli zakwalifikowanych jako True Positive, False Positive, False Negative lub True Negative.
+
 \begin{table}[!h]
 	\centering
 	\caption{Wyniki na zbiorze \textit{low}}
@@ -25,11 +27,11 @@
 \begin{figure}[!htb]
   \minipage{0.45\textwidth}
     \includegraphics[width=\linewidth]{56_fn_1564911595553287247.jpg}
-    \caption{Poglądowy obraz z zaznaczonym obszarem FN}
+    \caption{Poglądowy obraz z zaznaczonym obszarem False Negative}
   \endminipage\hfill
   \minipage{0.45\textwidth}
     \includegraphics[width=\linewidth]{56_fp_1564953159296706208_5.jpg}
-    \caption{Poglądowy obraz z zaznaczonym obszarem FP}
+    \caption{Poglądowy obraz z zaznaczonym obszarem False Positive}
   \endminipage\hfill
 \end{figure}
 
@@ -37,7 +39,7 @@
 
 \begin{table}[!h]
 	\centering
-	\caption{Złożone wyniki \textit{low}}
+	\caption{Obliczone metryki na zbiorze \textit{low}}
 	\vspace{6pt}
 	{\footnotesize
 		\begin{tabular}{|c|c|c|c|c|}
@@ -51,15 +53,3 @@
 	}
 	\vspace{0pt}
 \end{table}
-
-%loss - 0.01689
-%val_loss = 0.03299
-%val_mask_rcnn_loss = 0.01562
-
-\missingfigure{
-  Tu będzie wykres rezultatów \textbf{zmodyfikowanej} sieci Mask R-CNN \newline
-  Na zbiorze \textbf{bez sztucznych danych}
-}
-
-\missingfigure{Tu będzie screenshot ilustrujący \textbf{rozwiązany} problem ``Falbanek''}
-
