@@ -2,7 +2,10 @@
 \newpage
 \section{Zbiory danych}
 
-Do przeprowadzenia eksperymentów użyto dwóch zbiorów danych, pozyskanych od firmy ``BLUE''. Jeden zbiór, zwany dalej zbiorem \textit{high} pochodzi z kamer ustawianych ponad kortem. Drugi zbiór, zwany dalej zbiorem \textit{low}, pochodzi z kamer sytuowanych na podłodze, tuż przy liniach kortu.
+Do przeprowadzenia eksperymentów użyto dwóch zbiorów danych, w skład których wchodzą między innymi zdjęcia otrzymane od firmy ``BLUE''.
+Jeden zbiór, zwany dalej zbiorem \textit{high} pochodzi z kamer ustawianych ponad kortem.
+Drugi zbiór, zwany dalej zbiorem \textit{low}, pochodzi z kamer sytuowanych na podłodze, tuż przy liniach kortu.
+
 
 \begin{figure}[!htb]
   \minipage{0.45\textwidth}
@@ -15,48 +18,22 @@ Do przeprowadzenia eksperymentów użyto dwóch zbiorów danych, pozyskanych od 
   \endminipage\hfill
 \end{figure}
 
-\vspace{1cm}
+Zbiór danych \textit{high} składa się z obrazów o różnych rozmiarach, i pochodzących z różnych źródeł.
+Zbiór \textit{low} zawiera obrazy pozyskane wyłącznie od firmy ``BLUE'', o rozdzielczości 896x640 pikseli.
+Zbiory podzielone są na podzbiory treningowe, walidacyjne oraz testowe.
 
 \begin{table}[!h]
 	\centering
-	\caption{Szczegóły zbioru \textit{low}}
+	\caption{Liczba obrazów w podziale na poszczególne podzbiory}
 	\vspace{6pt}
 	{\footnotesize
 		\begin{tabular}{|c|c|c|c|}
 			\hline \textbackslash & Podzbiór treningowy & Podzbiór walidacyjny & Podzbiór testowy \\
-      \hline Liczba obrazów & 156 & 51 & 2 \\
+      \hline Zbiór \textit{low} & 156 & 51 & 2 \\
+      \hline Zbiór \textit{high} & 134 & 7 & 2 \\
       \hline
 		\end{tabular}
 	}
 	\vspace{0pt}
 \end{table}
 
-\vspace{1cm}
-
-\begin{table}[!h]
-	\centering
-	\caption{Szczegóły zbioru \textit{high}}
-	\vspace{6pt}
-	{\footnotesize
-		\begin{tabular}{|c|c|c|c|}
-			\hline \textbackslash & Podzbiór treningowy & Podzbiór walidacyjny & Podzbiór testowy \\
-      \hline Liczba obrazów & 134 & 7 & 2 \\
-      \hline
-		\end{tabular}
-	}
-	\vspace{0pt}
-\end{table}
-
-\begin{table}[!h]
-	\centering
-	\caption{Wymiary obrazów w zbiorze \textit{low}}
-	\vspace{6pt}
-	{\footnotesize
-		\begin{tabular}{|c|c|}
-			\hline Szerokość & Wysokość \\
-      \hline 896 & 640 \\
-      \hline
-		\end{tabular}
-	}
-	\vspace{0pt}
-\end{table}
