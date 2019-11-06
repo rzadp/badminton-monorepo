@@ -2,6 +2,32 @@
 \newpage
 \section{Wyniki z~użyciem sieci Mask R-CNN}
 
+Przedstawione dalej wyniki dotyczą zbioru \textit{low}.
+Korzystając z faktu, iż wszystkie obrazy w tym zbiorze są tej samej rozdzielczości 896x640 pikseli, a co za tym idzie każdy składa się z identycznej liczby pikseli w sumie, wynik sieci można w miarodajny sposób porównać między różnymi obrazami licząc poprawnie zidentyfikowane piksele maski. \\
+Dla danego obrazu i przewidzianej przez sieć maski, każdy piksel można zaklasyfikować do jednej z następujących kategorii:
+
+\begin{itemize}
+  \item True Positive - piksel został poprawnie zakwalifikowany jako powierzchnia kortu;
+  \item False Positive - piksel nie wchodzący w powierzchnię kortu został niepoprawnie oznaczony jako powierzchnia kortu;
+  \item False Negative - piksel kortu został niepoprawnie zakwalifikowany jako nie wchodzący w powierzchnię kortu;
+  \item True Negative - piksel został poprawnie zakwalifikowany jako nie wchodzący w powierzchnię kortu.
+\end{itemize}
+
+\begin{figure}[!htb]
+  \minipage{0.45\textwidth}
+    \includegraphics[width=\linewidth]{original_fn_1564911595553287247.jpg}
+    \caption{Poglądowy obraz z zaznaczonym obszarem False Negative}
+  \endminipage\hfill
+  \minipage{0.45\textwidth}
+    \includegraphics[width=\linewidth]{original_fp_1564953159296706208_5.jpg}
+    \caption{Poglądowy obraz z zaznaczonym obszarem False Positive}
+  \endminipage\hfill
+\end{figure}
+
+\newpage
+
+Wyniki powyższej klasyfikacji przedstawiają się następująco. Wartości procentowe odnoszą się do liczby pikseli w sumie na obrazach, czyli 573440 pikseli.
+
 \begin{table}[!h]
 	\centering
 	\caption{Wyniki na zbiorze \textit{low}}
@@ -21,22 +47,20 @@
 
 \vspace{1cm}
 
-\begin{figure}[!htb]
-  \minipage{0.45\textwidth}
-    \includegraphics[width=\linewidth]{original_fn_1564911595553287247.jpg}
-    \caption{Poglądowy obraz z zaznaczonym obszarem FN}
-  \endminipage\hfill
-  \minipage{0.45\textwidth}
-    \includegraphics[width=\linewidth]{original_fp_1564953159296706208_5.jpg}
-    \caption{Poglądowy obraz z zaznaczonym obszarem FP}
-  \endminipage\hfill
-\end{figure}
+Z powyższych wyników można obliczyć następujące metryki:
 
-\vspace{1cm}
+\begin{itemize}
+  \item Accuracy - $ \frac{TP + TN}{TP + TN + FP + FN} $
+  \item Sensitivity - $ \frac{TP}{TP + FN} $
+  \item Specificity - $ \frac{TN}{TN + FP} $
+  \item Precision - $ \frac{TP}{TP + FP} $
+\end{itemize}
+
+Obliczone metryki zostały przedstawione w następującej tabeli:
 
 \begin{table}[!h]
 	\centering
-	\caption{Złożone wyniki \textit{low}}
+	\caption{Obliczone metryki na zbiorze \textit{low}}
 	\vspace{6pt}
 	{\footnotesize
 		\begin{tabular}{|c|c|c|c|c|}
@@ -50,11 +74,3 @@
 	}
 	\vspace{0pt}
 \end{table}
-
-\missingfigure{
-  Tu będzie wykres rezultatów \textbf{niezmodyfikowanej} sieci Mask R-CNN \newline
-  Oś X: Liczba epok treningowych \newline
-  Oś Y: Poziom błędu na treningowym i na walidacyjnym  \newline
-}
-
-\missingfigure{Tu będzie screenshot ilustrujący problemu ``Falbanek''}
