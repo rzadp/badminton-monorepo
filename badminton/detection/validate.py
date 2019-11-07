@@ -64,7 +64,7 @@ totalPixel = -1
 
 def visualize_mask(image, mask, label):
     plt = visualize.display_instances(image, r['rois'], mask, r['class_ids'],
-                                class_names, show_bbox=False, captions=['']*10)
+                                class_names, show_bbox=False, captions=['']*100)
     plt.savefig(args.OUTPUT_PATH + "/" + label + "_" + basename, bbox_inches='tight', pad_inches=0, transparent=True)
     plt.close()
 
