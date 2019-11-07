@@ -24,7 +24,7 @@
       "filepath":{
 
       },
-      "default_filepath":"/Users/przemek/Projects/badminton-monorepo/badminton/datasets/badminton_low/val"
+      "default_filepath":"/Users/przemek/Projects/badminton-monorepo/badminton/datasets/low/val"
     },
     "project":{
       "name":"via_region_data"

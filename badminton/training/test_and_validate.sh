@@ -16,7 +16,7 @@ do
   do
     DS=$(basename $DS)
     [ -d datasets/$DS/test ] || { echo "$DS not a dataset wtih test"; continue; }
-    [ "$DS" = "badminton_high" ] && { echo "Skipping $DS"; continue; }
+    [ "$DS" = "high" ] && { echo "Skipping $DS"; continue; }
     echo -e "\n\nRunning for dataset ${DS}\n\n"
 
     for img in datasets/$DS/test/*.jpg
