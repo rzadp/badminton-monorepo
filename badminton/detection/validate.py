@@ -38,6 +38,7 @@ parser.add_argument('--DATASET', required=True)
 parser.add_argument('--OUTPUT_PATH', required=True)
 parser.add_argument('--MASK_SIZE', required=True)
 parser.add_argument('--CI', required=False)
+parser.add_argument('--SPLIT_VAL', required=True)
 args = parser.parse_args()
 
 
@@ -45,7 +46,7 @@ config=DetectionConfig()
 config.MASK_SHAPE = [int(args.MASK_SIZE), int(args.MASK_SIZE)]
 
 dataset_val = BadmintonDataset()
-dataset_val.load_badminton("../datasets/" + args.DATASET, "val")
+dataset_val.load_badminton("../datasets/" + args.DATASET, "split", args.SPLIT_VAL)
 dataset_val.prepare()
 
 model = modellib.MaskRCNN(mode="inference", model_dir=MODEL_DIR, config=config)

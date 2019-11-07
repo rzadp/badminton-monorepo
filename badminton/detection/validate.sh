@@ -2,8 +2,8 @@
 set -e
 cd $(dirname $0)
 
-( [ "$1" = "" ] || [ "$2" = "" ] || [ "$3" = "" ] || [ "$4" = "" ] ) && {
-  echo "Usage: ./detect.sh path/weights.h5 mask_size=28/56/.. dataset path/output"
+( [ "$1" = "" ] || [ "$2" = "" ] || [ "$3" = "" ] || [ "$4" = "" ] || [ "$5" = "" ] ) && {
+  echo "Usage: ./detect.sh path/weights.h5 mask_size=28/56/.. dataset path/output split_val"
   exit 1
 }
 
@@ -17,5 +17,6 @@ python3 -u ./validate.py \
   --DATASET=$3 \
   --OUTPUT_PATH=$4 \
   --CI=$CI
+  --SPLIT_VAL=$5
 
 echo "Validation completed."

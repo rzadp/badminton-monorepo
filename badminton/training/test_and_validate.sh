@@ -37,6 +37,7 @@ do
         $(realpath "$WEIGHTS") \
         $MASK_SIZE \
         $(basename $DS) \
-        $(realpath "$OUTPUT_VALIDATION")
+        $(realpath "$OUTPUT_VALIDATION") \
+        $SPLIT_VAL
   done
 done
