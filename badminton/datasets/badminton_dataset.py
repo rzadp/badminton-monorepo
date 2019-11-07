@@ -44,10 +44,10 @@ class BadmintonDataset(utils.Dataset):
         annotations = [a for a in annotations if a['regions']]
         if subset == "split":
             if take < 0:
-                print('Taking ' + take + 'last items')
+                print('Taking ' + str(take) + ' last items')
                 annotations = annotations[take:]
             elif take > 0:
-                print('Taking ' + take + 'first items')
+                print('Taking ' + str(take) + ' first items')
                 annotations = annotations[:take]
             else:
                 raise Exception('Invalid take')

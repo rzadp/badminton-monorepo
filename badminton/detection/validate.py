@@ -46,7 +46,7 @@ config=DetectionConfig()
 config.MASK_SHAPE = [int(args.MASK_SIZE), int(args.MASK_SIZE)]
 
 dataset_val = BadmintonDataset()
-dataset_val.load_badminton("../datasets/" + args.DATASET, "split", args.SPLIT_VAL)
+dataset_val.load_badminton("../datasets/" + args.DATASET, "split", int(args.SPLIT_VAL))
 dataset_val.prepare()
 
 model = modellib.MaskRCNN(mode="inference", model_dir=MODEL_DIR, config=config)

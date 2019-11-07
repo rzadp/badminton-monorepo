@@ -23,12 +23,12 @@ def train(model, epochs, use_multiprocessing):
     """Train the model."""
     # Training dataset.
     dataset_train = BadmintonDataset()
-    dataset_train.load_badminton(args.DATASET, "split", args.SPLIT_TRAIN)
+    dataset_train.load_badminton(args.DATASET, "split", int(args.SPLIT_TRAIN))
     dataset_train.prepare()
 
     # Validation dataset
     dataset_val = BadmintonDataset()
-    dataset_val.load_badminton(args.DATASET, "split", args.SPLIT_VAL)
+    dataset_val.load_badminton(args.DATASET, "split", int(args.SPLIT_VAL))
     dataset_val.prepare()
 
     # *** This training schedule is an example. Update to your needs ***
