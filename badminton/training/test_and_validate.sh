@@ -38,6 +38,6 @@ do
         $MASK_SIZE \
         $(basename $DS) \
         $(realpath "$OUTPUT_VALIDATION") \
-        $SPLIT_VAL
+        "$SPLIT_VAL"
   done
 done

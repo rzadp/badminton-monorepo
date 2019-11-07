@@ -16,7 +16,7 @@ python3 -u ./validate.py \
   --MASK_SIZE=$2 \
   --DATASET=$3 \
   --OUTPUT_PATH=$4 \
-  --CI=$CI
-  --SPLIT_VAL=$5
+  --CI=$CI \
+  --SPLIT_VAL="$5"
 
 echo "Validation completed."
