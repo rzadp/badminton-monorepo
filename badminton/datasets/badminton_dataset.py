@@ -7,7 +7,7 @@ from mrcnn import utils
 
 class BadmintonDataset(utils.Dataset):
 
-    def load_badminton(self, dataset_dir, subset):
+    def load_badminton(self, dataset_dir, subset, take = 0):
         """Load a subset of the Badminton dataset.
         dataset_dir: Root directory of the dataset.
         subset: Subset to load: train or val
@@ -16,7 +16,7 @@ class BadmintonDataset(utils.Dataset):
         self.add_class("badminton", 1, "badminton")
 
         # Train or validation dataset?
-        assert subset in ["train", "val"]
+        assert subset in ["train", "val", "split"]
         dataset_dir = os.path.join(dataset_dir, subset)
 
         # Load annotations
@@ -42,6 +42,15 @@ class BadmintonDataset(utils.Dataset):
         # The VIA tool saves images in the JSON even if they don't have any
         # annotations. Skip unannotated images.
         annotations = [a for a in annotations if a['regions']]
+        if subset == "split":
+            if take < 0:
+                print('Taking ' + take + 'last items')
+                annotations = annotations[take:]
+            elif take > 0:
+                print('Taking ' + take + 'first items')
+                annotations = annotations[:take]
+            else:
+                raise Exception('Invalid take')
 
         # Add images
         for a in annotations:

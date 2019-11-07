@@ -23,12 +23,12 @@ def train(model, epochs, use_multiprocessing):
     """Train the model."""
     # Training dataset.
     dataset_train = BadmintonDataset()
-    dataset_train.load_badminton(args.DATASET, "train")
+    dataset_train.load_badminton(args.DATASET, "split", args.SPLIT_TRAIN)
     dataset_train.prepare()
 
     # Validation dataset
     dataset_val = BadmintonDataset()
-    dataset_val.load_badminton(args.DATASET, "val")
+    dataset_val.load_badminton(args.DATASET, "split", args.SPLIT_VAL)
     dataset_val.prepare()
 
     # *** This training schedule is an example. Update to your needs ***
@@ -61,6 +61,8 @@ def parse_args():
     parser.add_argument('--MAX_GT_INSTANCES', required=True)
     parser.add_argument('--TRAIN_ROIS_PER_IMAGE', required=True)
     parser.add_argument('--LAYERS', required=True)
+    parser.add_argument('--SPLIT_VAL', required=True)
+    parser.add_argument('--SPLIT_TRAIN', required=True)
     args = parser.parse_args()
     print("Logs: ", args.LOGS)
     return args
