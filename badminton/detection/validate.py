@@ -107,8 +107,8 @@ with open(args.OUTPUT_PATH + "/" + 'validation.csv', 'w') as csvfile:
         filewriter.writerow([basename, image.shape[1], image.shape[0], str(TP), str(FP), str(FN), str(TN),
             TP+FP+FN+TN, str(image.shape[1] * image.shape[0])])
 
-        visualize_mask(image, np.clip(result_mask - gt_mask, 0, 1), "fp")
-        visualize_mask(image, np.clip(gt_mask - result_mask, 0, 1), "fn")
+        # visualize_mask(image, np.clip(result_mask - gt_mask, 0, 1), "fp")
+        # visualize_mask(image, np.clip(gt_mask - result_mask, 0, 1), "fn")
         if args.CI == 'true': break
 csvfile.close()
 
