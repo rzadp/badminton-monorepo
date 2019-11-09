@@ -82,18 +82,27 @@ with open(args.OUTPUT_PATH + "/" + 'validation.csv', 'w') as csvfile:
         results = model.detect([image], verbose=0)
         r = results[0]
         result_mask = r['masks'].astype(np.int)
+        if result_mask.shape[2] == 0:
+            result_mask = np.zeros(gt_mask.shape).astype(np.int)
 
         TP = np.sum(
             np.bitwise_and(gt_mask, result_mask)
         )
         FP = np.sum(
-            np.clip(result_mask - gt_mask, 0, 1)
+            np.clip(
+                np.subtract(result_mask, gt_mask), 0, 1
+        )
         )
         FN = np.sum(
-            np.clip(gt_mask - result_mask, 0, 1)
+            np.clip(
+                np.subtract(gt_mask, result_mask), 0, 1
+            )
         )
+        gt_background = np.subtract(np.ones(gt_mask.shape).astype(np.int), gt_mask)
         TN = np.sum(
-            np.clip(np.ones(gt_mask.shape).astype(np.int) - gt_mask - result_mask, 0, 1)
+            np.clip(
+                np.subtract(gt_background, result_mask), 0, 1
+            )
         )
         TPS.append(TP)
         FPS.append(FP)
@@ -101,7 +110,7 @@ with open(args.OUTPUT_PATH + "/" + 'validation.csv', 'w') as csvfile:
         TNS.append(TN)
         sensitivities.append(TP / (TP + FN))
         specificities.append(TN / (TN + FP))
-        precisions.append(TP / (TP + FP))
+        precisions.append(TP / (TP + FP) if (TP + FP) > 0 else 0.0)
         accuracies.append((TP+TN) / (TP+TN+FP+FN))
 
         filewriter.writerow([basename, image.shape[1], image.shape[0], str(TP), str(FP), str(FN), str(TN),
