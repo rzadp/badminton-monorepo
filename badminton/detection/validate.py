@@ -121,62 +121,40 @@ with open(args.OUTPUT_PATH + "/" + 'validation.csv', 'w') as file:
         if args.CI == 'true': break
 file.close()
 
+def row(title, arrays, aggregation, percentage):
+    result = r'\hline ' + title
+    for arr in arrays:
+        result += ' & ' + str(round(aggregation(arr), 2))
+        if percentage:
+            result += ' ({}\%)'.format(str(round(aggregation(arr) / totalPixel * 100, 2)))
+    return result + r' \\' + '\n'
+
+def mean_row(arrays, percentage):
+    return row('Średnia', arrays, lambda x: np.mean(x), percentage)
+
+def min_row(arrays, percentage):
+    return row('Minimum', arrays, lambda x: np.min(x), percentage)
+
+def max_row(arrays, percentage):
+    return row('Maksimum', arrays, lambda x: np.max(x), percentage)
+
+def median_row(arrays, percentage):
+    return row('Mediana', arrays, lambda x: np.median(x), percentage)
+
 with open(args.OUTPUT_PATH + "/" + 'grouped.csv', 'w') as file:
-    filewriter = csv.writer(file, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+    file.write(r'\hline \textbackslash & True Positive & False Positive & False Negative & True Negative \\'  + '\n')
+    file.write(mean_row([TPS, FPS, FNS, TNS], True))
+    file.write(min_row([TPS, FPS, FNS, TNS], True))
+    file.write(max_row([TPS, FPS, FNS, TNS], True))
+    file.write(median_row([TPS, FPS, FNS, TNS], True))
+    file.write(r'\hline')
+    file.write('\n\n\n')
 
-    mean = lambda name, arr: filewriter.writerow([
-        'avg ' + name,
-        round(np.mean(arr), 2),
-        str(round(np.mean(arr) / totalPixel * 100, 2)) + "%"
-    ])
-    mean('TP', TPS)
-    mean('FP', FPS)
-    mean('FN', FNS)
-    mean('TN', TNS)
-    filewriter.writerow(['avg sensitivity', round(np.mean(sensitivities), 2)])
-    filewriter.writerow(['avg specificity', round(np.mean(specificities), 2)])
-    filewriter.writerow(['avg precision', round(np.mean(precisions), 2)])
-    filewriter.writerow(['avg accuracy', round(np.mean(accuracies), 2)])
-
-    min = lambda name, arr: filewriter.writerow([
-        'min ' + name,
-        round(np.min(arr), 2),
-        str(round(np.min(arr) / totalPixel * 100, 2)) + "%"
-    ])
-    min('TP', TPS)
-    min('FP', FPS)
-    min('FN', FNS)
-    min('TN', TNS)
-    filewriter.writerow(['min sensitivity', round(np.min(sensitivities), 2)])
-    filewriter.writerow(['min specificity', round(np.min(specificities), 2)])
-    filewriter.writerow(['min precision', round(np.min(precisions), 2)])
-    filewriter.writerow(['min accuracy', round(np.min(accuracies), 2)])
-
-    max = lambda name, arr: filewriter.writerow([
-        'max ' + name,
-        round(np.max(arr), 2),
-        str(round(np.max(arr) / totalPixel * 100, 2)) + "%"
-    ])
-    max('TP', TPS)
-    max('FP', FPS)
-    max('FN', FNS)
-    max('TN', TNS)
-    filewriter.writerow(['max sensitivity', round(np.max(sensitivities), 2)])
-    filewriter.writerow(['max specificity', round(np.max(specificities), 2)])
-    filewriter.writerow(['max precision', round(np.max(precisions), 2)])
-    filewriter.writerow(['max accuracy', round(np.max(accuracies), 2)])
-
-    median = lambda name, arr: filewriter.writerow([
-        'median ' + name,
-        round(np.median(arr), 2),
-        str(round(np.median(arr) / totalPixel * 100, 2)) + "%"
-    ])
-    median('TP', TPS)
-    median('FP', FPS)
-    median('FN', FNS)
-    median('TN', TNS)
-    filewriter.writerow(['median sensitivity', round(np.median(sensitivities), 2)])
-    filewriter.writerow(['median specificity', round(np.median(specificities), 2)])
-    filewriter.writerow(['median precision', round(np.median(precisions), 2)])
-    filewriter.writerow(['median accuracy', round(np.median(accuracies), 2)])
+    file.write(r'\hline \textbackslash & Accuracy & Sensitivity & Specificity & Precision \\'  + '\n')
+    file.write(mean_row([accuracies, sensitivities, specificities, precisions], False))
+    file.write(min_row([accuracies, sensitivities, specificities, precisions], False))
+    file.write(max_row([accuracies, sensitivities, specificities, precisions], False))
+    file.write(median_row([accuracies, sensitivities, specificities, precisions], False))
+    file.write(r'\hline')
+    file.write('\n')
 file.close()
