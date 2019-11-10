@@ -83,9 +83,9 @@ with open(args.OUTPUT_PATH + "/" + 'validation.csv', 'w') as file:
         r = results[0]
         result_mask = r['masks'].astype(np.int)
         if result_mask.shape[2] < gt_mask.shape[2]:
-            result_mask.resize(gt_mask.shape)
+            result_mask = np.resize(result_mask, gt_mask.shape)
         if gt_mask.shape[2] < result_mask.shape[2]:
-            gt_mask.resize(result_mask.shape)
+            gt_mask = np.resize(gt_mask, result_mask.shape)
 
         TP = np.sum(
             np.bitwise_and(gt_mask, result_mask)
