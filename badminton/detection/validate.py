@@ -121,40 +121,40 @@ with open(args.OUTPUT_PATH + "/" + 'validation.csv', 'w') as file:
         if args.CI == 'true': break
 file.close()
 
-def row(title, arrays, aggregation, percentage):
+def row(title, arrays, aggregation, percentage, main_format):
     result = r'\hline ' + title
     for arr in arrays:
-        result += ' & ' + str(round(aggregation(arr), 2))
+        result += ' & ' + format(aggregation(arr), main_format)
         if percentage:
-            result += ' ({}\%)'.format(str(round(aggregation(arr) / totalPixel * 100, 2)))
+            result += ' ({}\%)'.format(format(aggregation(arr) / totalPixel * 100, '.1f'))
     return result + r' \\' + '\n'
 
-def mean_row(arrays, percentage):
-    return row('Średnia', arrays, lambda x: np.mean(x), percentage)
+def mean_row(arrays, percentage, main_format):
+    return row('Średnia', arrays, lambda x: np.mean(x), percentage, main_format)
 
-def min_row(arrays, percentage):
-    return row('Minimum', arrays, lambda x: np.min(x), percentage)
+def min_row(arrays, percentage, main_format):
+    return row('Minimum', arrays, lambda x: np.min(x), percentage, main_format)
 
-def max_row(arrays, percentage):
-    return row('Maksimum', arrays, lambda x: np.max(x), percentage)
+def max_row(arrays, percentage, main_format):
+    return row('Maksimum', arrays, lambda x: np.max(x), percentage, main_format)
 
-def median_row(arrays, percentage):
-    return row('Mediana', arrays, lambda x: np.median(x), percentage)
+def median_row(arrays, percentage, main_format):
+    return row('Mediana', arrays, lambda x: np.median(x), percentage, main_format)
 
 with open(args.OUTPUT_PATH + "/" + 'grouped.csv', 'w') as file:
     file.write(r'\hline \textbackslash & True Positive & False Positive & False Negative & True Negative \\'  + '\n')
-    file.write(mean_row([TPS, FPS, FNS, TNS], True))
-    file.write(min_row([TPS, FPS, FNS, TNS], True))
-    file.write(max_row([TPS, FPS, FNS, TNS], True))
-    file.write(median_row([TPS, FPS, FNS, TNS], True))
+    file.write(mean_row([TPS, FPS, FNS, TNS], True, '.0f'))
+    file.write(min_row([TPS, FPS, FNS, TNS], True, '.0f'))
+    file.write(max_row([TPS, FPS, FNS, TNS], True, '.0f'))
+    file.write(median_row([TPS, FPS, FNS, TNS], True, '.0f'))
     file.write(r'\hline')
     file.write('\n\n\n')
 
     file.write(r'\hline \textbackslash & Accuracy & Sensitivity & Specificity & Precision \\'  + '\n')
-    file.write(mean_row([accuracies, sensitivities, specificities, precisions], False))
-    file.write(min_row([accuracies, sensitivities, specificities, precisions], False))
-    file.write(max_row([accuracies, sensitivities, specificities, precisions], False))
-    file.write(median_row([accuracies, sensitivities, specificities, precisions], False))
+    file.write(mean_row([accuracies, sensitivities, specificities, precisions], False, '.3f'))
+    file.write(min_row([accuracies, sensitivities, specificities, precisions], False, '.3f'))
+    file.write(max_row([accuracies, sensitivities, specificities, precisions], False, '.3f'))
+    file.write(median_row([accuracies, sensitivities, specificities, precisions], False, '.3f'))
     file.write(r'\hline')
     file.write('\n')
 file.close()
