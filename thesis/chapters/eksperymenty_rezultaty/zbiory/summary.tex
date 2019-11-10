@@ -44,3 +44,21 @@
         \legend{high na walidacyjnym, high na testowym, low na walidacyjnym, low na testowym}
     \end{axis}
 \end{tikzpicture}
+
+Ostatecznie zbiory zostały podzielone na podzbiory treningowe, walidacyjne oraz testowe w następujący sposób (wraz z porównaniem ze zbiorem COCO \cite{coco}):
+
+\begin{table}[!h]
+	\centering
+	\caption{Liczba obrazów w podziale na poszczególne podzbiory}
+	\vspace{6pt}
+	{\footnotesize
+		\begin{tabular}{|c|c|c|c|}
+			\hline \textbackslash & Podzbiór treningowy & Podzbiór walidacyjny & Podzbiór testowy \\
+      \hline Zbiór \textit{high} & 87 & 10 & 2 \\
+      \hline Zbiór \textit{low} & 186 & 21 & 2 \\
+      \hline Zbiór COCO & ok. 118000 & ok. 5000 & ok. 41000 \\
+      \hline
+		\end{tabular}
+	}
+	\vspace{0pt}
+\end{table}

@@ -38,6 +38,8 @@ Zbiór \textit{low} zawiera obrazy pozyskane wyłącznie od firmy ``BLUE'', o ro
 	\vspace{0pt}
 \end{table}
 
+\TODO{Rozdzielczości, źródła (internet/kamera)}
+
 \newpage
 \subsection{Podział na podzbiory treningowe, walidacyjne i testowe}
 W tym podrozdziale omówiona zostanie strategia podziału zbiorów danych na podzbiory treningowe, walidacyjne i testowe.
@@ -80,23 +82,3 @@ W kolejnych podrozdziałach przedstawiono rezultaty sieci trenowanej z użyciem 
 \subimport{}{lowsplitc}
 \subimport{}{lowsplitd}
 \subimport{}{summary}
-
-\newpage
-Zbiory podzielone są na podzbiory treningowe, walidacyjne oraz testowe w następujący sposób (wraz z porównaniem ze zbiorem COCO \cite{coco}):
-
-\begin{table}[!h]
-	\centering
-	\caption{Liczba obrazów w podziale na poszczególne podzbiory}
-	\vspace{6pt}
-	{\footnotesize
-		\begin{tabular}{|c|c|c|c|}
-			\hline \textbackslash & Podzbiór treningowy & Podzbiór walidacyjny & Podzbiór testowy \\
-      \hline Zbiór \textit{low} & 156 & 51 & 2 \\
-      \hline Zbiór \textit{high} & 134 & 7 & 2 \\
-      \hline Zbiór COCO & ok. 118000 & ok. 5000 & ok. 41000 \\
-      \hline
-		\end{tabular}
-	}
-	\vspace{0pt}
-\end{table}
-
