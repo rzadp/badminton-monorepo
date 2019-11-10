@@ -82,8 +82,10 @@ with open(args.OUTPUT_PATH + "/" + 'validation.csv', 'w') as file:
         results = model.detect([image], verbose=0)
         r = results[0]
         result_mask = r['masks'].astype(np.int)
-        if result_mask.shape[2] == 0:
-            result_mask = np.zeros(gt_mask.shape).astype(np.int)
+        if result_mask.shape[2] < gt_mask.shape[2]:
+            result_mask.resize(gt_mask.shape)
+        if gt_mask.shape[2] < result_mask.shape[2]:
+            gt_mask.resize(result_mask.shape)
 
         TP = np.sum(
             np.bitwise_and(gt_mask, result_mask)
@@ -115,6 +117,7 @@ with open(args.OUTPUT_PATH + "/" + 'validation.csv', 'w') as file:
 
         filewriter.writerow([basename, image.shape[1], image.shape[0], str(TP), str(FP), str(FN), str(TN),
             TP+FP+FN+TN, str(image.shape[1] * image.shape[0])])
+        assert TP+FP+FN+TN == image.shape[1] * image.shape[0]
 
         # visualize_mask(image, np.clip(result_mask - gt_mask, 0, 1), "fp")
         # visualize_mask(image, np.clip(gt_mask - result_mask, 0, 1), "fn")
