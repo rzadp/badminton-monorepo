@@ -1,0 +1,46 @@
+% !TeX root = ../../main.tex
+\newpage
+\subsubsection{summary}
+
+\pgfplotstableread[row sep=\\,col sep=&]{
+  split & high-val & high-test & low-val & low-test \\
+  ~95:5 & 0.988 & 0.977 & 0.969 & 0.953 \\
+  ~90:10 & 0.970 & 0.980 & 0.966 & 0.961 \\
+  ~75:25 & 0.967 & 0.977 & 0.962 & 0.943 \\
+  ~50:50 & 0.950 & 0.977 & 0.958 & 0.950 \\
+}\splitsummarydata
+
+% pgfplotsset{ticklabel style={/pgf/number format/precision=4}, tick scale binop={\times}}
+
+\begin{tikzpicture}
+    \begin{axis}[
+            % ybar,
+            % bar width=.8cm,
+            width=0.85\textwidth,
+            height=1.0\textwidth,
+            legend style={at={(0.5,0.05)},
+                anchor=south,legend columns=2},
+            symbolic x coords={~95:5,~90:10,~75:25,~50:50},
+            xtick=data,
+            nodes near coords,
+            nodes near coords align={vertical},
+            ymin=0.92,ymax=1,
+            ylabel={Średnia accuracy},
+            y label style={at={(-0.05,0.5)}},
+            ticklabel style={/pgf/number format/precision=3},
+            /pgf/number format/.cd,fixed,precision=3,
+            y tick label style={
+              /pgf/number format/.cd,
+                  fixed,
+                  fixed zerofill,
+                  precision=3,
+              /tikz/.cd
+            },
+        ]
+        \addplot table[x=split,y=high-val]{\splitsummarydata};
+        \addplot table[x=split,y=high-test]{\splitsummarydata};
+        \addplot table[x=split,y=low-val]{\splitsummarydata};
+        \addplot table[x=split,y=low-test]{\splitsummarydata};
+        \legend{high na walidacyjnym, high na testowym, low na walidacyjnym, low na testowym}
+    \end{axis}
+\end{tikzpicture}
