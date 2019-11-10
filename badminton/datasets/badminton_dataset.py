@@ -38,6 +38,7 @@ class BadmintonDataset(utils.Dataset):
         annotations = json.load(open(os.path.join(dataset_dir, "via_region_data.json")))
         annotations = annotations["_via_img_metadata"]
         annotations = list(annotations.values())  # don't need the dict keys
+        annotations = sorted(annotations, key = lambda x: x['filename'])
 
         # The VIA tool saves images in the JSON even if they don't have any
         # annotations. Skip unannotated images.
