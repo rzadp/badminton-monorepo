@@ -87,23 +87,23 @@ with open(args.OUTPUT_PATH + "/" + 'validation.csv', 'w') as csvfile:
 
         TP = np.sum(
             np.bitwise_and(gt_mask, result_mask)
-        )
+        ) / gt_mask.shape[2]
         FP = np.sum(
             np.clip(
                 np.subtract(result_mask, gt_mask), 0, 1
         )
-        )
+        ) / gt_mask.shape[2]
         FN = np.sum(
             np.clip(
                 np.subtract(gt_mask, result_mask), 0, 1
             )
-        )
+        ) / gt_mask.shape[2]
         gt_background = np.subtract(np.ones(gt_mask.shape).astype(np.int), gt_mask)
         TN = np.sum(
             np.clip(
                 np.subtract(gt_background, result_mask), 0, 1
             )
-        )
+        ) / gt_mask.shape[2]
         TPS.append(TP)
         FPS.append(FP)
         FNS.append(FN)
