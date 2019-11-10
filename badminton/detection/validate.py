@@ -133,7 +133,7 @@ def row(title, arrays, aggregation, percentage, main_format):
     return result + r' \\' + '\n'
 
 def mean_row(arrays, percentage, main_format):
-    return row('Średnia', arrays, lambda x: np.mean(x), percentage, main_format)
+    return row('Średnia' if not args.CI else 'Srednia', arrays, lambda x: np.mean(x), percentage, main_format)
 
 def min_row(arrays, percentage, main_format):
     return row('Minimum', arrays, lambda x: np.min(x), percentage, main_format)
