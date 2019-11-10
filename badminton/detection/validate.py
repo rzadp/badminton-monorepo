@@ -68,8 +68,8 @@ def visualize_mask(image, mask, label):
     plt.savefig(args.OUTPUT_PATH + "/" + label + "_" + basename, bbox_inches='tight', pad_inches=0, transparent=True)
     plt.close()
 
-with open(args.OUTPUT_PATH + "/" + 'validation.csv', 'w') as csvfile:
-    filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+with open(args.OUTPUT_PATH + "/" + 'validation.csv', 'w') as file:
+    filewriter = csv.writer(file, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
     filewriter.writerow(['Image name', 'Image width', 'Image height', 'TP', 'FP', 'FN', 'TN', 'TP+FP+FN+TN', 'width*height'])
     for image_id in dataset_val.image_ids:
         image, image_meta, gt_class_id, gt_bbox, gt_mask =\
@@ -119,10 +119,10 @@ with open(args.OUTPUT_PATH + "/" + 'validation.csv', 'w') as csvfile:
         # visualize_mask(image, np.clip(result_mask - gt_mask, 0, 1), "fp")
         # visualize_mask(image, np.clip(gt_mask - result_mask, 0, 1), "fn")
         if args.CI == 'true': break
-csvfile.close()
+file.close()
 
-with open(args.OUTPUT_PATH + "/" + 'grouped.csv', 'w') as csvfile:
-    filewriter = csv.writer(csvfile, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
+with open(args.OUTPUT_PATH + "/" + 'grouped.csv', 'w') as file:
+    filewriter = csv.writer(file, delimiter=',', quotechar='|', quoting=csv.QUOTE_MINIMAL)
 
     mean = lambda name, arr: filewriter.writerow([
         'avg ' + name,
@@ -179,4 +179,4 @@ with open(args.OUTPUT_PATH + "/" + 'grouped.csv', 'w') as csvfile:
     filewriter.writerow(['median specificity', round(np.median(specificities), 2)])
     filewriter.writerow(['median precision', round(np.median(precisions), 2)])
     filewriter.writerow(['median accuracy', round(np.median(accuracies), 2)])
-csvfile.close()
+file.close()
