@@ -3,6 +3,7 @@
 *.log
 *.lot
 *.gz
+*(busy)
 *.toc
 *.pdf
 *.out
