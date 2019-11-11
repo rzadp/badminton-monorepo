@@ -1,0 +1,35 @@
+graph LR
+
+%% ...::: NODES :::...
+
+input[Obraz]
+cnn(CNN)
+feature_map[Mapa Cech]
+rpn(Regiony)
+roi(RoI Pooling)
+
+clas(Klasa)
+bounding_box(Obwódka)
+mask(Maska)
+
+%% ...::: STYLING :::...
+
+%% style input fill:#bddaff,stroke:#4294ff
+style cnn fill:#9df
+style feature_map fill:#9df
+style rpn fill:#9df
+style roi fill:#9df
+
+%% ...::: FLOWS :::...
+
+input-->cnn
+cnn-->feature_map
+feature_map-->rpn
+
+feature_map-.->roi
+rpn-->roi
+subgraph dla danego regionu
+  roi-->clas
+  roi-->bounding_box
+  roi-->mask
+end
