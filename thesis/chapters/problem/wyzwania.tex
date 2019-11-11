@@ -1,0 +1,34 @@
+% !TeX root = ../../main.tex
+\subsection{Wyzwania}
+
+W rozwiązaniu zagadnienia detekcji kortów przy użyciu sieci neuronowych problem stanowią:
+
+\begin{itemize}
+  \item Ekspozycja kortu
+  \item Zbiór treningowy
+  \item Czas treningu
+\end{itemize}
+
+Poniżej szczegółowe wyjaśnienie.
+
+\subsection*{Ekspozycja kortu}
+
+Podczas gry, kort nigdy nie jest wyeksponowany całkowicie - przesłaniają go gracze, słupki, siatka, sędzia wraz z~jego stanowiskiem, lotka w ruchu.
+Dodatkowo w przypadku użycia klatek z~transmisji telewizyjnych, często w postprodukcji na obszar kortu nałożona jest reklama czy logo organizatora meczu.
+Rozwiązanie musi być odporne na takie artefakty.
+
+\subsection*{Zbiór treningowy}
+
+Wytrenowanie sieci neuronowej dla złożonych zadań wymaga dużej liczby rekordów w zbiorze treningowym, aby uzyskać satysfakcjonujące wyniki.
+Trening sieci wykrywającej kort prawdopodobnie wymagałby setek lub tysięcy zdjęć treningowych.
+Przygotowanie tak licznego zbioru jest problematyczne, ze względu na to że:
+
+\begin{itemize}
+	\item brakuje ogólnodostępnych baz z takimi danymi;
+	\item firma posiada dane z jednej lokalizacji, a to jest niewystarczające, ponieważ lokalizacje różnią się miedzy sobą odległością między kortami, kolorem podłogi i kolorem samego kortu, siatką czy wyglądem stanowiska sędziowskiego.
+\end{itemize}
+
+\subsection*{Czas treningu}
+
+Trening dużej sieci neuronowej przy użyciu jednej karty GPU potrafi zająć dziesiątki godzin.
+Jest to duża przeszkoda w eksprymentach z~różnymi zbiorami treningowymi, hiperparametrami czy zmianami architektury sieci.
