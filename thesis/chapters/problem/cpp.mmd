@@ -1,0 +1,29 @@
+graph TD
+
+%% ...::: NODES :::...
+
+input[Obraz wejściowy]
+blur(Rozmazanie)
+edges(Wykrycie krawędzi)
+line_edges(Wykrycie odcinków)
+line_extend(Wydłużenie odcinków)
+remove_degraded(Usunięcie zdegradowanych odcinków)
+best_perspective(Wybranie najlepszej perspektywy)
+detect_vertical(Wskazanie pionowych linii kortu)
+detect_horizontal(Wskazanie poziomych linii kortu)
+court[Wykryty kort]
+
+%% ...::: STYLING :::...
+
+%% ...::: FLOWS :::...
+
+input-->blur
+blur-->edges
+edges-->line_edges
+line_edges-->line_extend
+line_extend-->remove_degraded
+remove_degraded-->best_perspective
+best_perspective-->detect_vertical
+best_perspective-->detect_horizontal
+detect_vertical-->court
+detect_horizontal-->court

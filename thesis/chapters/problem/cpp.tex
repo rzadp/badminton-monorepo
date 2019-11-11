@@ -1,6 +1,26 @@
 % !TeX root = ../../main.tex
 \subsection{Algorytmiczna detekcja obszaru kortu}
 
-Skuteczność podejścia, według miary skuteczności \textit{Accuracy} zaproponowanej w rozdziale \myrefx{sec:miary}, wynosi \textbf{0.9697}.
+Skuteczność podejścia, według miary skuteczności \textit{Accuracy} zaproponowanej w rozdziale \myrefx{sec:miary}, wynosi średnio \textbf{0.9697}.
 
-Wysokopoziomy opis algorytmu został zebrany w następujących podpunktach. 
+Wysokopoziomy opis algorytmu został zebrany w następujących podpunktach. Schemat blokowy algorytmu przedstawiony jest na Rysunku \myfigref{fig:algcpp}.
+
+\begin{itemize}
+  \item Rozmazanie obrazu wejściowego
+  \item Wykrycie krawędzi
+  \item Wykrycie odcinków na podstawie krawędzi
+  \item Wydłużenie odcinków
+  \item Usunięcie zdegradowanych odcinków
+  \item Wybranie najlepszej perspektywy
+  \item Wskazanie pionowych i poziomych linii kortu
+  \item Wskazanie kortu na obrazie
+\end{itemize}
+
+Rozwiązanie okazuje się niewystarczające na potrzeby firmy \blue, ze względu na to iż w niektórych przypadkach kort nie zostaje wykryty wcale.
+
+\begin{figure}[h]
+  \centering
+  \caption{Schemat algorytmu C++}
+  \includegraphics[width=0.5\textwidth]{cpp.png}
+  \label{fig:algcpp}
+\end{figure}
