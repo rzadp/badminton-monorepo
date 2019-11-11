@@ -2,6 +2,8 @@
 \newpage
 \subsubsection{Podsumowanie eksperymentów z podziałami zbiorów danych}
 
+Podsumowując rezultaty uzyskane w poprzednich podrozdziałach, wyniki przedstawiono na wykresie.
+
 \pgfplotstableread[row sep=\\,col sep=&]{
   split & high-val & high-test & low-val & low-test \\
   ~95:5 & 0.988 & 0.977 & 0.969 & 0.953 \\
@@ -45,7 +47,7 @@
     \end{axis}
 \end{tikzpicture}
 
-Ostatecznie zbiory zostały podzielone na podzbiory treningowe, walidacyjne oraz testowe w następujący sposób (wraz z porównaniem ze zbiorem COCO \cite{coco}):
+Ostatecznie zbiory zostały podzielone na podzbiory treningowe, walidacyjne oraz testowe w następujący sposób:
 
 \begin{table}[!h]
 	\centering
@@ -56,7 +58,6 @@ Ostatecznie zbiory zostały podzielone na podzbiory treningowe, walidacyjne oraz
 			\hline \textbackslash & Podzbiór treningowy & Podzbiór walidacyjny & Podzbiór testowy \\
       \hline Zbiór \textit{high} & 87 & 10 & 2 \\
       \hline Zbiór \textit{low} & 186 & 21 & 2 \\
-      \hline Zbiór COCO & ok. 118000 & ok. 5000 & ok. 41000 \\
       \hline
 		\end{tabular}
 	}
