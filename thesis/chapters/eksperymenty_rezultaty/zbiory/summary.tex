@@ -1,8 +1,9 @@
 % !TeX root = ../../main.tex
-\newpage
 \subsubsection{Podsumowanie eksperymentów z podziałami zbiorów danych}
 
 Podsumowując rezultaty uzyskane w poprzednich podrozdziałach, wyniki przedstawiono na wykresie.
+Większy stosunek podzbioru treningowego do podzbioru walidacyjnego daje spodziewany wyższy wynik mierzony na podzbiorze walidacyjnym, ale niekoniecznie powoduje wyższy wynik na podzbiorze testowym.
+Dla obu zbiorów najwyższy wynik na podzbiorze testowym został uzyskany w przypadku podział podzbioru treningowego i walidacyjnego w stosunku odpowiednio 90 do 10, dlatego też zbiory danych zostały podzielone w takim stosunku.
 
 \pgfplotstableread[row sep=\\,col sep=&]{
   split & high-val & high-test & low-val & low-test \\
@@ -12,14 +13,14 @@ Podsumowując rezultaty uzyskane w poprzednich podrozdziałach, wyniki przedstaw
   ~50:50 & 0.950 & 0.977 & 0.958 & 0.950 \\
 }\splitsummarydata
 
-% pgfplotsset{ticklabel style={/pgf/number format/precision=4}, tick scale binop={\times}}
+\vspace{0.5cm}
 
 \begin{tikzpicture}
     \begin{axis}[
             % ybar,
             % bar width=.8cm,
             width=0.85\textwidth,
-            height=1.0\textwidth,
+            height=0.85\textwidth,
             legend style={at={(0.5,0.05)},
                 anchor=south,legend columns=2},
             symbolic x coords={~95:5,~90:10,~75:25,~50:50},
@@ -47,7 +48,7 @@ Podsumowując rezultaty uzyskane w poprzednich podrozdziałach, wyniki przedstaw
     \end{axis}
 \end{tikzpicture}
 
-Ostatecznie zbiory zostały podzielone na podzbiory treningowe, walidacyjne oraz testowe w następujący sposób:
+Liczbowy podział zbiorów na podzbiory treningowe, walidacyjne oraz testowe przedstawia nastepująca tabela:
 
 \begin{table}[!h]
 	\centering
