@@ -2,54 +2,6 @@
 \chapter{Podejście do problemu}
 
 \subimport{mask_r-cnn/}{index}
-
-\newpage
-\section{Zaproponowana architektura sieci}
-\label{sec:zaproponowana_architektura}
-
-Ze względu na to, iż niewystarczająco dokładne wykrycie kortu może niekorzystnie wpływać na punktację meczy, oraz ze względu na fakt iż oprogramowanie może być uruchamiane na przenośnych komputerach, w ramach niniejszej pracy implementacja Mask R-CNN została zmodyfikowana w następujących krokach:
-
-\begin{itemize}
-	\item architektura sieci - została zmodyfikowana w celu osiągnięcia większej dokładności maski;
-	\item hiperparametry sieci - zostały dobrane w celu zmniejszenia zapotrzebowania na pamięć GPU.
-\end{itemize}
-
-\TODO{Tu będzie trochę dokładniejszy opis}
-
-\subsection{Zbiór danych i generator sztucznych danych}
-\label{sec:generator}
-
-Problem skompletowania dostatecznie licznego zbioru treningowego został rozwiązany poprzez stworzenie generatora sztucznych obrazów.
-Generator, zaimplementowany jako scena 3D w JavaScript pozwala na generowanie obrazów z~następującymi cechami:
-
-\begin{itemize}
-	\item zmienne kolory obiektów: podłogi, kortu, słupków;
-	\item dynamiczne światło;
-	\item zmienna pozycja zawodników;
-	\item zmienne odległości między kortami.
-\end{itemize}
-
-Dzięki powyższym cechom możliwe jest przygotowanie sztucznych obrazów zbliżonych do obrazów z kamer przemysłowych stosowanych na meczach odbywających się w różnych lokalizacjach.
-
-W celu, aby obraz stanowił rekord treningowy, wymagana jest tak zwana anotacja, czyli oznaczenie obszaru kortu. Do anotacji wykorzystano program VGG Image Annotator \cite{vgg-via}.
-\\
-
-\missingfigure{
-  Tu będzie tabela przedstawiająca: \newline
-  1. zbiór COCO \cite{coco}, ile klas, ile rekordów, jaki podział treningowy/walidacyjny \newline
-  2. mój zbiór, bez sztucznych \newline
-  3. mój zbiór, ze sztucznymi
-}
-
-\subsection{Uczenie transferowe}
-\label{sec:uczenie-transferowe}
-
-Uczenie transferowe polega na...
-\TODO{Tu będzie dokładniejszy opis}
-
-W pracy wykorzystano uczenie transferowe na dwa sposoby:
-
-\begin{itemize}
-	\item Wykorzystanie wytrenowanego na COCO modelu i przetransferowanie na tytułowy problem
-	\item Generalizacja problemu na inne sporty
-\end{itemize}
+\subimport{}{zaproponowana}
+\subimport{}{zbior}
+\subimport{}{transferowe}

@@ -1,0 +1,25 @@
+% !TeX root = ../../main.tex
+\subsection{Zbiór danych i generator sztucznych danych}
+\label{sec:generator}
+
+Problem skompletowania dostatecznie licznego zbioru treningowego został rozwiązany poprzez stworzenie generatora sztucznych obrazów.
+Generator, zaimplementowany jako scena 3D w JavaScript pozwala na generowanie obrazów z~następującymi cechami:
+
+\begin{itemize}
+	\item zmienne kolory obiektów: podłogi, kortu, słupków;
+	\item dynamiczne światło;
+	\item zmienna pozycja zawodników;
+	\item zmienne odległości między kortami.
+\end{itemize}
+
+Dzięki powyższym cechom możliwe jest przygotowanie sztucznych obrazów zbliżonych do obrazów z kamer przemysłowych stosowanych na meczach odbywających się w różnych lokalizacjach.
+
+W celu, aby obraz stanowił rekord treningowy, wymagana jest tak zwana anotacja, czyli oznaczenie obszaru kortu. Do anotacji wykorzystano program VGG Image Annotator \cite{vgg-via}.
+\\
+
+\missingfigure{
+  Tu będzie tabela przedstawiająca: \newline
+  1. zbiór COCO \cite{coco}, ile klas, ile rekordów, jaki podział treningowy/walidacyjny \newline
+  2. mój zbiór, bez sztucznych \newline
+  3. mój zbiór, ze sztucznymi
+}
