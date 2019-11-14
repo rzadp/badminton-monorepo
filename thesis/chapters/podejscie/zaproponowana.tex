@@ -11,3 +11,15 @@ Ze względu na to, iż niewystarczająco dokładne wykrycie kortu może niekorzy
 \end{itemize}
 
 \TODO{Tu będzie trochę dokładniejszy opis}
+
+\begin{algorithm}
+  \subimport{mask_r-cnn/}{commoninput}
+  \subimport{mask_r-cnn/}{commonoutput}
+  \begin{algorithmic}[1]
+    \subimport{mask_r-cnn/}{firststepsofmask}
+    \State $\mathit{L} \gets [...L,\verb| deconvolution 2x2 with strides 2|]$
+    \subimport{mask_r-cnn/}{laststepsofmask}
+	\end{algorithmic}
+	\caption{Tworzenie podsieci maski w większej rozdzielczości}
+	\label{alg:mask-r-cnn-modified}
+\end{algorithm}
