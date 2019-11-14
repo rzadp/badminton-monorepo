@@ -1,5 +1,5 @@
 % !TeX root = ../../../main.tex
-\State $\mathit{L} \gets [\verb|ROIAlign(pool_size, input=[rois, feature_maps])|]$
+\State $\mathit{L} \gets [\verb|ROIAlign(pool_size, input=[roi, feature_maps])|]$
 \For {$\mathit{i} = 1$ to conv\_layers }
   \State $\mathit{L} \gets [...L,\verb| convolution 3x3|]$
   \State $\mathit{L} \gets [...L,\verb| batch_normalization|]$
