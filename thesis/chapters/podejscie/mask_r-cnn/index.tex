@@ -100,17 +100,16 @@ Schemat \textit{Mask R-CNN} przedstawiony jest na Rysunku \myfigref{fig:mask_r_c
   \label{fig:mask_r_cnn}
 \end{figure}
 
+Pseudokod \myfigref{alg:mask-r-cnn} przybliża w jaki sposób powstaje podsieć odpowiedzialna za wykrycie maski obiektu.
+
 \begin{algorithm}
   \vspace{0.3cm}
-	\hspace*{\algorithmicindent} \textbf{Dane wejściowe:} \\
-  \hspace*{\algorithmicindent} $rois$ = given regions of interest in normalized coordinates \\
-  \hspace*{\algorithmicindent} $feature\_maps$ = list of feature maps from layers P2 , P3 , P4 , P5 \\
-  \hspace*{\algorithmicindent} $pool\_size$ = height of feature maps to be generated from ROIpooling \\
-  \hspace*{\algorithmicindent} $num\_classes$ = number of classes \\
-  \hspace*{\algorithmicindent} \verb|conv_layers| = number of convolutional layers \\
-  
-  \vspace{0.3cm}
-  \hspace*{\algorithmicindent} \textbf{Dane wyjściowe:} \\
+	\textbf{Dane wejściowe:} \\
+  \hspace*{\algorithmicindent} \verb|rois| - given regions of interest in normalized coordinates \\
+  \hspace*{\algorithmicindent} \verb|feature_maps| - list of feature maps from layers P2 , P3 , P4 , P5 \\
+  \hspace*{\algorithmicindent} \verb|pool_size| - height of feature maps to be generated from ROIpooling \\
+  \hspace*{\algorithmicindent} \verb|conv_layers| - number of convolutional layers \\
+  \textbf{Dane wyjściowe:} \\
   \hspace*{\algorithmicindent} $L$ = list of keras layers \\
 	\begin{algorithmic}[1]
   \State $\mathit{L} \gets [\verb|ROIAlign(pool_size, input=[rois, feature_maps])|]$
@@ -123,6 +122,6 @@ Schemat \textit{Mask R-CNN} przedstawiony jest na Rysunku \myfigref{fig:mask_r_c
     \State $\mathit{L} \gets [...L,\verb| convolution 1x1 with sigmoid as an activation function|]$
 		\State \Return $\mathit{L}$
 	\end{algorithmic}
-	\caption{Tworzenie podsieci Maski}
+	\caption{Tworzenie podsieci maski}
 	\label{alg:mask-r-cnn}
 \end{algorithm}
