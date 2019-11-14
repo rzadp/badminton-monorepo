@@ -103,24 +103,12 @@ Schemat \textit{Mask R-CNN} przedstawiony jest na Rysunku \myfigref{fig:mask_r_c
 Pseudokod \myfigref{alg:mask-r-cnn} przybliża w jaki sposób powstaje podsieć odpowiedzialna za wykrycie maski obiektu.
 
 \begin{algorithm}
-  \vspace{0.3cm}
-	\textbf{Dane wejściowe:} \\
-  \hspace*{\algorithmicindent} \verb|rois| - given regions of interest in normalized coordinates \\
-  \hspace*{\algorithmicindent} \verb|feature_maps| - list of feature maps from layers P2 , P3 , P4 , P5 \\
-  \hspace*{\algorithmicindent} \verb|pool_size| - height of feature maps to be generated from ROIpooling \\
-  \hspace*{\algorithmicindent} \verb|conv_layers| - number of convolutional layers \\
-  \textbf{Dane wyjściowe:} \\
-  \hspace*{\algorithmicindent} $L$ = list of keras layers \\
-	\begin{algorithmic}[1]
-  \State $\mathit{L} \gets [\verb|ROIAlign(pool_size, input=[rois, feature_maps])|]$
-    \For {$\mathit{i} = 1$ to conv\_layers }
-      \State $\mathit{L} \gets [...L,\verb| convolution 3x3|]$
-      \State $\mathit{L} \gets [...L,\verb| batch\_normalization|]$
-      \State $\mathit{L} \gets [...L,\verb| ReLU|]$
-		\EndFor
+  \subimport{}{commoninput}
+  \subimport{}{commonoutput}
+  \begin{algorithmic}[1]
+    \subimport{}{firststepsofmask}
     \State $\mathit{L} \gets [...L,\verb| deconvolution 2x2 with strides 2|]$
-    \State $\mathit{L} \gets [...L,\verb| convolution 1x1 with sigmoid as an activation function|]$
-		\State \Return $\mathit{L}$
+    \subimport{}{laststepsofmask}
 	\end{algorithmic}
 	\caption{Tworzenie podsieci maski}
 	\label{alg:mask-r-cnn}
