@@ -14,10 +14,13 @@ Ze względu na to, iż niewystarczająco dokładne wykrycie kortu może niekorzy
 
 \begin{algorithm}
   \subimport{mask_r-cnn/}{commoninput}
+  \hspace*{\algorithmicindent} \verb|deconv_layers| - \deconvlayersdescription \\
   \subimport{mask_r-cnn/}{commonoutput}
   \begin{algorithmic}[1]
     \subimport{mask_r-cnn/}{firststepsofmask}
-    \State $\mathit{L} \gets [...L,\verb| deconvolution 2x2 with strides 2|]$
+    \For {$\mathit{i} = 1$ to deconv\_layers }
+      \State $\mathit{L} \gets [...L,\verb| deconvolution 2x2 with strides 2|]$
+    \EndFor
     \subimport{mask_r-cnn/}{laststepsofmask}
 	\end{algorithmic}
 	\caption{Tworzenie podsieci maski w większej rozdzielczości}
