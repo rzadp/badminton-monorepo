@@ -192,6 +192,15 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{pgfplots}
 \usepackage{soul}
+\usepackage{algorithm}
+\renewcommand{\listalgorithmname}{Spis pseudokodów}
+\usepackage{pseudocode}
+\usepackage[noend]{algpseudocode}
+\algrenewcommand\algorithmicforall{\textbf{foreach}}
+\algrenewcommand\algorithmicindent{.8em}
+\usepackage{amsmath}
+\floatname{algorithm}{Pseudokod}
+% \usepackage{algorithm2e}
 
 % \usepackage[disable]{todonotes} % notes not showed
 \usepackage[draft]{todonotes}
@@ -372,6 +381,11 @@ samodzielnie, co poświadczam własnoręcznym podpisem.
 \newpage
 \thispagestyle{empty}
 %Jak nie występują, usunąć.
+
+\listofalgorithms
+\addcontentsline{toc}{chapter}{Spis pseudokodów}
+\newpage
+\thispagestyle{empty}
 
 
 % 10. Spis załączników - jak nie ma załączników, to zakomentować lub usunąć
