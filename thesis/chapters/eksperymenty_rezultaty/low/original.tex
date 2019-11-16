@@ -1,10 +1,12 @@
 % !TeX root = ../../main.tex
 \subsection{Bazowa implementacja sieci \textit{Mask R-CNN} trenowana na zbiorze \textit{low}}
-W tym punkcie przedstawiono rezultaty bazowej implementacji sieci \textit{Mask R-CNN}, trenowanej na zbiorze danych \textit{low}. W tablicy \mytabref{Tab:low_original} oraz \mytabref{Tab:low_original_calculated} przedstawiono wyniki na podzbiorze walidacyjnym. Wartości procentowe odnoszą się do liczby pikseli w sumie na obrazach zbioru \textit{low}, czyli 573440 pikseli.
+\resultsintro{\resultsoriginal}{low}{}
+\resultstables{Tab:low_original}{Tab:low_original_calculated}
+\lowprocent
 
 \begin{table}[H]
   \centering
-	\caption{Wyniki ???}
+	\caption{Wyniki sieci \textit{Mask R-CNN} na zbiorze \textit{low}}
 	\vspace{6pt}
 	{\footnotesize
 		\begin{tabular}{|c|c|c|c|c|}
@@ -23,7 +25,7 @@ W tym punkcie przedstawiono rezultaty bazowej implementacji sieci \textit{Mask R
 
 \begin{table}[H]
 	\centering
-	\caption{Wyniki ???}
+	\caption{Złożone wyniki sieci \textit{Mask R-CNN} na zbiorze \textit{low}}
 	\vspace{6pt}
 	{\footnotesize
 		\begin{tabular}{|c|c|c|c|c|}
@@ -39,4 +41,4 @@ W tym punkcie przedstawiono rezultaty bazowej implementacji sieci \textit{Mask R
   \label{Tab:low_original_calculated}
 \end{table}
 
-Rezultaty oznaczają, że siec rozważana w tym punkcie rozpoznaje poprawnie średnio \textbf{95.3\%} pikseli na obrazie.
+\resultssummary{95.3}

@@ -1,10 +1,12 @@
 % !TeX root = ../../main.tex
 \subsection{Zmodyfikowana implementacja trenowana na zbiorze \textit{low} z wygenerowanymi obrazami}
-this is low modified on generated
+\resultsintro{\resultsmodified}{low}{\withgenerated}
+\resultstables{Tab:low_modified_generated}{Tab:low_modified_generated_calculated}
+\lowprocent
 
 \begin{table}[H]
 	\centering
-	\caption{Wyniki ???}
+	\caption{Wyniki sieci \textit{Mask R-CNN} na zbiorze \textit{low} ze sztucznymi obrazami}
 	\vspace{6pt}
 	{\footnotesize
 		\begin{tabular}{|c|c|c|c|c|}
@@ -16,13 +18,14 @@ this is low modified on generated
       \hline
 		\end{tabular}
 	}
-	\vspace{0pt}
+  \vspace{0pt}
+  \label{Tab:low_modified_generated}
 \end{table}
 
 
 \begin{table}[H]
 	\centering
-	\caption{Wyniki ???}
+	\caption{łożone wyniki sieci \textit{Mask R-CNN} na zbiorze \textit{low} ze sztucznymi obrazami}
 	\vspace{6pt}
 	{\footnotesize
 		\begin{tabular}{|c|c|c|c|c|}
@@ -34,7 +37,8 @@ this is low modified on generated
       \hline
 		\end{tabular}
 	}
-	\vspace{0pt}
+  \vspace{0pt}
+  \label{Tab:low_modified_generated_calculated}
 \end{table}
 
-
+\resultssummary{97.7}
