@@ -4,12 +4,7 @@
 \label{sec:uczenie-transferowe}
 
 Uczenie transferowe polega na wykorzystaniu wiedzy zdobytej na potrzeby jednego problemu, i wykorzystanie jej na potrzeby rozwiązywania innego, ale powiązanego problemu.
-W przypadku niniejszej pracy wykorzystano uczenie transferowe na dwa sposoby:
-
-\begin{itemize}
-	\item Wykorzystanie wytrenowanego na COCO modelu i przetransferowanie na tytułowy problem
-	\item Generalizacja tytułowego problemu na inne sporty
-\end{itemize}
+Niniejsza praca korzysta z uczenia transferowego, wykorzystując sieć wytrenowaną na COCO i przystosowywując ją do tytułowej tematyki.
 
 Rysunek \myfigref{fig:transferowe}, bazujący na Rysunku \myfigref{fig:mask_r_cnn} przedstawia implementację, dzięki której umożliwiono uczenie transferowe. Rozpoczynając trening od wag uzyskanych po treningu na zbiorze COCO, poszczególne fragmenty modelu zostały zamrożone i nie zostają aktualizowane podczas treningu. Dzięki temu czas treningu zostaje znacząco skrócony.
 
