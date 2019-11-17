@@ -1,3 +1,16 @@
 % !TeX root = ../../main.tex
 \section{Podsumowanie eksperymentów i rezultatów}
-\TODO{TODO}
+Eksperymenty przeprowadzone w niniejszym rozdziale obejmowały:
+\begin{itemize}
+ \item Zbadanie wpływu podziału zbiorów danych na skuteczność wytrenowanej sieci;
+ \item Zbadanie skuteczności zmodyfikowanej sieci w porównaniu do oryginalnej implementacji
+ \item Zbadanie wpływu dodania sztucznie wygenerowanych rekordów treningowych na skuteczność sieci
+\end{itemize}
+
+Eksperymenty z podziałem zbiorów danych \textit{high} i \textit{low} (\myref{sec:zbiory}) wykazały, iż najlepszym podziałem jest podział na podzbiór treningowy i walidacyjny w stosunku odpowiednio 90:10. Taki podział stosowany był dalej w kolejnych eksperyntach.
+
+
+Badania sprawdzające skuteczność zmodyfikowanej sieci w porównaniu do oryginalnej implementacji wskazują na to, iż zastosowanie zmodyfikowanej sieci zwiększania średnią \textit{Accuracy}, zarówno na zbiorze \textit{high} jak i na zbiorze \textit{low}.
+
+
+Eksperymenty z dodawaniem sztucznie wygenerowanych rekordów treningowych wykazały, iż zwiększają one skuteczność wytrenowanej sieci (zarówno oryginalnej jak i zmodyfikowanej) na zbiorze \textit{low}. Nie mają one jednak wpływu na wynik sieci na zbiorze \textit{high}. Prawdopodobnie wynika to z faktu, iż zbiór \textit{low} jest mało zróżnicowany obrazy wyglądają bardzo podobnie, są w skali szarości, rzadko kort jest zasłaniany przez inne obiekty, a więc taki zbiór zyskuje na dodaniu zróżnicowanych, kolorowych obrazów obiektami zasłaniającymi kort. Natomiast zbiór \textit{high} jest bardzo zróżnicowany, zdjęcia pochodzą z różnych źródeł i bardzo różnią się od siebie. Prawdopodobnie dlatego dodanie sztucznych rekordów nie wpływa na skuteczność sieci trenowanej na takim zbiorze.
