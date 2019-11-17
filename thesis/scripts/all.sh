@@ -3,7 +3,7 @@ set -e
 cd $(dirname $0)
 
 cd ../title_page
-xelatex strona_tytulowa-jeden-autor.tex
+xelatex -interaction=batchmode -halt-on-error strona_tytulowa-jeden-autor.tex
 cd ../scripts
 echo "...::: Compiled title page :::..."
 
@@ -12,8 +12,8 @@ echo "...::: Compiled title page :::..."
 echo "...::: Exported diagrams :::..."
 
 cd ..
-for i in {1..2}; do # twice because of the table of contents bug
-  max_in_open=32 pdflatex -interaction=nonstopmode -halt-on-error -synctex=1 main.tex
-done
+# twice because of the table of contents bug
+max_in_open=32 pdflatex -interaction=nonstopmode -halt-on-error -synctex=1 main.tex
+max_in_open=32 pdflatex -interaction=batchmode -halt-on-error -synctex=1 main.tex
 
 echo "...::: Compiled thesis :::..."
