@@ -14,6 +14,8 @@ echo "...::: Exported diagrams :::..."
 cd ..
 # twice because of the table of contents bug
 max_in_open=32 pdflatex -interaction=nonstopmode -halt-on-error -synctex=1 main.tex
+bibtex main.aux
+max_in_open=32 pdflatex -interaction=batchmode -halt-on-error -synctex=1 main.tex
 max_in_open=32 pdflatex -interaction=batchmode -halt-on-error -synctex=1 main.tex
 
 echo "...::: Compiled thesis :::..."

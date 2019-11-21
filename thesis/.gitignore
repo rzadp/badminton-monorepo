@@ -9,3 +9,5 @@
 *.out
 *.fls
 *.loa
+*.bbl
+*.blg
