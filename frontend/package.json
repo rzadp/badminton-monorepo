@@ -16,7 +16,7 @@
   },
   "scripts": {
     "dev": "CONFIG_ENV=dev parcel ./src/index.html",
-    "build-dist": "CONFIG_ENV=prod parcel build ./src/index.html --no-cache"
+    "build": "CONFIG_ENV=prod parcel build ./src/index.html --no-cache"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

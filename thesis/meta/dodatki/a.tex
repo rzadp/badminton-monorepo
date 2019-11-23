@@ -1,0 +1,69 @@
+% !TeX root = ../../main.tex
+\chapter*{Dodatek A - Instrukcja instalacji}
+\rhead{\uppercase{Dodatek A - Instrukcja instalacji}}
+\addcontentsline{toc}{chapter}{\currentname}
+\label{sec:instrukcja-instalacji}
+
+Aplikacja składa się z następujących elementów:
+\begin{itemize}
+  \item Generator sztucznych danych;
+  \item Anotator danych;
+  \item Zmodyfikowana implementacja sieci \textit{Mask R-CNN} \cite{matterport-mask-rcnn} (wraz ze skryptami służącymi do trenowania i obliczania skuteczności wytrenowanej sieci).
+\end{itemize}
+Następne podrozdziały opisują zależności i kroki wymagane do instalacji tych elementów.
+
+\section*{Generator sztucznych danych}
+
+Wymagane zależności systemowe:
+
+\begin{itemize}
+  \item \textit{Node.js}\footnote{https://nodejs.org/}
+  \item \textit{npm CLI}\footnote{https://docs.npmjs.com/cli/npm}
+\end{itemize}
+
+Instalacja wymaganych pakietów:
+
+\begin{verbatim}
+  $ npm install
+\end{verbatim}
+
+Uruchomienie generatora lokalnie (pod adresem \textit{http://localhost:1234}):
+
+\begin{verbatim}
+  $ npm run dev
+\end{verbatim}
+
+Zbudowanie aplikacji, którą można wrzucić na serwer jako statyczna strona internetowa:
+
+\begin{verbatim}
+  $ npm run build
+\end{verbatim}
+
+\section*{Anotator danych}
+Anotator danych jest statyczną stroną \textit{HTML} z zawartym kodem \textit{JavaScript} i stylami \textit{CSS} w jedym pliku \textit{index.html}, dzięki czmeu nie wymaga instalacji - do uruchomienia anotatora wymagana jest jedynie przeglądarka internetowa, a w przypadku pliku \textit{index.html} na lokalnym dysku nie jest wymagane połączenie z Internetem.
+
+\section*{Zmodyfikowana implementacja sieci \textit{Mask R-CNN}}
+
+Wymagane zależności systemowe:
+
+\begin{itemize}
+  \item \textit{Python}\footnote{https://www.python.org/} w wersji 3.5
+  \item \textit{pip3}\footnote{https://pip.pypa.io/}
+  \item Karta graficzna - opcjonalnie, ponieważ program zadziała też na CPU, lecz trening na samym CPU trwa zbyt długo by możliwe było praktycznie zastosowanie.
+\end{itemize}
+
+Instalacja wymaganych pakietów:
+
+\begin{verbatim}
+  $ pip3 install \
+  numpy==1.15.4 \
+  scipy==1.2.0 \
+  cython==0.29.2 \
+  matplotlib==3.0.2 \
+  scikit-image==0.14.1 \
+  tensorflow==1.12.0 \
+  keras==2.2.4 \
+  h5py==2.9.0 \
+  imgaug==0.2.7 \
+  IPython[all]==7.2.0
+\end{verbatim}
