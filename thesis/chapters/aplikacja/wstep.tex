@@ -3,8 +3,25 @@
 
 W tym rozdziale zostanie omówiona dołączona do pracy aplikacja, która składa się z następujących elementów:
 \begin{itemize}
-  \item Generator sztucznych danych
-  \item Anotator danych
-  \item Zmodyfikowana implementacja sieci Mask R-CNN \cite{matterport-mask-rcnn}
+  \item Generator sztucznych danych;
+  \item Anotator danych;
+  \item Zmodyfikowana implementacja sieci Mask R-CNN \cite{matterport-mask-rcnn};
+  \item Skrypt służący do trenowania sieci;
+  \item Skrypt służący do obliczenia skuteczności sieci, według miar opisanych w rozdziale \myrefx{sec:miary}
 \end{itemize}
-Instrukcja instalacji~\footnote{\nameref{sec:instrukcja-instalacji}} oraz instrukcja użytkownika~\footnote{\nameref{sec:instrukcja-uzytkownika}} umożliwia zreprodukowanie eksperymentów, których wyniki zawarto w niniejszej pracy.
+
+Wraz z instrukcją instalacji\footnote{\nameref{sec:instrukcja-instalacji}} oraz instrukcją użytkownika\footnote{\nameref{sec:instrukcja-uzytkownika}}, niniejszy rozdział umożliwia zreprodukowanie eksperymentów, których wyniki zawarto w niniejszej pracy.
+Następujące podpunkty, które podsumowują wykonaną pracę, przedstawiają wykorzystanie poszczególnych elementów aplikacji na poszczególnych etapach pracy:
+
+\begin{enumerate}
+ \item Skonstruowanie zbiorów danych \textit{low} i \textit{high};
+ \item Wygenerowanie sztucznych danych i skonstruowanie z nich dwóch nowych zbiorów na bazie zbiorów \textit{low} i \textit{high};
+ \item Zaanotowanie obrazów z powyższych czterech zbiorów, dzięki czemu mogły zostać użyte do treningu sieci;
+ \item Uruchomienie skryptu do trenowania, testując różne podziały na zbiory treningowe i walidacyjne\footnote{Patrz rozdział \myrefx{sec:podzial}}. Podział dający najlepsze rezultaty wykorzystano w kolejnych eksperymentach;
+ \item Uruchomienie skryptu do trenowania oryginalnej sieci Mask R-CNN na czterech wymienionych wyżej zbiorach;
+ \item Uruchomienie skryptu do trenowania zmodyfikowanej sieci Mask R-CNN na czterech wymienionych wyżej zbiorach;
+ \item Uruchomienie skryptu obliczającego rezultaty przeprowadzonych treningów sieci.
+\end{enumerate}
+
+
+
