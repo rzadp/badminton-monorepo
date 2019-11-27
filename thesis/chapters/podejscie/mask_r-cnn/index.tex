@@ -30,14 +30,14 @@ Działanie modelu można zobrazować w następujących krokach:
 \textit{Fast R-CNN} \cite{fast-rcnn}, przedstawiony w 2015 roku, usprawnia model \textit{R-CNN}, w którym zidentyfikowano następujące problemy:
 
 \begin{itemize}
-  \item problem w implementacji i w wytrenowaniu sieci wynikający z samej budowy \textit{R-CNN}; \textit{R-CNN} składa się z~czterech części, które osobno wymagają zrozumienia, implementacji i trenowania lub doboru parametrów:
+  \item Problem w implementacji i w wytrenowaniu sieci wynikający z samej budowy \textit{R-CNN}; \textit{R-CNN} składa się z~czterech części, które osobno wymagają zrozumienia, implementacji i trenowania lub doboru parametrów:
 		\begin{itemize}
 			\item \textit{Selective Search} do generowania regionów;
 			\item \textit{CNN} do ekstrakcji cech;
 			\item \textit{SVM} do klasyfikacji;
 			\item model dopasowujący obwódkę.
 		\end{itemize}
-  \item zduplikowane obliczenia na etapie ekstrakcji cech, wynikające z faktu, że ekstracja cech uruchamiana jest dla każdego regionu, a gdy regiony zachodzą na siebie, obliczenia ekstrakcji cech są powtarzane.
+  \item Zduplikowane obliczenia na etapie ekstrakcji cech, wynikające z faktu, że ekstracja cech uruchamiana jest dla każdego regionu, a gdy regiony zachodzą na siebie, obliczenia ekstrakcji cech są powtarzane.
 \end{itemize}
 
 \begin{figure}[h]
@@ -70,10 +70,10 @@ Jako że sieć została włączona do modelu w taki sposób, że bazuje na wyzna
 Dodatkowo był to kolejny krok zastępujący część modelu podsiecią neuronową, w wyniku czego model stał się jedną siecią neuronową składającą się z~podsieci:
 
 \begin{itemize}
-	\item budującej mapę cech;
-	\item generującej regiony;
-	\item klasyfikującej;
-	\item dopasowującej obwódkę.
+	\item Budującej mapę cech;
+	\item Generującej regiony;
+	\item Klasyfikującej;
+	\item Dopasowującej obwódkę.
 \end{itemize}
 
 \begin{figure}[h]
