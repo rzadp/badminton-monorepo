@@ -1,4 +1,8 @@
 % !TeX root = ../main.tex
-\TODO{Przetłumaczę na koniec gdy 'Streszczenie' będzie ostatecznie gotowe}
+This paper is about detecting the surface of a badminton court on an image, using neural networks. The paper explains \textit{Mask R-CNN}~\cite{general-mask-rcnn} model and its historical development, and introduces a modification in the implementation. The idea for the thesis came from company named \blue{}, which operates in the badminton industry.
+The main problems tackled by this paper are constructing a dataset for training the neural network, and maximizing its accuracy.
 
-\noindent \textbf{Keywords:} keyword1, keyword2, ...
+Attached application consists of modified \textit{Mask R-CNN} model, artificial data generator, a tool for annotating the data together with instruction enabling the user to reproduce the experiments. The experiments conducted in this paper are about comparing the original implementation and the modified implementation of \textit{Mask R-CNN}, and researching the influence of adding fake, generated data to the training dataset. The best results achieved in this paper is 97\% correctly detected pixels on an image, on average.
+\\
+
+\noindent \textbf{Keywords:} neural networks, convolutional neural networks, object detection, instance~segmentation
