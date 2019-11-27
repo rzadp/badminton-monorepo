@@ -19,10 +19,10 @@ W celu zrozumienia tego modelu, najlepiej rozważać go w kontekście ewoluowani
 Działanie modelu można zobrazować w następujących krokach:
 \label{sec:regiony}
 \begin{enumerate}
-  \item najpierw na obszarze obrazu wejściowego generowane są tzw. propozycje regionów, przy użyciu algorytmu \textit{Selective Search} \cite{selective-search}; celem jest znalezienie regionów, w których prawdopodobnie znajduje się jakiś obiekt;
-	\item następnie, dla każdego takiego regionu wydobywane są cechy za pomocą \textit{CNN};
-  \item w dalszej kolejności, cechy każdego regionu analizowane są przez model wektorów nośnych; wynikiem jest klasyfikacja regionu na dwie grupy - wskazany obiekt lub brak obiektu;
-	\item na końcu dla regionów, w których wskazano obiekt następuje próba dopasowania obszaru do rozmiaru obiektu - wynikiem jest obwódka (z ang. \textit{bounding box}) wskazująca położenie obiektu na obrazie.
+  \item Najpierw na obszarze obrazu wejściowego generowane są tzw. propozycje regionów, przy użyciu algorytmu \textit{Selective Search} \cite{selective-search}; celem jest znalezienie regionów, w których prawdopodobnie znajduje się jakiś obiekt;
+	\item Następnie, dla każdego takiego regionu wydobywane są cechy za pomocą \textit{CNN};
+  \item W dalszej kolejności, cechy każdego regionu analizowane są przez model wektorów nośnych; wynikiem jest klasyfikacja regionu na dwie grupy - wskazany obiekt lub brak obiektu;
+	\item Na końcu dla regionów, w których wskazano obiekt następuje próba dopasowania obszaru do rozmiaru obiektu - wynikiem jest obwódka (z ang. \textit{bounding box}) wskazująca położenie obiektu na obrazie.
 \end{enumerate}
 
 \subsection{Iteracja druga - Fast R-CNN}
