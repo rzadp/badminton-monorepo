@@ -1,7 +1,7 @@
 % !TeX root = ../../main.tex
 \subsubsection{Podział zbioru \textit{low} w stosunku 186:21}
 
-W tym podrozdziale przedstawiono wyniki skuteczności sieci wytrenowanej na zbiorze \textit{low}, podzielonym na podzbiór treningowy i podzbiór walidacyjny w stosunku odpowiednio 186 do 21.
+\splitresults{Tab:lowsplitb_val}{Tab:lowsplitb_test}{low}{186 do 21}
 
 \begin{table}[H]
 	\centering
@@ -15,7 +15,8 @@ W tym podrozdziale przedstawiono wyniki skuteczności sieci wytrenowanej na zbio
       \hline Maksimum & 0.983 & 0.944 & 1.000 & 1.000 \\
       \hline Mediana & 0.966 & 0.925 & 1.000 & 1.000 \\
       \hline
-		\end{tabular}
+    \end{tabular}
+    \label{Tab:lowsplitb_val}
 	}
 	\vspace{0pt}
 \end{table}
@@ -32,7 +33,8 @@ W tym podrozdziale przedstawiono wyniki skuteczności sieci wytrenowanej na zbio
       \hline Maksimum & 0.967 & 0.944 & 1.000 & 1.000 \\
       \hline Mediana & 0.961 & 0.930 & 0.999 & 0.999 \\
       \hline
-		\end{tabular}
+    \end{tabular}
+    \label{Tab:lowsplitb_test}
 	}
 	\vspace{0pt}
 \end{table}
