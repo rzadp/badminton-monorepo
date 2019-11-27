@@ -1,13 +1,13 @@
 % !TeX root = ../../main.tex
 \section{Miary skuteczności sieci}
 
-W kolejnych rozdziałach, na potrzeby oceny skuteczności sieci neuronowej, dla danego obrazu i przewidzianej przez sieć maski, każdy piksel można zaklasyfikować do jednej z następujących kategorii:
+W kolejnych rozdziałach, na potrzeby oceny skuteczności sieci neuronowej, dla danego obrazu i przewidzianej przez sieć maski, każdy piksel można przypisać do dokładnie jednej z następujących grup:
 
 \begin{itemize}
-  \item True Positive - piksel został poprawnie zakwalifikowany jako powierzchnia kortu;
-  \item False Positive - piksel nie wchodzący w powierzchnię kortu został niepoprawnie oznaczony jako powierzchnia kortu;
-  \item False Negative - piksel kortu został niepoprawnie zakwalifikowany jako nie wchodzący w powierzchnię kortu;
-  \item True Negative - piksel został poprawnie zakwalifikowany jako nie wchodzący w powierzchnię kortu.
+  \item True Positive - piksel został poprawnie zakwalifikowany jako powierzchnia kortu (Rys. \myfigrefx{fig:TP});
+  \item False Positive - piksel nie wchodzący w powierzchnię kortu został niepoprawnie oznaczony jako powierzchnia kortu (Rys. \myfigrefx{fig:FP});
+  \item False Negative - piksel kortu został niepoprawnie zakwalifikowany jako nie wchodzący w powierzchnię kortu (Rys. \myfigrefx{fig:FN});
+  \item True Negative - piksel został poprawnie zakwalifikowany jako nie wchodzący w powierzchnię kortu (Rys. \myfigrefx{fig:TN}).
 \end{itemize}
 
 W przypadku zbioru \textit{low} wszystkie obrazy w tym zbiorze są tej samej rozdzielczości 896x640 pikseli, a co za tym idzie każdy składa się z identycznej liczby pikseli w sumie.
@@ -16,26 +16,30 @@ Korzystając z tego faktu, testując sieć na elementach zbioru \textit{low} wyn
 \begin{figure}[!htb]
   \minipage{0.45\textwidth}
     \includegraphics[width=\linewidth]{TP_frame_9.jpg}
-    \caption{Poglądowy obraz z zaznaczonym obszarem True Positive}
+    \caption{Przykładowy obraz z zaznaczonym obszarem True Positive}
+    \label{fig:TP}
   \endminipage\hfill
   \minipage{0.45\textwidth}
     \includegraphics[width=\linewidth]{FN_frame_9.jpg}
-    \caption{Poglądowy obraz z zaznaczonym obszarem False Negative}
+    \caption{Przykładowy obraz z zaznaczonym obszarem False Negative}
+    \label{fig:FN}
   \endminipage\hfill
 \end{figure}
 
 \begin{figure}[!htb]
   \minipage{0.45\textwidth}
     \includegraphics[width=\linewidth]{TN_frame_8.jpg}
-    \caption{Poglądowy obraz z zaznaczonym obszarem True Negative}
+    \caption{Przykładowy obraz z zaznaczonym obszarem True Negative}
+    \label{fig:TN}
   \endminipage\hfill
   \minipage{0.45\textwidth}
     \includegraphics[width=\linewidth]{FP_frame_8.jpg}
-    \caption{Poglądowy obraz z zaznaczonym obszarem False Positive}
+    \caption{Przykładowy obraz z zaznaczonym obszarem False Positive}
+    \label{fig:FP}
   \endminipage\hfill
 \end{figure}
 
-Znając klasyfikację pikseli na obrazach, można obliczyć następujące, bardziej złożone metryki:
+Znając podział pikseli na obrazach na wyżej wymienione grupy, można obliczyć następujące, bardziej złożone metryki:
 
 \begin{itemize}
   \label{sec:miary}
