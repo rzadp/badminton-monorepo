@@ -6,37 +6,34 @@ Zagadnienie detekcji obszaru kortu do badmintona wynika ze współpracy z~firmą
 
 \section{Motywacja}
 
-Temat pracy został zaproponowany przez firmę \blue{}, która zajmuje się sędziowaniem meczów badmintona i pracuje nad automatyzacją tego zagadnienia.
-Wymaga to między innymi śledzenia toru lotu lotki, śledzenia zawodników, wykrycia obszaru kortu.
-Konkretne piksele kortu potrzebne są do rozstrzygania wątpliwości w kwestii wyjścia lotki poza obszar boiska.
+Temat pracy został zaproponowany w ramach współpracy z firmą \blue{}, która zajmuje się tworzeniem systemu do sędziowania meczów badmintona i obecnie pracuje nad automatyzacją śledzenia toru lotu lotki, śledzenia zawodników oraz detekcji obszaru kortu.
+Detekcja obszaru kortu potrzebna jest do rozstrzygania wątpliwości w kwestii wyjścia lotki poza obszar kortu.
 
-W polu widzenia kamery często znajduje się więcej niż jeden kort, stąd semantyczna segmentacja nie jest wystarczająca i wymagana jest segmentacja instancji~\footnote{\myref{sec:typy_detekcji}}.
+W polu widzenia kamery często znajduje się więcej niż jeden kort, stąd semantyczna segmentacja nie jest wystarczająca i wymagana jest segmentacja instancji \patrzx{sec:typy_detekcji}.
 
 \section{Cel pracy}
 
-Celem głównym pracy jest zbadanie użyteczności sieci neuronowych na potrzeby komercyjnego systemu sędziowania meczy badmintona.
-Aktualne podejście firmy \blue{} do problemu detekcji obszaru kortu polega na algorytmicznej detekcji linii kortu, bez użycia sieci neuronowych.
-Praca stanowi krok w eksploracji tematu detekcji obszaru kortu z~użyciem sieci neuronowych i daje podstawy do decyzji, czy podejście to nadaje się do komercyjnego zastosowania (zamiast, lub w połączeniu z obecnym, algorytmicznym rozwiązaniem).
+Celem głównym pracy było zbadanie użyteczności sieci neuronowych na potrzeby komercyjnego systemu sędziowania meczy badmintona.
+Aktualne podejście firmy \blue{} polega na algorytmicznej detekcji obszaru kortu, bez użycia sieci neuronowych \patrzx{sec:aglorytmiczna_detekcja}.
+Praca stanowi krok w eksploracji tematu detekcji obszaru kortu z~użyciem sieci neuronowych i daje podstawy do decyzji, czy podejście to nadaje się do komercyjnego zastosowania zamiast lub w połączeniu z obecnym algorytmicznym rozwiązaniem.
 
-Celem pośrednim, wynikającym z~celu głównego jest analiza istniejących rozwiązań w literaturze, rozpatrując zarówno podejścia wykorzystujące sieci neuronowe oraz rozwiązania klasyczne, to znaczy bez wykorzystania sieci.
+Celem pośrednim, wynikającym z powyższego celu głównego, jest analiza istniejących rozwiązań w literaturze, zarówno wykorzystujących sieci neuronowe, jak i rozwiązań klasycznych (bez wykorzystania sieci neuronowych).
 
-Dodatkowe cele pośrednie, również wynikające z~celu głównego, stanowią stworzenie sztucznego zbioru treningowego oraz optymalizacja wykorzystywanej sieci, zarówno pod kątem czasu treningu jak i wymagań pamięciowych karty graficznej.
-
-Kolejnym celem pobocznym jest rozszerzenie zagadnienia na inne zastosowania, aby praca była potencjalnie użyteczna dla większego grona odbiorców niż tylko osób z~branży badmintona.
+Dodatkowo celem była optymalizacja wykorzystywanej architektury sieci oraz konstrukcja zbiorów danych wzbogaconych o sztucznie wygenerowane obrazy.
 \\
 
 \section{Wkład własny}
 
-Wkład własny autora został zebrany w następujących punktach:
+Wkład własny autora niniejszej pracy został zebrany w następujących punktach:
 
 \begin{itemize}
-	\item Zbiór danych
-    \begin{itemize}
+	\item Zbiór danych:
+    \begin{enumerate}
       \item Skonstruowanie dwóch zbiorów danych \patrz{sec:zbiory}
       \item Zbadanie wpływu podziałów zbiorów na skuteczność sieci \patrz{sec:podzial}
 			\item Stworzenie generatora sztucznych danych \patrz{sec:generator}
 			\item Zbadanie wpływu sztucznych danych na skuteczność treningu \patrz{sec:generator}
-		\end{itemize}
+		\end{enumerate}
 	\item Sieć neuronowa
 	\begin{itemize}
 		\item Przedstawienie głównych idei kolejnych iteracji wybranej sieci neuronowej \patrz{sec:architekrura_mask_rcnn}
