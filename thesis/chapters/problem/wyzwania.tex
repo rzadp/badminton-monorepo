@@ -6,14 +6,13 @@ W rozwiązaniu zagadnienia segmentacji instancji kortów przy użyciu sieci neur
 \subsection*{Ekspozycja kortu}
 
 Podczas gry, kort nigdy nie jest wyeksponowany całkowicie - przysłaniają go gracze, słupki, siatka, sędzia wraz z~jego stanowiskiem, lotka w ruchu.
-Dodatkowo w przypadku użycia klatek z~transmisji telewizyjnych, często w postprodukcji na obszar kortu nałożona jest reklama czy logo organizatora meczu.
-Rozwiązanie musi być odporne na takie artefakty.
+Dodatkowo w przypadku użycia klatek z~transmisji telewizyjnych, często w postprodukcji na obszar kortu nałożona jest reklama czy logo organizatora meczu,  tak więc rozwiązanie musi być odporne na takie artefakty.
 
 \subsection*{Zbiór treningowy}
 
 Wytrenowanie sieci neuronowej dla złożonych zadań wymaga dużej liczby rekordów w zbiorze treningowym, aby uzyskać satysfakcjonujące wyniki.
-Trening sieci wykrywającej obszar kortu prawdopodobnie wymagałby setek lub tysięcy zdjęć treningowych.
-Przygotowanie tak licznego zbioru jest problematyczne, ze względu na to że:
+Trening sieci wykrywającej obszar kortu prawdopodobnie wymagałby setek lub tysięcy obrazów treningowych.
+Przygotowanie tak licznego zbioru jest problematyczne ze względu na to, że:
 
 \begin{itemize}
 	\item Brakuje ogólnodostępnych baz z takimi danymi;
