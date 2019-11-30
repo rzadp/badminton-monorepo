@@ -2,15 +2,21 @@
 \section{Detekcja obiektów w obrazie}
 \label{sec:typy_detekcji}
 
-Detekcja obiektów w obrazie można rozumieć jako cztery podobne problemy.
-W kolejności od najbardziej podstawowego do najbardziej szczegółowego zadania są to:
+Detekcja obiektów w obrazie można rozumieć w czterech aspektach, różniących się między sobą szczegółowością opisu analizowanego obiektu. \TODO{zdanie, dwa więcej. np różnice dotyczą...}
 
-\begin{enumerate}
-	\item Klasyfikacja - polega na stwierdzeniu przynależności wykrytego na obrazie obiektu do jednej z wcześniej zdefiniowanych grup;
-  \item Semantyczna segmentacja - polega na wskazaniu, które piksele obrazu należą do wykrytego obiektu.
-        W przypadku więcej niż jednego obiektu, nie ma rozróżnienia, które piksele dotyczą którego obiektu;
-	\item Detekcja obiektów - polega na wskazaniu, gdzie na obrazie znajdują się wykryte obiekty, z~rozróżnieniem poszczególnych obiektów jednak bez wskazania konkretnych pikseli;
-	\item Segmentacja instancji - polega na wskazaniu konkretnych pikseli wykrytych obiektów z~rozróżnieniem poszczególnych obiektów.
-\end{enumerate}
+\subsection*{Klasyfikacja obiektów}
+Klasyfikacja obiektów polega na stwierdzeniu przynależności obiektu na podanym obrazie wejściowym do jednej z wcześniej zdefiniowanych grup.
+\TODO{więcej i literatura}
+\subsection*{Semantyczna segmentacja}
+Semantyczna segmentacja polega na wskazaniu, które piksele obrazu należą do wykrytego obiektu. W przypadku więcej niż jednego obiektu, nie ma rozróżnienia, które piksele dotyczą którego obiektu.
+\TODO{więcej i literatura}
+\subsection*{Detekcja obiektów}
+Detekcja obiektów polega na wskazaniu, gdzie na obrazie znajdują się wykryte obiekty, z~rozróżnieniem poszczególnych obiektów jednak bez wskazania konkretnych pikseli.
+\TODO{więcej i literatura}
+\subsection*{Segmentacja instancji}
+Segmentacja instancji polega na wskazaniu konkretnych pikseli wykrytych obiektów z~rozróżnieniem poszczególnych obiektów.
+\TODO{więcej i literatura}
 
-Niniejsza praca zajmuje się tym ostatnim zadaniem, to znaczy segmentacją instancji kortów do badmintona, zwaną dalej detekcją obszaru kortu.
+
+
+W niniejszej pracy skoncentrowano się na ostatnim zagadnieniu,  to znaczy segmentacji instancji kortów do badmintona, ze względu na fakt, iż system automatycznego sędziowania meczów badmintona tworzony przez firmę \blue{} wykorzystywany będzie w placówkach w których kamery mogą obejmować więcej niż jeden kort, dlatego też rozróżnienie konkretnych pikseli jako konkretne korty jest wymagane. Natomiast samo wskazanie kortów, bez wskazywania konkretnych pikseli nie jest wystarczające do rozstrzygania wątpliwości na temat tego czy lotka wypadła czy nie wypadła poza kort. Segmentacja instancji kortu do badmintona jest zwana w dalszej częsci pracy detekcją obszaru kortu.
