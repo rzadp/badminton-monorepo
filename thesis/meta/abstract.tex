@@ -1,8 +1,11 @@
 % !TeX root = ../main.tex
-This paper is about detecting the surface of a badminton court on an image, using neural networks. The paper explains \textit{Mask R-CNN}~\cite{general-mask-rcnn} model and its historical development, and introduces a modification in the implementation. The idea for the thesis came from company named \blue{}, which operates in the badminton industry.
-The main problems tackled by this paper are constructing a dataset for training the neural network, and maximizing its accuracy.
 
-Attached application consists of modified \textit{Mask R-CNN} model, artificial data generator, a tool for annotating the data together with instruction enabling the user to reproduce the experiments. The experiments conducted in this paper are about comparing the original implementation and the modified implementation of \textit{Mask R-CNN}, and researching the influence of adding fake, generated data to the training dataset. The best results achieved in this paper is 97\% correctly detected pixels on an image, on average.
+This paper is about detecting the surface of a badminton court on an image, using neural networks.
+The paper explains \textit{Mask R-CNN} model and its historical development.
+The idea for the thesis resultet from collaboration with a company named \blue{}, which operates in the badminton industry.
+The main problems tackled by this paper are constructing a dataset for training the neural network, detecting the surface of the court and maximizing the accuracy.
+
+Method of detecting the surface of the court presented in this paper is based on modified implementation of \textit{Mask R-CNN} and an artificial data generator. The paper includes the description of the method and conducted tests, as well as intructions allowing the reader to reproduce the experiments. The experiments were conducted in order to compare the results of the method with original implementation of \textit{Mask R-CNN} and a modified version. Additionally, the results of training the neural network with and without the artificial data were compared. The final results, 97\% correctly detected pixels on average, are sufficient for the \blue{} company for the purpose of an automated judge system.
 \\
 
 \noindent \textbf{Keywords:} neural networks, convolutional neural networks, object detection, instance~segmentation

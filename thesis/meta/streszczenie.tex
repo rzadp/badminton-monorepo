@@ -1,12 +1,12 @@
 % !TeX root = ../main.tex
-Niniejsza praca dotyczy problemu wykrywania obszaru kortu do badmintona na obrazie, przy użyciu sieci neuronowych.
-Przedstawia sposób działania użytej sieci neuronowej \textit{Mask R-CNN}~\cite{general-mask-rcnn} oraz jej modyfikacje wraz z~historycznym kontekstem rozwoju sieci dla lepszego zrozumienia jej działania.
-Temat pracy został zaproponowany przez firmę \blue{} działającej w branży badmintona - stąd też ukierunkowanie na wykrywanie konkretnie kortów badmintona.
-Główne problemy poruszone w pracy to skonstruowanie zbioru danych na potrzeby treningu sieci oraz dokładność z~jaką wykrywane są piksele obszaru kortu.
+Niniejsza praca dotyczy problemu detekcji obszaru kortu do badmintona w obrazie, przy~użyciu sieci neuronowych.
+Przedstawia sposób działania użytej sieci neuronowej \textit{Mask R-CNN} oraz jej modyfikacje wraz z~historycznym kontekstem rozwoju sieci dla lepszego zrozumienia jej działania.
+Zagadnienie detekcji obszaru kortu do badmintona wyniknęło ze współpracy z firmą \blue{}, działającą w branży badmintona.
+Główne problemy omówione w pracy to konstrukcja zbiorów danych na potrzeby treningu sieci, detekcja obszaru kortu oraz dokładność z~jaką wykrywane są piksele tego obszaru.
 
-Dołączona do pracy aplikacja składa się ze zmodyfikowanej sieci \textit{Mask R-CNN}, generatora sztucznych danych treningowych, narzędzia do anotacji danych treningowych oraz instrukcji ukierunkowanej na umożliwienie zreprodukowania eksperymentów.
-Przeprowadzone eksperymenty dotyczą porównania wyników oryginalnej i zmodyfikowanej sieci, a~także skuteczności treningu bez i z~użyciem generatora sztucznych danych.
-Najlepsze osiągnięte wyniki wynoszą średnio 97\% poprawnie wykrytych pikseli obszaru kortu na obrazie.
+Metoda detekcji obszaru kortu stworzona w ramach tej pracy bazuje na zmodyfikowanej implementacji sieci \textit{Mask R-CNN} i generatorze sztucznych danych treningowych.
+W pracy zawarto opis metody, opis testów, a także instrukcję umożliwiającą zreprodukowanie eksperymentów. Eksperymenty przeprowadzono w celu porównania wyników metody z wykorzystaniem oryginalnej implementacji sieci \textit{Mask R-CNN} i jej zmodyfikowanej wersji.
+Dodatkowo zbadano skuteczność treningu bez i z użyciem stworzonego przez autora generatora sztucznych danych. Otrzymane wyniki, średnio 97\% poprawnie wykrytych pikseli obszaru kortu w obrazie, są satysfakcjonujące na potrzeby systemu do automatycznego sędziowania zbudowanego przez firmę \blue{}.
 \\
 
-\noindent \textbf{Słowa kluczowe:} sieci neuronowe, sieci konwolucyjne, rozpoznawanie obrazów, segmentacja~instancji
+\noindent \textbf{Słowa kluczowe:} sieci neuronowe, sieci konwolucyjne, rozpoznawanie obiektów, segmentacja~instancji
