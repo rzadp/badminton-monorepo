@@ -3,14 +3,14 @@
 \section{Uczenie transferowe}
 \label{sec:uczenie-transferowe}
 
-Uczenie transferowe polega na wykorzystaniu wiedzy zdobytej na potrzeby jednego problemu, i wykorzystanie jej na potrzeby rozwiązywania innego, ale powiązanego problemu.
-Niniejsza praca korzysta z uczenia transferowego, wykorzystując sieć wytrenowaną na COCO i przystosowywując ją do tytułowej tematyki.
+Uczenie transferowe polega na wykorzystaniu wiedzy zdobytej podczas rozwiązywania jednego problemu na potrzeby innego, powiązanego problemu.
+Niniejsza praca korzysta z uczenia transferowego, wykorzystując sieć wytrenowaną na zbiorze COCO \cite{coco} i przystosowywując ją do badanej tematyki.
 
-Rysunek \myfigref{fig:transferowe}, bazujący na Rysunku \myfigref{fig:mask_r_cnn} przedstawia implementację, dzięki której umożliwiono uczenie transferowe. Rozpoczynając trening od wag uzyskanych po treningu na zbiorze COCO, poszczególne fragmenty modelu zostały zamrożone i nie zostają aktualizowane podczas treningu. Dzięki temu czas treningu zostaje znacząco skrócony.
+Rysunek \numberref{fig:transferowe} przedstawia zasadę działania uczenia transferowego, dzięki której umożliwiono uczenie transferowe. Rozpoczynając trening od wag uzyskanych po treningu na zbiorze COCO, poszczególne fragmenty modelu zostały zamrożone i nie zostają aktualizowane podczas treningu. Dzięki temu czas treningu zostaje znacząco skrócony.
 
 \begin{figure}[h]
   \centering
-  \caption{Metoda uczenia transferowego w implementacji \textit{Mask R-CNN}}
+  \caption{Zamrożone w ramach uczenia transferowego elementy w \textit{Mask R-CNN}}
   \includegraphics[width=1\textwidth]{transferowe.png}
   \label{fig:transferowe}
 \end{figure}
