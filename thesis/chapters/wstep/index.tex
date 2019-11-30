@@ -26,17 +26,22 @@ Dodatkowo celem była optymalizacja wykorzystywanej architektury sieci oraz kons
 
 Wkład własny autora niniejszej pracy został zebrany w następujących punktach:
 
+\newcommand{\zaprojektowanie}[2]{zaprojektowanie i przeprowadzenie testów detekcji obszaru kortu z wykorzystaniem zbioru \textit{#1} \patrzx{#2}}
+
 \begin{itemize}
 	\item Zbiór danych:
     \begin{enumerate}
-      \item Skonstruowanie dwóch zbiorów danych \patrz{sec:zbiory}
-      \item Zbadanie wpływu podziałów zbiorów na skuteczność sieci \patrz{sec:podzial}
-			\item Stworzenie generatora sztucznych danych \patrz{sec:generator}
-			\item Zbadanie wpływu sztucznych danych na skuteczność treningu \patrz{sec:generator}
+			\item stworzenie generatora sztucznych danych w celu zwiększenia ilości rekordów treningowych \patrzx{sec:generator};
+			\item zbadanie wpływu użycia sztucznych danych treningowych na skuteczność treningu \patrzx{sec:eksperymenty_wyniki};
+      \item skonstruowanie dwóch zbiorów danych - zbioru \text{high} i zbioru \textit{low} \patrzx{sec:zbiory};
+      \item zbadanie wpływu podziału zbiorów na skuteczność metody \patrzx{sec:podzial}.
 		\end{enumerate}
-	\item Sieć neuronowa
+	\item Architektura sieci neuronowej:
 	\begin{itemize}
-		\item Przedstawienie głównych idei kolejnych iteracji wybranej sieci neuronowej \patrz{sec:architekrura_mask_rcnn}
-		\item Modyfikacja i przygotowanie sieci na potrzeby analizowanego zagadnienia \patrz{sec:zaproponowana_architektura}
+		\item przedstawienie kolejnych iteracji wybranej sieci neuronowej \patrzx{sec:architekrura_mask_rcnn};
+		\item modyfikacja architektury sieci na potrzeby analizowanego zagadnienia \patrzx{sec:zaproponowana_architektura};
+		\item \zaprojektowanie{low}{sec:experymenty_low};
+		\item \zaprojektowanie{high}{sec:experymenty_high};
+		\item przeprowadzenie integracji zaproponowanej metody z systemem firmy \blue{}. \TODO{TEGO JESZCZE NIE MA}
 	\end{itemize}
 \end{itemize}
