@@ -202,6 +202,7 @@
 \algrenewcommand\algorithmicindent{.8em}
 \usepackage{amsmath}
 \floatname{algorithm}{Pseudokod}
+\newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}} % https://tex.stackexchange.com/questions/173899/fractions-with-large-elements
 
 % \usepackage[disable]{todonotes} % notes not showed
 \usepackage[draft]{todonotes}
@@ -218,7 +219,7 @@
 
 \newcommand*{\myref}[1]{\hyperref[{#1}]{Patrz punkt \ref*{#1}, \textbf{\nameref*{#1}}}}
 \newcommand*{\myrefx}[1]{\hyperref[{#1}]{\textbf{\nameref*{#1}}, str. \pageref*{#1}}}
-\newcommand*{\myfigref}[1]{\hyperref[{#1}]{\textbf{}\ref*{#1} (str. \pageref*{#1})}}
+\newcommand*{\myfigref}[1]{\hyperref[{#1}]{\textbf{\ref*{#1}} (str. \pageref*{#1})}}
 \newcommand*{\patrz}[1]{\hyperref[{#1}]{(patrz rozdz. \ref*{#1} str. \pageref*{#1})}}
 \newcommand*{\patrzx}[1]{\hyperref[{#1}]{(patrz Rozdział \textbf{\ref*{#1}})}}
 \newcommand*{\mytabref}[1]{\hyperref[{#1}]{\textbf{\ref*{#1}}}}
