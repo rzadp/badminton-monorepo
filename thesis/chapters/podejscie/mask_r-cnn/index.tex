@@ -7,7 +7,7 @@ W celu zrozumienia tego modelu, najlepiej rozważać go w kontekście ewoluowani
 
 \subsection{Iteracja pierwsza - R-CNN}
 
-\textit{R-CNN} \cite{rcnn} (z ang. \textit{Regions with Convolutional Neural Network}), przedstawiony w 2014 roku, rozwiązuje zagadnienie detekcji obiektów na obrazie (to znaczy wskazuje konkretne obiekty, ale bez konkretnych pikseli).
+\textit{R-CNN} \cite{rcnn} (z ang. \textit{Regions with Convolutional Neural Network}), przedstawiony w 2014 roku, rozwiązuje zagadnienie detekcji obiektów w obrazie (to znaczy wskazuje konkretne obiekty, ale bez konkretnych pikseli).
 
 \begin{figure}[h]
   \centering
@@ -19,10 +19,10 @@ W celu zrozumienia tego modelu, najlepiej rozważać go w kontekście ewoluowani
 Działanie modelu można zobrazować w następujących krokach:
 \label{sec:regiony}
 \begin{enumerate}
-  \item Najpierw na obszarze obrazu wejściowego generowane są tzw. propozycje regionów, przy użyciu algorytmu \textit{Selective Search} \cite{selective-search}; celem jest znalezienie regionów, w których prawdopodobnie znajduje się jakiś obiekt;
+  \item Najpierw w obszarze obrazu wejściowego generowane są tzw. propozycje regionów, przy użyciu algorytmu \textit{Selective Search} \cite{selective-search}; celem jest znalezienie regionów, w których prawdopodobnie znajduje się jakiś obiekt;
 	\item Następnie, dla każdego takiego regionu wydobywane są cechy za pomocą \textit{CNN};
   \item W dalszej kolejności, cechy każdego regionu analizowane są przez model wektorów nośnych; wynikiem jest klasyfikacja regionu na dwie grupy - wskazany obiekt lub brak obiektu;
-	\item Na końcu dla regionów, w których wskazano obiekt następuje próba dopasowania obszaru do rozmiaru obiektu - wynikiem jest obwódka (z ang. \textit{bounding box}) wskazująca położenie obiektu na obrazie.
+	\item Na końcu dla regionów, w których wskazano obiekt następuje próba dopasowania obszaru do rozmiaru obiektu - wynikiem jest obwódka (z ang. \textit{bounding box}) wskazująca położenie obiektu w obrazie.
 \end{enumerate}
 
 \subsection{Iteracja druga - Fast R-CNN}
