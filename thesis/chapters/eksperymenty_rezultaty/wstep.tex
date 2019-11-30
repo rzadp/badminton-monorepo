@@ -9,13 +9,3 @@ W niniejszym rozdziale przedstawione zostaną zbiory danych, szczegóły przepro
 \end{itemize}
 
 Wyniki przedstawione w niniejszym rozdziale mogą zostać zreprodukowane z pomocą instrukcji~\footnote{\nameref{sec:instrukcja-instalacji}}~\footnote{\nameref{sec:instrukcja-uzytkownika}}.
-
-\section{Hiperparametry treningu}
-
-Treningi przeprowadzone w ramach niniejszego rozdziału korzystają z następującej strategii doboru współczynnika uczenia (\textit{learning rate}):
-\begin{enumerate}
-  \item Wartość początkowa: 0.001;
-  \item W przypadku braku poprawy skuteczności sieci na zbiorze walidacyjnym w 5 kolejnych epokach treningowych, parametr zmniejsza się pięciokrotnie (ale nie mniej niż wartość minimalna 0.0000001);
-\end{enumerate}
-
-Próby wskazały na zwiększenie skuteczności sieci trenowanej z użyciem takiej strategii zmniejszania parametru.
