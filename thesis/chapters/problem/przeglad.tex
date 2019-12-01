@@ -1,22 +1,21 @@
 % !TeX root = ../../main.tex
-\subsection{Sieci neuronowe w kontekście segmentacji instancji}
+\subsection{Sieci neuronowe w kontekście detekcji obiektów}
 
-Do rozwiązania problemu detekcji rozważono kilka modeli open-source:
+W rozdziale \numberref{sec:typy_detekcji} przedstawiono różne aspekty problemu wykrywania obiektów, to znaczy klasyfikację obrazów, detekcję obiektów, segmentację semantyczną, segmentację instancji oraz segmentację panoptyczną. W ramach każdego z tych aspektów wykorzystywane są modele oparte na sieciach neuronowych. Wśród takich modeli, wykorzystywanych w dziedzinie detekcji obiektów, można wyróżnić modele otwartoźródłowe:
 
 \begin{itemize}
-	\item \textit{Keras RetinaNet} \cite{keras-retinanet} \cite{keras-retinanet-implementation}
-	\item \textit{YOLO} \cite{yolo} \cite{yolo-implementation}
-	\item \textit{DeepMask/SharpMask} \cite{deepmask} \cite{sharpmask} \cite{deep-sharp-mask}
-	\item Różne implementacje modelu \textit{Mask R-CNN} \cite{general-mask-rcnn}
+	\item \textit{Keras RetinaNet} \cite{keras-retinanet-implementation} - implementacja modelu \textit{RetinaNet} \cite{keras-retinanet} oparta na bibliotece \textit{Keras}~\cite{keras};
+	\item \textit{YOLO} \cite{yolo-implementation} - implementacja modelu \textit{You Only Look Once} \cite{yolo};
+	\item \textit{DeepMask/SharpMask} \cite{deep-sharp-mask} - projekt zawierający implementację modelu \textit{DeepMask} \cite{deepmask} oraz modelu \textit{SharpMask} \cite{sharpmask};
+	\item Różne implementacje modelu \textit{Mask R-CNN} \cite{general-mask-rcnn}:
 		\begin{itemize}
-			\item \textit{Mask\_RCNN} \cite{matterport-mask-rcnn}
-			\item \textit{Instance segmentation with OpenCV} \cite{mask-rcnn-opencv}
-			\item \textit{FastMaskRCNN} \cite{fast-mask-rcnn}
+			\item \textit{Mask R-CNN} \cite{matterport-mask-rcnn} - projekt implementujący model \textit{Mask R-CNN}, noszący taką samą nazwę, oparty na bilbiotekach TensorFlow \cite{tensorflow} i Keras \cite{keras};
+			\item \textit{Instance segmentation with OpenCV} \cite{mask-rcnn-opencv} - implementacja modelu \textit{Mask R-CNN} oparta na bibliotece OpenCV \cite{opencv};
+			\item \textit{FastMaskRCNN} \cite{fast-mask-rcnn} - implementacja modelu \textit{Mask R-CNN} przy użyciu biblioteki TensorFlow \cite{tensorflow}.
 		\end{itemize}
 \end{itemize}
 
-Modele \textit{Keras RetinaNet} oraz \textit{YOLO} zostały odrzucone ze względu na fakt, iż pozwalają tylko na detekcję obiektów, nie posiadają funkcjonalności segmentacji instacji. \\
-
+Modele \textit{Keras RetinaNet} oraz \textit{YOLO} zostały odrzucone ze względu na fakt, iż pozwalają tylko na detekcję obiektów, nie posiadają funkcjonalności segmentacji instacji.
 Model \textit{DeepMask/SharpMask} został odrzucony, ponieważ repozytorium jest zarchiwizowane i nie rozwijane od 2016 roku.
 
 Z~pozostałych trzech różnych implementacji bazujących na pracy \textit{Mask R-CNN} \cite{general-mask-rcnn}, wybór padł na \textit{Mask\_RCNN} \cite{matterport-mask-rcnn} z~jednego, ważnego powodu - autor udostępnia wagi modelu wytrenowanego na publiczym zbiorze zaanotowanych obrazów \textit{COCO} \cite{coco}.
