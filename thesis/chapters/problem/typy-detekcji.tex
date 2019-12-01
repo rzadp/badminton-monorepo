@@ -8,7 +8,8 @@ Detekcja obiektów w obrazie można rozumieć w czterech aspektach, różniącyc
 Klasyfikacja obrazów polega na stwierdzeniu przynależności obiektu (lub obiektów) na podanym obrazie wejściowym do jednej z wcześniej zdefiniowanych grup. Wynikiem jest kategoria (lub lista kategorii) zindentyfikowanych w obrazie obiektów, bez dodatkowych informacji na temat kształtu, rozmiaru czy położenia obiektów. Jedną z metod rozwiązywania tego problemu jest wykorzystanie klasyfikatora opartego na maszynach wektorów nośnych (\textit{support vector machines, SVM}). Rozwiązanie to wymaga ekstrakcji cech (\textit{feature extraction}), na których to dokonywana jest klasyfikacja przy użyciu \textit{SVM}. Metoda ta ma wysoką skuteczność, dobre podłoże teoretyczne i jest szeroko stosowane w wielu dziedzinach nauki \cite{analysis-image-classification}.
 
 Innym przykładem metody rozwiązywania tego problem jest użycie algorytmu drzew decyzyjnych \textit{(decision tree}), skutecznie zaaplikowanego w ramach problemu klasyfikacji zdjęć satelitarnych \cite{decision-image-classifier}. Zaletą tej metody jest to, że wynikowy model jest stosunkowo łatwy do zinterpretowania.
-\TODO{więcej i literatura}
+
+Kolejną alternatywą powyższych metod jest użycie algorytmu \textit{k} najbliższych sąsiadów (\textit{k-nearest neighbors algorithm (k-NN) }). Algorytm ten stosowany jest do klasyfikacji obrazów w różnych dziedzinach nauki, między innymi w biologii \cite{analysis-image-classification}.
 \subsection*{Detekcja obiektów}
 Detekcja obiektów rozszerza aspekt klasyfikacji obrazów. Tak jak w przypadku klasyfikacji obrazów polega na rozpoznaniu kategorii obiektów w obrazie, ale dodatkowym elementem wyniku są obwiednie wskazujące pozycje wykrytych obiektów.
 \TODO{więcej i literatura}
