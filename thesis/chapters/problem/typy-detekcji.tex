@@ -2,7 +2,7 @@
 \section{Detekcja obiektów w obrazie}
 \label{sec:typy_detekcji}
 
-Detekcja obiektów w obrazie można rozumieć w czterech aspektach, różniących się między sobą szczegółowością opisu analizowanego obiektu. Te aspekty to klasyfikacja obrazów (\textit{image classification}), detekcja obiektów (\textit{object detection}), semantyczna segmentacja (\textit{semantic segmentation}) oraz segmentacja instancji (\textit{instance segmentation}) \cite{survey-of-object-classification}.
+Detekcja obiektów w obrazie można rozumieć w pięciu aspektach, różniących się między sobą szczegółowością opisu analizowanego obiektu. Te aspekty to klasyfikacja obrazów, detekcja obiektów, semantyczna segmentacja, segmentacja instancji \cite{survey-of-object-classification}, a także segmentacja panoptyczna \cite{panoptic-segmentation}.
 
 \subsection*{Klasyfikacja obrazów}
 Klasyfikacja obrazów polega na stwierdzeniu przynależności obiektu (lub obiektów) na podanym obrazie wejściowym do jednej z wcześniej zdefiniowanych grup. Wynikiem jest kategoria (lub lista kategorii) zindentyfikowanych w obrazie obiektów, bez dodatkowych informacji na temat kształtu, rozmiaru czy położenia obiektów. Jedną z metod rozwiązywania tego problemu jest wykorzystanie klasyfikatora opartego na maszynach wektorów nośnych (\textit{support vector machines, SVM}). Rozwiązanie to wymaga ekstrakcji cech (\textit{feature extraction}), na których to dokonywana jest klasyfikacja przy użyciu \textit{SVM}. Metoda ta ma wysoką skuteczność, dobre podłoże teoretyczne i jest szeroko stosowane w wielu dziedzinach nauki \cite{analysis-image-classification}.
@@ -10,14 +10,24 @@ Klasyfikacja obrazów polega na stwierdzeniu przynależności obiektu (lub obiek
 Innym przykładem metody rozwiązywania tego problem jest użycie algorytmu drzew decyzyjnych \textit{(decision tree}), skutecznie zaaplikowanego w ramach problemu klasyfikacji zdjęć satelitarnych \cite{decision-image-classifier}. Zaletą tej metody jest to, że wynikowy model jest stosunkowo łatwy do zinterpretowania.
 
 Kolejną alternatywą powyższych metod jest użycie algorytmu \textit{k} najbliższych sąsiadów (\textit{k-nearest neighbors algorithm (k-NN) }). Algorytm ten stosowany jest do klasyfikacji obrazów w różnych dziedzinach nauki, między innymi w biologii \cite{analysis-image-classification}.
+
 \subsection*{Detekcja obiektów}
 Detekcja obiektów rozszerza aspekt klasyfikacji obrazów. Tak jak w przypadku klasyfikacji obrazów polega na rozpoznaniu kategorii obiektów w obrazie, ale dodatkowym elementem wyniku są obwiednie wskazujące pozycje wykrytych obiektów.
+\cite{survey-deep-learning-object-dection}
 \TODO{więcej i literatura}
+
 \subsection*{Semantyczna segmentacja}
 Semantyczna segmentacja polega na wskazaniu konkretnych pikseli wykrytych obiektów na obirazie. Rozszerza ona aspekt detekcji obiektów, różniąc się wskazywaniem pikseli zamiast obwiedni. Jeżeli w obrazie wykryty zostaje więcej niż jeden obiekt należący do jednej kategorii, nie ma rozróżnienia do którego z tych obiektów należy dany piksel.
+\cite{survey-semantic-segmentation}
 \TODO{więcej i literatura}
+
 \subsection*{Segmentacja instancji}
 Segmentacja instancji rozumiana jest jako semantyczna segmentacja z rozróżnieniem do których obiektów należą wskazywane piksele, w przypadku obiektów należących do tej samej kategorii.
 \TODO{więcej i literatura}
 
-W niniejszej pracy skoncentrowano się na ostatnim zagadnieniu,  to znaczy segmentacji instancji kortów do badmintona, ze względu na fakt, iż system automatycznego sędziowania meczów badmintona tworzony przez firmę \blue{} wykorzystywany będzie w placówkach w których kamery mogą obejmować więcej niż jeden kort, dlatego też rozróżnienie konkretnych pikseli jako konkretne korty jest wymagane. Natomiast samo wskazanie kortów, bez wskazywania konkretnych pikseli nie jest wystarczające do rozstrzygania wątpliwości na temat tego czy lotka wypadła czy nie wypadła poza kort. Segmentacja instancji kortu do badmintona jest zwana w dalszej częsci pracy detekcją obszaru kortu.
+\subsection*{Segmentacja panoptyczna}
+Segmentacja panoptyczna jest \TODO{...}
+
+
+
+W niniejszej pracy skoncentrowano się na zagadnieniu segmentacji instancji kortów do badmintona, ze względu na fakt, iż system automatycznego sędziowania meczów badmintona tworzony przez firmę \blue{} wykorzystywany będzie w placówkach w których kamery mogą obejmować więcej niż jeden kort, dlatego też rozróżnienie konkretnych pikseli jako konkretne korty jest wymagane. Natomiast samo wskazanie kortów, bez wskazywania konkretnych pikseli nie jest wystarczające do rozstrzygania wątpliwości na temat tego czy lotka wypadła czy nie wypadła poza kort. Segmentacja instancji kortu do badmintona jest zwana w dalszej częsci pracy detekcją obszaru kortu.
