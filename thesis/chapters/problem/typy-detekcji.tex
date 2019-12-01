@@ -2,7 +2,7 @@
 \section{Detekcja obiektów w obrazie}
 \label{sec:typy_detekcji}
 
-Detekcja obiektów w obrazie można rozumieć w pięciu aspektach, różniących się między sobą szczegółowością opisu analizowanego obiektu. Te aspekty to klasyfikacja obrazów, detekcja obiektów, semantyczna segmentacja, segmentacja instancji \cite{survey-of-object-classification}, a także segmentacja panoptyczna \cite{panoptic-segmentation}.
+Detekcja obiektów w obrazie można rozumieć w pięciu aspektach, różniących się między sobą szczegółowością opisu analizowanego obiektu. Te aspekty to klasyfikacja obrazów, detekcja obiektów, semantyczna segmentacja, segmentacja instancji \cite{survey-of-object-classification} oraz segmentacja panoptyczna \cite{panoptic-segmentation}.
 
 \subsection*{Klasyfikacja obrazów}
 Klasyfikacja obrazów polega na stwierdzeniu przynależności obiektu (lub obiektów) na podanym obrazie wejściowym do jednej z wcześniej zdefiniowanych grup. Wynikiem jest kategoria (lub lista kategorii) zindentyfikowanych w obrazie obiektów, bez dodatkowych informacji na temat kształtu, rozmiaru czy położenia obiektów. Jedną z metod rozwiązywania tego problemu jest wykorzystanie klasyfikatora opartego na maszynach wektorów nośnych (\textit{support vector machines, SVM}). Rozwiązanie to wymaga ekstrakcji cech (\textit{feature extraction}), na których to dokonywana jest klasyfikacja przy użyciu \textit{SVM}. Metoda ta ma wysoką skuteczność, dobre podłoże teoretyczne i jest szeroko stosowane w wielu dziedzinach nauki \cite{analysis-image-classification}.
@@ -24,7 +24,7 @@ Segmentacja instancji może być rozumiana jako rozszerzenie detekcji obiektów,
 \TODO{więcej i literatura}
 
 \subsection*{Segmentacja panoptyczna}
-Segmentacja panoptyczna może być rozumiane jako połączenie semantycznej segmentacji i segmentacji isntancji. Piksele w obrazie są kategoryzowane z rozróżnieniem na różne obiekty tej samej kategorii, i dodatkowo każdy piksel obrazu musi zostać zakwalifikowany do jednej z kategorii.
+Zagadnienie segmentacja panoptycznej \cite{panoptic-segmentation} może być rozumiane jako połączenie semantycznej segmentacji i segmentacji isntancji. Piksele w obrazie są kategoryzowane z rozróżnieniem na różne obiekty tej samej kategorii, i dodatkowo każdy piksel obrazu musi zostać zakwalifikowany do jednej z kategorii.
 
 \vspace{0.5cm}
 
