@@ -22,7 +22,7 @@ Działanie modelu można zobrazować w następujących krokach:
   \item Najpierw w obszarze obrazu wejściowego generowane są tzw. propozycje regionów, przy użyciu algorytmu \textit{Selective Search} \cite{selective-search}; celem jest znalezienie regionów, w których prawdopodobnie znajduje się jakiś obiekt;
 	\item Następnie, dla każdego takiego regionu wydobywane są cechy za pomocą \textit{CNN};
   \item W dalszej kolejności, cechy każdego regionu analizowane są przez model wektorów nośnych; wynikiem jest klasyfikacja regionu na dwie grupy - wskazany obiekt lub brak obiektu;
-	\item Na końcu dla regionów, w których wskazano obiekt następuje próba dopasowania obszaru do rozmiaru obiektu - wynikiem jest obwódka (z ang. \textit{bounding box}) wskazująca położenie obiektu w obrazie.
+	\item Na końcu dla regionów, w których wskazano obiekt następuje próba dopasowania obszaru do rozmiaru obiektu - wynikiem jest obwiednia (z ang. \textit{bounding box}) wskazująca położenie obiektu w obrazie.
 \end{enumerate}
 
 \subsection{Iteracja druga - Fast R-CNN}
@@ -35,7 +35,7 @@ Działanie modelu można zobrazować w następujących krokach:
 			\item \textit{Selective Search} do generowania regionów;
 			\item \textit{CNN} do ekstrakcji cech;
 			\item \textit{SVM} do klasyfikacji;
-			\item model dopasowujący obwódkę.
+			\item model dopasowujący obwiednię.
 		\end{itemize}
   \item Zduplikowane obliczenia na etapie ekstrakcji cech, wynikające z faktu, że ekstracja cech uruchamiana jest dla każdego regionu, a gdy regiony zachodzą na siebie, obliczenia ekstrakcji cech są powtarzane.
 \end{itemize}
@@ -55,9 +55,9 @@ Gdy zachodzi konieczność ekstrakcji cech regionu, zamiast liczyć cechy od now
 Metoda ta to tzw. \textit{Region of Interest Pooling} \cite{fast-rcnn}.
 
 Oprócz zmian w sposobie liczenia cech, w \textit{Fast R-CNN} klasyfikator \textit{SVM} został zastąpiony siecią neuronową.
-Podobnie stało się z~modelem dopasowującym obwódkę.
+Podobnie stało się z~modelem dopasowującym obwiednię.
 Te dwie nowe sieci połączono w jedną sieć wraz z~siecią \textit{CNN}.
-Podsieć klasyfikująca i podsieć dopasowująca obwódkę zostały włączone do sieci w sposób równoległy, to znaczy ich wyniki nie zależą od siebie nawzajem.
+Podsieć klasyfikująca i podsieć dopasowująca obwiednię zostały włączone do sieci w sposób równoległy, to znaczy ich wyniki nie zależą od siebie nawzajem.
 
 Zmiany te rozwiązały w dużej części problemy \textit{R-CNN} wymienione powyżej.
 
@@ -73,7 +73,7 @@ Dodatkowo był to kolejny krok zastępujący część modelu podsiecią neuronow
 	\item Budującej mapę cech;
 	\item Generującej regiony;
 	\item Klasyfikującej;
-	\item Dopasowującej obwódkę.
+	\item Dopasowującej obwiednię.
 \end{itemize}
 
 \begin{figure}[h]
@@ -89,7 +89,7 @@ Wyróżniony element wskazuje zasadniczą różnicę względem Fast R-CNN.
 \subsection{Iteracja czwarta - Mask R-CNN}
 \label{sec:maskrcnn}
 \textit{Mask R-CNN} \cite{matterport-mask-rcnn}, przedstawiony w 2017 roku, stanowi ostatni krok w opisanej ewolucji modelu.
-Do dwóch równoległych podsieci - klasyfikującej oraz dopasowującej obwódkę - wprowadza nową, równoległą podsieć odpowiedzialną za detekcję konkretnych pikseli obiektu.
+Do dwóch równoległych podsieci - klasyfikującej oraz dopasowującej obwiednię - wprowadza nową, równoległą podsieć odpowiedzialną za detekcję konkretnych pikseli obiektu.
 
 Schemat \textit{Mask R-CNN} przedstawiony jest na Rysunku \myfigref{fig:mask_r_cnn}. Wyróżniony element wskazuje zasadniczą różnicę względem Faster R-CNN.
 
