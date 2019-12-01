@@ -16,8 +16,7 @@ Detekcja obiektów rozszerza aspekt klasyfikacji obrazów. Tak jak w przypadku k
 
 \subsection*{Semantyczna segmentacja}
 Semantyczna segmentacja polega na klasyfikacji poszczególnych pikseli na obrazie. Każdemu pikselowi w obrazie przypisywana jest jedna ze zdefiniowanych kategorii. Przy takim podejściu każdy piksel w obrazie ma przypisaną jakąś kategorię. Jeżeli w obrazie wykryty zostaje więcej niż jeden obiekt należący do jednej kategorii, piksele tych obiektów zostają zaklasyfikowane do tej samej kategorii jednak bez rozróżnienia które piksele należą do którego obiektu.
-\cite{survey-semantic-segmentation}
-\TODO{więcej i literatura}
+Zagadnienie może być rozszerzone o możliwość klasyfikacji pikseli do więcej niż jednej kategorii (\textit{multiple class affiliation}) \cite{survey-semantic-segmentation}, na przykład w przypadku gdy mały obiekt częsciowo przysłania większy obiekt w obrazie.
 
 \subsection*{Segmentacja instancji}
 Segmentacja instancji może być rozumiana jako rozszerzenie detekcji obiektów, gdzie zamiast obwiedni wynikiem są wskazane piksele obiektu. Różni się ona od semantycznej segmentacji tym, że w przypadku więcej niż jednego obiektu tej samej kategorii występuje rozróżnienie, które piksele należą do którego obiektu. W przeciwieństwie do semantycznej segmentacji, w aspekcie segmentacji instancji niektóre piksele mogą pozostać niezaklasyfikowane do żadnej kategorii.
