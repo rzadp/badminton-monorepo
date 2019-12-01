@@ -4,13 +4,14 @@ graph TD
 
 input[Obraz wejściowy]
 blur(Rozmazanie)
-edges(Detekcja krawędzi)
-line_edges(Detekcja odcinków)
-line_extend(Wydłużenie odcinków)
+edges(Filtr Canny)
+hough(Transformacja Hough)
+group(Grupowanie i odfiltrowanie linii)
+line_extend(Wydłużenie linii środkowych)
 remove_degraded(Usunięcie zdegradowanych odcinków)
-best_perspective(Wybranie najlepszej perspektywy)
-detect_vertical(Wskazanie pionowych linii kortu)
-detect_horizontal(Wskazanie poziomych linii kortu)
+shorten(Skrócenie par linii do skrajnych przecięć)
+podzial(Podział na linie poziomie i pionowe)
+verif(Weryfikacja)
 court[Wykryty obszar kortu]
 
 %% ...::: STYLING :::...
@@ -19,11 +20,11 @@ court[Wykryty obszar kortu]
 
 input-->blur
 blur-->edges
-edges-->line_edges
-line_edges-->line_extend
+edges-->hough
+hough-->group
+group-->line_extend
 line_extend-->remove_degraded
-remove_degraded-->best_perspective
-best_perspective-->detect_vertical
-best_perspective-->detect_horizontal
-detect_vertical-->court
-detect_horizontal-->court
+remove_degraded-->shorten
+shorten-->podzial
+podzial-->verif
+verif-->court
