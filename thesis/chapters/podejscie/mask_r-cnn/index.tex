@@ -31,14 +31,14 @@ Działanie modelu można zobrazować w następujących krokach:
 W modelu modelu \textit{R-CNN} zidentyfikowano następujące problemy:
 
 \begin{itemize}
-  \item Problem w implementacji i w wytrenowaniu sieci wynikający z samej budowy \textit{R-CNN}; \textit{R-CNN} składa się z~czterech części, które osobno wymagają zrozumienia, implementacji i trenowania lub doboru parametrów:
+  \item problem w implementacji i w wytrenowaniu sieci, wynikający z samej budowy \textit{R-CNN}; \textit{R-CNN} składa się z~czterech części, które osobno wymagają zrozumienia, implementacji i~trenowania lub doboru parametrów:
 		\begin{itemize}
-			\item \textit{Selective Search} do generowania regionów;
-			\item \textit{CNN} do ekstrakcji cech;
-			\item \textit{SVM} do klasyfikacji;
-			\item model dopasowujący obwiednię.
+			\item \textit{Selective Search}, w detekcji regionów zainteresowania,
+			\item \textit{CNN}, do ekstrakcji cech dla wyznaczonych regionów,
+			\item \textit{SVM}, do klasyfikacji wyekstrahowanych cech,
+			\item modelu dopasowującego obwiednię;
 		\end{itemize}
-  \item Zduplikowane obliczenia na etapie ekstrakcji cech, wynikające z faktu, że ekstracja cech uruchamiana jest dla każdego regionu, a gdy regiony zachodzą na siebie, obliczenia ekstrakcji cech są powtarzane.
+  \item zduplikowane obliczenia na etapie ekstrakcji cech dla regionów zachodzących na siebie, co wynika z faktu, iż ekstracja cech uruchamiana jest dla każdego z regionów, niezależnie od tego czy te regiony zachodzą na siebie.
 \end{itemize}
 
 \begin{figure}[h]
