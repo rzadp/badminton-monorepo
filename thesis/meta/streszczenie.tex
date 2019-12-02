@@ -2,11 +2,11 @@
 Niniejsza praca dotyczy problemu detekcji obszaru kortu do badmintona w obrazie, przy~użyciu sieci neuronowych.
 Przedstawia sposób działania użytej sieci neuronowej \textit{Mask R-CNN} oraz jej modyfikacje wraz z~historycznym kontekstem rozwoju sieci dla lepszego zrozumienia jej działania.
 Zagadnienie detekcji obszaru kortu do badmintona wyniknęło ze współpracy z firmą \blue{}, działającą w branży badmintona.
-Główne problemy omówione w pracy to konstrukcja zbiorów danych na potrzeby treningu sieci, detekcja obszaru kortu oraz dokładność z~jaką wykrywane są piksele tego obszaru.
+Główne problemy omówione w pracy to konstrukcja zbiorów danych na potrzeby treningu sieci, detekcja obszaru kortu oraz dokładność z~jaką klasyfikowane są piksele tego obszaru.
 
 Metoda detekcji obszaru kortu stworzona w ramach tej pracy bazuje na zmodyfikowanej implementacji sieci \textit{Mask R-CNN} i generatorze sztucznych danych treningowych.
 W pracy zawarto opis metody, opis testów, a także instrukcję umożliwiającą zreprodukowanie eksperymentów. Eksperymenty przeprowadzono w celu porównania wyników metody z wykorzystaniem oryginalnej implementacji sieci \textit{Mask R-CNN} i jej zmodyfikowanej wersji.
-Dodatkowo zbadano skuteczność treningu bez i z użyciem stworzonego przez autora generatora sztucznych danych. Otrzymane wyniki, średnio 97\% poprawnie wykrytych pikseli obszaru kortu w obrazie, są satysfakcjonujące na potrzeby systemu do automatycznego sędziowania budowanego przez firmę \blue{}.
+Dodatkowo zbadano skuteczność treningu bez i z użyciem stworzonego przez autora generatora sztucznych danych. Otrzymane wyniki, średnio 97\% poprawnie zaklasyfikowanych pikseli obszaru kortu w obrazie, są satysfakcjonujące na potrzeby systemu do automatycznego sędziowania budowanego przez firmę \blue{}.
 \\
 
 \noindent \textbf{Słowa kluczowe:} sieci neuronowe, sieci konwolucyjne, rozpoznawanie obiektów, segmentacja~instancji

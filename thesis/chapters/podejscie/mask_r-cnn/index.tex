@@ -21,8 +21,8 @@ Działanie modelu można zobrazować w następujących krokach:
 \begin{enumerate}
   \item selekcja regionów zainteresowania z obrazu wejściowego, przy~użyciu algorytmu \textit{Selective Search} \cite{selective-search}, w których prawdopodobnie może znajdować się zanalizowany obiekt;
   \item ekstrakcja cech dla każdego regionu zainteresowania za pomocą \textit{CNN};
-  \item klasyfikacja cech wyznaczonych dla regionu przy wykorzystaniu modelu wektorów nośnych; wynikiem tej klasyfikacji jest podział regionów na dwie grupy - wykryty obiekt lub niewykryty obiekt;
-  \item tylko dla regionów z wykrytym obiektem, próba dopasowania obszaru do rozmiaru obiektu, wynikiem czego jest obwiednia (z ang. \textit{bounding box}) wskazująca granice analizowanego obiektu.
+  \item klasyfikacja cech wyznaczonych dla regionu przy wykorzystaniu modelu wektorów nośnych; wynikiem tej klasyfikacji jest podział regionów na dwie grupy - zdetektowany obiekt lub niezdetektowany obiekt;
+  \item tylko dla regionów ze zdetektowanym obiektem, próba dopasowania obszaru do rozmiaru obiektu, wynikiem czego jest obwiednia (z ang. \textit{bounding box}) wskazująca granice analizowanego obiektu.
 \end{enumerate}
 
 \subsection{Iteracja druga - \textit{Fast R-CNN}}

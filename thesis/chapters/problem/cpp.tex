@@ -5,10 +5,10 @@
 Stosowany przez firmę \blue{} algorytmiczny sposób detekcji obszaru kortu w obrazie został opisany w następujących podpunktach.
 
 \begin{enumerate}
-  \item zastosowanie na obrazie filtra rozmywającego (\textit{blur}), aby kolejny filtr miał mniej fałszywie dodatnich wykryć (\textit{false positives});
-  \item zastosowanie na obrazie filtra \textit{Canny} do wykrycia krawędzi;
-  \item zastosowanie transformacji \textit{Hough} do wykrycia segmentów linii prostych wśród krawędzi;
-  \item pogrupowanie wykrytych segmentów linii na grupy podobnych (takich, których kąt nachylenia jest zbliżony i odległości pomiędzy segmentami są niewielkie);
+  \item zastosowanie na obrazie filtra rozmywającego (\textit{blur}), aby kolejny filtr miał mniej fałszywie dodatnich detekcji (\textit{false positives});
+  \item zastosowanie na obrazie filtra \textit{Canny} do detektowania krawędzi;
+  \item zastosowanie transformacji \textit{Hough} do detektowania segmentów linii prostych wśród krawędzi;
+  \item pogrupowanie zdetektowanych segmentów linii na grupy podobnych (takich, których kąt nachylenia jest zbliżony i odległości pomiędzy segmentami są niewielkie);
   \item zastąpienie grup segmentów linii pojedynczymi liniami;
   \item znalezienie i odfiltrowanie (pozostawienie tylko takich) par linii, które:
         \begin{enumerate}
@@ -42,7 +42,7 @@ D = \ddfrac{\sum_{n = 1}^{|N|} \frac{A(i)}{W_{i} * H_{i}}}{|N|} * 100\%
 \]
 gdzie $N$ jest zbiorem walidacyjnym na którym przeprowadzane są obliczenia, $W_{i}$ oraz $H_{i}$ są odpowiednio szerokością i wysokością w pikselach $i$-tego obrazu, a $A(i)$ jest liczbą poprawnie zidentyfikowanych jako obszar kortu lub jako otoczenie pikseli na $i$-tym obrazie.
 
-Jednak rozwiązanie okazuje się niewystarczające na potrzeby firmy \blue{}, ze względu na fakt, iż w niektórych przypadkach kort nie zostaje wykryty wcale. Dzieje się tak często gdy w pobliżu kortu znajduje się podłużne obiekty, który zostają fałszywie rozpoznane jako linia kortu.
+Jednak rozwiązanie okazuje się niewystarczające na potrzeby firmy \blue{}, ze względu na fakt, iż w niektórych przypadkach kort nie zostaje zdetektowany wcale. Dzieje się tak często gdy w pobliżu kortu znajduje się podłużne obiekty, który zostają fałszywie rozpoznane jako linia kortu.
 
 % \begin{figure}[h]
 %   \centering
