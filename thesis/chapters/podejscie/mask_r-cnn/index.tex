@@ -39,7 +39,7 @@ W modelu modelu \textit{R-CNN} zidentyfikowano następujące problemy:
 			\item \textit{SVM}, do klasyfikacji wyekstrahowanych cech,
 			\item modelu dopasowującego obwiednię;
 		\end{itemize}
-  \item zduplikowane obliczenia na etapie ekstrakcji cech dla regionów zachodzących na siebie, co wynika z faktu, iż ekstracja cech uruchamiana jest dla każdego z regionów, niezależnie od tego czy te regiony zachodzą na siebie.
+  \item zduplikowane obliczenia na etapie ekstrakcji cech dla regionów zainteresowania zachodzących na siebie, co wynika z faktu, iż ekstracja cech uruchamiana jest dla każdego z regionów, niezależnie od tego czy te regiony zachodzą na siebie.
 \end{itemize}
 
 \begin{figure}[h]
@@ -53,7 +53,7 @@ Wyróżnione na Rysunku \numberref{fig:fast_r_cnn} elementy wskazują zasadnicze
 
 Używając \textit{Fast R-CNN}, ekstrakcja cech następuje następuje tylko raz, na początku procesu.
 W ten sposób powstaje mapa cech całego obrazu.
-Gdy zachodzi konieczność ekstrakcji cech regionu, zamiast liczyć cechy od nowa, wyciągany jest odpowiadający fragment mapy cech.
+Gdy zachodzi konieczność ekstrakcji cech regionu zainteresowania, zamiast liczyć cechy od nowa, wyciągany jest odpowiadający fragment mapy cech.
 Metoda ta to tzw. \textit{Region of Interest Pooling} \cite{fast-rcnn}.
 
 Oprócz zmian w sposobie liczenia cech, w \textit{Fast R-CNN} klasyfikator \textit{SVM} został zastąpiony siecią neuronową.
@@ -65,18 +65,10 @@ Zmiany te rozwiązały w dużej części wymienione w punkcie \numberref{sec:fas
 
 \subsection{Iteracja trzecia - \textit{Faster R-CNN}}
 
-\textit{Faster R-CNN} \cite{faster-rcnn}, przedstawiony w 2016 roku, wprowadza kolejne usprawnienie, którego zabrakło w \textit{Fast R-CNN}.
-Chodzi o generowanie regionów za pomocą algorytmu \textit{Selective Search} \cite{selective-search}, który działał stosunkowo wolno.
-Usprawnienie polegało na zastąpieniu algorytmu nową siecią neuronową, która korzysta z~cech obrazu do generowania regionów.
+\textit{Faster R-CNN} \cite{faster-rcnn} (Rysunek \numberref{fig:faster_r_cnn}), przedstawiony w 2016 roku, wprowadza usprawnienie dotyczące generowanie regionów zainteresowania za pomocą algorytmu \textit{Selective Search} \cite{selective-search}, który działał stosunkowo wolno.
+Usprawnienie polegało na zastąpieniu algorytmu nową siecią neuronową, która korzysta z~cech obrazu do generowania regionów zainteresowania.
 Jako że sieć została włączona do modelu w taki sposób, że bazuje na wyznaczonej mapie cech, to uzyskano w ten sposób znacznie szybszy model.
-Dodatkowo był to kolejny krok zastępujący część modelu podsiecią neuronową, w wyniku czego model stał się jedną siecią neuronową składającą się z~podsieci:
-
-\begin{itemize}
-	\item Budującej mapę cech;
-	\item Generującej regiony;
-	\item Klasyfikującej;
-	\item Dopasowującej obwiednię.
-\end{itemize}
+Dodatkowo był to kolejny krok zastępujący część modelu podsiecią neuronową, w wyniku czego model stał się jedną siecią neuronową, składającą się z~podsieci: budującej mapę cech, generującej regiony zainteresowania, klasyfikującej analizowany region oraz dopasowujący obwiednię do zdetektowanego obiektu.
 
 \begin{figure}[h]
   \centering
@@ -85,7 +77,7 @@ Dodatkowo był to kolejny krok zastępujący część modelu podsiecią neuronow
   \label{fig:faster_r_cnn}
 \end{figure}
 
-Wyróżniony element wskazuje zasadniczą różnicę względem \textit{Fast R-CNN}.
+Wyróżniony na Rysunku \numberref{fig:faster_r_cnn} element wskazuje zasadniczą różnicę względem \textit{Fast R-CNN}, polegającą na zoptymalizowanej metodzie generowania regionów zainteresowania.
 
 \newpage
 \subsection{Iteracja czwarta - \textit{Mask R-CNN}}
