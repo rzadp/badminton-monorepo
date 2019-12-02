@@ -40,10 +40,21 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Initialize submodules
+          command: git submodule init && git submodule update
+      - run:
           name: Install node and npm dependencies
           command: |
             apt-get update && apt-get install nodejs npm -yq
             cd thesis && npm install
+      - run:
+          name: build the mermaid cli
+          command: |
+            cd mermaid.cli
+            npm i
+            ./copy_modules.sh
+            npm run prepublishOnly
+            chmod +x ./index.bundle.js
       - run: 
           name: Install chrome dependencies
           command: |

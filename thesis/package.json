@@ -4,8 +4,6 @@
   "main": "index.js",
   "license": "MIT",
   "private": true,
-  "devDependencies": {
-    "mermaid.cli": "^0.5.1"
-  },
+  "devDependencies": {},
   "scripts": {}
 }

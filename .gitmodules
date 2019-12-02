@@ -7,3 +7,6 @@
 [submodule "mrcnn_serving_ready"]
 	path = mrcnn_serving_ready
 	url = https://github.com/rzadp/mrcnn_serving_ready
+[submodule "mermaid.cli"]
+	path = mermaid.cli
+	url = git@github.com:rzadp/mermaid.cli.git
