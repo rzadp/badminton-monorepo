@@ -1,5 +1,5 @@
 % !TeX root = ../../../main.tex
-\section{Architektura sieci Mask R-CNN}
+\section{Architektura sieci \textit{Mask R-CNN}}
 \label{sec:architekrura_mask_rcnn}
 
 \textit{Mask R-CNN} \cite{matterport-mask-rcnn} (z ang. \textit{Mask Regions with Convolutional Neural Network}) jest implementacją o otwartym kodzie źródłowym modelu do segmentacji instancji opisanego w \cite{general-mask-rcnn}.
@@ -25,9 +25,9 @@ Działanie modelu można zobrazować w następujących krokach:
   \item tylko dla regionów z wykrytym obiektem, próba dopasowania obszaru do rozmiaru obiektu, wynikiem czego jest obwiednia (z ang. \textit{bounding box}) wskazująca granice analizowanego obiektu.
 \end{enumerate}
 
-\subsection{Iteracja druga - Fast R-CNN}
+\subsection{Iteracja druga - \textit{Fast R-CNN}}
 
-\textit{Fast R-CNN} \cite{fast-rcnn}, przedstawiony w 2015 roku, usprawnia model \textit{R-CNN}, w którym zidentyfikowano następujące problemy:
+\textit{Fast R-CNN} \cite{fast-rcnn} (Rysunek \numberref{fig:fast_r_cnn}), przedstawiony w 2015 roku, usprawnia model \textit{R-CNN}, w którym zidentyfikowano następujące problemy:
 
 \begin{itemize}
   \item Problem w implementacji i w wytrenowaniu sieci wynikający z samej budowy \textit{R-CNN}; \textit{R-CNN} składa się z~czterech części, które osobno wymagają zrozumienia, implementacji i trenowania lub doboru parametrów:
@@ -61,7 +61,7 @@ Podsieć klasyfikująca i podsieć dopasowująca obwiednię zostały włączone 
 
 Zmiany te rozwiązały w dużej części problemy \textit{R-CNN} wymienione powyżej.
 
-\subsection{Iteracja trzecia - Faster R-CNN}
+\subsection{Iteracja trzecia - \textit{Faster R-CNN}}
 
 \textit{Faster R-CNN} \cite{faster-rcnn}, przedstawiony w 2016 roku, wprowadza kolejne usprawnienie, którego zabrakło w \textit{Fast R-CNN}.
 Chodzi o generowanie regionów za pomocą algorytmu \textit{Selective Search} \cite{selective-search}, który działał stosunkowo wolno.
@@ -86,7 +86,7 @@ Dodatkowo był to kolejny krok zastępujący część modelu podsiecią neuronow
 Wyróżniony element wskazuje zasadniczą różnicę względem Fast R-CNN.
 
 \newpage
-\subsection{Iteracja czwarta - Mask R-CNN}
+\subsection{Iteracja czwarta - \textit{Mask R-CNN}}
 \label{sec:maskrcnn}
 \textit{Mask R-CNN} \cite{matterport-mask-rcnn}, przedstawiony w 2017 roku, stanowi ostatni krok w opisanej ewolucji modelu.
 Do dwóch równoległych podsieci - klasyfikującej oraz dopasowującej obwiednię - wprowadza nową, równoległą podsieć odpowiedzialną za detekcję konkretnych pikseli obiektu.
