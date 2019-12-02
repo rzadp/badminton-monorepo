@@ -26,6 +26,7 @@ Działanie modelu można zobrazować w następujących krokach:
 \end{enumerate}
 
 \subsection{Iteracja druga - \textit{Fast R-CNN}}
+\label{sec:fastrcnn}
 
 \textit{Fast R-CNN} \cite{fast-rcnn} (Rysunek \numberref{fig:fast_r_cnn}), przedstawiony w 2015 roku, jest usprawnieniem modelu \textit{R-CNN} o zoptymalizowaną ekstrakcję cech. 
 W modelu modelu \textit{R-CNN} zidentyfikowano następujące problemy:
@@ -48,9 +49,9 @@ W modelu modelu \textit{R-CNN} zidentyfikowano następujące problemy:
   \label{fig:fast_r_cnn}
 \end{figure}
 
-Wyróżnione elementy wskazują zasadnicze różnice względem R-CNN.
+Wyróżnione na Rysunku \numberref{fig:fast_r_cnn} elementy wskazują zasadnicze różnice względem \textit{R-CNN} (Rys.~\numberref{fig:r_cnn}).
 
-Używając \textit{Fast R-CNN} ekstrakcja cech następuje następuje tylko raz, na początku.
+Używając \textit{Fast R-CNN}, ekstrakcja cech następuje następuje tylko raz, na początku procesu.
 W ten sposób powstaje mapa cech całego obrazu.
 Gdy zachodzi konieczność ekstrakcji cech regionu, zamiast liczyć cechy od nowa, wyciągany jest odpowiadający fragment mapy cech.
 Metoda ta to tzw. \textit{Region of Interest Pooling} \cite{fast-rcnn}.
@@ -60,7 +61,7 @@ Podobnie stało się z~modelem dopasowującym obwiednię.
 Te dwie nowe sieci połączono w jedną sieć wraz z~siecią \textit{CNN}.
 Podsieć klasyfikująca i podsieć dopasowująca obwiednię zostały włączone do sieci w sposób równoległy, to znaczy ich wyniki nie zależą od siebie nawzajem.
 
-Zmiany te rozwiązały w dużej części problemy \textit{R-CNN} wymienione powyżej.
+Zmiany te rozwiązały w dużej części wymienione w punkcie \numberref{sec:fastrcnn} problemy modelu \textit{R-CNN}.
 
 \subsection{Iteracja trzecia - \textit{Faster R-CNN}}
 
