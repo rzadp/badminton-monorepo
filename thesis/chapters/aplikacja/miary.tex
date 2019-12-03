@@ -43,10 +43,10 @@ Znając podział pikseli w obrazach na wyżej wymienione klasy tablicy pomyłek,
 
 \begin{itemize}
   \label{sec:miary}
-  \item Dokładność - $ \frac{TP + TN}{TP + TN + FP + FN} $,
-  \item Czułość - $ \frac{TP}{TP + FN} $,
-  \item Swoistość - $ \frac{TN}{TN + FP} $,
-  \item Precyzja - $ \frac{TP}{TP + FP} $;
+  \item dokładność - $ \frac{TP + TN}{TP + TN + FP + FN} $, która odpowiada zdolności poprawnego klasyfikowania pikseli przez sieć;
+  \item czułość - $ \frac{TP}{TP + FN} $, która określa zdolność sieci do poprawnego zaklasyfikowania piksela obszaru kortu;
+  \item swoistość - $ \frac{TN}{TN + FP} $, która opisuje zdolność sieci do poprawnego zaklasyfikowania pikseli niewchodzących w obszar kortu; 
+  \item precyzja - $ \frac{TP}{TP + FP} $, która wskazuje z jaką pewnością można ufać, że dany piksel zdetektowany przez sieć jako obszar kortu faktycznie jest pikselem kortu.
 \end{itemize}
 
 Kolejne rozdziały zawierają wyliczenia powyższych metryk, z których za najistotniejszą przyjęto \textit{Dokładność} uśrednioną na testowanym zbiorze danych, ponieważ można ją porównać ze skutecznością algorytmu wykorzystywanego w firmie \blue{}.
