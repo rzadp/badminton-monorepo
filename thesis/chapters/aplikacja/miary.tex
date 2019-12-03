@@ -4,10 +4,10 @@
 Na potrzeby oceny skuteczności sieci neuronowej w procesie detekcji obszaru kortu, dla danego obrazu i~przewidzianej przez sieć maski, każdy piksel można przypisać do dokładnie jednej z następujących klas tablicy pomyłek:
 
 \begin{itemize}
-  \item True Positive - piksel został poprawnie zakwalifikowany jako powierzchnia kortu (Rys. \myfigrefx{fig:TP});
-  \item False Positive - piksel niewwchodzący w powierzchnię kortu został niepoprawnie oznaczony jako powierzchnia kortu (Rys. \myfigrefx{fig:FP});
-  \item False Negative - piksel kortu został niepoprawnie zakwalifikowany jako niewchodzący w~powierzchnię kortu (Rys. \myfigrefx{fig:FN});
-  \item True Negative - piksel został poprawnie zakwalifikowany jako niewchodzący w powierzchnię kortu (Rys. \myfigrefx{fig:TN}).
+  \item przypadek prawdziwie pozytywny (z ang. \textit{True Positive, TP}) - piksel został poprawnie zakwalifikowany jako powierzchnia kortu (Rys. \myfigrefx{fig:TP});
+  \item przypadek fałszywie pozytywny (z ang. \textit{False Positive, FP}) - piksel niewwchodzący w powierzchnię kortu został niepoprawnie oznaczony jako powierzchnia kortu (Rys. \myfigrefx{fig:FP});
+  \item przypadek fałszywie negatywny (z ang. \textit{False Negative, FN}) - piksel kortu został niepoprawnie zakwalifikowany jako niewchodzący w~powierzchnię kortu (Rys. \myfigrefx{fig:FN});
+  \item przypadek prawdziwie negatywny (z ang. \textit{True Negative, TN}) - piksel został poprawnie zakwalifikowany jako niewchodzący w powierzchnię kortu (Rys. \myfigrefx{fig:TN}).
 \end{itemize}
 
 W przypadku zbioru \textit{low} wszystkie obrazy w tym zbiorze są tej samej rozdzielczości 896x640 pikseli, a co za tym idzie każdy składa się z identycznej liczby pikseli w sumie.
