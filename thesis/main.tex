@@ -204,6 +204,11 @@
 \floatname{algorithm}{Pseudokod}
 \newcommand\ddfrac[2]{\frac{\displaystyle #1}{\displaystyle #2}} % https://tex.stackexchange.com/questions/173899/fractions-with-large-elements
 
+% Renaming floats with babel % https://latex.org/forum/viewtopic.php?t=1825
+\addto{\captionspolish}{%
+ \renewcommand{\tablename}{Tabela}
+}
+
 % \usepackage[disable]{todonotes} % notes not showed
 \usepackage[draft]{todonotes}
 \newcommand{\TODO}[1]{
