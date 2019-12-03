@@ -1,10 +1,10 @@
 % !TeX root = ../../main.tex
 \section{Hiperparametry treningu}
 
-Treningi przeprowadzone w ramach niniejszego rozdziału korzystają z następującej strategii doboru współczynnika uczenia (\textit{learning rate}):
-\begin{enumerate}
-  \item Wartość początkowa: 0.001;
-  \item W przypadku braku poprawy skuteczności sieci na zbiorze walidacyjnym w 5 kolejnych epokach treningowych, parametr zmniejsza się pięciokrotnie (ale nie mniej niż wartość minimalna 0.0000001);
-\end{enumerate}
+Treningi przeprowadzone w ramach niniejszej pracy i opisane szczegółowo w Rozdziale \numberref{sec:eksperymenty_wyniki} korzystają z następującej strategii doboru współczynnika uczenia (z ang. \textit{learning rate}):
+\begin{itemize}
+  \item wartość początkowa: $LR_{0} := 0.001$;
+  \item w przypadku braku poprawy skuteczności sieci na zbiorze walidacyjnym w 5 kolejnych epokach treningowych, parametr zmniejsza się pięciokrotnie (ale nie mniej niż wartość minimalna 0.0000001);
+\end{itemize}
 
 Próby wskazały na zwiększenie skuteczności sieci trenowanej z użyciem takiej strategii zmniejszania parametru.
