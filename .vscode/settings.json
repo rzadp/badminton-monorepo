@@ -65,8 +65,8 @@
     {
       "name": "mythesis",
       "tools": [
-        "mermaid",
-        "bibtex",
+        // "mermaid",
+        // "bibtex",
         "pdflatex"
       ]
     },
