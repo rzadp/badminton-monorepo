@@ -10,18 +10,18 @@ Na potrzeby oceny skuteczności sieci neuronowej w procesie detekcji obszaru kor
   \item przypadek prawdziwie negatywny (z ang. \textit{True Negative, TN}) - piksel został poprawnie zakwalifikowany jako niewchodzący w powierzchnię kortu (Rys. \myfigrefx{fig:TN}).
 \end{itemize}
 
-W przypadku zbioru \textit{low} wszystkie obrazy w tym zbiorze są tej samej rozdzielczości 896x640 pikseli, a co za tym idzie każdy składa się z identycznej liczby pikseli w sumie.
-Korzystając z tego faktu, testując sieć na elementach zbioru \textit{low} wyniki powyższej klasyfikacji można w miarodajny sposób uśredniać między różnymi obrazami.
+W przypadku zbioru \textit{low} (Rozdział \numberref{sec:zbiory}) wszystkie obrazy w tym zbiorze są tej samej rozdzielczości 896x640 pikseli, a co za tym idzie każdy składa się z identycznej liczby pikseli w sumie.
+Korzystając z tego faktu, testując sieć na elementach zbioru \textit{low} wyniki powyższej klasyfikacji można w miarodajny sposób uśrednić dla różnych obrazów.
 
 \begin{figure}[!htb]
   \minipage{0.45\textwidth}
     \includegraphics[width=\linewidth]{TP_frame_9.jpg}
-    \caption{Przykładowy obraz z zaznaczonym obszarem True Positive}
+    \caption{Przykładowy obraz z zaznaczonym obszarem zaklasyfikowanym jako~\textit{TP}}
     \label{fig:TP}
   \endminipage\hfill
   \minipage{0.45\textwidth}
     \includegraphics[width=\linewidth]{FN_frame_9.jpg}
-    \caption{Przykładowy obraz z zaznaczonym obszarem False Negative}
+    \caption{Przykładowy obraz z zaznaczonym obszarem zaklasyfikowanym jako~\textit{FN}}
     \label{fig:FN}
   \endminipage\hfill
 \end{figure}
@@ -29,17 +29,17 @@ Korzystając z tego faktu, testując sieć na elementach zbioru \textit{low} wyn
 \begin{figure}[!htb]
   \minipage{0.45\textwidth}
     \includegraphics[width=\linewidth]{TN_frame_8.jpg}
-    \caption{Przykładowy obraz z zaznaczonym obszarem True Negative}
+    \caption{Przykładowy obraz z zaznaczonym obszarem zaklasyfikowanym jako~\textit{TN}}
     \label{fig:TN}
   \endminipage\hfill
   \minipage{0.45\textwidth}
     \includegraphics[width=\linewidth]{FP_frame_8.jpg}
-    \caption{Przykładowy obraz z zaznaczonym obszarem False Positive}
+    \caption{Przykładowy obraz z zaznaczonym obszarem zaklasyfikowanym jako~\textit{FP}}
     \label{fig:FP}
   \endminipage\hfill
 \end{figure}
 
-Znając podział pikseli w obrazach na wyżej wymienione grupy, można obliczyć następujące, bardziej złożone metryki:
+Znając podział pikseli w obrazach na wyżej wymienione klasy tablicy pomyłek, można obliczyć następujące metryki:
 
 \begin{itemize}
   \label{sec:miary}
