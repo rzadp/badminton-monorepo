@@ -13,6 +13,16 @@ Na potrzeby oceny skuteczności sieci neuronowej w procesie detekcji obszaru kor
 W przypadku zbioru \textit{low} (Rozdział \numberref{sec:zbiory}) wszystkie obrazy w tym zbiorze są tej samej rozdzielczości 896x640 pikseli, a co za tym idzie każdy składa się z identycznej liczby pikseli w sumie.
 Korzystając z tego faktu, testując sieć na elementach zbioru \textit{low} wyniki powyższej klasyfikacji można w miarodajny sposób uśrednić dla różnych obrazów.
 
+Znając podział pikseli w obrazach na wyżej wymienione klasy tablicy pomyłek, można obliczyć następujące metryki:
+
+\begin{itemize}
+  \label{sec:miary}
+  \item dokładność - $ \frac{TP + TN}{TP + TN + FP + FN} $, która odpowiada zdolności poprawnego klasyfikowania pikseli przez sieć;
+  \item czułość - $ \frac{TP}{TP + FN} $, która określa zdolność sieci do poprawnego zaklasyfikowania piksela obszaru kortu;
+  \item swoistość - $ \frac{TN}{TN + FP} $, która opisuje zdolność sieci do poprawnego zaklasyfikowania pikseli niewchodzących w obszar kortu; 
+  \item precyzja - $ \frac{TP}{TP + FP} $, która wskazuje z jaką pewnością można ufać, że dany piksel zdetektowany przez sieć jako obszar kortu faktycznie jest pikselem kortu.
+\end{itemize}
+
 \begin{figure}[!htb]
   \minipage{0.45\textwidth}
     \includegraphics[width=\linewidth]{TP_frame_9.jpg}
@@ -24,9 +34,7 @@ Korzystając z tego faktu, testując sieć na elementach zbioru \textit{low} wyn
     \caption{Przykładowy obraz z zaznaczonym obszarem zaklasyfikowanym jako~\textit{FN}}
     \label{fig:FN}
   \endminipage\hfill
-\end{figure}
-
-\begin{figure}[!htb]
+  \vspace{0.5cm}
   \minipage{0.45\textwidth}
     \includegraphics[width=\linewidth]{TN_frame_8.jpg}
     \caption{Przykładowy obraz z zaznaczonym obszarem zaklasyfikowanym jako~\textit{TN}}
@@ -38,13 +46,3 @@ Korzystając z tego faktu, testując sieć na elementach zbioru \textit{low} wyn
     \label{fig:FP}
   \endminipage\hfill
 \end{figure}
-
-Znając podział pikseli w obrazach na wyżej wymienione klasy tablicy pomyłek, można obliczyć następujące metryki:
-
-\begin{itemize}
-  \label{sec:miary}
-  \item dokładność - $ \frac{TP + TN}{TP + TN + FP + FN} $, która odpowiada zdolności poprawnego klasyfikowania pikseli przez sieć;
-  \item czułość - $ \frac{TP}{TP + FN} $, która określa zdolność sieci do poprawnego zaklasyfikowania piksela obszaru kortu;
-  \item swoistość - $ \frac{TN}{TN + FP} $, która opisuje zdolność sieci do poprawnego zaklasyfikowania pikseli niewchodzących w obszar kortu; 
-  \item precyzja - $ \frac{TP}{TP + FP} $, która wskazuje z jaką pewnością można ufać, że dany piksel zdetektowany przez sieć jako obszar kortu faktycznie jest pikselem kortu.
-\end{itemize}
