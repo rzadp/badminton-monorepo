@@ -1,9 +1,9 @@
 % !TeX root = ../../main.tex
-\subsection{Podsumowanie eksperymentów z podziałami zbiorów danych}
+\subsection{Podsumowanie}
 
-Podsumowując wyniki uzyskane w poprzednich podrozdziałach, wyniki przedstawiono na wykresie.
-Większy stosunek podzbioru treningowego do podzbioru walidacyjnego daje spodziewany wyższy wynik mierzony na podzbiorze walidacyjnym, ale niekoniecznie powoduje wyższy wynik na podzbiorze testowym.
-Dla obu zbiorów najwyższy wynik na podzbiorze testowym został uzyskany w przypadku podział podzbioru treningowego i walidacyjnego w stosunku odpowiednio 90:10, dlatego też zbiory danych zostały podzielone w takim stosunku.
+Podsumowując wyniki uzyskane w podrozdziałach \numberref{sec:highsplita}-\numberref{sec:lowsplitd}, wyniki zostały zestawione na wykresie na Rysunku \numberref{fig:podzialchart}.
+Wyższy stosunek liczności podzbioru treningowego do liczności podzbioru walidacyjnego daje spodziewany wyższy wynik mierzony na podzbiorze walidacyjnym, ale niekoniecznie powoduje wyższy wynik na podzbiorze testowym.
+Dla zbiorów danych \textit{low} i \textit{high} najwyższy wynik na podzbiorze testowym został uzyskany w przypadku podziału podzbioru treningowego i walidacyjnego w stosunku odpowiednio 90:10, dlatego też wykorzystano ten podział zbioru danych do dalszych eksperymentów.
 
 \pgfplotstableread[row sep=\\,col sep=&]{
   split & high-val & high-test & low-val & low-test \\
@@ -15,6 +15,8 @@ Dla obu zbiorów najwyższy wynik na podzbiorze testowym został uzyskany w przy
 
 \vspace{0.5cm}
 
+\begin{figure}[!htb]
+\centering
 \begin{tikzpicture}
     \begin{axis}[
             % ybar,
@@ -28,7 +30,8 @@ Dla obu zbiorów najwyższy wynik na podzbiorze testowym został uzyskany w przy
             nodes near coords,
             nodes near coords align={vertical},
             ymin=0.92,ymax=1,
-            ylabel={Średnia dokładność},
+            ylabel={Średnia dokładność wykrywania obszaru kortu},
+            xlabel={Stosunek liczności podzbioru treningowego do liczności podzbioru walidacyjnego},
             y label style={at={(-0.05,0.5)}},
             ticklabel style={/pgf/number format/precision=3},
             /pgf/number format/.cd,fixed,precision=3,
@@ -46,13 +49,17 @@ Dla obu zbiorów najwyższy wynik na podzbiorze testowym został uzyskany w przy
         \addplot table[x=split,y=low-test]{\splitsummarydata};
         \legend{high na walidacyjnym, high na testowym, low na walidacyjnym, low na testowym}
     \end{axis}
+    \label{}
 \end{tikzpicture}
+\caption{Wyniki eksperymentów dotyczących podziałów zbiorów danych}
+\label{fig:podzialchart}
+\end{figure}
 
-Liczbowy podział zbiorów na podzbiory treningowe, walidacyjne oraz testowe przedstawia tabela \mytabref{Tab:podzial_summary}.
+Ostateczny liczbowy podział zbiorów na podzbiory treningowe, walidacyjne oraz testowe, na których przeprowadzono dalsze eksperymenty przedstawiono w Tabeli \mytabref{Tab:podzial_summary}.
 
 \begin{table}[!h]
 	\centering
-	\caption{Liczba obrazów w podziale na poszczególne podzbiory}
+	\caption{Podział zbiorów danych na potrzeby eskperymentów~\numberref{sec:experymenty_low}-\numberref{sec:experymenty_high}}
 	\vspace{6pt}
 	{\footnotesize
 		\begin{tabular}{|c|c|c|c|}
