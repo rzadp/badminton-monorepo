@@ -3,4 +3,9 @@
 \label{sec:podzial_eksperyment}
 
 W tym rozdziale przedstawiono wyniki eksperymentów dotyczące podziału zbiorów na podzbiory treningowe i walidacyjne.
+Zbiór treningowy używany jest do dopasowania wag sieci podczas treningu.
+Na zbiorze walidacyjnym, rozłączny względem zbioru treningowego, obliczana jest skuteczność sieci.
+Dzięki temu że zbiór walidacyjny i zbiór treningowy są rozłączne możliwe jest wychwycenie sytuacji przetrenowania sieci, czyli przypadku gdy wagi sieci zbyt mocno dopasowały się do do wykrywania obszaru kortu w rekordach zbioru treningowego, przez co sieć osiąga gorsze wyniki na rekordach niewchodzących w skład zbioru treningowego.
+Zbiór testowy wykorzystywany jest do ręcznego sprawdzenia skuteczności sieci, to znaczy do sprawdzenia generowanej maski na zapisanym na dysku obrazie.
+
 Eksperymenty miały na celu wybór podziału zbiorów \textit{low} i \textit{high} dającego możliwie jak najlepsze rezultaty. Zbiory opisano w Rozdziale \numberref{sec:zbiory}, natomiast rozważane podziały zbiorów opisano w Tabeli \numberref{Tab:podzial}.
