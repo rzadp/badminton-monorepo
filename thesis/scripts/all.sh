@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 cd $(dirname $0)
+#rm main.{aux,bbl,blg,lof,log,lot,out,toc}
 
 cd ../title_page
 xelatex -interaction=batchmode -halt-on-error strona_tytulowa-jeden-autor.tex
