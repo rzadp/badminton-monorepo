@@ -1,35 +1,4 @@
 % !TeX root = ../../main.tex
-\section{Podzbiór treningowy, walidacyjny i testowy}
-\label{sec:podzial}
-W tym rozdziale omówiono podział zbiorów danych na podzbiory treningowe, walidacyjne i testowe.
-Ze względu na stosunkowo małą liczność zbiorów danych, podzbiór testowy został ograniczony do dwóch obrazów.
-Pozostałe obrazy, wchodzące w skład podzbiorów treningowych i walidacyjnych zostały rozdzielone po przeprowadzeniu eksperymentów tak aby wybrany podział dawał możliwie jak najlepsze wyniki.
-Podział zbiorów danych przedstawiono w Tabeli \mytabref{Tab:podzial}. W nawiasach zaznaczono procentowy udział danego podzbioru w stosunku do całego zbioru.
+\section{Eksperymenty dotyczące podziału danych na podzbioru}
+\label{sec:podzial_eksperyment}
 
-\begin{table}[H]
-	\centering
-	\caption{Liczba obrazów w podziale na poszczególne podzbiory danych.}
-	\vspace{6pt}
-	{
-    \footnotesize
-    \begin{tabular}{|c|c|c|c|}
-      \hline \textbackslash & Podzbiór treningowy & Podzbiór walidacyjny & Podzbiór testowy \\
-      \hline Zbiór \textit{high\_92\_5} & 92 (94.85\%) & 5 (5.15\%) & 2 (2.06\%) \\
-      \hline Zbiór \textit{high\_87\_10} & 87 (89.69\%) & 10 (10.31\%) & 2 (2.06\%) \\
-      \hline Zbiór \textit{high\_73\_24} & 73 (75.26\%) & 24 (24.74\%) & 2 (2.06\%) \\
-      \hline Zbiór \textit{high\_49\_48} & 49 (50.52\%) & 48 (49.48\%) & 2 (2.06\%) \\
-      \hline
-      \hline Zbiór \textit{low\_197\_10} & 197 (95.17\%) & 10 (4.83\%) & 2 (0.97\%) \\
-      \hline Zbiór \textit{low\_186\_21} & 186 (89.86\%) & 21 (10.14\%) & 2 (0.97\%) \\
-      \hline Zbiór \textit{low\_155\_52} & 155 (74.88\%) & 52 (25.12\%) & 2 (0.97\%) \\
-      \hline Zbiór \textit{low\_104\_103} & 104 (50.24\%) & 103 (49.76\%) & 2 (0.97\%) \\
-      \hline
-    \end{tabular}
-    \label{Tab:podzial}
-	}
-	\vspace{0pt}
-\end{table}
-
-
-W kolejnych podrozdziałach przedstawiono wyniki sieci trenowanej z użyciem podzbiorów podzielonych według poszczególnych podziałów.
-Miary skuteczności \textit{Dokładność}, \textit{Czułość}, \textit{Swoistość}, oraz \textit{Precyzja} zostały opisane w rozdziale \myrefx{sec:miary}.
