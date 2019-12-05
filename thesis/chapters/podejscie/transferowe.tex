@@ -14,3 +14,5 @@ Rysunek \numberref{fig:transferowe} przedstawia zasadę działania uczenia trans
   \caption{Zamrożone w ramach uczenia transferowego elementy w \textit{Mask R-CNN}}
   \label{fig:transferowe}
 \end{figure}
+
+Przy wykorzystaniu wag modelu wytrenowanego na zbiorze \textit{COCO}, trening sieci na zbiorach \textit{low} i \textit{high} przy użyciu jednej karty graficznej trwa w granicach 2-3 godzin. Dzięki zastosowaniu uczenia transferowego osiągnięto znaczną oszczędność czasu, ponieważ trening sieci od podstaw na zbiorze \textit{COCO} zajmuje jeden-dwa dni przy użyciu ośmiu kart graficznych \cite{general-mask-rcnn}.
