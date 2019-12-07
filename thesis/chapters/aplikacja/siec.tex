@@ -2,16 +2,16 @@
 \newpage
 \section{Sieć \textit{Mask R-CNN}}
 
-Sieć \textit{Mask R-CNN} \cite{matterport-mask-rcnn} jest otwartoźródłowym projektem wykorzystującym następujące technologie: \textit{Python3} \cite{python}, \textit{TensorFlow} \cite{tensorflow} oraz \textit{Keras} \cite{keras}.
+Sieć \textit{Mask R-CNN} \cite{matterport-mask-rcnn} jest otwartoźródłowym projektem wykorzystującym następujące technologie: \textit{Python3} \cite{python}, \textit{TensorFlow} \cite{tensorflow} oraz \textit{Keras} \cite{keras}. Konkretne wersje i dodatkowe zależności zawarte są w Dodatku A.
 
-Konkretne wersje i dodatkowe zależności zawarte są w Dodatku A. Główne komponenty, na które składa się dołączony program to:
+Główne komponenty, na które składa się dołączony program to:
 
 \begin{itemize}
-  \item Plik \texttt{config.py};
-  \item Plik \texttt{model.py};
-  \item Plik \texttt{utils.py};
-  \item Skrypty do trenowania sieci;
-  \item Skrypt do obliczania skuteczności metody.
+  \item plik \texttt{config.py}, zawierający konfigurację i hiperparametry modelu;
+  \item plik \texttt{model.py}, odpowiadający za stworzenie modelu;
+  \item plik \texttt{utils.py}, zawierający funkcje pomocnicze;
+  \item skrypt \texttt{train.sh}, służący do trenowania sieci;
+  \item skrypt \texttt{validate.sh}, umożliwiający badanie skuteczności metody.
 \end{itemize}
 
 \subsection*{Konfiguracja i hiperparametry modelu}
