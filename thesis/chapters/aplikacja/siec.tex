@@ -7,21 +7,11 @@ Sieć \textit{Mask R-CNN} \cite{matterport-mask-rcnn} jest otwartoźródłowym p
 Konkretne wersje i dodatkowe zależności zawarte są w Dodatku A. Główne komponenty, na które składa się dołączony program to:
 
 \begin{itemize}
-\item Plik \texttt{utils.py};
   \item Plik \texttt{config.py};
-  \item Plik  \texttt{model.py};
+  \item Plik \texttt{model.py};
+  \item Plik \texttt{utils.py};
   \item Skrypty do trenowania sieci;
   \item Skrypt do obliczania skuteczności metody.
-\end{itemize}
-
-\subsection*{Plik \texttt{utils.py}}
-
-Plik ten zawiera wiele funkcji pomocniczych, realizujących m.in.:
-\begin{itemize}
-  \item Wczytanie obrazów z dysku;
-  \item Interpretacja anotacji danych;
-  \item Zmiana rozdzielczości obrazu;
-  \item Pobranie modelu wytrenowanego na zbiorze \textit{COCO} \cite{coco}.
 \end{itemize}
 
 \subsection*{Konfiguracja i hiperparametry modelu}
@@ -36,6 +26,16 @@ Konfiguracja i hiperparametry zawarte są w pliku \texttt{config.py}. Umożliwia
 \subsection*{Plik \texttt{model.py}}
 
 Plik ten zawiera klasy i funkcje służące do stworzenia modelu \textit{Mask R-CNN}, umożliwiające wytrenowanie go oraz pozwalające na detekcję obszaru kortu na podanych obrazach wejściowych.
+
+\subsection*{Plik \texttt{utils.py}}
+
+Plik ten zawiera wiele funkcji pomocniczych, realizujących m.in.:
+\begin{itemize}
+  \item Wczytanie obrazów z dysku;
+  \item Interpretacja anotacji danych;
+  \item Zmiana rozdzielczości obrazu;
+  \item Pobranie modelu wytrenowanego na zbiorze \textit{COCO} \cite{coco}.
+\end{itemize}
 
 \subsection*{Trenowanie sieci}
 
