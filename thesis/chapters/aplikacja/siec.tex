@@ -28,8 +28,8 @@ Plik ten zawiera wiele funkcji pomocniczych, realizujących m.in.:
 
 Konfiguracja i hiperparametry zawarte są w pliku \texttt{config.py}. Umożliwia on konfigurowanie m.in. następujących parametrów:
 \begin{itemize}
-  \item współczynnika uczenia (z ang. \textit{learning rate};
-  \item liczba wykorzystywanych kart graficznych;
+  \item współczynnika uczenia (z ang. \textit{learning rate}) - parametr wpływający na szybkość uczenia. Strategię doboru tego parametru opisano w Rozdziale \numberref{sec:hiperparametry};
+  \item liczba wykorzystywanych kart graficznych - proces uczenia można przyspieszyć wykorzystując wiecej niż jedną kartę graficzną. W ramach niniejszej pracy wykorzystywano jedną kartę graficzną (\textit{GeForce GTX 1080} z 8GB dostępnej pamięci, użyczoną przez firmę \blue{});
   \item liczba klas (w przypadku niniejszej pracy są rozpoznawane dwie klasy, tzn. kort badmintona oraz brak kortu).
 \end{itemize}
 
