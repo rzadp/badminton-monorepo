@@ -26,14 +26,15 @@ Konfiguracja i hiperparametry zawarte są w pliku \texttt{config.py}. Umożliwia
 \subsection*{Klasy i funkcje do stworzenia modelu}
 Klasy i funkcje służące do stworzenia modelu \textit{Mask R-CNN} zostały zawarte w pliku \texttt{model.py}. Umożliwiają one wytrenowanie modelu oraz pozwalają na detekcję obszaru kortu na podanych obrazach wejściowych. Klasa modelu pozwala zapisać wytrenowane wagi na dysku, oraz wczytać wagi z pliku.
 
-\subsection*{Plik \texttt{utils.py}}
+\subsection*{Funkcje pomocnicze}
+Funkcje pomocnicze, które używane są w różnych miejscach w kodzie umieszczono w pliku \texttt{utils.py}.
+Funkcje te realizują m.in:
 
-Plik ten zawiera wiele funkcji pomocniczych, realizujących m.in.:
 \begin{itemize}
-  \item Wczytanie obrazów z dysku;
-  \item Interpretacja anotacji danych;
-  \item Zmiana rozdzielczości obrazu;
-  \item Pobranie modelu wytrenowanego na zbiorze \textit{COCO} \cite{coco}.
+  \item wczytanie obrazów z dysku - obrazy w formacie \textit{JPG} lub \textit{PNG} wczytywane są jako trójwymiarowa tablica liczb. Wymiary to wysokość, szerokość, oraz kanały koloru;
+  \item wczytanie anotacji danych - anotacje zapisane są na dysku w formacie \textit{JSON}. Oprócz wczytania obrazów, konieczne jest wczytanie odpowiadających im anotacji;
+  \item zmiana rozdzielczości obrazu - pozwala zmienić rozdzielczość wczytanego obrazu do pożądnej rozdzielczości. Sieć ma stałą liczbę neuronów w warstwie wejściowej, dlatego też stosuje się zmianę rozdzielczości aby obraz mógł być użyty na wejściu tej warstwy;
+  \item pobranie modelu wytrenowanego na zbiorze \textit{COCO} \cite{coco}.
 \end{itemize}
 
 \subsection*{Trenowanie sieci}
