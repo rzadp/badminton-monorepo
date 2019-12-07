@@ -7,7 +7,7 @@ W celu zrozumienia tego modelu, najlepiej rozważać go w kontekście ewoluowani
 
 \subsection{Iteracja pierwsza - \textit{R-CNN}}
 
-\textit{R-CNN} \cite{rcnn} (Rysunek \numberref{fig:r_cnn}) (z ang. \textit{Regions with Convolutional Neural Network}), zaproponowany w 2014 roku, rozwiązuje zagadnienie detekcji obiektów w obrazie (to znaczy wskazuje konkretne obiekty, ale bez konkretnych pikseli).
+\textit{R-CNN} \cite{rcnn} (Rysunek \numberref{fig:r_cnn}) (z ang. \textit{Regions with Convolutional Neural Network}), zaproponowany w 2014 roku, rozwiązuje zagadnienie detekcji obiektów w obrazie (tzn. wskazuje konkretne obiekty, ale bez konkretnych pikseli).
 
 \begin{figure}[h]
   \centering
@@ -59,7 +59,7 @@ Metoda ta to tzw. \textit{Region of Interest Pooling} \cite{fast-rcnn}.
 Oprócz zmian w sposobie liczenia cech, w \textit{Fast R-CNN} klasyfikator \textit{SVM} został zastąpiony siecią neuronową.
 Podobnie stało się z~modelem dopasowującym obwiednię.
 Te dwie nowe sieci połączono w jedną sieć wraz z~siecią \textit{CNN}.
-Podsieć klasyfikująca i podsieć dopasowująca obwiednię zostały włączone do sieci w sposób równoległy, to znaczy ich wyniki nie zależą od siebie nawzajem.
+Podsieć klasyfikująca i podsieć dopasowująca obwiednię zostały włączone do sieci w sposób równoległy, tzn. ich wyniki nie zależą od siebie nawzajem.
 
 Zmiany te rozwiązały w dużej części wymienione w punkcie \numberref{sec:fastrcnn} problemy modelu \textit{R-CNN}.
 

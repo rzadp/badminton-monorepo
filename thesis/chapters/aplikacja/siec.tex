@@ -30,17 +30,18 @@ Plik ten zawiera konfigurację i hiperparametry modelu, m.in.:
 \begin{itemize}
   \item Współczynnika uczenia (\textit{learning rate};
   \item Ilość wykorzystywanych kart graficznych;
-  \item Liczba klas (w przypadku niniejszej pracy są dwie klasy, to znaczy kort badmintona oraz brak kortu).
+  \item Liczba klas (w przypadku niniejszej pracy są dwie klasy, tzn. kort badmintona oraz brak kortu).
 \end{itemize}
 
 \subsection*{Plik \texttt{model.py}}
 
 Plik ten zawiera klasy i funkcje służące do stworzenia modelu \textit{Mask R-CNN}, umożliwiające wytrenowanie go oraz pozwalające na detekcję obszaru kortu na podanych obrazach wejściowych.
 
-\subsection*{Skrypt do trenowania sieci}
+\subsection*{Trenowanie sieci}
 
 Dołączony skrypt do trenowania sieci \texttt{train.sh} służy do uruchamiania jednego lub więcej treningów, jeden po drugim. Taka seria treningów uruchamiana jest na podstawie zestawu plików opisujących dany trening - czyli precyzujących na jakim zbiorze danych ma zostać przeprowadzony trening, jaki powinien być podział na podzbiory treningowe i walidacyjne wybranego zbioru, oraz czy trenować oryginalną implementację \textit{Mask R-CNN} czy wersję zmodyfikowaną. Skrypt posiada funkcjonalność powiadamiania za pomocą wysyłania poczty elektronicznej - wiadomość wysyłana jest po każdym zakończonym treningu, z informacją czy zakończył się sukcecem lub czy wystąpił błąd.
 
-\subsection*{Skrypt do obliczania skuteczności}
+\subsection*{Skuteczność metody}
 
-Dołączony skrypt do trenowania sieci \texttt{validate.sh} operuje na wynikach skryptu do trenowania sieci. Dla każdego przeprowadzonego treningu, uruchamia on wytrenowany model i sprawdza jego działanie na wszystkich podzbiorach z osobna, to znaczy na podzbiorach treningowych, walidacyjnych i testowych zbioru \textit{low} i \textit{high}. Na podstawie wyników na zbiorach walidacyjnych i testowych wyliczane są wyniki opisane w~Rozdziale \myrefx{sec:miary}, natomiast wyniki sieci na podzbiorze testowym są zapisywane na dysku jako bazowy obraz z nałożoną przezroczystą maską przewidzianego kortu, na potrzeby ręcznej weryfikacji skuteczności.
+Badanie skuteczności metody przeprowadzono przy użyciu skrypty \texttt{validate.sh}, który operuje na rezultatach skryptu \texttt{train.sh} trenującego sieć.
+Dla każdego przeprowadzonego treningu, uruchamia on wytrenowany model i sprawdza jego działanie na wszystkich podzbiorach z osobna, tzn. na podzbiorach treningowych, walidacyjnych i testowych zbioru \textit{low} i \textit{high}. Na podstawie wyników na zbiorach walidacyjnych i testowych wyliczane są wyniki opisane w~Rozdziale \myrefx{sec:miary}, natomiast wyniki sieci na podzbiorze testowym są zapisywane na dysku jako bazowy obraz z nałożoną przezroczystą maską przewidzianego kortu, na potrzeby ręcznej weryfikacji skuteczności.
