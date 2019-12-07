@@ -6,7 +6,7 @@
 Ze względu na to, iż niewystarczająco dokładna detekcja obszaru kortu może niekorzystnie wpływać na wynik meczy oraz ze względu na fakt, iż oprogramowanie może być uruchamiane na przenośnych komputerach, w ramach niniejszej pracy implementacja \textit{Mask R-CNN} została zmodyfikowana w następujących krokach:
 
 \begin{itemize}
-	\item architektura sieci została zmodyfikowana w celu osiągnięcia wyższej dokładności maski, poprzez dodanie konfigurowalnej hiperparametrem $deconv\_layers$ liczby warstw dekonwolucyjnych (z ang. \textit{deconvolutional layers} lub \textit{transposed convolution});
+	\item architektura sieci została zmodyfikowana w celu osiągnięcia wyższej dokładności maski, poprzez dodanie konfigurowalnej hiperparametrem $deconv\_layers$ liczby warstw dekonwolucyjnych (z ang. \textit{deconvolutional layers} lub \textit{transposed convolution});\TODO{opisać czym jest warstwa dekonwolucyjna}
 	\item wprowadzony hiperparametr sieci $deconv\_layers$ został dobrany w taki sposób, aby osiągnąć jak najwyższą dokładność maski jednocześnie nie przekraczając pamięci GPU używanej przez autora karty graficznej.
 \end{itemize}
 
