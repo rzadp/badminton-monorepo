@@ -222,11 +222,9 @@
   \par {\bfseries \color{blue} #1 \par}
 } %comment showed
 
-\newcommand*{\myref}[1]{\hyperref[{#1}]{Patrz punkt \ref*{#1}, \textbf{\nameref*{#1}}}}
-\newcommand*{\myrefx}[1]{\hyperref[{#1}]{\textbf{\nameref*{#1}}, str. \pageref*{#1}}}
-\newcommand*{\myfigref}[1]{\hyperref[{#1}]{\textbf{\ref*{#1}} (str. \pageref*{#1})}}
-\newcommand*{\patrz}[1]{\hyperref[{#1}]{(patrz rozdz. \ref*{#1} str. \pageref*{#1})}}
-\newcommand*{\patrzx}[1]{\hyperref[{#1}]{(patrz Rozdział~\textbf{\ref*{#1}})}}
+\newcommand*{\myrefx}[1]{\hyperref[{#1}]{\textbf{\ref*{#1}}}}
+\newcommand*{\myfigref}[1]{\hyperref[{#1}]{\textbf{\ref*{#1}}}}
+\newcommand*{\myrozdzial}[1]{\hyperref[{#1}]{(Rozdział~\textbf{\ref*{#1}})}}
 \newcommand*{\mytabref}[1]{\hyperref[{#1}]{\textbf{\ref*{#1}}}}
 \newcommand*{\myfigrefx}[1]{\hyperref[{#1}]{\textbf{\ref*{#1}}}}
 \newcommand*{\numberref}[1]{\hyperref[{#1}]{\textbf{\ref*{#1}}}}

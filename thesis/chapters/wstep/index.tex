@@ -9,12 +9,12 @@ Zagadnienie detekcji obszaru kortu do badmintona wynika ze współpracy z~firmą
 Temat pracy został zaproponowany w ramach współpracy z firmą \blue{}, która zajmuje się tworzeniem systemu do sędziowania meczów badmintona i obecnie pracuje nad automatyzacją śledzenia toru lotu lotki, śledzenia zawodników oraz detekcji obszaru kortu.
 Detekcja obszaru kortu potrzebna jest do rozstrzygania wątpliwości w kwestii wyjścia lotki poza obszar kortu.
 
-W polu widzenia kamery często znajduje się więcej niż jeden kort, stąd semantyczna segmentacja nie jest wystarczająca i wymagana jest segmentacja instancji \patrzx{sec:typy_detekcji}.
+W polu widzenia kamery często znajduje się więcej niż jeden kort, stąd semantyczna segmentacja nie jest wystarczająca i wymagana jest segmentacja instancji \myrozdzial{sec:typy_detekcji}.
 
 \section{Cel pracy}
 
 Celem głównym pracy było zbadanie użyteczności sieci neuronowych na potrzeby komercyjnego systemu sędziowania meczy badmintona.
-Aktualne podejście firmy \blue{} polega na algorytmicznej detekcji obszaru kortu, bez użycia sieci neuronowych \patrzx{sec:aglorytmiczna_detekcja}.
+Aktualne podejście firmy \blue{} polega na algorytmicznej detekcji obszaru kortu, bez użycia sieci neuronowych \myrozdzial{sec:aglorytmiczna_detekcja}.
 Praca stanowi krok w eksploracji tematu detekcji obszaru kortu z~użyciem sieci neuronowych i daje podstawy do decyzji, czy podejście to nadaje się do komercyjnego zastosowania zamiast lub w połączeniu z obecnym algorytmicznym rozwiązaniem.
 
 Celem pośrednim, wynikającym z powyższego celu głównego, jest analiza istniejących rozwiązań w literaturze, zarówno wykorzystujących sieci neuronowe, jak i rozwiązań klasycznych (bez wykorzystania sieci neuronowych).
@@ -26,20 +26,20 @@ Dodatkowo celem była optymalizacja wykorzystywanej architektury sieci oraz kons
 
 Wkład własny autora niniejszej pracy został zebrany w następujących punktach:
 
-\newcommand{\zaprojektowanie}[2]{zaprojektowanie i przeprowadzenie testów detekcji obszaru kortu z wykorzystaniem zbioru \textit{#1} \patrzx{#2}}
+\newcommand{\zaprojektowanie}[2]{zaprojektowanie i przeprowadzenie testów detekcji obszaru kortu z wykorzystaniem zbioru \textit{#1} \myrozdzial{#2}}
 
 \begin{itemize}
 	\item zbiór danych:
     \begin{enumerate}
-			\item stworzenie generatora sztucznych danych w celu zwiększenia ilości rekordów treningowych \patrzx{sec:generator},
-			\item zbadanie wpływu użycia sztucznych danych treningowych na skuteczność treningu \patrzx{sec:eksperymenty_wyniki},
-      \item skonstruowanie dwóch zbiorów danych - zbioru \text{high} i zbioru \textit{low} \patrzx{sec:zbiory},
+			\item stworzenie generatora sztucznych danych w celu zwiększenia ilości rekordów treningowych \myrozdzial{sec:generator},
+			\item zbadanie wpływu użycia sztucznych danych treningowych na skuteczność treningu \myrozdzial{sec:eksperymenty_wyniki},
+      \item skonstruowanie dwóch zbiorów danych - zbioru \text{high} i zbioru \textit{low} \myrozdzial{sec:zbiory},
       \item zbadanie wpływu podziału zbiorów na skuteczność metody (patrz Rozdział \numberref{sec:podzial} oraz Rozdział~\numberref{sec:podzial_eksperyment});
 		\end{enumerate}
 	\item architektura sieci neuronowej:
 	\begin{itemize}
-		\item przedstawienie kolejnych iteracji wybranej sieci neuronowej \patrzx{sec:architekrura_mask_rcnn},
-		\item modyfikacja architektury sieci na potrzeby analizowanego zagadnienia \patrzx{sec:zaproponowana_architektura},
+		\item przedstawienie kolejnych iteracji wybranej sieci neuronowej \myrozdzial{sec:architekrura_mask_rcnn},
+		\item modyfikacja architektury sieci na potrzeby analizowanego zagadnienia \myrozdzial{sec:zaproponowana_architektura},
 		\item \zaprojektowanie{low}{sec:experymenty_low},
 		\item \zaprojektowanie{high}{sec:experymenty_high},
 		\item przeprowadzenie integracji zaproponowanej metody z systemem firmy \blue{}. \TODO{TEGO JESZCZE NIE MA}
