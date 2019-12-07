@@ -1,7 +1,7 @@
 % !TeX root = ../../main.tex
 \subsection{Sieci neuronowe w kontekście detekcji obiektów}
 
-W rozdziale \numberref{sec:typy_detekcji} przedstawiono różne aspekty problemu detekcji obiektów, to znaczy klasyfikację obrazów, detekcję obiektów, segmentację semantyczną, segmentację instancji oraz segmentację panoptyczną. W ramach każdego z tych aspektów wykorzystywane są modele oparte na sieciach neuronowych. Wśród takich modeli, wykorzystywanych w dziedzinie detekcji obiektów, można wyróżnić modele otwartoźródłowe:
+w~Rozdziale \numberref{sec:typy_detekcji} przedstawiono różne aspekty problemu detekcji obiektów, to znaczy klasyfikację obrazów, detekcję obiektów, segmentację semantyczną, segmentację instancji oraz segmentację panoptyczną. W ramach każdego z tych aspektów wykorzystywane są modele oparte na sieciach neuronowych. Wśród takich modeli, wykorzystywanych w dziedzinie detekcji obiektów, można wyróżnić modele otwartoźródłowe:
 
 \begin{itemize}
 	\item \textit{Keras RetinaNet} \cite{keras-retinanet-implementation} - implementacja modelu \textit{RetinaNet} \cite{keras-retinanet} oparta na bibliotece \textit{Keras}~\cite{keras};
@@ -18,4 +18,4 @@ W rozdziale \numberref{sec:typy_detekcji} przedstawiono różne aspekty problemu
 Modele \textit{Keras RetinaNet} oraz \textit{YOLO} zostały odrzucone ze względu na fakt, iż pozwalają tylko na detekcję obiektów, nie posiadają funkcjonalności segmentacji instacji.
 Model \textit{DeepMask/SharpMask} został odrzucony, ponieważ repozytorium jest zarchiwizowane i~nie rozwijane od 2016 roku, co w przypadku rozwijających się systemów komercyjnych nie jest pożądane.
 
-Z~pozostałych trzech różnych implementacji modelu \textit{Mask R-CNN}, opisanego w \cite{general-mask-rcnn}, wybrano \textit{Mask R-CNN} \cite{matterport-mask-rcnn} z~jednego ważnego powodu - autor udostępnia wagi modelu wytrenowanego na publiczym zbiorze zaanotowanych obrazów \textit{COCO} \cite{coco}. Takie wagi przydatne są do zastosowania uczenia transferowego, opisanego w Rozdziale \numberref{sec:uczenie-transferowe}.
+Z~pozostałych trzech różnych implementacji modelu \textit{Mask R-CNN}, opisanego w \cite{general-mask-rcnn}, wybrano \textit{Mask R-CNN} \cite{matterport-mask-rcnn} z~jednego ważnego powodu - autor udostępnia wagi modelu wytrenowanego na publiczym zbiorze zaanotowanych obrazów \textit{COCO} \cite{coco}. Takie wagi przydatne są do zastosowania uczenia transferowego, opisanego w~Rozdziale \numberref{sec:uczenie-transferowe}.

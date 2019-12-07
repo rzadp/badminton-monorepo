@@ -1,7 +1,7 @@
 % !TeX root = ../../main.tex
 \section{Hiperparametry treningu}
 
-Treningi przeprowadzone w ramach niniejszej pracy i opisane szczegółowo w Rozdziale \numberref{sec:eksperymenty_wyniki} korzystają z następującej strategii doboru współczynnika uczenia $LR$ (z ang. \textit{learning rate}):
+Treningi przeprowadzone w ramach niniejszej pracy i opisane szczegółowo w~Rozdziale \numberref{sec:eksperymenty_wyniki} korzystają z następującej strategii doboru współczynnika uczenia $LR$ (z ang. \textit{learning rate}):
 \begin{itemize}
   \item wartość początkowa: $LR_{0} := 0.001$, według zaleceń autora implemetacji \cite{matterport-mask-rcnn};
   \item w przypadku braku poprawy skuteczności sieci na zbiorze walidacyjnym w pięciu kolejnych epokach treningowych, mierzonej jako procent poprawnie zaklasyfikowanych pikseli w obrazie, parametr $LR$ zmniejsza się pięciokrotnie (ale nie mniej niż wartość minimalna $ LR_{max} = 0.0000001 $);

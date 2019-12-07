@@ -9,7 +9,7 @@ Sieć \textit{Mask R-CNN} \cite{matterport-mask-rcnn} jest otwartoźródłowym p
   \item \textit{Keras} \cite{keras}
 \end{itemize}
 
-Konkretne wersje i dodatkowe zależności zawarte są w rozdziale \myrefx{sec:instrukcja-instalacji}. Główne komponenty na które składa się dołączony program to:
+Konkretne wersje i dodatkowe zależności zawarte są w~Rozdziale \myrefx{sec:instrukcja-instalacji}. Główne komponenty na które składa się dołączony program to:
 
 \begin{itemize}
 \item Plik \texttt{utils.py};
@@ -45,7 +45,7 @@ Plik ten zawiera klasy i funkcje służące do stworzenia modelu \textit{Mask R-
 
 \subsection*{Zbiory danych \textit{low} i \textit{high}}
 
-Dołączone zbiory danych \textit{low} i \textit{high} zostały opisane w rozdziale \myrefx{sec:zbiory}.
+Dołączone zbiory danych \textit{low} i \textit{high} zostały opisane w~Rozdziale \myrefx{sec:zbiory}.
 Do każdego z nich został dołączony plik \texttt{via\_region\_data.json} zawierający anotacje kortów w obrazie, stworzony za pomocą anotatora opisanego w \myrefx{sec:anotator}.
 
 \subsection*{Skrypt do trenowania sieci}
@@ -54,4 +54,4 @@ Dołączony skrypt do trenowania sieci \texttt{train.sh} służy do uruchamiania
 
 \subsection*{Skrypt do obliczania skuteczności}
 
-Dołączony skrypt do trenowania sieci \texttt{validate.sh} operuje na wynikach skryptu do trenowania sieci. Dla każdego przeprowadzonego treningu, uruchamia on wytrenowany model i sprawdza jego działanie na wszystkich podzbiorach z osobna, to znaczy na podzbiorach treningowych, walidacyjnych i testowych zbioru \textit{low} i \textit{high}. Na podstawie wyników na zbiorach walidacyjnych i testowych wyliczane są wyniki opisane w rozdziale \myrefx{sec:miary}, natomiast wyniki sieci na podzbiorze testowym są zapisywane na dysku jako bazowy obraz z nałożoną przezroczystą maską przewidzianego kortu, na potrzeby ręcznej weryfikacji skuteczności.
+Dołączony skrypt do trenowania sieci \texttt{validate.sh} operuje na wynikach skryptu do trenowania sieci. Dla każdego przeprowadzonego treningu, uruchamia on wytrenowany model i sprawdza jego działanie na wszystkich podzbiorach z osobna, to znaczy na podzbiorach treningowych, walidacyjnych i testowych zbioru \textit{low} i \textit{high}. Na podstawie wyników na zbiorach walidacyjnych i testowych wyliczane są wyniki opisane w~Rozdziale \myrefx{sec:miary}, natomiast wyniki sieci na podzbiorze testowym są zapisywane na dysku jako bazowy obraz z nałożoną przezroczystą maską przewidzianego kortu, na potrzeby ręcznej weryfikacji skuteczności.
