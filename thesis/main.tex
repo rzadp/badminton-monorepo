@@ -365,7 +365,7 @@ Podziękowanie
 \null\thispagestyle{empty}\newpage
 \pagestyle{fancy}
 \pagenumbering{arabic}
-\setcounter{page}{11} % JEŻELI Z POWODU DUŻEJ ILOŚCI STRON W SPISIE TREŚCI SIĘ NIE ZGADZA, TRZEBA ZMODYFIKOWAĆ RĘCZNIE
+\setcounter{page}{14} % JEŻELI Z POWODU DUŻEJ ILOŚCI STRON W SPISIE TREŚCI SIĘ NIE ZGADZA, TRZEBA ZMODYFIKOWAĆ RĘCZNIE
 
 \import{chapters/}{index}
 
@@ -379,18 +379,22 @@ Podziękowanie
 % \pagenumbering{gobble}
 
 
-
 % --- 7. Wykaz symboli i skrótów - jeśli nie ma, zakomentować
-%\chapter*{Wykaz symboli i skrótów}
-%
-%\begin{tabular}{cl}
-%nzw. & nadzwyczajny \\
-%* & operator gwiazdka \\
-%$\widetilde{}$ & tylda
-%\end{tabular}
-%\\
-%Jak nie występują, usunąć.
-%\thispagestyle{empty}
+\chapter*{Spis skrótów}
+\addcontentsline{toc}{chapter}{Spis skrótów}
+\begin{tabular}{cl}
+TP & True Positive \\
+FP & False Positive \\
+TN & True Negative \\
+FN & False Negative \\
+CNN & Convolutional Neural Network \\
+R-CNN & Regions with Convolutional Neural Network \\
+Fast R-CNN & Fast Regions with Convolutional Neural Network \\
+Faster R-CNN & Faster Regions with Convolutional Neural Network \\
+Mask R-CNN & Mask Regions with Convolutional Neural Network \\
+\end{tabular}
+\newpage
+\thispagestyle{empty}
 
 
 % ----- 8. Spis rysunków - jeśli nie ma, zakomentować --------
