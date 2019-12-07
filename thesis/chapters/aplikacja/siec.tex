@@ -2,14 +2,9 @@
 \newpage
 \section{Sieć \textit{Mask R-CNN}}
 
-Sieć \textit{Mask R-CNN} \cite{matterport-mask-rcnn} jest otwartoźródłowym projektem wykorzystującym następujące technologie:
-\begin{itemize}
-  \item \textit{Python3}\footnote{https://www.python.org/}
-  \item \textit{TensorFlow}\footnote{https://www.tensorflow.org/}
-  \item \textit{Keras} \cite{keras}
-\end{itemize}
+Sieć \textit{Mask R-CNN} \cite{matterport-mask-rcnn} jest otwartoźródłowym projektem wykorzystującym następujące technologie: \textit{Python3} \cite{python}, \textit{TensorFlow} \cite{tensorflow} oraz \textit{Keras} \cite{keras}.
 
-Konkretne wersje i dodatkowe zależności zawarte są w~Rozdziale \myrefx{sec:instrukcja-instalacji}. Główne komponenty na które składa się dołączony program to:
+Konkretne wersje i dodatkowe zależności zawarte są w Dodatku A. Główne komponenty, na które składa się dołączony program to:
 
 \begin{itemize}
 \item Plik \texttt{utils.py};
@@ -17,12 +12,12 @@ Konkretne wersje i dodatkowe zależności zawarte są w~Rozdziale \myrefx{sec:in
   \item Plik  \texttt{model.py};
   \item Zbiory danych \textit{low} i \textit{high};
   \item Skrypty do trenowania sieci;
-  \item Skrypt do obliczania skuteczności sieci.
+  \item Skrypt do obliczania skuteczności metody.
 \end{itemize}
 
 \subsection*{Plik \texttt{utils.py}}
 
-Plik ten zawiera wiele funkcji pomocniczych realizujących między innymi:
+Plik ten zawiera wiele funkcji pomocniczych, realizujących m.in.:
 \begin{itemize}
   \item Wczytanie obrazów z dysku;
   \item Interpretacja anotacji danych;
@@ -32,7 +27,7 @@ Plik ten zawiera wiele funkcji pomocniczych realizujących między innymi:
 
 \subsection*{Plik \texttt{config.py}}
 
-Plik ten zawiera konfigurację i hiperparametry modelu, między innymi:
+Plik ten zawiera konfigurację i hiperparametry modelu, m.in.:
 \begin{itemize}
   \item Współczynnika uczenia (\textit{learning rate};
   \item Ilość wykorzystywanych kart graficznych;
