@@ -10,7 +10,6 @@ Konkretne wersje i dodatkowe zależności zawarte są w Dodatku A. Główne komp
 \item Plik \texttt{utils.py};
   \item Plik \texttt{config.py};
   \item Plik  \texttt{model.py};
-  \item Zbiory danych \textit{low} i \textit{high};
   \item Skrypty do trenowania sieci;
   \item Skrypt do obliczania skuteczności metody.
 \end{itemize}
@@ -37,11 +36,6 @@ Plik ten zawiera konfigurację i hiperparametry modelu, m.in.:
 \subsection*{Plik \texttt{model.py}}
 
 Plik ten zawiera klasy i funkcje służące do stworzenia modelu \textit{Mask R-CNN}, umożliwiające wytrenowanie go oraz pozwalające na detekcję obszaru kortu na podanych obrazach wejściowych.
-
-\subsection*{Zbiory danych \textit{low} i \textit{high}}
-
-Dołączone zbiory danych \textit{low} i \textit{high} zostały opisane w~Rozdziale \myrefx{sec:zbiory}.
-Do każdego z nich został dołączony plik \texttt{via\_region\_data.json} zawierający anotacje kortów w obrazie, stworzony za pomocą anotatora opisanego w \myrefx{sec:anotator}.
 
 \subsection*{Skrypt do trenowania sieci}
 
