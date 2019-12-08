@@ -13,19 +13,33 @@ Generator, zaimplementowany jako scena 3D w JavaScript pozwala na generowanie ob
 	\item zmienne odległości między kortami, odzwierciedlające różnice między placówkami w których odbywają się zawody sportowe.
 \end{itemize}
 
-Dzięki powyższym cechom możliwe jest przygotowanie sztucznych obrazów zbliżonych do obrazów z kamer przemysłowych stosowanych na meczach odbywających się w różnych lokalizacjach.
+Dzięki powyższym cechom możliwe jest przygotowanie sztucznych obrazów zbliżonych do obrazów z kamer przemysłowych stosowanych na meczach odbywających się w różnych lokalizacjach. Przykładowy sztucznie wygenerowany obraz przedstawiony jest na Rysunku \numberref{fig:fake}.
 
 W celu, aby obraz stanowił rekord treningowy, wymagana jest tak zwana anotacja, czyli oznaczenie obszaru kortu. Rysunek \myfigrefx{fig:annotated_fake} przedstawia przykład anotacji na sztucznie wygenerowanym obrazie obrazie.
-Zbiór danych treningowych złożony z wygenerowanych sztucznych danych zawiera 72 obrazy o rozdzielczości 800x600 pikseli.
+Zbiór danych treningowych złożony z wygenerowanych sztucznych danych zawiera 72 obrazy o rozdzielczości 800x600 pikseli. Rysunek \numberref{fig:fakemultiple} i Rysunek \numberref{fig:fakemultipleannotated} przedstawiają przykład wygenerowanego sztucznego obrazu na którym widoczny jest więcej niż jeden kort.
 
 \begin{figure}[!htb]
   \minipage{0.45\textwidth}
     \includegraphics[width=\linewidth]{./fake.jpg}
     \caption{Przykład wygenerowanego sztucznego obrazu.}
+    \label{fig:fake}
   \endminipage\hfill
   \minipage{0.45\textwidth}
     \includegraphics[width=\linewidth]{./fake_annotated.jpg}
     \caption{Przykład wygenerowanego sztucznego obrazu z zaznaczoną anotacją powierzchni kortu.}
     \label{fig:annotated_fake}
+  \endminipage\hfill
+\end{figure}
+
+\begin{figure}[!htb]
+  \minipage{0.45\textwidth}
+    \includegraphics[width=\linewidth]{./fakemultiple.jpg}
+    \caption{Przykład wygenerowanego sztucznego obrazu z wieloma kortami.}
+    \label{fig:fakemultiple}
+  \endminipage\hfill
+  \minipage{0.45\textwidth}
+    \includegraphics[width=\linewidth]{./fakemultipleannotated.jpg}
+    \caption{Przykład wygenerowanego sztucznego obrazu z wieloma kortami, z zaznaczoną anotacją powierzchni kortów.}
+    \label{fig:fakemultipleannotated}
   \endminipage\hfill
 \end{figure}
