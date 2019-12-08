@@ -4,9 +4,12 @@ Eksperymenty przeprowadzone w tym rozdziale polegały na sprawdzeniu skutecznoś
 Sprawdzono też, jak dodanie sztucznie wygenerowanych rekordów treningowych wpływa na skuteczność sieci.
 
 
-Wyniki wskazują na lepszą skuteczność sieci zmodyfikowanej w porównaniu do sieci oryginalnej.
-Na zbiorze danych \textit{low\_186\_21}, zastosowanie zmodyfikowanej sieci zwiększa średnią \textit{Dokładność} z \textbf{0.953} do \textbf{0.955}.
-Zwiększenie metryki \textit{Dokładność} o 0.002 oznacza o 1147 więcej poprawnie rozpoznanych pikseli w obrazach o rozdzielczości 896x640 pikseli. Na zbiorze \textit{low\_186\_21} rozszerzonym o sztucznie wygenerowane rekordy treningowe, zmodyfikowana sieć w porównaniu do oryginalnej zwiększyła średnią \textit{Dokładność} z \textbf{0.962} do \textbf{0.977}.
+Wyniki wskazują na nieznacznie lepszą dokładność sieci zmodyfikowanej w porównaniu do sieci oryginalnej.
+Na zbiorze danych \textit{low\_186\_21}, zastosowanie zmodyfikowanej sieci zwiększa średnią dokładność z \textbf{95.3\%} do \textbf{95.5\%}, natomiast na zbiorze \textit{low\_186\_21} rozszerzonym o sztucznie wygenerowane rekordy treningowe zmodyfikowana metoda zwiększa średnią dokładność z \textbf{96.2\%} do \textbf{97.7\%}. Zwiększenie dokładności o 0.2 punkty procentowe oznacza o 1147 więcej poprawnie rozpoznanych pikseli w obrazach o rozdzielczości 896x640 pikseli.
+Podobnie reaguje czułość, to znaczy zmodyfikowana implementacja osiąga nieznaczny wzrost (0.7 punkta procentowego) w porównaniu do sieci oryginalnej na zbiorze danych \textit{low\_186\_21}, oraz trochę większy wzrost (3.5 punktów procentowych) w przypadku zbioru \textit{low\_186\_21} rozszerzonego o sztuczne dane. Jednak nie oznacza to jednoznacznej przewagi jednej metody nad drugą, ponieważ zmodyfikowana metoda osiąga nieznacznie niższą (w granicach 0.1-0.3 punkta procentowego) średnią swoistość i precyzję na zbiorze \textit{low\_186\_21}.
 
 
-Interpretacja wyniki pod względem wpływu dodania sztucznie wygenerowanych rekordów treningowych wskazuje na to, iż dodanie takich rekordów zwiększa średnią skuteczność sieci. W przypadku oryginalnej sieci, dodanie sztucznych rekordów zwiększyło średnią \textit{Dokładność} z \textbf{0.953} do \textbf{0.962}. Rozważając zmodyfikowaną sieć, dodanie sztucznych rekordów zwiększyło średnią \textit{Dokładność} z \textbf{0.955} do \textbf{0.977}.
+Interpretacja wynikiów pod względem wpływu dodania sztucznie wygenerowanych rekordów treningowych wskazuje na to, iż dodanie takich rekordów zwiększa średnią dokładność sieci. W przypadku oryginalnej sieci, dodanie sztucznych rekordów zwiększyło średnią dokładność z \textbf{95.3\%} do \textbf{96.2\%}. Potwierdzają to także miary czułości, swoistości i precyzji. Rozważając zmodyfikowaną sieć, dodanie sztucznych rekordów zwiększyło średnią dokładność z \textbf{95.5\%} do \textbf{97.7\%}. W tym przypadku również lepsze wyniki potwierdzone są wzrostem czułości, swoistości i precyzji. Warto zauważyć, że zastosowanie sztucznych danych treningowych pozwoliło osiągnąć swoistość oraz precyzję na poziomie \textbf{99.9\%}.
+
+
+Najlepszy wynik (średnia dokładność \textbf{97.7\%} przy precyzji \textbf{99.9\%}) osiągnięto poprzez zastosowanie zmodyfikowanej implementacji sieci, trenowanej na zbiorze \textit{low\_186\_21} rozszerzonym o sztucznie wygenerowane dane treningowe.
