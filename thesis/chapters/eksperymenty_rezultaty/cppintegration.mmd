@@ -1,0 +1,20 @@
+graph TD
+
+%% ...::: NODES :::...
+
+input[Obraz wejściowy]
+mrcnn(Mask R-CNN)
+wykryty{Obszar<br/>wykryty?}
+algorytm(Algorytmiczna metoda wykrycia kortu)
+crop(Przycięcie obrazu)
+
+%% ...::: STYLING :::...
+
+%% ...::: FLOWS :::...
+
+input-->mrcnn
+mrcnn-->wykryty
+wykryty--tak-->crop
+crop-->algorytm
+wykryty--nie-->algorytm
+
