@@ -44,4 +44,14 @@ Trenowania sieci przy użyciu skryptu \texttt{train.sh} polega na uruchamieniu j
 \subsection*{Skuteczność metody}
 
 Badanie skuteczności metody przeprowadzono przy użyciu skrypty \texttt{validate.sh}, który operuje na rezultatach skryptu \texttt{train.sh} trenującego sieć.
-Dla każdego przeprowadzonego treningu, uruchamiany jest wytrenowany model i sprawdzane jest jego działanie na wszystkich podzbiorach z osobna, tzn. na podzbiorach treningowych, walidacyjnych i testowych zbioru \textit{low} i \textit{high}. Na podstawie wyników na zbiorach walidacyjnych i testowych wyliczane są wyniki opisane w~Rozdziale \myrefx{sec:miary}, natomiast wyniki sieci na podzbiorze testowym są zapisywane na dysku jako bazowy obraz z nałożoną przezroczystą maską przewidzianego kortu, na potrzeby ręcznej weryfikacji skuteczności.
+Dla każdego przeprowadzonego treningu, uruchamiany jest wytrenowany model i sprawdzane jest jego działanie na podzbiorach walidacyjnych i testowych zbioru \textit{low} i \textit{high}. Na podstawie wyników na zbiorze walidacyjnym, wyliczane są wyniki opisane w~Rozdziale \myrefx{sec:miary}, natomiast wyniki sieci na podzbiorze testowym są zapisywane na dysku jako bazowy obraz z nałożoną przezroczystą maską przewidzianego kortu, na potrzeby ręcznej weryfikacji skuteczności. Przykład takiego testowego obrazu
+ze zbioru \textit{high} przedstawiono na Rysunku \numberref{fig:testexample}.
+
+
+Wynikiem weryfikacji modelu na zbiorze walidacyjnym jest tablica pomyłek. Na podstawie anotacji danych i maski detektowanego obszaru kortu, dla każdego rekordu zbioru walidacyjnego, zapisywana jest liczba pikseli zaklasyfikowanych jako przypadek prawdziwie pozytywny, prawdziwie negatywny, fałszywie pozytywny i fałszywie negatywny. Na podstawie tych liczb obliczane są miary dokładności, swoistości, czułości i precyzji opisane w~Rozdziale \myrefx{sec:miary}. Na koniec dla poszczególnych miar obliczana jest średnia, mediana, minimum oraz maksimum.
+
+\begin{figure}[!htb]
+  \includegraphics[width=\linewidth]{./ss2.jpg}
+    \caption{Przykład obrazu testowego ze zbioru \textit{high} z nałożoną maską detektowanego obszaru kortu}
+    \label{fig:testexample}
+\end{figure}
