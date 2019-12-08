@@ -1,23 +1,24 @@
 % !TeX root = ../../main.tex
 \section{Podsumowanie wyników}
 
-\subsection{Wyniki na zbiorze danych \textit{low}}
-\subsection{Wyniki na zbiorze danych \textit{high}}
-\subsection{Wyniki użycia zaproponowanej metody w systemie firmy \blue{}}
-\TODO{}
+Eksperymenty przeprowadzone w niniejszym rozdziale obejmowały:
+\begin{itemize}
+ \item zbadanie wpływu podziału zbiorów danych na skuteczność detekcji obszaru kortu;
+ \item zbadanie skuteczności zmodyfikowanej implementacji sieci \textit{Mask R-CNN} w porównaniu do oryginalnej implementacji tej metody;
+ \item zbadanie wpływu dodania sztucznie wygenerowanych rekordów treningowych na skuteczność detekcji obszaru kortu;
+ \item zbadanie skuteczności połączenia aglorytmicznej metody wykorzystywanej w firmie \blue{} z modelem \textit{Mask R-CNN}.
+\end{itemize}
 
-% Eksperymenty przeprowadzone w niniejszym rozdziale obejmowały:
-% \begin{itemize}
-%  \item zbadanie wpływu podziału zbiorów danych na skuteczność detekcji obszaru kortu;
-%  \item zbadanie skuteczności zmodyfikowanej implementacji sieci \textit{Mask R-CNN} w porównaniu do oryginalnej implementacji tej metody;
-%  \item zbadanie wpływu dodania sztucznie wygenerowanych rekordów treningowych na skuteczność detekcji obszaru kortu.
-% \end{itemize}
-
-% Eksperymenty z podziałem zbiorów danych \textit{high} i \textit{low} (patrz Rozdział \numberref{sec:zbiory}) wykazały, iż najlepszym podziałem jest podział na podzbiór treningowy i walidacyjny w stosunku odpowiednio 90:10. Taki podział stosowany był dalej w kolejnych eksperyntach.
+Eksperymenty z podziałem zbiorów danych \textit{high} i \textit{low} (patrz Rozdział \numberref{sec:zbiory}) wykazały, iż najlepszym podziałem jest podział na podzbiór treningowy i walidacyjny w stosunku odpowiednio 90:10. Ze względu na najwyższą dokładność obliczaną na zbiorze testowym, taki podział stosowany był w kolejnych eksperymentach. Zbiory podzielone w taki sposób nazwano odpowiednio \textit{high\_87\_10} i \textit{low\_186\_21}.
 
 % all bad because of error in calculation!!!!!!
 
 % Badania weryfikujące skuteczność zmodyfikowanej sieci w porównaniu do oryginalnej implementacji wskazują na to, iż zastosowanie zmodyfikowanej sieci zwiększania średnią dokładność, zarówno na zbiorze \textit{high} jak i na zbiorze \textit{low}.
 
 
-% Eksperymenty z dodawaniem sztucznie wygenerowanych rekordów treningowych wykazały, iż zwiększają one skuteczność wytrenowanej sieci (zarówno oryginalnej, jak i zmodyfikowanej) na zbiorze \textit{low}. Nie mają one jednak wpływu na wynik sieci na zbiorze \textit{high}. Wynika to z faktu, iż zbiór \textit{low} jest mało zróżnicowany obrazy wyglądają bardzo podobnie, są w skali szarości, rzadko kort jest zasłaniany przez inne obiekty, a więc taki zbiór dużo zyskuje na dodaniu zróżnicowanych, kolorowych obrazów obiektami zasłaniającymi kort. Natomiast zbiór \textit{high} jest bardzo zróżnicowany, obrazy pochodzą z różnych źródeł i bardzo różnią się od siebie. Prawdopodobnie dlatego dodanie sztucznych rekordów nie wpływa na skuteczność sieci trenowanej na takim zbiorze.
+Eksperymenty z trenowaniem sieci na zbiorach \textit{low\_186\_21} i \textit{high\_87\_10} rozszerzonych o sztucznie wygenerowane rekordy treningowych wykazały, iż dodanie takich rekordów zwiększaja one skuteczność wytrenowanej sieci (zarówno oryginalnej, jak i zmodyfikowanej) na zbiorze \textit{low\_186\_21}. Nie mają one jednak wpływu na wynik sieci na zbiorze \textit{high\_87\_10}. Wynika to z faktu, iż obrazy ze zbioru \textit{low} są mało zróżnicowane; obrazy wyglądają bardzo podobnie, są w skali szarości, rzadko kort jest zasłaniany przez inne obiekty, a więc taki zbiór dużo zyskuje na dodaniu zróżnicowanych, kolorowych obrazów obiektami zasłaniającymi kort. Natomiast obrazy ze zbioru \textit{high} as bardzo zróżnicowane; obrazy pochodzą z różnych źródeł i znacząco różnią się od siebie. Prawdopodobnie dlatego dodanie sztucznych rekordów nie wpływa na skuteczność sieci trenowanej na takim zbiorze.
+
+
+Najlepszy wynik (średnia dokładność na poziomie \textbf{98.8\%}) w przypadku obrazów ze zbioru \textit{high\_87\_10} osiągnięto przy użyciu zmodyfikowanej implementacji \textit{Mask R-CNN} wytrenowanej na zbiorze \textit{high\_87\_10} rozszerzonym o sztuczne rekordy treningowe. Podobnie w przypadku obrazów ze zbioru \textit{low\_186\_21} najlepszy wynik (średnia dokładność na poziomie \textbf{97.7\%}) osiągnięto przy użyciu zmodyfikowanej implementacji \textit{Mask R-CNN} wytrenowanej na zbiorze \textit{low\_186\_21} rozszerzonym o sztuczne rekordy treningowe. Wyższe wyniki zmodyfikowanej implementacji spowodowane są wiekszą rozdzielczością maski generowanej przez sieć, co pozwala osiągnąć większą dokładność detekcji obszaru kortu.
+
+Eksperymenty przeprowadzone przez firmę \blue{} miały na celu zbadanie skuteczności dotychczasowej algorytmicznej metody detekcji obszaru kortu rozszerzonej o zaproponowaną w niniejszej pracy metodę z użyciem sieci neuronowej. Wyniki wskazują na znaczący (\textbf{10.6} punktów procentowych) wzrost dokładności takiej łączonej metody w porównaniu do dotychczasowego rozwiązania.
