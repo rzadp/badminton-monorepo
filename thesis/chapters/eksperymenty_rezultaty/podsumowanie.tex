@@ -16,7 +16,7 @@ Eksperymenty przeprowadzone w niniejszym rozdziale obejmowały:
 Eksperymenty z podziałem zbiorów danych \textit{high} i \textit{low} (patrz Rozdział \numberref{sec:zbiory}) wykazały, iż najlepszym podziałem jest podział na podzbiór treningowy i walidacyjny w stosunku odpowiednio 90:10. Taki podział stosowany był dalej w kolejnych eksperyntach.
 
 
-Badania weryfikujące skuteczność zmodyfikowanej sieci w porównaniu do oryginalnej implementacji wskazują na to, iż zastosowanie zmodyfikowanej sieci zwiększania średnią \textit{Dokładność}, zarówno na zbiorze \textit{high} jak i na zbiorze \textit{low}.
+Badania weryfikujące skuteczność zmodyfikowanej sieci w porównaniu do oryginalnej implementacji wskazują na to, iż zastosowanie zmodyfikowanej sieci zwiększania średnią dokładność, zarówno na zbiorze \textit{high} jak i na zbiorze \textit{low}.
 
 
 Eksperymenty z dodawaniem sztucznie wygenerowanych rekordów treningowych wykazały, iż zwiększają one skuteczność wytrenowanej sieci (zarówno oryginalnej, jak i zmodyfikowanej) na zbiorze \textit{low}. Nie mają one jednak wpływu na wynik sieci na zbiorze \textit{high}. Wynika to z faktu, iż zbiór \textit{low} jest mało zróżnicowany obrazy wyglądają bardzo podobnie, są w skali szarości, rzadko kort jest zasłaniany przez inne obiekty, a więc taki zbiór dużo zyskuje na dodaniu zróżnicowanych, kolorowych obrazów obiektami zasłaniającymi kort. Natomiast zbiór \textit{high} jest bardzo zróżnicowany, obrazy pochodzą z różnych źródeł i bardzo różnią się od siebie. Prawdopodobnie dlatego dodanie sztucznych rekordów nie wpływa na skuteczność sieci trenowanej na takim zbiorze.
