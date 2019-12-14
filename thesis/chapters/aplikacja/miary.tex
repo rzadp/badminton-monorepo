@@ -1,11 +1,11 @@
 % !TeX root = ../../main.tex
 \section{Miary skuteczności sieci}
 
-Na potrzeby oceny skuteczności sieci neuronowej w procesie detekcji obszaru kortu, dla danego obrazu i~przewidzianej przez sieć maski, każdy piksel można przypisać do dokładnie jednej z następujących klas tablicy pomyłek:
+Na potrzeby oceny skuteczności sieci neuronowej w procesie detekcji obszaru kortu, dla danego obrazu i~przewidzianej przez sieć maski, każdy piksel można przypisać do dokładnie jednej z~następujących klas tablicy pomyłek:
 
 \begin{itemize}
   \item przypadek prawdziwie pozytywny (z ang. \textit{True Positive, TP}) - piksel został poprawnie zakwalifikowany jako powierzchnia kortu (Rys. \myfigrefx{fig:TP});
-  \item przypadek fałszywie pozytywny (z ang. \textit{False Positive, FP}) - piksel niewwchodzący w powierzchnię kortu został niepoprawnie oznaczony jako powierzchnia kortu (Rys. \myfigrefx{fig:FP});
+  \item przypadek fałszywie pozytywny (z ang. \textit{False Positive, FP}) - piksel niewchodzący w~powierzchnię kortu został niepoprawnie oznaczony jako powierzchnia kortu (Rys. \myfigrefx{fig:FP});
   \item przypadek fałszywie negatywny (z ang. \textit{False Negative, FN}) - piksel kortu został niepoprawnie zakwalifikowany jako niewchodzący w~powierzchnię kortu (Rys. \myfigrefx{fig:FN});
   \item przypadek prawdziwie negatywny (z ang. \textit{True Negative, TN}) - piksel został poprawnie zakwalifikowany jako niewchodzący w powierzchnię kortu (Rys. \myfigrefx{fig:TN}).
 \end{itemize}
@@ -17,7 +17,7 @@ Znając podział pikseli w obrazach na wyżej wymienione klasy tablicy pomyłek,
 
 \begin{itemize}
   \label{sec:miary}
-  \item dokładność - $ \frac{TP + TN}{TP + TN + FP + FN} $, która odpowiada zdolności poprawnego klasyfikowania pikseli przez sieć;
+  \item dokładność - $ \frac{TP + TN}{TP + TN + FP + FN} $, która określa zdolność sieci do poprawnego klasyfikowania pikseli - zarówno wchodzących, jak i nie wchodzących w obszar kortu;
   \item czułość - $ \frac{TP}{TP + FN} $, która określa zdolność sieci do poprawnego zaklasyfikowania piksela obszaru kortu;
   \item swoistość - $ \frac{TN}{TN + FP} $, która opisuje zdolność sieci do poprawnego zaklasyfikowania pikseli niewchodzących w obszar kortu; 
   \item precyzja - $ \frac{TP}{TP + FP} $, która wskazuje z jaką pewnością można ufać, że dany piksel zdetektowany przez sieć jako obszar kortu faktycznie jest pikselem kortu.

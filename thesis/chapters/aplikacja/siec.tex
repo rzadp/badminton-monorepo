@@ -18,28 +18,28 @@ Główne komponenty, na które składa się dołączony program to:
 
 Konfiguracja i hiperparametry zawarte są w pliku \texttt{config.py}. Umożliwia on konfigurowanie m.in. następujących parametrów:
 \begin{itemize}
-  \item współczynnika uczenia (z ang. \textit{learning rate}) - parametr wpływający na szybkość uczenia. Strategię doboru tego parametru opisano w Rozdziale \numberref{sec:hiperparametry};
-  \item liczba wykorzystywanych kart graficznych - proces uczenia można przyspieszyć wykorzystując wiecej niż jedną kartę graficzną. W ramach niniejszej pracy wykorzystywano jedną kartę graficzną (\textit{GeForce GTX 1080} z 8GB dostępnej pamięci, użyczoną przez firmę \blue{});
+  \item współczynnika uczenia (z ang. \textit{learning rate}) - parametr wpływający na szybkość uczenia; strategię doboru tego parametru opisano w Rozdziale \numberref{sec:hiperparametry};
+  \item liczba wykorzystywanych kart graficznych - proces uczenia można przyspieszyć wykorzystując wiecej niż jedną kartę graficzną; w ramach niniejszej pracy wykorzystywano jedną kartę graficzną (\textit{GeForce GTX 1080} z 8GB dostępnej pamięci, użyczoną przez firmę \blue{});
   \item liczba klas (w przypadku niniejszej pracy są rozpoznawane dwie klasy, tzn. kort badmintona oraz brak kortu).
 \end{itemize}
 
 \subsection*{Klasy i funkcje do stworzenia modelu}
-Klasy i funkcje służące do stworzenia modelu \textit{Mask R-CNN} zostały zawarte w pliku \texttt{model.py}. Umożliwiają one wytrenowanie modelu oraz pozwalają na detekcję obszaru kortu na podanych obrazach wejściowych. Klasa modelu pozwala zapisać wytrenowane wagi na dysku, oraz wczytać wagi z pliku.
+Klasy i funkcje służące do stworzenia modelu \textit{Mask R-CNN} zostały zawarte w pliku \texttt{model.py}. Umożliwiają one wytrenowanie modelu oraz pozwalają na detekcję obszaru kortu na podanych obrazach wejściowych. Klasa modelu pozwala zapisać wytrenowane wagi na dysku oraz wczytać wagi z pliku.
 
 \subsection*{Funkcje pomocnicze}
 Funkcje pomocnicze, które używane są w różnych miejscach w kodzie umieszczono w pliku \texttt{utils.py}.
 Funkcje te realizują m.in:
 
 \begin{itemize}
-  \item wczytanie obrazów z dysku - obrazy w formacie \textit{JPG} lub \textit{PNG} wczytywane są jako trójwymiarowa tablica liczb. Wymiary to wysokość, szerokość, oraz kanały koloru;
-  \item wczytanie anotacji danych - anotacje zapisane są na dysku w formacie \textit{JSON}. Oprócz wczytania obrazów, konieczne jest wczytanie odpowiadających im anotacji;
-  \item zmiana rozdzielczości obrazu - pozwala zmienić rozdzielczość wczytanego obrazu do pożądnej rozdzielczości. Sieć ma stałą liczbę neuronów w warstwie wejściowej, dlatego też stosuje się zmianę rozdzielczości aby obraz mógł być użyty na wejściu tej warstwy;
+  \item wczytanie obrazów z dysku - obrazy w formacie \textit{JPG} lub \textit{PNG} wczytywane są jako trójwymiarowa tablica liczb; wymiary obrazu to wysokość, szerokość oraz kanały koloru;
+  \item wczytanie anotacji danych - anotacje zapisane są na dysku w formacie \textit{JSON}; oprócz wczytania obrazów, konieczne jest wczytanie odpowiadających im anotacji;
+  \item zmiana rozdzielczości obrazu - pozwala zmienić rozdzielczość wczytanego obrazu do pożądnej rozdzielczości; sieć ma stałą liczbę neuronów w warstwie wejściowej, dlatego też stosuje się zmianę rozdzielczości, aby obraz mógł być użyty na wejściu tej warstwy;
   \item pobranie modelu wytrenowanego na zbiorze \textit{COCO} \cite{coco}.
 \end{itemize}
 
 \subsection*{Trenowanie sieci}
 
-Trenowania sieci przy użyciu skryptu \texttt{train.sh} polega na uruchamieniu jednego lub więcej treningów, jeden po drugim. Taka seria treningów uruchamiana jest na podstawie zestawu plików opisujących dany trening, czyli precyzujących na jakim zbiorze danych ma zostać przeprowadzony trening, jaki powinien być podział na podzbiory treningowe i walidacyjne wybranego zbioru, oraz czy trenować oryginalną implementację \textit{Mask R-CNN} czy wersję zmodyfikowaną. Skrypt posiada funkcjonalność powiadamiania za pomocą wysyłania poczty elektronicznej - wiadomość wysyłana jest po każdym zakończonym treningu, z informacją czy zakończył się sukcecem lub czy wystąpił błąd.
+Trenowania sieci przy użyciu skryptu \texttt{train.sh} polega na uruchamieniu jednego lub więcej treningów, jeden po drugim. Taka seria treningów uruchamiana jest na podstawie zestawu plików opisujących dany trening, czyli precyzujących na jakim zbiorze danych ma zostać przeprowadzony trening, jaki powinien być podział na podzbiory treningowe i walidacyjne wybranego zbioru oraz czy trenować oryginalną implementację \textit{Mask R-CNN}, czy też wersję zmodyfikowaną. Skrypt posiada funkcjonalność powiadamiania za pomocą wysyłania poczty elektronicznej - wiadomość wysyłana jest po każdym zakończonym treningu z informacją, czy trening zakończył się sukcecem lub czy wystąpił błąd.
 
 \subsection*{Skuteczność metody}
 
