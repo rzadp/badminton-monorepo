@@ -5,6 +5,7 @@
 
 Uczenie transferowe polega na wykorzystaniu wiedzy zdobytej podczas rozwiązywania jednego problemu na potrzeby innego, powiązanego problemu.
 Niniejsza praca korzysta z uczenia transferowego, wykorzystując sieć wytrenowaną na zbiorze \textit{COCO} \cite{coco} i przystosowywując ją do badanej tematyki.
+Zbiór \textit{COCO} zawiera obrazy (wraz z anotacjami) dotyczące obiektów spotykanych w życiu codziennym, takich jak ludzie, zwierzęta czy pojazdy. Zbiór ten jest powszechnie wykorzystywany w zagadnieniach detekcji obiektów na obrazie, we wszystkich aspektach opisanych w Rozdziale \numberref{sec:typy_detekcji}.
 
 Rysunek \numberref{fig:transferowe} przedstawia zasadę działania uczenia transferowego, dzięki której umożliwiono uczenie transferowe. Rozpoczynając trening od wag uzyskanych po treningu na zbiorze \textit{COCO}, poszczególne fragmenty modelu zostały zamrożone i nie zostają aktualizowane podczas treningu. Dzięki temu czas treningu zostaje znacząco skrócony.
 
