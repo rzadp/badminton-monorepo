@@ -5,11 +5,11 @@ Sprawdzono też, jak dodanie sztucznie wygenerowanych rekordów treningowych wp�
 
 Wyniki wskazują na nieznacznie lepszą dokładność rozpoznawania obszaru kortu przy użyciu sieci zmodyfikowanej w~porównaniu do sieci oryginalnej.
 Na zbiorze danych \textit{high\_87\_10}, zastosowanie zmodyfikowanej sieci zwiększa średnią dokładność z~\textbf{98.3\%} do \textbf{98.8\%}, natomiast na zbiorze \textit{high\_87\_10} rozszerzonym o sztucznie wygenerowane rekordy treningowe zmodyfikowana metoda zwiększa średnią dokładność z~\textbf{98.4\%} do \textbf{98.8\%}. 
-Zmodyfikowana implementacja osiąga także większą czułość - \textbf{3.8} punktów procentowych więcej w~porównaniu do sieci oryginalnej na zbiorze danych \textit{low\_186\_21} oraz \textbf{2.5} punktów procentowych więcej w przypadku zbioru \textit{low\_186\_21} rozszerzonego o sztuczne dane.
-Zmodyfikowana metoda osiąga nieznacznie niższą (w granicach 0.1-0.3 punkta procentowego) średnią swoistość i~precyzję w przypadku obu analizowanych zbiorów.
+Zmodyfikowana implementacja osiąga także większą czułość - \textbf{3.8} punktów procentowych więcej w~porównaniu do sieci oryginalnej na zbiorze danych \textit{low\_186\_21} oraz \textbf{2.5} punktów procentowych więcej w~przypadku zbioru \textit{low\_186\_21} rozszerzonego o sztuczne dane.
+Zmodyfikowana metoda osiąga nieznacznie niższą (w granicach 0.1-0.3 punkta procentowego) średnią swoistość i~precyzję w~przypadku obu analizowanych zbiorów.
 
 
-Dodanie sztucznie wygenerowanych rekordów treningowych wskazuje na fakt, iż dodanie takich rekordów nie wpływa na średnią dokładność sieci, zarówno w przypadku analizowania sieci oryginalnej, jak i sieci zmodyfikowanej. W przypadku oryginalnej implementacji dodanie sztucznych danych treningowych nie wpłynęło na średnią dokładność sieci, która pozostała na poziomie \textbf{98.8\%}. W przypadku zmodyfikowanej implementacji osiągnięto marginalny (\textbf{0.1\%}) wzrost dokładności.
+Dodanie sztucznie wygenerowanych rekordów treningowych wskazuje na fakt, iż dodanie takich rekordów nie wpływa na średnią dokładność sieci, zarówno w~przypadku analizowania sieci oryginalnej, jak i sieci zmodyfikowanej. W~przypadku oryginalnej implementacji dodanie sztucznych danych treningowych nie wpłynęło na średnią dokładność sieci, która pozostała na poziomie \textbf{98.8\%}. W~przypadku zmodyfikowanej implementacji osiągnięto marginalny (\textbf{0.1\%}) wzrost dokładności.
 
 
 Podsumowując eksperymenty, najlepszy wynik (średnia dokładność \textbf{98.8\%} przy precyzji \textbf{98.1\%}) osiągnięto poprzez zastosowanie zmodyfikowanej implementacji sieci, trenowanej na zbiorze \textit{high\_87\_10} rozszerzonym o sztucznie wygenerowane dane treningowe.

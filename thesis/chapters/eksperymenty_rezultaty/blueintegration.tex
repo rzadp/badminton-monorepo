@@ -3,13 +3,13 @@
 \label{sec:integrationblue}
 
 W niniejszym podrozdziale przedstawiono wyniki eksperymentów dotyczących wykorzystania zaproponowanej metody w systemie do sędziowania meczów badmintona firmy \blue{}.
-Wykorzystano zmodyfikowaną implementację sieci \textit{Mask R-CNN} opisaną w Rozdziale \textit{sec:zaproponowana}, wytrenowaną na zbiorze \textit{low\_186\_21} rozszerzonym o sztuczne dane treningowe, ponieważ taka metoda osiągnęła najwyższą dokładność w eksperymentach opisanych w Rozdziale \numberref{sec:experymenty_low}.
+Wykorzystano zmodyfikowaną implementację sieci \textit{Mask R-CNN} opisaną w Rozdziale \numberref{sec:zaproponowana_architektura}, wytrenowaną na zbiorze \textit{low\_186\_21} rozszerzonym o sztuczne dane treningowe (ponieważ taka metoda osiągnęła najwyższą dokładność w eksperymentach opisanych w Rozdziale \numberref{sec:experymenty_low}).
 
-Eksperymenty (przeprowadzone przez firmę \blue{}) polegały na porównaniu dotychczasowego rozwiązania algorytmicznego opisanego w Rozdziale \numberref{sec:aglorytmiczna_detekcja}, z tym samym rozwiązaniem rozszerzonym o dwa początkowe kroki:
+Eksperymenty (przeprowadzone przez firmę \blue{}) polegały na porównaniu dotychczasowego rozwiązania algorytmicznego firmy \blue{} opisanego w Rozdziale \numberref{sec:aglorytmiczna_detekcja}, z tym samym rozwiązaniem rozszerzonym o dwa początkowe kroki (propozycja autora niniejszej pracy):
 
 \begin{enumerate}
   \item w pierwszym kroku, następuje wykrycie obszaru kortu przy użyciu \textit{Mask R-CNN};
-  \item w drugim kroku, obraz wejściowy zostaje przycięty do wykrytej maski (z pewnym marginesem); jeśli kort nie został wykryty, obraz nie jest przycinany;
+  \item w drugim kroku, obraz wejściowy zostaje przycięty do wykrytej maski (z pewnym marginesem); jeśli kort nie został wykryty, obraz nie jest przycinany.
 \end{enumerate}
 
 Rozwiązanie algorytmiczne rozszerzone o metodę detekcji obszaru kortu z użyciem sieci neuronowej zilustrowane jest na Rysunku \numberref{fig:cppintegration}.
@@ -17,13 +17,13 @@ Rozwiązanie algorytmiczne rozszerzone o metodę detekcji obszaru kortu z użyci
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.35\textwidth]{cppintegration.png}
-  \caption{Rozwiązanie algorytmiczne firmy \blue{} rozszerzone o metodę detekcji obszaru kortu z użyciem sieci neuronowej \textit{Mask R-CNN}}
+  \caption{Rozwiązanie algorytmiczne firmy \blue{} rozszerzone o metodę detekcji obszaru kortu z użyciem zmodyfikowanej sieci neuronowej \textit{Mask R-CNN}}
   \label{fig:cppintegration}
 \end{figure}
 
-Eksperymenty zostały przeprowadzone na 180 obrazach z kamer ustawianych tak samo jak w przypadku obrazów w zbiorze \textit{low}, to znaczy od 50 do 120 centymentrów nad ziemią, w odległości od 75 do 350 centymentrów od najbliższej linii kortu. Obrazy pochodzą z tej samej placówki sportowej, i zostały zebrane na przestrzeni dziesięciu dni. Zestaw obrazów zawiera rekordy z grającymi zawodnikami, przysłaniającymi część obszaru kortu.
+Eksperymenty zostały przeprowadzone na 180 obrazach z kamer ustawianych tak samo jak w~przypadku obrazów w zbiorze \textit{low}, to znaczy od 50 do 120 centymentrów nad ziemią, w odległości od 75 do 350 centymentrów od najbliższej linii kortu. Obrazy pochodzą z tej samej placówki sportowej i zostały zebrane na przestrzeni dziesięciu dni. Zestaw obrazów zawiera rekordy z~grającymi zawodnikami, przysłaniającymi część obszaru kortu.
 
-Eksperymenty wykazały, że połączenie metody \textit{Mask R-CNN} z algorytmiczną detekcją obszaru kortu pozwoliło na osiągnięcie dokładności na poziomie \textbf{90.6\%}, co stanowi znaczący wzrost w~porównaniu do samej algorytmicznej metody wykorzystywanej dotychczas, która osiągnęła dokładność na poziomie \textbf{80.0\%}.
-Skuteczność niższa niż wyniki \textit{Mask R-CNN} na zbiorze \textit{low\_186\_21} wynikają z tego, iż obrazy w zbiorze analizowanym w niniejszym Rozdziale mają zniekształcenia linii kortu (wynikające z właściwości kamer). Obrazy w zbiorze \textit{low} zostały poddane procesowi usuwającym te zniekształcenia, dlatego też pozwalają osiągnąć wyższe wyniki stosowanym na nich metodom.
+Eksperymenty wykazały, że połączenie zmodyfikowanej metody \textit{Mask R-CNN} z algorytmiczną detekcją obszaru kortu pozwoliło na osiągnięcie dokładności na poziomie \textbf{90.6\%}, co stanowi znaczący wzrost w~porównaniu do samej algorytmicznej metody wykorzystywanej dotychczas, która osiągnęła dokładność na poziomie \textbf{80.0\%}.
+Skuteczność niższa niż wyniki zmodyfikowanej \textit{Mask R-CNN} na zbiorze \textit{low\_186\_21} wynikają z faktu, iż obrazy ze zbioru analizowanego w niniejszym rozdziale mają zniekształcenia linii kortu (wynikające z właściwości kamer). Obrazy w zbiorze \textit{low} zostały poddane procesowi usuwania tych zniekształceń, dlatego też pozwalają osiągnąć wyższe wyniki stosowanym na nich metodom.
 
-Wzrost dokładności o \textbf{10.6} punktów procentowych jest znaczącym osiągnięciem, które wskazuje na to, iż zastosowanie takiej algorytmicznej metody połączonej z siecią \textit{Mask R-CNN} jest potencjalnie dobrym rozwiązaniem na potrzeby systemu do sędziowania meczów badmintona.
+Wzrost dokładności o \textbf{10.6} punktów procentowych jest znaczącym osiągnięciem, które wskazuje na to, iż zastosowanie takiej algorytmicznej metody połączonej ze zmodyfikowaną siecią \textit{Mask R-CNN} jest potencjalnie dobrym rozwiązaniem na potrzeby systemu do sędziowania meczów badmintona.
